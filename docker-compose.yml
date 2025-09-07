@@ -1,0 +1,47 @@
+services:
+  db:
+    image: mariadb:10.11
+    container_name: edulatina_db
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: secure_root_password_123
+      MYSQL_DATABASE: moodle
+      MYSQL_USER: moodleuser
+      MYSQL_PASSWORD: moodle_password_123
+    volumes:
+      - ./db-data:/var/lib/mysql
+    command: --default-authentication-plugin=mysql_native_password --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+
+  php:
+    build:
+      context: .
+      dockerfile: Dockerfile.php
+    container_name: edulatina_php
+    restart: unless-stopped
+    volumes:
+      - ./moodle-data:/var/www/html
+      - ./moodledata:/var/www/moodledata
+      - ./config/php.ini:/usr/local/etc/php/php.ini
+    depends_on:
+      - db
+
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile.apache
+    container_name: edulatina_web
+    restart: unless-stopped
+    ports:
+      - "80:80"
+    volumes:
+      - ./moodle-data:/usr/local/apache2/htdocs/moodle
+      - ./config/apache/moodle.conf:/usr/local/apache2/conf/extra/moodle.conf
+    depends_on:
+      - php
+    command: >
+      sh -c "echo 'Include conf/extra/moodle.conf' >> /usr/local/apache2/conf/httpd.conf && 
+             httpd-foreground"
+
+networks:
+  default:
+    name: edulatina_network

@@ -1,0 +1,16 @@
+FROM httpd:2.4
+
+# Install required packages
+RUN apt-get update && apt-get install -y \
+    && rm -rf /var/lib/apt/lists/*
+
+# Enable required Apache modules
+RUN sed -i 's/#LoadModule rewrite_module/LoadModule rewrite_module/' /usr/local/apache2/conf/httpd.conf \
+    && echo "LoadModule proxy_module modules/mod_proxy.so" >> /usr/local/apache2/conf/httpd.conf \
+    && echo "LoadModule proxy_fcgi_module modules/mod_proxy_fcgi.so" >> /usr/local/apache2/conf/httpd.conf
+
+# Remove default index.html
+RUN rm -f /usr/local/apache2/htdocs/index.html
+
+# Set proper permissions
+RUN chown -R www-data:www-data /usr/local/apache2/htdocs/

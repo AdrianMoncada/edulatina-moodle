@@ -1,0 +1,32 @@
+# Sensitive data
+config/config.php.backup
+*.log
+
+# Database data (too large and contains sensitive info)
+db-data/
+
+# Moodle data directory (user uploads, cache, etc.)
+moodledata/
+
+# Docker volumes that contain dynamic data
+**/cache/
+**/sessions/
+**/temp/
+**/localcache/
+
+# Environment-specific files
+.env
+.env.local
+
+# IDE files
+.vscode/
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Temporary files
+*.tmp
+*.temp
+*~
