@@ -18,6 +18,13 @@ services:
       dockerfile: Dockerfile.php
     container_name: edulatina_php
     restart: unless-stopped
+    environment:
+      - MOODLE_URL=http://3.140.95.210
+      - MOODLE_DATAROOT=/var/www/moodledata
+      - DB_HOST=db
+      - DB_NAME=moodle
+      - DB_USER=moodleuser
+      - DB_PASS=moodle_password_123
     volumes:
       - ./moodle-data:/var/www/html
       - ./moodledata:/var/www/moodledata
@@ -31,6 +38,8 @@ services:
       dockerfile: Dockerfile.apache
     container_name: edulatina_web
     restart: unless-stopped
+    environment:
+      - MOODLE_URL=http://3.140.95.210
     ports:
       - "80:80"
     volumes:
