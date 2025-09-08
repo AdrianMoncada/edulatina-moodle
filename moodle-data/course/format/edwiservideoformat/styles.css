@@ -1,0 +1,986 @@
+body#page-course-view-edwiservideoformat .p-24,
+body#page-course-view-section-edwiservideoformat .p-24 {
+  padding: 24px;
+}
+body#page-course-view-edwiservideoformat .gap-16,
+body#page-course-view-section-edwiservideoformat .gap-16 {
+  gap: 16px;
+}
+body#page-course-view-edwiservideoformat .fullwidth-grid-item,
+body#page-course-view-section-edwiservideoformat .fullwidth-grid-item {
+  grid-column: 1/-1;
+}
+body#page-course-view-edwiservideoformat .flex-gap-8,
+body#page-course-view-section-edwiservideoformat .flex-gap-8 {
+  gap: 8px;
+}
+body#page-course-view-edwiservideoformat .flex-gap-16,
+body#page-course-view-section-edwiservideoformat .flex-gap-16 {
+  gap: 16px;
+}
+body#page-course-view-edwiservideoformat .text-clamp,
+body#page-course-view-section-edwiservideoformat .text-clamp {
+  display: -webkit-box !important;
+  /* autoprefixer: off */
+  -webkit-box-orient: vertical;
+  /* autoprefixer: on */
+  overflow: hidden !important;
+}
+body#page-course-view-edwiservideoformat .text-clamp.text-clamp-1,
+body#page-course-view-section-edwiservideoformat .text-clamp.text-clamp-1 {
+  -webkit-line-clamp: 1;
+}
+body#page-course-view-edwiservideoformat .text-clamp.text-clamp-2,
+body#page-course-view-section-edwiservideoformat .text-clamp.text-clamp-2 {
+  -webkit-line-clamp: 2;
+}
+body#page-course-view-edwiservideoformat .text-clamp.text-clamp-3,
+body#page-course-view-section-edwiservideoformat .text-clamp.text-clamp-3 {
+  -webkit-line-clamp: 3;
+}
+body#page-course-view-edwiservideoformat .text-clamp.text-clamp-4,
+body#page-course-view-section-edwiservideoformat .text-clamp.text-clamp-4 {
+  -webkit-line-clamp: 4;
+}
+body#page-course-view-edwiservideoformat .text-clamp.text-clamp-5,
+body#page-course-view-section-edwiservideoformat .text-clamp.text-clamp-5 {
+  -webkit-line-clamp: 5;
+}
+body#page-course-view-edwiservideoformat .bg-green-600,
+body#page-course-view-section-edwiservideoformat .bg-green-600 {
+  background-color: #11c26d !important;
+}
+body#page-course-view-edwiservideoformat header.hasbackground.design-1,
+body#page-course-view-section-edwiservideoformat header.hasbackground.design-1 {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 336px;
+  padding: 24px;
+  border-radius: 8px;
+  max-width: 100%;
+  width: 100%;
+}
+@media (max-width: 568px) {
+  body#page-course-view-edwiservideoformat header.hasbackground.design-1,
+  body#page-course-view-section-edwiservideoformat header.hasbackground.design-1 {
+    min-height: 445px;
+  }
+}
+body#page-course-view-edwiservideoformat header.hasbackground.design-1 .dashboard-bar-wrapper,
+body#page-course-view-section-edwiservideoformat header.hasbackground.design-1 .dashboard-bar-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+@media (max-width: 568px) {
+  body#page-course-view-edwiservideoformat header.hasbackground.design-1 .dashboard-bar-wrapper,
+  body#page-course-view-section-edwiservideoformat header.hasbackground.design-1 .dashboard-bar-wrapper {
+    gap: 8px;
+  }
+}
+body#page-course-view-edwiservideoformat header.hasbackground.design-1 .header-main-section .category,
+body#page-course-view-section-edwiservideoformat header.hasbackground.design-1 .header-main-section .category {
+  margin-bottom: 8px;
+}
+body#page-course-view-edwiservideoformat header.hasbackground.design-1 .header-main-section .category .badge,
+body#page-course-view-section-edwiservideoformat header.hasbackground.design-1 .header-main-section .category .badge {
+  padding: 4px 6px;
+  border-radius: 4px;
+  background-color: #fff;
+  color: #37be71;
+  font-size: 12px;
+  line-height: 15px;
+  font-weight: 400;
+}
+body#page-course-view-edwiservideoformat header.hasbackground.design-1 .header-sub-section,
+body#page-course-view-section-edwiservideoformat header.hasbackground.design-1 .header-sub-section {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 32px 24px;
+}
+@media (max-width: 568px) {
+  body#page-course-view-edwiservideoformat header.hasbackground.design-1 .header-sub-section,
+  body#page-course-view-section-edwiservideoformat header.hasbackground.design-1 .header-sub-section {
+    align-items: start;
+    flex-direction: column;
+  }
+}
+body#page-course-view-edwiservideoformat header.hasbackground.design-1 .header-sub-section .rating-instructor-wrapper,
+body#page-course-view-section-edwiservideoformat header.hasbackground.design-1 .header-sub-section .rating-instructor-wrapper {
+  display: flex;
+  gap: 12px 24px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+@media (max-width: 568px) {
+  body#page-course-view-edwiservideoformat header.hasbackground.design-1 .header-sub-section .rating-instructor-wrapper,
+  body#page-course-view-section-edwiservideoformat header.hasbackground.design-1 .header-sub-section .rating-instructor-wrapper {
+    gap: 16px;
+  }
+}
+body#page-course-view-edwiservideoformat header.hasbackground.design-1 .header-sub-section .rating-instructor-wrapper .edw-ratings-wrapper,
+body#page-course-view-section-edwiservideoformat header.hasbackground.design-1 .header-sub-section .rating-instructor-wrapper .edw-ratings-wrapper {
+  color: #fff;
+}
+body#page-course-view-edwiservideoformat header.hasbackground.design-1 .header-sub-section .rating-instructor-wrapper .edw-ratings-wrapper .inner,
+body#page-course-view-section-edwiservideoformat header.hasbackground.design-1 .header-sub-section .rating-instructor-wrapper .edw-ratings-wrapper .inner {
+  flex-direction: row-reverse;
+  gap: 8px;
+}
+body#page-course-view-edwiservideoformat header.hasbackground.design-1 .header-sub-section .rating-instructor-wrapper .edw-ratings-wrapper .avgrating,
+body#page-course-view-section-edwiservideoformat header.hasbackground.design-1 .header-sub-section .rating-instructor-wrapper .edw-ratings-wrapper .avgrating {
+  order: 2;
+  margin-left: 4px;
+}
+body#page-course-view-edwiservideoformat header.hasbackground.design-1 .header-sub-section .rating-instructor-wrapper .edw-ratings-wrapper .rnr-link,
+body#page-course-view-section-edwiservideoformat header.hasbackground.design-1 .header-sub-section .rating-instructor-wrapper .edw-ratings-wrapper .rnr-link {
+  padding-left: 2px;
+}
+body#page-course-view-edwiservideoformat header.hasbackground.design-1 .header-sub-section .rating-instructor-wrapper .edw-ratings-wrapper .avgrating,
+body#page-course-view-edwiservideoformat header.hasbackground.design-1 .header-sub-section .rating-instructor-wrapper .edw-ratings-wrapper .rnr-link,
+body#page-course-view-section-edwiservideoformat header.hasbackground.design-1 .header-sub-section .rating-instructor-wrapper .edw-ratings-wrapper .avgrating,
+body#page-course-view-section-edwiservideoformat header.hasbackground.design-1 .header-sub-section .rating-instructor-wrapper .edw-ratings-wrapper .rnr-link {
+  font-size: 14px;
+  font-weight: 600;
+  color: #fff;
+}
+body#page-course-view-edwiservideoformat header.hasbackground.design-1 .header-sub-section .rating-instructor-wrapper .stat-container,
+body#page-course-view-section-edwiservideoformat header.hasbackground.design-1 .header-sub-section .rating-instructor-wrapper .stat-container {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+}
+body#page-course-view-edwiservideoformat header.hasbackground.design-1 .header-sub-section .rating-instructor-wrapper .instructor-info,
+body#page-course-view-section-edwiservideoformat header.hasbackground.design-1 .header-sub-section .rating-instructor-wrapper .instructor-info {
+  color: #fff;
+}
+body#page-course-view-edwiservideoformat header.hasbackground.design-1 .header-sub-section .rating-instructor-wrapper .instructor-info .stat,
+body#page-course-view-section-edwiservideoformat header.hasbackground.design-1 .header-sub-section .rating-instructor-wrapper .instructor-info .stat {
+  font-size: 14px;
+  line-height: 22px;
+  font-weight: 600;
+  color: #313848;
+  padding: 4px;
+  border-radius: 4px;
+  background-color: #fff;
+}
+body#page-course-view-edwiservideoformat header.hasbackground.design-1 .header-sub-section .rating-instructor-wrapper .instructor-info .userpicture,
+body#page-course-view-edwiservideoformat header.hasbackground.design-1 .header-sub-section .rating-instructor-wrapper .instructor-info .userinitials,
+body#page-course-view-section-edwiservideoformat header.hasbackground.design-1 .header-sub-section .rating-instructor-wrapper .instructor-info .userpicture,
+body#page-course-view-section-edwiservideoformat header.hasbackground.design-1 .header-sub-section .rating-instructor-wrapper .instructor-info .userinitials {
+  width: 24px;
+  height: 24px;
+  border: unset;
+}
+body#page-course-view-edwiservideoformat header.hasbackground.design-1 .header-sub-section .rating-instructor-wrapper .instructor-info .userinitials,
+body#page-course-view-section-edwiservideoformat header.hasbackground.design-1 .header-sub-section .rating-instructor-wrapper .instructor-info .userinitials {
+  font-size: 12px;
+}
+body#page-course-view-edwiservideoformat header.hasbackground.design-1 .header-sub-section .rating-instructor-wrapper .instructor-info .view-user-profile-link,
+body#page-course-view-section-edwiservideoformat header.hasbackground.design-1 .header-sub-section .rating-instructor-wrapper .instructor-info .view-user-profile-link {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+body#page-course-view-edwiservideoformat header.hasbackground.design-1 .header-sub-section .rating-instructor-wrapper .instructor-info .titles,
+body#page-course-view-section-edwiservideoformat header.hasbackground.design-1 .header-sub-section .rating-instructor-wrapper .instructor-info .titles {
+  font-size: 14px;
+  line-height: 22px;
+  font-weight: 400;
+  color: #fff;
+}
+body#page-course-view-edwiservideoformat header.hasbackground.design-1 .header-sub-section .rating-instructor-wrapper .instructor-info .view-all-instructorslink,
+body#page-course-view-section-edwiservideoformat header.hasbackground.design-1 .header-sub-section .rating-instructor-wrapper .instructor-info .view-all-instructorslink {
+  font-size: 14px;
+  line-height: 22px;
+  font-weight: 600;
+  color: #fff;
+}
+body#page-course-view-edwiservideoformat header.hasbackground.design-1 .header-sub-section .progress-resume-wrapper,
+body#page-course-view-section-edwiservideoformat header.hasbackground.design-1 .header-sub-section .progress-resume-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 24px 40px;
+}
+@media (max-width: 1200px) {
+  body#page-course-view-edwiservideoformat header.hasbackground.design-1 .header-sub-section .progress-resume-wrapper,
+  body#page-course-view-section-edwiservideoformat header.hasbackground.design-1 .header-sub-section .progress-resume-wrapper {
+    flex-direction: column;
+  }
+}
+@media (max-width: 568px) {
+  body#page-course-view-edwiservideoformat header.hasbackground.design-1 .header-sub-section .progress-resume-wrapper,
+  body#page-course-view-section-edwiservideoformat header.hasbackground.design-1 .header-sub-section .progress-resume-wrapper {
+    gap: 16px;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    width: 100%;
+  }
+}
+body#page-course-view-edwiservideoformat header.hasbackground.design-1 .header-sub-section .progress-resume-wrapper .progressbar-text-wrapper,
+body#page-course-view-section-edwiservideoformat header.hasbackground.design-1 .header-sub-section .progress-resume-wrapper .progressbar-text-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  color: #fff;
+  font-size: 12px;
+  line-height: 15px;
+  font-weight: 400;
+}
+@media (max-width: 568px) {
+  body#page-course-view-edwiservideoformat header.hasbackground.design-1 .header-sub-section .progress-resume-wrapper .progressbar-text-wrapper,
+  body#page-course-view-section-edwiservideoformat header.hasbackground.design-1 .header-sub-section .progress-resume-wrapper .progressbar-text-wrapper {
+    width: 100%;
+  }
+}
+body#page-course-view-edwiservideoformat header.hasbackground.design-1 .header-sub-section .progress-resume-wrapper .progress,
+body#page-course-view-section-edwiservideoformat header.hasbackground.design-1 .header-sub-section .progress-resume-wrapper .progress {
+  min-width: 230px;
+  height: 7px !important;
+}
+@media (max-width: 568px) {
+  body#page-course-view-edwiservideoformat header.hasbackground.design-1 .header-sub-section .progress-resume-wrapper .progress,
+  body#page-course-view-section-edwiservideoformat header.hasbackground.design-1 .header-sub-section .progress-resume-wrapper .progress {
+    min-width: unset;
+  }
+}
+body#page-course-view-edwiservideoformat header.hasbackground.design-1 .header-heading,
+body#page-course-view-section-edwiservideoformat header.hasbackground.design-1 .header-heading {
+  color: #fff;
+}
+body#page-course-view-edwiservideoformat .secondary-navigation,
+body#page-course-view-section-edwiservideoformat .secondary-navigation {
+  display: none;
+}
+body#page-course-view-edwiservideoformat #page-content,
+body#page-course-view-edwiservideoformat #region-bottom-blocks,
+body#page-course-view-section-edwiservideoformat #page-content,
+body#page-course-view-section-edwiservideoformat #region-bottom-blocks {
+  background-color: #fff;
+  padding: 24px;
+}
+body#page-course-view-edwiservideoformat .course-content .edwiservideoformat-course-content .moremenu.navigation,
+body#page-course-view-section-edwiservideoformat .course-content .edwiservideoformat-course-content .moremenu.navigation {
+  margin-bottom: 24px;
+  height: 48px;
+}
+body#page-course-view-edwiservideoformat .course-content .edwiservideoformat-course-content .moremenu.navigation .more-nav,
+body#page-course-view-section-edwiservideoformat .course-content .edwiservideoformat-course-content .moremenu.navigation .more-nav {
+  background-color: #fff;
+}
+body#page-course-view-edwiservideoformat .course-content .edwiservideoformat-course-content .moremenu.navigation .more-nav > .nav-item .nav-link,
+body#page-course-view-section-edwiservideoformat .course-content .edwiservideoformat-course-content .moremenu.navigation .more-nav > .nav-item .nav-link {
+  height: unset;
+  margin-bottom: -2px;
+  font-size: 14px !important;
+}
+body#page-course-view-edwiservideoformat .course-content .edwiservideoformat-course-content .moremenu.navigation .more-nav > .nav-item[data-key=coursehome] a::before,
+body#page-course-view-section-edwiservideoformat .course-content .edwiservideoformat-course-content .moremenu.navigation .more-nav > .nav-item[data-key=coursehome] a::before {
+  content: "" !important;
+  font-size: 16px;
+  display: inline-block;
+  line-height: 1;
+  margin-right: 8px;
+  width: 16px;
+  height: 16px;
+  mask: url("[[pix:format_edwiservideoformat|coursehome]]") no-repeat center;
+  -webkit-mask: url("[[pix:format_edwiservideoformat|coursehome]]") no-repeat center;
+  mask-size: contain;
+  -webkit-mask-size: contain;
+  background-color: #0051F9;
+}
+@supports not (mask: url("")) {
+  body#page-course-view-edwiservideoformat .course-content .edwiservideoformat-course-content .moremenu.navigation .more-nav > .nav-item[data-key=coursehome] a::before,
+  body#page-course-view-section-edwiservideoformat .course-content .edwiservideoformat-course-content .moremenu.navigation .more-nav > .nav-item[data-key=coursehome] a::before {
+    content: url("[[pix:format_edwiservideoformat|coursehome]]");
+    background-color: unset !important;
+  }
+}
+body#page-course-view-edwiservideoformat .course-content .edwiservideoformat-course-content .moremenu.navigation .more-nav > .nav-item[data-key=editsettings] a::before,
+body#page-course-view-section-edwiservideoformat .course-content .edwiservideoformat-course-content .moremenu.navigation .more-nav > .nav-item[data-key=editsettings] a::before {
+  content: "";
+  font-size: 16px;
+  display: inline-block;
+  line-height: 1;
+  width: 20px;
+  height: 20px;
+  mask: url("[[pix:format_edwiservideoformat|settings]]") no-repeat center;
+  -webkit-mask: url("[[pix:format_edwiservideoformat|settings]]") no-repeat center;
+  mask-size: contain;
+  -webkit-mask-size: contain;
+  background-color: #5B6880;
+}
+@supports not (mask: url("")) {
+  body#page-course-view-edwiservideoformat .course-content .edwiservideoformat-course-content .moremenu.navigation .more-nav > .nav-item[data-key=editsettings] a::before,
+  body#page-course-view-section-edwiservideoformat .course-content .edwiservideoformat-course-content .moremenu.navigation .more-nav > .nav-item[data-key=editsettings] a::before {
+    content: url("[[pix:format_edwiservideoformat|settings]]");
+    background-color: unset !important;
+  }
+}
+body#page-course-view-edwiservideoformat .course-content .edwiservideoformat-course-content .moremenu.navigation .more-nav > .nav-item[data-key=participants] a::before,
+body#page-course-view-section-edwiservideoformat .course-content .edwiservideoformat-course-content .moremenu.navigation .more-nav > .nav-item[data-key=participants] a::before {
+  content: "";
+  font-size: 16px;
+  display: inline-block;
+  line-height: 1;
+  width: 20px;
+  height: 20px;
+  mask: url("[[pix:format_edwiservideoformat|adduser]]") no-repeat center;
+  -webkit-mask: url("[[pix:format_edwiservideoformat|adduser]]") no-repeat center;
+  mask-size: contain;
+  -webkit-mask-size: contain;
+  background-color: #5B6880;
+}
+@supports not (mask: url("")) {
+  body#page-course-view-edwiservideoformat .course-content .edwiservideoformat-course-content .moremenu.navigation .more-nav > .nav-item[data-key=participants] a::before,
+  body#page-course-view-section-edwiservideoformat .course-content .edwiservideoformat-course-content .moremenu.navigation .more-nav > .nav-item[data-key=participants] a::before {
+    content: url("[[pix:format_edwiservideoformat|adduser]]");
+    background-color: unset !important;
+  }
+}
+body#page-course-view-edwiservideoformat .course-content .edwiservideoformat-course-content .moremenu.navigation .more-nav > .nav-item[data-key=grades] a::before,
+body#page-course-view-section-edwiservideoformat .course-content .edwiservideoformat-course-content .moremenu.navigation .more-nav > .nav-item[data-key=grades] a::before {
+  content: "";
+  font-size: 16px;
+  display: inline-block;
+  line-height: 1;
+  width: 20px;
+  height: 20px;
+  mask: url("[[pix:format_edwiservideoformat|grades]]") no-repeat center;
+  -webkit-mask: url("[[pix:format_edwiservideoformat|grades]]") no-repeat center;
+  mask-size: contain;
+  -webkit-mask-size: contain;
+  background-color: #5B6880;
+}
+@supports not (mask: url("")) {
+  body#page-course-view-edwiservideoformat .course-content .edwiservideoformat-course-content .moremenu.navigation .more-nav > .nav-item[data-key=grades] a::before,
+  body#page-course-view-section-edwiservideoformat .course-content .edwiservideoformat-course-content .moremenu.navigation .more-nav > .nav-item[data-key=grades] a::before {
+    content: url("[[pix:format_edwiservideoformat|grades]]");
+    background-color: unset !important;
+  }
+}
+body#page-course-view-edwiservideoformat .course-content .edwiservideoformat-course-content .moremenu.navigation .more-nav > .nav-item[data-key=courseoverview] a::before,
+body#page-course-view-section-edwiservideoformat .course-content .edwiservideoformat-course-content .moremenu.navigation .more-nav > .nav-item[data-key=courseoverview] a::before {
+  content: "";
+  font-size: 16px;
+  display: inline-block;
+  line-height: 1;
+  width: 20px;
+  height: 20px;
+  mask: url("[[pix:format_edwiservideoformat|activity]]") no-repeat center;
+  -webkit-mask: url("[[pix:format_edwiservideoformat|activity]]") no-repeat center;
+  mask-size: contain;
+  -webkit-mask-size: contain;
+  background-color: #5B6880;
+}
+@supports not (mask: url("")) {
+  body#page-course-view-edwiservideoformat .course-content .edwiservideoformat-course-content .moremenu.navigation .more-nav > .nav-item[data-key=courseoverview] a::before,
+  body#page-course-view-section-edwiservideoformat .course-content .edwiservideoformat-course-content .moremenu.navigation .more-nav > .nav-item[data-key=courseoverview] a::before {
+    content: url("[[pix:format_edwiservideoformat|activity]]");
+    background-color: unset !important;
+  }
+}
+body#page-course-view-edwiservideoformat .course-content .edwiservideoformat-course-content .moremenu.navigation .more-nav > .nav-item[data-key=coursereports] a::before,
+body#page-course-view-section-edwiservideoformat .course-content .edwiservideoformat-course-content .moremenu.navigation .more-nav > .nav-item[data-key=coursereports] a::before {
+  content: "";
+  font-size: 16px;
+  display: inline-block;
+  line-height: 1;
+  width: 20px;
+  height: 20px;
+  mask: url("[[pix:format_edwiservideoformat|surveyactivity]]") no-repeat center;
+  -webkit-mask: url("[[pix:format_edwiservideoformat|surveyactivity]]") no-repeat center;
+  mask-size: contain;
+  -webkit-mask-size: contain;
+  background-color: #5B6880;
+}
+@supports not (mask: url("")) {
+  body#page-course-view-edwiservideoformat .course-content .edwiservideoformat-course-content .moremenu.navigation .more-nav > .nav-item[data-key=coursereports] a::before,
+  body#page-course-view-section-edwiservideoformat .course-content .edwiservideoformat-course-content .moremenu.navigation .more-nav > .nav-item[data-key=coursereports] a::before {
+    content: url("[[pix:format_edwiservideoformat|surveyactivity]]");
+    background-color: unset !important;
+  }
+}
+body#page-course-view-edwiservideoformat .course-content .edwiservideoformat-course-content .moremenu.navigation .more-nav > .nav-item[data-key=competencies] a::before,
+body#page-course-view-section-edwiservideoformat .course-content .edwiservideoformat-course-content .moremenu.navigation .more-nav > .nav-item[data-key=competencies] a::before {
+  content: "";
+  font-size: 16px;
+  display: inline-block;
+  line-height: 1;
+  width: 20px;
+  height: 20px;
+  mask: url("[[pix:format_edwiservideoformat|competencies]]") no-repeat center;
+  -webkit-mask: url("[[pix:format_edwiservideoformat|competencies]]") no-repeat center;
+  mask-size: contain;
+  -webkit-mask-size: contain;
+  background-color: #5B6880;
+}
+@supports not (mask: url("")) {
+  body#page-course-view-edwiservideoformat .course-content .edwiservideoformat-course-content .moremenu.navigation .more-nav > .nav-item[data-key=competencies] a::before,
+  body#page-course-view-section-edwiservideoformat .course-content .edwiservideoformat-course-content .moremenu.navigation .more-nav > .nav-item[data-key=competencies] a::before {
+    content: url("[[pix:format_edwiservideoformat|competencies]]");
+    background-color: unset !important;
+  }
+}
+body#page-course-view-edwiservideoformat .course-content .edwiservideoformat-course-content .moremenu.navigation .more-nav > .nav-item[data-region=morebutton] a .moremenuicon,
+body#page-course-view-section-edwiservideoformat .course-content .edwiservideoformat-course-content .moremenu.navigation .more-nav > .nav-item[data-region=morebutton] a .moremenuicon {
+  color: #707b90;
+}
+body#page-course-view-edwiservideoformat .course-content .edwiservideoformat-course-content .moremenu.navigation .more-nav > .nav-item[data-key=participants] a, body#page-course-view-edwiservideoformat .course-content .edwiservideoformat-course-content .moremenu.navigation .more-nav > .nav-item[data-key=grades] a, body#page-course-view-edwiservideoformat .course-content .edwiservideoformat-course-content .moremenu.navigation .more-nav > .nav-item[data-key=editsettings] a, body#page-course-view-edwiservideoformat .course-content .edwiservideoformat-course-content .moremenu.navigation .more-nav > .nav-item[data-key=courseoverview] a, body#page-course-view-edwiservideoformat .course-content .edwiservideoformat-course-content .moremenu.navigation .more-nav > .nav-item[data-key=coursereports] a, body#page-course-view-edwiservideoformat .course-content .edwiservideoformat-course-content .moremenu.navigation .more-nav > .nav-item[data-key=competencies] a, body#page-course-view-edwiservideoformat .course-content .edwiservideoformat-course-content .moremenu.navigation .more-nav > .nav-item.dropdownmoremenu a,
+body#page-course-view-section-edwiservideoformat .course-content .edwiservideoformat-course-content .moremenu.navigation .more-nav > .nav-item[data-key=participants] a,
+body#page-course-view-section-edwiservideoformat .course-content .edwiservideoformat-course-content .moremenu.navigation .more-nav > .nav-item[data-key=grades] a,
+body#page-course-view-section-edwiservideoformat .course-content .edwiservideoformat-course-content .moremenu.navigation .more-nav > .nav-item[data-key=editsettings] a,
+body#page-course-view-section-edwiservideoformat .course-content .edwiservideoformat-course-content .moremenu.navigation .more-nav > .nav-item[data-key=courseoverview] a,
+body#page-course-view-section-edwiservideoformat .course-content .edwiservideoformat-course-content .moremenu.navigation .more-nav > .nav-item[data-key=coursereports] a,
+body#page-course-view-section-edwiservideoformat .course-content .edwiservideoformat-course-content .moremenu.navigation .more-nav > .nav-item[data-key=competencies] a,
+body#page-course-view-section-edwiservideoformat .course-content .edwiservideoformat-course-content .moremenu.navigation .more-nav > .nav-item.dropdownmoremenu a {
+  font-size: 0 !important;
+  padding-left: 12px;
+  padding-right: 12px;
+  padding-bottom: 13px;
+}
+body#page-course-view-edwiservideoformat .course-content .edwiservideoformat-course-content .moremenu.navigation .more-nav > .nav-item[data-key=coursehome],
+body#page-course-view-section-edwiservideoformat .course-content .edwiservideoformat-course-content .moremenu.navigation .more-nav > .nav-item[data-key=coursehome] {
+  margin-right: auto;
+}
+body#page-course-view-edwiservideoformat .course-content .edwiservideoformat-course-content .moremenu.navigation .more-nav .dropdown-menu .nav-item .dropdown-item,
+body#page-course-view-section-edwiservideoformat .course-content .edwiservideoformat-course-content .moremenu.navigation .more-nav .dropdown-menu .nav-item .dropdown-item {
+  font-size: unset !important;
+}
+body#page-course-view-edwiservideoformat .course-content .edwiservideoformat-course-content .moremenu.navigation .more-nav > [data-key=editsettings] a:hover::before, body#page-course-view-edwiservideoformat .course-content .edwiservideoformat-course-content .moremenu.navigation .more-nav > [data-key=participants] a:hover::before, body#page-course-view-edwiservideoformat .course-content .edwiservideoformat-course-content .moremenu.navigation .more-nav > [data-key=grades] a:hover::before, body#page-course-view-edwiservideoformat .course-content .edwiservideoformat-course-content .moremenu.navigation .more-nav > [data-key=courseoverview] a:hover::before, body#page-course-view-edwiservideoformat .course-content .edwiservideoformat-course-content .moremenu.navigation .more-nav > [data-key=coursereports] a:hover::before, body#page-course-view-edwiservideoformat .course-content .edwiservideoformat-course-content .moremenu.navigation .more-nav > [data-key=competencies] a:hover::before,
+body#page-course-view-section-edwiservideoformat .course-content .edwiservideoformat-course-content .moremenu.navigation .more-nav > [data-key=editsettings] a:hover::before,
+body#page-course-view-section-edwiservideoformat .course-content .edwiservideoformat-course-content .moremenu.navigation .more-nav > [data-key=participants] a:hover::before,
+body#page-course-view-section-edwiservideoformat .course-content .edwiservideoformat-course-content .moremenu.navigation .more-nav > [data-key=grades] a:hover::before,
+body#page-course-view-section-edwiservideoformat .course-content .edwiservideoformat-course-content .moremenu.navigation .more-nav > [data-key=courseoverview] a:hover::before,
+body#page-course-view-section-edwiservideoformat .course-content .edwiservideoformat-course-content .moremenu.navigation .more-nav > [data-key=coursereports] a:hover::before,
+body#page-course-view-section-edwiservideoformat .course-content .edwiservideoformat-course-content .moremenu.navigation .more-nav > [data-key=competencies] a:hover::before {
+  background-color: #0051F9;
+}
+body#page-course-view-edwiservideoformat .course-content .edwiservideoformat-course-content .moremenu.navigation .more-nav > [data-region=morebutton] a:hover .moremenuicon,
+body#page-course-view-section-edwiservideoformat .course-content .edwiservideoformat-course-content .moremenu.navigation .more-nav > [data-region=morebutton] a:hover .moremenuicon {
+  color: #0051F9;
+}
+body#page-course-view-edwiservideoformat .course-content .edwiservideoformat-course-content .moremenu.navigation .more-nav a.nav-link:hover,
+body#page-course-view-section-edwiservideoformat .course-content .edwiservideoformat-course-content .moremenu.navigation .more-nav a.nav-link:hover {
+  border-bottom-color: #0051F9;
+}
+body#page-course-view-edwiservideoformat .course-content .edwiservideoformat-course-content .moremenu.navigation a.nav-link.active,
+body#page-course-view-section-edwiservideoformat .course-content .edwiservideoformat-course-content .moremenu.navigation a.nav-link.active {
+  padding-top: 12px;
+  color: #0051F9;
+  border-bottom-color: #0051F9;
+}
+body#page-course-view-edwiservideoformat .course-content .edwiservideoformat-course-content .moremenu.navigation .moremenuicon,
+body#page-course-view-section-edwiservideoformat .course-content .edwiservideoformat-course-content .moremenu.navigation .moremenuicon {
+  padding-bottom: 5px;
+}
+body#page-course-view-edwiservideoformat .course-content .edwiservideoformat-course-content .moremenu.navigation .moremenuicon::before,
+body#page-course-view-section-edwiservideoformat .course-content .edwiservideoformat-course-content .moremenu.navigation .moremenuicon::before {
+  font-size: 16px !important;
+}
+body#page-course-view-edwiservideoformat .course-content .edwiservideoformat-course-content .single-section .section-list,
+body#page-course-view-section-edwiservideoformat .course-content .edwiservideoformat-course-content .single-section .section-list {
+  margin-bottom: 24px;
+}
+body#page-course-view-edwiservideoformat .course-content .edwiservideoformat-course-content .single-section .section-navigation,
+body#page-course-view-section-edwiservideoformat .course-content .edwiservideoformat-course-content .single-section .section-navigation {
+  margin-bottom: 16px;
+}
+body#page-course-view-edwiservideoformat .course-content .edwiservideoformat-course-content .single-section .section-selector,
+body#page-course-view-section-edwiservideoformat .course-content .edwiservideoformat-course-content .single-section .section-selector {
+  margin-top: 16px;
+}
+body#page-course-view-edwiservideoformat .course-content .edwiservideoformat-course-content .section-progress-wrapper .progress-bar-warpper .progress,
+body#page-course-view-section-edwiservideoformat .course-content .edwiservideoformat-course-content .section-progress-wrapper .progress-bar-warpper .progress {
+  height: 6px;
+  border-radius: 3px;
+  background-color: #e9ecef;
+}
+body#page-course-view-edwiservideoformat .course-content .edwiservideoformat-course-content .section-progress-wrapper .progress-bar-warpper .progress .progress-bar,
+body#page-course-view-section-edwiservideoformat .course-content .edwiservideoformat-course-content .section-progress-wrapper .progress-bar-warpper .progress .progress-bar {
+  background-color: #28a745;
+  border-radius: 3px;
+}
+body#page-course-view-edwiservideoformat .course-content .edwiservideoformat-course-content .section-progress-wrapper .progress-bar-warpper .progress-text,
+body#page-course-view-section-edwiservideoformat .course-content .edwiservideoformat-course-content .section-progress-wrapper .progress-bar-warpper .progress-text {
+  font-size: 12px;
+  color: #6c757d;
+  margin-top: 4px;
+}
+body#page-course-view-edwiservideoformat .course-content .edwiservideoformat-course-content .activity-item[data-region=activity-card],
+body#page-course-view-section-edwiservideoformat .course-content .edwiservideoformat-course-content .activity-item[data-region=activity-card] {
+  background-color: #f5f9fd;
+  border-radius: 8px;
+}
+body#page-course-view-edwiservideoformat .course-content .edwiservideoformat-course-content .activity,
+body#page-course-view-section-edwiservideoformat .course-content .edwiservideoformat-course-content .activity {
+  border-top: unset;
+  padding-bottom: 12px;
+}
+body#page-course-view-edwiservideoformat .course-content .edwiservideoformat-course-content .activityicon,
+body#page-course-view-section-edwiservideoformat .course-content .edwiservideoformat-course-content .activityicon {
+  width: 25px;
+  height: 25px;
+}
+body#page-course-view-edwiservideoformat .course-content .edwiservideoformat-course-content .modtype_edwiservideoactivity .activityiconcontainer img.activityicon,
+body#page-course-view-section-edwiservideoformat .course-content .edwiservideoformat-course-content .modtype_edwiservideoactivity .activityiconcontainer img.activityicon {
+  width: 19px !important;
+  height: 19px !important;
+}
+body#page-course-view-edwiservideoformat .course-content .edwiservideoformat-course-content .activity-grid .activity-dates,
+body#page-course-view-section-edwiservideoformat .course-content .edwiservideoformat-course-content .activity-grid .activity-dates {
+  display: block;
+  background-color: #ebf0f9;
+  border-radius: 4px;
+  padding: 16px;
+  width: fit-content;
+}
+body#page-course-view-edwiservideoformat .course-content .edwiservideoformat-course-content .activity-grid .activity-information .btn-subtle-success,
+body#page-course-view-section-edwiservideoformat .course-content .edwiservideoformat-course-content .activity-grid .activity-information .btn-subtle-success {
+  padding: 8px;
+  border-radius: 4px;
+  background-color: #EBF0F9;
+  color: black;
+}
+body#page-course-view-edwiservideoformat .course-content .edwiservideoformat-course-content .activity-grid .dropdown-menu,
+body#page-course-view-section-edwiservideoformat .course-content .edwiservideoformat-course-content .activity-grid .dropdown-menu {
+  border-radius: 8px;
+  border-width: 1px;
+}
+body#page-course-view-edwiservideoformat .course-content .edwiservideoformat-course-content .activity-grid .dropdown-menu .dropdown-item,
+body#page-course-view-section-edwiservideoformat .course-content .edwiservideoformat-course-content .activity-grid .dropdown-menu .dropdown-item {
+  font-size: 12px;
+}
+body#page-course-view-edwiservideoformat .course-content .edwiservideoformat-course-content .quickediticon i::before,
+body#page-course-view-section-edwiservideoformat .course-content .edwiservideoformat-course-content .quickediticon i::before {
+  content: url("[[pix:format_edwiservideoformat|edit]]");
+  margin-left: 12px;
+}
+body#page-course-view-edwiservideoformat .course-content .edwiservideoformat-course-content .course-section-header .badge.rounded-pill,
+body#page-course-view-edwiservideoformat .course-content .edwiservideoformat-course-content .hiddenactivity .badge.rounded-pill,
+body#page-course-view-section-edwiservideoformat .course-content .edwiservideoformat-course-content .course-section-header .badge.rounded-pill,
+body#page-course-view-section-edwiservideoformat .course-content .edwiservideoformat-course-content .hiddenactivity .badge.rounded-pill {
+  border-radius: 2px !important;
+  padding: 4px 6px;
+}
+body#page-course-view-edwiservideoformat .course-content .edwiservideoformat-course-content .section-item .sectionname a,
+body#page-course-view-section-edwiservideoformat .course-content .edwiservideoformat-course-content .section-item .sectionname a {
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 28px;
+  letter-spacing: 0;
+}
+body#page-course-view-edwiservideoformat .course-content .edwiservideoformat-course-content .section-item .divider:not(:has(.edwiser-custom-add-button)),
+body#page-course-view-section-edwiservideoformat .course-content .edwiservideoformat-course-content .section-item .divider:not(:has(.edwiser-custom-add-button)) {
+  display: none !important;
+}
+body#page-course-view-edwiservideoformat .course-content .edwiservideoformat-course-content .section-item .moodle-actionmenu .action-menu-trigger .dropdown-item.view.menu-action,
+body#page-course-view-section-edwiservideoformat .course-content .edwiservideoformat-course-content .section-item .moodle-actionmenu .action-menu-trigger .dropdown-item.view.menu-action {
+  display: none !important;
+}
+body#page-course-view-edwiservideoformat .course-content .edwiservideoformat-course-content #collapsesections span,
+body#page-course-view-section-edwiservideoformat .course-content .edwiservideoformat-course-content #collapsesections span {
+  font-weight: 600;
+  font-size: 12px !important;
+  line-height: 100%;
+  letter-spacing: 0;
+  text-align: right;
+}
+body#page-course-view-edwiservideoformat .course-content .edwiservideoformat-course-content a.stretched-link .instancename,
+body#page-course-view-section-edwiservideoformat .course-content .edwiservideoformat-course-content a.stretched-link .instancename {
+  color: #313848;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0;
+}
+body#page-course-view-edwiservideoformat .course-content .edwiservideoformat-course-content #course-addsection .btn.add-section,
+body#page-course-view-section-edwiservideoformat .course-content .edwiservideoformat-course-content #course-addsection .btn.add-section {
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 100%;
+  letter-spacing: 0;
+}
+body#page-course-view-edwiservideoformat .course-content .edwiservideoformat-course-content .sectionbadges,
+body#page-course-view-section-edwiservideoformat .course-content .edwiservideoformat-course-content .sectionbadges {
+  height: fit-content;
+  padding-left: 8px;
+  padding-right: 8px;
+}
+body#page-course-view-edwiservideoformat .section-progress-wrapper .progress-bar-warpper,
+body#page-course-view-section-edwiservideoformat .section-progress-wrapper .progress-bar-warpper {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  align-items: center;
+}
+@media (max-width: 568px) {
+  body#page-course-view-edwiservideoformat .section-progress-wrapper .progress-bar-warpper,
+  body#page-course-view-section-edwiservideoformat .section-progress-wrapper .progress-bar-warpper {
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+  }
+}
+body#page-course-view-edwiservideoformat .section-progress-wrapper .progress-bar-warpper .progress,
+body#page-course-view-section-edwiservideoformat .section-progress-wrapper .progress-bar-warpper .progress {
+  height: 7px !important;
+  margin: 0px;
+  width: 230px;
+}
+@media (max-width: 568px) {
+  body#page-course-view-edwiservideoformat .section-progress-wrapper .progress-bar-warpper .progress,
+  body#page-course-view-section-edwiservideoformat .section-progress-wrapper .progress-bar-warpper .progress {
+    width: 100%;
+  }
+}
+body#page-course-view-edwiservideoformat .section-progress-wrapper .progress-bar-warpper .progress-text,
+body#page-course-view-section-edwiservideoformat .section-progress-wrapper .progress-bar-warpper .progress-text {
+  color: #4C5A73;
+  white-space: nowrap;
+  font-size: 12px;
+  line-height: 15px;
+  font-weight: 600;
+}
+body#page-course-view-edwiservideoformat:has(.edwiservideo-formatwrapper) #page-header,
+body#page-course-view-edwiservideoformat:has(.edwiservideo-formatwrapper) #wdm_course-stats,
+body#page-course-view-edwiservideoformat:has(.edwiservideo-formatwrapper) #region-fullwidthtop-blocks,
+body#page-course-view-edwiservideoformat:has(.edwiservideo-formatwrapper) #region-top-blocks,
+body#page-course-view-edwiservideoformat:has(.edwiservideo-formatwrapper) #region-bottom-blocks,
+body#page-course-view-edwiservideoformat:has(.edwiservideo-formatwrapper) #region-fullwidthbottom-blocks,
+body#page-course-view-edwiservideoformat:has(.edwiservideo-formatwrapper) .has-actions,
+body#page-course-view-section-edwiservideoformat:has(.edwiservideo-formatwrapper) #page-header,
+body#page-course-view-section-edwiservideoformat:has(.edwiservideo-formatwrapper) #wdm_course-stats,
+body#page-course-view-section-edwiservideoformat:has(.edwiservideo-formatwrapper) #region-fullwidthtop-blocks,
+body#page-course-view-section-edwiservideoformat:has(.edwiservideo-formatwrapper) #region-top-blocks,
+body#page-course-view-section-edwiservideoformat:has(.edwiservideo-formatwrapper) #region-bottom-blocks,
+body#page-course-view-section-edwiservideoformat:has(.edwiservideo-formatwrapper) #region-fullwidthbottom-blocks,
+body#page-course-view-section-edwiservideoformat:has(.edwiservideo-formatwrapper) .has-actions {
+  display: none;
+}
+body#page-course-view-edwiservideoformat:has(.edwiservideo-formatwrapper) #topofscroll,
+body#page-course-view-section-edwiservideoformat:has(.edwiservideo-formatwrapper) #topofscroll {
+  margin-top: 0px;
+  max-width: unset;
+}
+body#page-course-view-edwiservideoformat:has(.edwiservideo-formatwrapper) #topofscroll .container,
+body#page-course-view-section-edwiservideoformat:has(.edwiservideo-formatwrapper) #topofscroll .container {
+  max-width: unset;
+  padding: 0px;
+  margin: 0px;
+}
+body#page-course-view-edwiservideoformat:has(.edwiservideo-formatwrapper) #topofscroll .container .header-enrolbtn-wrapper,
+body#page-course-view-section-edwiservideoformat:has(.edwiservideo-formatwrapper) #topofscroll .container .header-enrolbtn-wrapper {
+  display: none !important;
+}
+body#page-course-view-edwiservideoformat:has(.edwiservideo-formatwrapper) #topofscroll .container #page-content,
+body#page-course-view-section-edwiservideoformat:has(.edwiservideo-formatwrapper) #topofscroll .container #page-content {
+  padding: 0px;
+}
+body#page-course-view-edwiservideoformat:has(.edwiservideo-formatwrapper) .video-wrapper .edwactivity-prevbtn,
+body#page-course-view-edwiservideoformat:has(.edwiservideo-formatwrapper) .video-wrapper .edwactivity-nextbtn,
+body#page-course-view-section-edwiservideoformat:has(.edwiservideo-formatwrapper) .video-wrapper .edwactivity-prevbtn,
+body#page-course-view-section-edwiservideoformat:has(.edwiservideo-formatwrapper) .video-wrapper .edwactivity-nextbtn {
+  display: block;
+}
+body#page-course-view-edwiservideoformat:has(.edwiservideo-formatwrapper) .drawer.drawer-right,
+body#page-course-view-edwiservideoformat:has(.edwiservideo-formatwrapper) .drawer-toggles .drawer-right-toggle,
+body#page-course-view-section-edwiservideoformat:has(.edwiservideo-formatwrapper) .drawer.drawer-right,
+body#page-course-view-section-edwiservideoformat:has(.edwiservideo-formatwrapper) .drawer-toggles .drawer-right-toggle {
+  display: none !important;
+}
+body#page-course-view-edwiservideoformat:has(.edwiservideo-formatwrapper) .floating-buttons-wrapper,
+body#page-course-view-section-edwiservideoformat:has(.edwiservideo-formatwrapper) .floating-buttons-wrapper {
+  right: 14px !important;
+}
+body#page-course-view-edwiservideoformat:has(.edwiservideo-formatwrapper) #page,
+body#page-course-view-section-edwiservideoformat:has(.edwiservideo-formatwrapper) #page {
+  margin-right: 0 !important;
+}
+body#page-course-view-edwiservideoformat:has(.edwiservideo-formatwrapper) #page,
+body#page-course-view-edwiservideoformat:has(.edwiservideo-formatwrapper) #page-content,
+body#page-course-view-section-edwiservideoformat:has(.edwiservideo-formatwrapper) #page,
+body#page-course-view-section-edwiservideoformat:has(.edwiservideo-formatwrapper) #page-content {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+body#page-course-view-edwiservideoformat:has(.edwiservideo-formatwrapper) .show-drawer-right + #page-footer,
+body#page-course-view-section-edwiservideoformat:has(.edwiservideo-formatwrapper) .show-drawer-right + #page-footer {
+  margin-right: 0 !important;
+}
+body#page-course-view-edwiservideoformat:has(.edwiservideo-formatwrapper) #add-block-float-menu,
+body#page-course-view-section-edwiservideoformat:has(.edwiservideo-formatwrapper) #add-block-float-menu {
+  display: none;
+}
+body#page-course-view-edwiservideoformat:has(.edwiservideo-formatwrapper) .block-region .block-controls,
+body#page-course-view-section-edwiservideoformat:has(.edwiservideo-formatwrapper) .block-region .block-controls {
+  display: none;
+}
+body#page-course-view-edwiservideoformat:has(.edwiservideo-formatwrapper) .block-region .live-customizer-btn,
+body#page-course-view-section-edwiservideoformat:has(.edwiservideo-formatwrapper) .block-region .live-customizer-btn {
+  display: none !important;
+}
+body#page-course-view-edwiservideoformat:has(.edwiservideo-formatwrapper).focusmode .activity-navigation #coursePrevious,
+body#page-course-view-edwiservideoformat:has(.edwiservideo-formatwrapper).focusmode .activity-navigation #courseActivities.focus-dropdown,
+body#page-course-view-edwiservideoformat:has(.edwiservideo-formatwrapper).focusmode .activity-navigation #courseNext,
+body#page-course-view-section-edwiservideoformat:has(.edwiservideo-formatwrapper).focusmode .activity-navigation #coursePrevious,
+body#page-course-view-section-edwiservideoformat:has(.edwiservideo-formatwrapper).focusmode .activity-navigation #courseActivities.focus-dropdown,
+body#page-course-view-section-edwiservideoformat:has(.edwiservideo-formatwrapper).focusmode .activity-navigation #courseNext {
+  display: none;
+}
+body#page-course-view-edwiservideoformat:has(.edwiservideo-formatwrapper).remui-notification:has(.site-announcement) .edwiservideo-formatwrapper,
+body#page-course-view-section-edwiservideoformat:has(.edwiservideo-formatwrapper).remui-notification:has(.site-announcement) .edwiservideo-formatwrapper {
+  margin-top: 57.125px;
+}
+body#page-course-view-edwiservideoformat .edwiservideo-formatwrapper,
+body#page-course-view-section-edwiservideoformat .edwiservideo-formatwrapper {
+  position: relative;
+}
+@media (min-width: 820px) {
+  body#page-course-view-edwiservideoformat .edwiservideo-formatwrapper,
+  body#page-course-view-section-edwiservideoformat .edwiservideo-formatwrapper {
+    padding: 0 70px;
+  }
+}
+body#page-course-view-edwiservideoformat .edwiservideo-formatwrapper .course-details-header,
+body#page-course-view-section-edwiservideoformat .edwiservideo-formatwrapper .course-details-header {
+  display: flex;
+  padding: 3px 16px;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgb(248, 249, 250);
+}
+@media (max-width: 568px) {
+  body#page-course-view-edwiservideoformat .edwiservideo-formatwrapper .course-details-header,
+  body#page-course-view-section-edwiservideoformat .edwiservideo-formatwrapper .course-details-header {
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    gap: 12px;
+  }
+}
+body#page-course-view-edwiservideoformat .edwiservideo-formatwrapper .course-details-header .course-sub-header1 .categoryname,
+body#page-course-view-section-edwiservideoformat .edwiservideo-formatwrapper .course-details-header .course-sub-header1 .categoryname {
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 20px;
+  letter-spacing: 0%;
+  vertical-align: middle;
+}
+body#page-course-view-edwiservideoformat .edwiservideo-formatwrapper .course-details-header .course-sub-header1 .categoryname a,
+body#page-course-view-section-edwiservideoformat .edwiservideo-formatwrapper .course-details-header .course-sub-header1 .categoryname a {
+  color: rgb(100, 115, 144);
+}
+body#page-course-view-edwiservideoformat .edwiservideo-formatwrapper .course-details-header .course-sub-header1 .categoryname a:hover,
+body#page-course-view-section-edwiservideoformat .edwiservideo-formatwrapper .course-details-header .course-sub-header1 .categoryname a:hover {
+  color: #0d6efd;
+}
+body#page-course-view-edwiservideoformat .edwiservideo-formatwrapper .course-details-header .course-sub-header1 .coursename,
+body#page-course-view-section-edwiservideoformat .edwiservideo-formatwrapper .course-details-header .course-sub-header1 .coursename {
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: 0%;
+  vertical-align: middle;
+}
+body#page-course-view-edwiservideoformat .edwiservideo-formatwrapper .course-details-header .course-sub-header1 .coursename a,
+body#page-course-view-section-edwiservideoformat .edwiservideo-formatwrapper .course-details-header .course-sub-header1 .coursename a {
+  color: rgb(49, 56, 72);
+}
+body#page-course-view-edwiservideoformat .edwiservideo-formatwrapper .course-details-header .course-sub-header1 .coursename a:hover,
+body#page-course-view-section-edwiservideoformat .edwiservideo-formatwrapper .course-details-header .course-sub-header1 .coursename a:hover {
+  color: #0d6efd;
+}
+body#page-course-view-edwiservideoformat .edwiservideo-formatwrapper .course-details-header .course-sub-header2,
+body#page-course-view-section-edwiservideoformat .edwiservideo-formatwrapper .course-details-header .course-sub-header2 {
+  min-width: 200px;
+  display: flex;
+  flex-direction: column;
+}
+body#page-course-view-edwiservideoformat .edwiservideo-formatwrapper .course-details-header .course-sub-header2 .progress-details,
+body#page-course-view-section-edwiservideoformat .edwiservideo-formatwrapper .course-details-header .course-sub-header2 .progress-details {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 5px;
+}
+body#page-course-view-edwiservideoformat .edwiservideo-formatwrapper .course-details-header .course-sub-header2 .progress-details .progress-text,
+body#page-course-view-section-edwiservideoformat .edwiservideo-formatwrapper .course-details-header .course-sub-header2 .progress-details .progress-text {
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 0%;
+  vertical-align: middle;
+  color: rgb(99, 113, 140);
+  white-space: nowrap;
+}
+body#page-course-view-edwiservideoformat .edwiservideo-formatwrapper .course-details-header .course-sub-header2 .progress-details .percentage,
+body#page-course-view-section-edwiservideoformat .edwiservideo-formatwrapper .course-details-header .course-sub-header2 .progress-details .percentage {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0%;
+  vertical-align: middle;
+  color: rgb(49, 56, 72);
+}
+body#page-course-view-edwiservideoformat .edwiservideo-formatwrapper .course-details-header .course-sub-header2 .progress,
+body#page-course-view-section-edwiservideoformat .edwiservideo-formatwrapper .course-details-header .course-sub-header2 .progress {
+  width: 100%;
+  min-width: unset;
+  background-color: #e9ecef;
+  height: 4px;
+}
+body#page-course-view-edwiservideoformat .generalsectioninfo .summary-collapsed,
+body#page-course-view-section-edwiservideoformat .generalsectioninfo .summary-collapsed {
+  max-height: 300px;
+  position: relative;
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(180deg, #D9D9D9 51.56%, rgba(255, 255, 255, 0) 100%);
+}
+body#page-course-view-edwiservideoformat .generalsectioninfo .readbtn,
+body#page-course-view-section-edwiservideoformat .generalsectioninfo .readbtn {
+  font-size: 14px;
+  line-height: 17px;
+  font-weight: 600;
+  color: #0051F9;
+  text-decoration: none;
+  cursor: pointer;
+}
+body#page-course-view-edwiservideoformat .course-content .evf-license-notice,
+body#page-course-view-section-edwiservideoformat .course-content .evf-license-notice {
+  position: fixed !important;
+  top: 80px;
+  left: 0;
+  right: 0;
+  transition: all 1s ease-in-out;
+  z-index: 1700 !important;
+}
+body#page-course-view-edwiservideoformat.remui-notification .course-content .evf-license-notice,
+body#page-course-view-section-edwiservideoformat.remui-notification .course-content .evf-license-notice {
+  top: 137.125px;
+}
+
+.edwiservideoformat-remui-body .edwiservideoformat-course-content .activity-grid .activity-dates {
+  margin-left: 16px;
+}
+.edwiservideoformat-remui-body .edwiservideoformat-course-content .activity-grid .activity-badges {
+  margin-left: 16px;
+}
+.edwiservideoformat-remui-body .edwiservideoformat-course-content .activity-grid .activity-groupmode-info {
+  margin-top: 15px;
+}
+.edwiservideoformat-remui-body .edwiservideoformat-course-content .activity-grid .activity-actions .cm_action_menu {
+  margin-top: 15px;
+}
+.edwiservideoformat-remui-body .edwiservideoformat-course-content .activity-grid .activity-information .btn {
+  margin-top: 15px;
+  margin-right: 24px;
+}
+.edwiservideoformat-remui-body .edwiservideoformat-course-content .activity-grid .activity-information .btn-subtle-success {
+  padding: 8px;
+  border-radius: 4px;
+  background-color: #EBF0F9;
+  color: black;
+}
+
+body:not(.edwiservideoformat-remui-body) #page-content {
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+}
+body:not(.edwiservideoformat-remui-body) #page-content .moremenu.navigation .more-nav a.nav-link:hover {
+  background-color: unset;
+}
+body:not(.edwiservideoformat-remui-body) #page-content .activity-grid .activityiconcontainer {
+  margin-top: 6px;
+}
+body:not(.edwiservideoformat-remui-body):has(.edwiservideo-formatwrapper) #topofscroll {
+  margin-top: 0px;
+  padding-top: 0px;
+}
+body:not(.edwiservideoformat-remui-body):has(.edwiservideo-formatwrapper) #topofscroll #page-content {
+  padding-top: 0px;
+}
+
+body.edwembeded .navbar,
+body.edwembeded #page-footer, body.edwembeded.focusmode .navbar.fm-navbar,
+body.edwembeded #edw-quick-menu,
+body.edwembeded #add-block-float-menu,
+body.edwembeded .reset-pagebutton-wrapper {
+  display: none !important;
+}
+body.edwembeded .drawer.drawer-left,
+body.edwembeded .drawer-toggles .drawer-left-toggle {
+  display: none !important;
+}
+body.edwembeded #page {
+  margin-left: 0 !important;
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}
+body.edwembeded #page #page-header,
+body.edwembeded #page #page-content .activity-description,
+body.edwembeded #page .site-announcement,
+body.edwembeded #page .activity-navigation {
+  display: none !important;
+}
+body.edwembeded .drawer-right {
+  top: 0 !important;
+  height: 100vh !important;
+}
+body.edwembeded .show-drawer-left + #page-footer {
+  margin-left: 0 !important;
+}
+body.edwembeded .drawer.drawer-right.show ~ #page-footer .floating-buttons-wrapper {
+  right: 14px !important;
+}
+body.edwembeded #region-fullwidthtop-blocks-indicator,
+body.edwembeded #region-top-blocks-indicator,
+body.edwembeded #block-region-content-indicator,
+body.edwembeded #region-bottom-blocks-indicator,
+body.edwembeded #region-fullwidthbottom-blocks-indicator {
+  display: none !important;
+}
+body.edwembeded .drawer-right .drawercontent .add_block_button {
+  display: none;
+}
+body.edwembeded .fsmod-course #fsmod-header {
+  display: none;
+}
+body.edwembeded .fsmod-course #theme-main-content .tgsdb_btn {
+  display: none !important;
+}
+body.edwembeded .fsmod-course #theme-main-content .theme-coursenav {
+  display: none;
+}
+body.edwembeded #main-header,
+body.edwembeded #toggle-sidebar,
+body.edwembeded .page-secnav,
+body.edwembeded #adminblock-region,
+body.edwembeded #bottom,
+body.edwembeded #bottom-abcd,
+body.edwembeded #block-region-content-bottom,
+body.edwembeded .page-c {
+  display: none;
+}
+body.edwembeded .pagelayout-content .add_block_button,
+body.edwembeded .pagelayout-content #block-region-content-top {
+  display: none;
+}
+body.edwembeded #acsb-menu_launcher {
+  display: none;
+}
+
+body.edwiservideoformat-moodle-405 .edwiservideoformat-course-content .edwiservideoformat.section-list {
+  padding-inline-start: unset;
+}
+body.edwiservideoformat-moodle-405 .edwiservideoformat-course-content .moremenu.navigation .more-nav .dropdownmoremenu a {
+  padding-bottom: 10px !important;
+}
+
+body.edwiservideoformat-moodle-405:not(.edwiservideoformat-remui-body) .edwiservideoformat-course-content .moremenu.navigation .more-nav .dropdownmoremenu a {
+  padding-top: 12px !important;
+}

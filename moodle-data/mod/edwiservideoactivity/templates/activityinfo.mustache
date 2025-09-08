@@ -1,0 +1,81 @@
+ {{!
+    This file is part of Moodle - http://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+}}
+
+<div class="metadata">
+    <div class="main-header">
+        <div class="header">
+            <div class="subheader">
+                <div class="activity-header1">
+                    <p class="section-title small-text-color">
+                        {{sectionname}}
+                    </p>
+                    {{#isedwiservideoformat}}
+                        {{#hasprogressinfo}}
+                            <div class="section-percentage">
+                                {{completionpercent}}%
+                            </div>
+                        {{/hasprogressinfo}}
+                    {{/isedwiservideoformat}}
+                </div>
+
+                <div class="activity-header2">
+                    <div class="activitylogo">
+                        {{#isedwiservideoactivity}}
+                            {{#pix}} monologo, mod_edwiservideoactivity {{/pix}}
+                        {{/isedwiservideoactivity}}
+                        {{^isedwiservideoactivity}}
+                            <img src="{{iconurl}}" class="{{#isquiz}}quiz{{/isquiz}}">
+                        {{/isedwiservideoactivity}}
+                    </div>
+
+                    <p class="activity-title heading-color">
+                        {{title}}
+                    </p>
+
+                    {{#isedwiservideoformat}}
+                        {{{activitymenu}}}
+                    {{/isedwiservideoformat}}
+                    {{^isedwiservideoformat}}
+                       {{#isediting}}
+                            {{{activitymenu}}}
+                       {{/isediting}}
+                    {{/isedwiservideoformat}}
+                </div>
+            </div>
+
+            <div class="activity-completion">
+                {{{completionbutton}}}
+            </div>
+        </div>
+
+        <div class="availability-completion">
+            <div class="section_availability-wrapper bg-small-ui">
+                {{#hasavailability}}
+                    {{> core_courseformat/local/content/section/availability }}
+                {{/hasavailability}}
+            </div>
+
+            <div class="manul-completion">
+                {{{completionbutton}}}
+            </div>
+        </div>
+    </div>
+    
+    {{#isedwiservideoformat}}
+        {{> mod_edwiservideoactivity/activityinfo_tabs}}
+    {{/isedwiservideoformat}}
+</div>

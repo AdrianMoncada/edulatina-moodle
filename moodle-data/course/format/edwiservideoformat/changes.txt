@@ -1,0 +1,11 @@
+Release
+=======
+
+Version 1.0.0
+=============
+Tweak - Minor improvements and bug fixes
+
+Version 1.0.0
+=============
+Initial Version of Edwiser Video format plugin
+

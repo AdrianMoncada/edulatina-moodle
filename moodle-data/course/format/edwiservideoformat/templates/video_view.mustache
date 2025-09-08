@@ -1,0 +1,73 @@
+{{!
+    This file is part of Moodle - http://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+}}
+
+<div class="edwiservideo-formatwrapper">
+    {{> format_edwiservideoformat/activityheader}}
+    {{> mod_edwiservideoactivity/activity}}
+</div>
+
+{{#js}}
+
+    require(['jquery'], function($) {
+        $(document).ready(function() {
+            $('body').addClass('edwiservideo-active');
+            setTimeout(function() {
+                $(".edwembeded").contents().find("body").addClass("edwembeded");
+            }, 1000);
+        });
+    });
+
+    $(document).ready(function() {
+        // 1. Observe DOM for iframe additions
+        var observer = new MutationObserver(function(mutations) {
+            mutations.forEach(function(mutation) {
+                Array.from(mutation.addedNodes).forEach(function(node) {
+                    if (node.nodeName === 'IFRAME' && node.className === 'edwembeded') {
+                        // Found your target iframe: attach load listener
+                        $(node).on('load', function() {
+                            $(this).contents().find('body').addClass('edwembeded');
+                        });
+                    }
+                });
+            });
+        });
+
+        observer.observe(document.body, { childList: true, subtree: true });
+
+        // 2. Also handle if it’s already in DOM on load
+        var existing = $('#quiziframe');
+        if (existing.length) {
+            existing.on('load', function() {
+                $(this).contents().find('body').addClass('edwembeded');
+            });
+            // If it's already loaded, also trigger manually
+            if (existing[0].contentDocument && existing[0].contentDocument.readyState === 'complete') {
+                existing.contents().find('body').addClass('edwembeded');
+            }
+        }
+    });
+
+{{/js}}
+
+{{#js}}
+    require(['format_edwiservideoformat/common'], function(Common) {
+        Common.init();
+    });
+{{/js}}
+{{#showtypeform}}
+    {{> format_edwiservideoformat/typeform_integration }}
+{{/showtypeform}}

@@ -1,0 +1,497 @@
+body#page-mod-edwiservideoactivity-view .activity-description,
+body#page-course-view-edwiservideoformat .activity-description {
+  display: none;
+}
+body#page-mod-edwiservideoactivity-view .edwiservideo-container,
+body#page-course-view-edwiservideoformat .edwiservideo-container {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  align-items: center;
+}
+body#page-mod-edwiservideoactivity-view .edwiservideo-container .video-wrapper,
+body#page-course-view-edwiservideoformat .edwiservideo-container .video-wrapper {
+  width: 100%;
+  position: relative;
+}
+body#page-mod-edwiservideoactivity-view .edwiservideo-container .video-wrapper .edwiservideo-video-wrapper,
+body#page-course-view-edwiservideoformat .edwiservideo-container .video-wrapper .edwiservideo-video-wrapper {
+  position: relative;
+}
+body#page-mod-edwiservideoactivity-view .edwiservideo-container .video-wrapper .video-player,
+body#page-course-view-edwiservideoformat .edwiservideo-container .video-wrapper .video-player {
+  width: 100%;
+  aspect-ratio: 1120/630;
+  max-height: 65vh;
+  background-color: black;
+}
+body#page-mod-edwiservideoactivity-view .edwiservideo-container .video-wrapper .edwembededactivity,
+body#page-course-view-edwiservideoformat .edwiservideo-container .video-wrapper .edwembededactivity {
+  width: 100%;
+  aspect-ratio: 1120/630;
+  min-height: 600px;
+  max-height: 75vh;
+  border: none;
+}
+body#page-mod-edwiservideoactivity-view .edwiservideo-container .video-wrapper .video-overlay,
+body#page-course-view-edwiservideoformat .edwiservideo-container .video-wrapper .video-overlay {
+  aspect-ratio: 1120/630;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  aspect-ratio: 1120/630;
+  max-height: 65vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+  cursor: pointer;
+  z-index: 1;
+}
+body#page-mod-edwiservideoactivity-view .edwiservideo-container .video-wrapper .video-overlay #playButton,
+body#page-course-view-edwiservideoformat .edwiservideo-container .video-wrapper .video-overlay #playButton {
+  border: none;
+  padding: 0px;
+  cursor: pointer;
+  width: 64px;
+  height: 64px;
+  background: url("[[pix:mod_edwiservideoactivity|play]]");
+}
+@media (max-width: 768px) {
+  body#page-mod-edwiservideoactivity-view .edwiservideo-container .video-wrapper .video-overlay,
+body#page-course-view-edwiservideoformat .edwiservideo-container .video-wrapper .video-overlay {
+    display: none !important;
+  }
+}
+body#page-mod-edwiservideoactivity-view .edwiservideo-container .video-wrapper .edwactivity-prevbtn,
+body#page-mod-edwiservideoactivity-view .edwiservideo-container .video-wrapper .edwactivity-nextbtn,
+body#page-course-view-edwiservideoformat .edwiservideo-container .video-wrapper .edwactivity-prevbtn,
+body#page-course-view-edwiservideoformat .edwiservideo-container .video-wrapper .edwactivity-nextbtn {
+  display: none;
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  top: 49%;
+  left: 10px;
+  transform: translateY(-50%);
+  background: url("[[pix:mod_edwiservideoactivity|prev]]");
+  z-index: 3;
+  opacity: 1;
+  transition: opacity 0.5s ease-in-out;
+}
+@media (min-width: 820px) {
+  body#page-mod-edwiservideoactivity-view .edwiservideo-container .video-wrapper .edwactivity-prevbtn,
+body#page-mod-edwiservideoactivity-view .edwiservideo-container .video-wrapper .edwactivity-nextbtn,
+body#page-course-view-edwiservideoformat .edwiservideo-container .video-wrapper .edwactivity-prevbtn,
+body#page-course-view-edwiservideoformat .edwiservideo-container .video-wrapper .edwactivity-nextbtn {
+    left: 15px;
+  }
+}
+body#page-mod-edwiservideoactivity-view .edwiservideo-container .video-wrapper .edwactivity-nextbtn,
+body#page-course-view-edwiservideoformat .edwiservideo-container .video-wrapper .edwactivity-nextbtn {
+  left: unset;
+  right: 10px;
+  background: url("[[pix:mod_edwiservideoactivity|next]]");
+}
+@media (min-width: 820px) {
+  body#page-mod-edwiservideoactivity-view .edwiservideo-container .video-wrapper .edwactivity-nextbtn,
+body#page-course-view-edwiservideoformat .edwiservideo-container .video-wrapper .edwactivity-nextbtn {
+    right: 15px;
+  }
+}
+body#page-mod-edwiservideoactivity-view .edwiservideo-container .video-wrapper.hide-buttons .edwactivity-prevbtn, body#page-mod-edwiservideoactivity-view .edwiservideo-container .video-wrapper.hide-buttons .edwactivity-nextbtn,
+body#page-course-view-edwiservideoformat .edwiservideo-container .video-wrapper.hide-buttons .edwactivity-prevbtn,
+body#page-course-view-edwiservideoformat .edwiservideo-container .video-wrapper.hide-buttons .edwactivity-nextbtn {
+  opacity: 0;
+  pointer-events: none;
+}
+body#page-mod-edwiservideoactivity-view .edwiservideo-container .video-wrapper:hover .edwactivity-prevbtn, body#page-mod-edwiservideoactivity-view .edwiservideo-container .video-wrapper:hover .edwactivity-nextbtn,
+body#page-course-view-edwiservideoformat .edwiservideo-container .video-wrapper:hover .edwactivity-prevbtn,
+body#page-course-view-edwiservideoformat .edwiservideo-container .video-wrapper:hover .edwactivity-nextbtn {
+  opacity: 1;
+  pointer-events: auto;
+}
+@media (max-width: 768px) {
+  body#page-mod-edwiservideoactivity-view .edwiservideo-container .video-wrapper .edwactivity-prevbtn,
+body#page-mod-edwiservideoactivity-view .edwiservideo-container .video-wrapper .edwactivity-nextbtn,
+body#page-course-view-edwiservideoformat .edwiservideo-container .video-wrapper .edwactivity-prevbtn,
+body#page-course-view-edwiservideoformat .edwiservideo-container .video-wrapper .edwactivity-nextbtn {
+    display: block !important;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+  }
+  body#page-mod-edwiservideoactivity-view .edwiservideo-container .video-wrapper:not(.hide-buttons) .edwactivity-prevbtn, body#page-mod-edwiservideoactivity-view .edwiservideo-container .video-wrapper:not(.hide-buttons) .edwactivity-nextbtn,
+body#page-course-view-edwiservideoformat .edwiservideo-container .video-wrapper:not(.hide-buttons) .edwactivity-prevbtn,
+body#page-course-view-edwiservideoformat .edwiservideo-container .video-wrapper:not(.hide-buttons) .edwactivity-nextbtn {
+    opacity: 1;
+    pointer-events: auto;
+  }
+}
+body#page-mod-edwiservideoactivity-view .edwiservideo-container .metadata,
+body#page-course-view-edwiservideoformat .edwiservideo-container .metadata {
+  display: flex;
+  flex-direction: column;
+  gap: 38px;
+  align-items: center;
+  width: 100%;
+}
+@media (max-width: 820px) {
+  body#page-mod-edwiservideoactivity-view .edwiservideo-container .metadata,
+body#page-course-view-edwiservideoformat .edwiservideo-container .metadata {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+}
+body#page-mod-edwiservideoactivity-view .edwiservideo-container .metadata .main-header,
+body#page-course-view-edwiservideoformat .edwiservideo-container .metadata .main-header {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  width: 100%;
+}
+body#page-mod-edwiservideoactivity-view .edwiservideo-container .metadata .main-header .header,
+body#page-course-view-edwiservideoformat .edwiservideo-container .metadata .main-header .header {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  width: 100%;
+}
+@media (max-width: 820px) {
+  body#page-mod-edwiservideoactivity-view .edwiservideo-container .metadata .main-header .header,
+body#page-course-view-edwiservideoformat .edwiservideo-container .metadata .main-header .header {
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+    gap: 10px;
+  }
+}
+body#page-mod-edwiservideoactivity-view .edwiservideo-container .metadata .main-header .header .subheader,
+body#page-course-view-edwiservideoformat .edwiservideo-container .metadata .main-header .header .subheader {
+  width: 79.5918%;
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+@media (max-width: 820px) {
+  body#page-mod-edwiservideoactivity-view .edwiservideo-container .metadata .main-header .header .subheader,
+body#page-course-view-edwiservideoformat .edwiservideo-container .metadata .main-header .header .subheader {
+    width: 100%;
+  }
+}
+body#page-mod-edwiservideoactivity-view .edwiservideo-container .metadata .main-header .header .subheader .activity-header1,
+body#page-course-view-edwiservideoformat .edwiservideo-container .metadata .main-header .header .subheader .activity-header1 {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  letter-spacing: 0%;
+}
+body#page-mod-edwiservideoactivity-view .edwiservideo-container .metadata .main-header .header .subheader .activity-header1 .section-title,
+body#page-course-view-edwiservideoformat .edwiservideo-container .metadata .main-header .header .subheader .activity-header1 .section-title {
+  font-weight: 700;
+  line-height: 20px;
+  vertical-align: middle;
+  color: #647390;
+  margin: 0px;
+}
+body#page-mod-edwiservideoactivity-view .edwiservideo-container .metadata .main-header .header .subheader .activity-header1 .section-percentage,
+body#page-course-view-edwiservideoformat .edwiservideo-container .metadata .main-header .header .subheader .activity-header1 .section-percentage {
+  font-weight: 600;
+  line-height: 20px;
+  vertical-align: middle;
+  color: #647390;
+  padding: 4px 6px;
+  border-radius: 2px;
+  line-height: 100%;
+  background-color: #28a745;
+  color: #f8f9fa;
+}
+body#page-mod-edwiservideoactivity-view .edwiservideo-container .metadata .main-header .header .subheader .activity-header2,
+body#page-course-view-edwiservideoformat .edwiservideo-container .metadata .main-header .header .subheader .activity-header2 {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+body#page-mod-edwiservideoactivity-view .edwiservideo-container .metadata .main-header .header .subheader .activity-header2 .activity-title,
+body#page-course-view-edwiservideoformat .edwiservideo-container .metadata .main-header .header .subheader .activity-header2 .activity-title {
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 32px;
+  letter-spacing: 0px;
+  vertical-align: middle;
+  margin: 0px;
+}
+body#page-mod-edwiservideoactivity-view .edwiservideo-container .metadata .main-header .header .subheader .activity-header2 .activitylogo img.icon,
+body#page-course-view-edwiservideoformat .edwiservideo-container .metadata .main-header .header .subheader .activity-header2 .activitylogo img.icon {
+  width: 19.5px;
+  height: 19.5px;
+  margin: 0px;
+}
+body#page-mod-edwiservideoactivity-view .edwiservideo-container .metadata .main-header .header .subheader .activity-header2 .activitylogo img.quiz,
+body#page-course-view-edwiservideoformat .edwiservideo-container .metadata .main-header .header .subheader .activity-header2 .activitylogo img.quiz {
+  filter: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg"><filter id="recolor" color-interpolation-filters="sRGB"><feColorMatrix type="matrix" values="0 0 0 0 0.9764705882 0 0 0 0 0 0 0 0 0 0.5254901961 0 0 0 1 0 "/></filter></svg>#recolor');
+}
+body#page-mod-edwiservideoactivity-view .edwiservideo-container .metadata .main-header .header .subheader .activity-header2 .section_action_menu,
+body#page-course-view-edwiservideoformat .edwiservideo-container .metadata .main-header .header .subheader .activity-header2 .section_action_menu {
+  margin-left: 0px !important;
+}
+body#page-mod-edwiservideoactivity-view .edwiservideo-container .metadata .main-header .header .activity-completion:has(.automatic-completion-conditions),
+body#page-course-view-edwiservideoformat .edwiservideo-container .metadata .main-header .header .activity-completion:has(.automatic-completion-conditions) {
+  display: none !important;
+}
+body#page-mod-edwiservideoactivity-view .edwiservideo-container .metadata .main-header .header .activity-completion .completion-info,
+body#page-course-view-edwiservideoformat .edwiservideo-container .metadata .main-header .header .activity-completion .completion-info {
+  border: none;
+}
+body#page-mod-edwiservideoactivity-view .edwiservideo-container .metadata .main-header .header .activity-completion .completion-info .btn,
+body#page-course-view-edwiservideoformat .edwiservideo-container .metadata .main-header .header .activity-completion .completion-info .btn {
+  color: #0051f9;
+  border-color: #0051f9;
+}
+body#page-mod-edwiservideoactivity-view .edwiservideo-container .metadata .main-header .availability-completion,
+body#page-course-view-edwiservideoformat .edwiservideo-container .metadata .main-header .availability-completion {
+  display: flex;
+  gap: 16px;
+  align-items: end;
+  width: 100%;
+  flex-wrap: wrap;
+}
+body#page-mod-edwiservideoactivity-view .edwiservideo-container .metadata .main-header .availability-completion .section_availability-wrapper,
+body#page-course-view-edwiservideoformat .edwiservideo-container .metadata .main-header .availability-completion .section_availability-wrapper {
+  background-color: #EBF0F9;
+  border-radius: 4px;
+}
+body#page-mod-edwiservideoactivity-view .edwiservideo-container .metadata .main-header .availability-completion .section_availability-wrapper:has(.availabilityinfo.hide), body#page-mod-edwiservideoactivity-view .edwiservideo-container .metadata .main-header .availability-completion .section_availability-wrapper:not(:has(.section_availability)),
+body#page-course-view-edwiservideoformat .edwiservideo-container .metadata .main-header .availability-completion .section_availability-wrapper:has(.availabilityinfo.hide),
+body#page-course-view-edwiservideoformat .edwiservideo-container .metadata .main-header .availability-completion .section_availability-wrapper:not(:has(.section_availability)) {
+  display: none;
+}
+body#page-mod-edwiservideoactivity-view .edwiservideo-container .metadata .main-header .availability-completion .section_availability-wrapper .section_availability,
+body#page-course-view-edwiservideoformat .edwiservideo-container .metadata .main-header .availability-completion .section_availability-wrapper .section_availability {
+  padding: 16px;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 22px;
+}
+body#page-mod-edwiservideoactivity-view .edwiservideo-container .metadata .main-header .availability-completion .manul-completion:not(:has(.automatic-completion-conditions)),
+body#page-course-view-edwiservideoformat .edwiservideo-container .metadata .main-header .availability-completion .manul-completion:not(:has(.automatic-completion-conditions)) {
+  display: none !important;
+}
+body#page-mod-edwiservideoactivity-view .edwiservideo-container .metadata .main-header .availability-completion .manul-completion .automatic-completion-conditions,
+body#page-course-view-edwiservideoformat .edwiservideo-container .metadata .main-header .availability-completion .manul-completion .automatic-completion-conditions {
+  display: flex;
+  gap: 16px;
+  align-items: end;
+  flex-wrap: wrap;
+}
+body#page-mod-edwiservideoactivity-view .edwiservideo-container .metadata .main-header .availability-completion .manul-completion .automatic-completion-conditions .badge,
+body#page-course-view-edwiservideoformat .edwiservideo-container .metadata .main-header .availability-completion .manul-completion .automatic-completion-conditions .badge {
+  padding: 12px;
+  font-weight: 600 !important;
+  font-size: 14px !important;
+  background-color: #EBF0F9;
+  line-height: 22px !important;
+}
+body#page-mod-edwiservideoactivity-view .edwiservideo-container .metadata .main-header .availability-completion .manul-completion .automatic-completion-conditions .badge span,
+body#page-course-view-edwiservideoformat .edwiservideo-container .metadata .main-header .availability-completion .manul-completion .automatic-completion-conditions .badge span {
+  white-space: normal;
+}
+body#page-mod-edwiservideoactivity-view .edwiservideo-container .metadata .tabs,
+body#page-course-view-edwiservideoformat .edwiservideo-container .metadata .tabs {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+body#page-mod-edwiservideoactivity-view .edwiservideo-container .metadata .tabs .tab-buttons,
+body#page-course-view-edwiservideoformat .edwiservideo-container .metadata .tabs .tab-buttons {
+  display: flex;
+  gap: 24px;
+  border: none;
+  border-bottom: 2px solid transparent;
+  border-color: #dee2e7;
+  flex-wrap: wrap;
+}
+body#page-mod-edwiservideoactivity-view .edwiservideo-container .metadata .tabs .tab-buttons .tab-button,
+body#page-course-view-edwiservideoformat .edwiservideo-container .metadata .tabs .tab-buttons .tab-button {
+  background: transparent;
+  border: none;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 100%;
+  cursor: pointer;
+  padding: 8px;
+  border-bottom: 2px solid transparent;
+  transition: border-color 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  letter-spacing: 0%;
+  color: #63718c;
+}
+body#page-mod-edwiservideoactivity-view .edwiservideo-container .metadata .tabs .tab-buttons .tab-button.active,
+body#page-course-view-edwiservideoformat .edwiservideo-container .metadata .tabs .tab-buttons .tab-button.active {
+  border-color: #0051f9;
+  color: #0051f9;
+}
+body#page-mod-edwiservideoactivity-view .edwiservideo-container .metadata .tabs .tab-buttons .tab-button.active::before,
+body#page-course-view-edwiservideoformat .edwiservideo-container .metadata .tabs .tab-buttons .tab-button.active::before {
+  background-color: #0051f9;
+}
+body#page-mod-edwiservideoactivity-view .edwiservideo-container .metadata .tabs .tab-buttons .tab-button.tab-overview::before,
+body#page-course-view-edwiservideoformat .edwiservideo-container .metadata .tabs .tab-buttons .tab-button.tab-overview::before {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  content: "" !important;
+  mask: url("[[pix:mod_edwiservideoactivity|overviewlogo]]") no-repeat center !important;
+  -webkit-mask: url("[[pix:mod_edwiservideoactivity|overviewlogo]]") no-repeat center !important;
+  mask-size: contain !important;
+  -webkit-mask-size: contain !important;
+  background-color: #63718c;
+}
+@supports not (mask: url("")) {
+  body#page-mod-edwiservideoactivity-view .edwiservideo-container .metadata .tabs .tab-buttons .tab-button.tab-overview::before,
+body#page-course-view-edwiservideoformat .edwiservideo-container .metadata .tabs .tab-buttons .tab-button.tab-overview::before {
+    content: url("[[pix:mod_edwiservideoactivity|overviewlogo]]");
+    background-color: unset !important;
+  }
+}
+body#page-mod-edwiservideoactivity-view .edwiservideo-container .metadata .tabs .tab-buttons .tab-button.tab-resources::before,
+body#page-course-view-edwiservideoformat .edwiservideo-container .metadata .tabs .tab-buttons .tab-button.tab-resources::before {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  content: "" !important;
+  mask: url("[[pix:mod_edwiservideoactivity|fileicon]]") no-repeat center !important;
+  -webkit-mask: url("[[pix:mod_edwiservideoactivity|fileicon]]") no-repeat center !important;
+  mask-size: contain !important;
+  -webkit-mask-size: contain !important;
+  background-color: #63718c;
+}
+@supports not (mask: url("")) {
+  body#page-mod-edwiservideoactivity-view .edwiservideo-container .metadata .tabs .tab-buttons .tab-button.tab-resources::before,
+body#page-course-view-edwiservideoformat .edwiservideo-container .metadata .tabs .tab-buttons .tab-button.tab-resources::before {
+    content: url("[[pix:mod_edwiservideoactivity|fileicon]]");
+    background-color: unset !important;
+  }
+}
+body#page-mod-edwiservideoactivity-view .edwiservideo-container .metadata .tabs .tab-buttons .tab-button.tab-transcript::before,
+body#page-course-view-edwiservideoformat .edwiservideo-container .metadata .tabs .tab-buttons .tab-button.tab-transcript::before {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  content: "" !important;
+  mask: url("[[pix:mod_edwiservideoactivity|reportslogo]]") no-repeat center !important;
+  -webkit-mask: url("[[pix:mod_edwiservideoactivity|reportslogo]]") no-repeat center !important;
+  mask-size: contain !important;
+  -webkit-mask-size: contain !important;
+  background-color: #63718c;
+}
+@supports not (mask: url("")) {
+  body#page-mod-edwiservideoactivity-view .edwiservideo-container .metadata .tabs .tab-buttons .tab-button.tab-transcript::before,
+body#page-course-view-edwiservideoformat .edwiservideo-container .metadata .tabs .tab-buttons .tab-button.tab-transcript::before {
+    content: url("[[pix:mod_edwiservideoactivity|reportslogo]]");
+    background-color: unset !important;
+  }
+}
+body#page-mod-edwiservideoactivity-view .edwiservideo-container .metadata .tabs .tab-content,
+body#page-course-view-edwiservideoformat .edwiservideo-container .metadata .tabs .tab-content {
+  display: none;
+  width: 100%;
+}
+body#page-mod-edwiservideoactivity-view .edwiservideo-container .metadata .tabs .tab-content.active,
+body#page-course-view-edwiservideoformat .edwiservideo-container .metadata .tabs .tab-content.active {
+  display: block;
+}
+body#page-mod-edwiservideoactivity-view .edwiservideo-container .metadata .tabs .tab-content#overview,
+body#page-course-view-edwiservideoformat .edwiservideo-container .metadata .tabs .tab-content#overview {
+  font-size: "Inter";
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  vertical-align: middle;
+  letter-spacing: 0%;
+  color: #4c5a73;
+}
+body#page-mod-edwiservideoactivity-view .edwiservideo-container .metadata .tabs .tab-content#resources .resource-item,
+body#page-course-view-edwiservideoformat .edwiservideo-container .metadata .tabs .tab-content#resources .resource-item {
+  width: 100%;
+  margin-bottom: 15px;
+  padding: 12px;
+  border-radius: 4px;
+  border: 1px solid #d5ddea;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 100%;
+  letter-spacing: 0%;
+  display: flex;
+  gap: 10px;
+  width: 100%;
+}
+body#page-mod-edwiservideoactivity-view .edwiservideo-container .metadata .tabs .tab-content#resources .resource-item .resource-text,
+body#page-course-view-edwiservideoformat .edwiservideo-container .metadata .tabs .tab-content#resources .resource-item .resource-text {
+  width: 94.49%;
+}
+body#page-mod-edwiservideoactivity-view .edwiservideo-container .metadata .tabs .tab-content#resources .resource-item .resource-text a,
+body#page-course-view-edwiservideoformat .edwiservideo-container .metadata .tabs .tab-content#resources .resource-item .resource-text a {
+  color: #63718c !important;
+}
+body#page-mod-edwiservideoactivity-view .edwiservideo-container .metadata .tabs .tab-content#resources .resource-item .resource-text .resource-icon,
+body#page-course-view-edwiservideoformat .edwiservideo-container .metadata .tabs .tab-content#resources .resource-item .resource-text .resource-icon {
+  width: 19px;
+  height: 19px;
+}
+body#page-mod-edwiservideoactivity-view .edwiservideo-container .metadata .tabs .tab-content#resources .resource-item a.download img,
+body#page-course-view-edwiservideoformat .edwiservideo-container .metadata .tabs .tab-content#resources .resource-item a.download img {
+  width: 20px;
+  height: 20px;
+  margin: 0px;
+}
+body#page-mod-edwiservideoactivity-view .edwiservideo-container .metadata .tabs .tab-content#transcript .transcript-text,
+body#page-course-view-edwiservideoformat .edwiservideo-container .metadata .tabs .tab-content#transcript .transcript-text {
+  font-size: "Inter";
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  vertical-align: middle;
+  letter-spacing: 0%;
+  color: #4c5a73;
+  max-height: 500px;
+  overflow-y: auto;
+  word-break: break-all;
+}
+
+body#page-mod-edwiservideoactivity-view .edwiservideo-container .metadata .header .activity-header2 .section_action_menu {
+  display: none !important;
+}
+
+body#page-course-view-edwiservideoformat:has(.edwiservideo-formatwrapper) #page #topofscroll .container div.p-mb-3 {
+  margin-bottom: unset;
+}
+
+body.edwiservideoformat-moodle-405 .edwiservideo-container .section-cm-edit-actions .dropdown-subpanel:has(a[aria-label="Group mode"]) .dropdown-menu.dropdown-subpanel-content {
+  top: -176px;
+  right: auto !important;
+  left: 100% !important;
+  margin-top: 0;
+  margin-left: 0.5rem;
+  margin-right: unset;
+}
+
+body:not(.edwiservideoformat-remui-body) .edwiservideo-container .section-actions .dropdown-subpanel:has(a[aria-label="Group mode"]) .dropdown-menu.dropdown-subpanel-content {
+  right: auto !important;
+  left: 100% !important;
+  margin-top: 0;
+  margin-left: 0.5rem;
+  margin-right: unset;
+}
+
+body.edwiservideoformat-mb2nl-body .edwiservideo-container .section-actions .dropdown-subpanel:has(a[aria-label="Group mode"]) .dropdown-menu.dropdown-subpanel-content,
+body.edwiservideoformat-moodle-500 .edwiservideo-container .section-actions .dropdown-subpanel:has(a[aria-label="Group mode"]) .dropdown-menu.dropdown-subpanel-content {
+  top: -124px;
+}

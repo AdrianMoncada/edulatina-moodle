@@ -1,0 +1,36 @@
+ {{!
+    This file is part of Moodle - http://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+}}
+<iframe id="quiziframe" class="edwembededactivity edwembeded" src="{{quizurl}}" frameborder="0" title="Video player"
+allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+allowfullscreen></iframe>
+
+
+{{#js}}
+    const iframe = document.getElementById('quiziframe');
+
+    iframe.onload = function () {
+        const links = iframe.contentDocument.querySelectorAll('.secondary-navigation a:not(.dropdown-toggle)');
+
+        links.forEach(link => {
+            link.setAttribute('target', '_blank');
+            link.addEventListener('click', function (e) {
+                e.preventDefault();
+                window.open(this.href, '_blank');
+            });
+        });
+    };
+{{/js}}

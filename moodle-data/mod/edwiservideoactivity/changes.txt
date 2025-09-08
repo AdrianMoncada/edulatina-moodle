@@ -1,0 +1,6 @@
+Release
+=======
+
+Version 1.0.0
+=============
+Initial Version of Edwiser Video activity plugin.

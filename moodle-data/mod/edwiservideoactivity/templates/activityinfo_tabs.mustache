@@ -1,0 +1,73 @@
+{{!
+    This file is part of Moodle - http://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+}}
+
+<div class="tabs">
+    {{#showtabs}}
+        <div class="tab-buttons">
+            {{#intro}}
+            <button class="tab-button tab-overview active" data-tab="overview">Overview</button>
+            {{/intro}}
+            {{#hasresources}}
+            <button class="tab-button tab-resources {{^intro}}active{{/intro}}" data-tab="resources">Resources</button>
+            {{/hasresources}}
+            {{#hastranscript}}
+            <button class="tab-button tab-transcript {{#make_transcript_active}}active{{/make_transcript_active}}" data-tab="transcript">Transcript</button>
+            {{/hastranscript}}
+        </div>
+    {{/showtabs}}
+
+    {{#intro}}
+        <div class="tab-content active" id="overview">
+            {{{intro}}}
+        </div>
+    {{/intro}}
+
+    {{#hasresources}}
+        <div class="tab-content {{^intro}}active{{/intro}}" id="resources">
+            {{#resources}}
+            <div class="resource-item">
+                <div class="resource-text">
+                    <img class="resource-icon" src="{{icon}}" alt="file icon">
+                    <a href="{{url}}" target="_blank">{{filename}}</a>
+                </div>
+
+                <a href="{{downloadurl}}" target="_blank" class="download" download="{{filename}}">{{#pix}} download, mod_edwiservideoactivity {{/pix}}</a>
+            </div>
+            {{/resources}}
+        </div>
+    {{/hasresources}}
+
+    {{#hastranscript}}
+        <div class="tab-content {{#make_transcript_active}}active{{/make_transcript_active}}" id="transcript">
+            <div class="transcript-text">
+                {{{transcripttext}}}
+            </div>
+        </div>
+    {{/hastranscript}}
+</div>
+
+{{#js}}
+    document.querySelectorAll('.tab-button').forEach(btn => {
+        btn.addEventListener('click', () => {
+            document.querySelectorAll('.tab-button').forEach(b => b.classList.remove('active'));
+            document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+
+            btn.classList.add('active');
+            document.getElementById(btn.dataset.tab).classList.add('active');
+        });
+    });
+{{/js}}

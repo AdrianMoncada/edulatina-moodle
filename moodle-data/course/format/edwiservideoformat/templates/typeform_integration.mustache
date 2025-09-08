@@ -1,0 +1,20 @@
+<div class= "typeform-wrapper">
+    <button class="evf-typeform-init-button d-none  btn btn-primary" data-tf-slider="W6owV27N" data-tf-on-submit="submit">open</button>
+    <script src="//embed.typeform.com/next/embed.js"></script>
+        <script>
+            // this function needs to be available on global scope (window)
+            function submit({ formId, responseId }) {
+                if(formId === 'W6owV27N') {
+                    require(['core_user/repository'], function(UserRepository) {
+                        UserRepository.setUserPreference('typeformcollected', true);
+                    });
+                }
+            }
+        </script>
+</div>
+
+{{#js}}
+    require(['format_edwiservideoformat/typeform_handler'], function(TypeformHandler) {
+        TypeformHandler.init();
+    });
+{{/js}}

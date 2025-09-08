@@ -1,0 +1,79 @@
+{{!
+    This file is part of Moodle - http://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+}}
+{{!
+    @template format_edwiservideoformat/activitychooserbutton
+
+    Displays a custom add activity or resource button for Edwiser Video Format.
+
+    Example context (json):
+    {
+        "customdropdown": true,
+        "dropdownoptions": [
+            {
+                "name": "Quiz",
+                "url": "http://example.com/modedit.php?add=quiz",
+                "iconkey": "icon",
+                "iconcomponent": "mod_quiz",
+                "description": "Quiz description"
+            }
+        ],
+        "sectionnum": 0,
+        "modid": 1,
+        "activityname": "Activity example",
+        "sectionreturn": 0
+    }
+}}
+
+{{! Custom dropdown for Edwiser Video Format }}
+{{#customdropdown}}
+<div class="dropdown">
+    <button class="edwiser-custom-add-button btn add-content d-flex justify-content-center align-items-center p-1 icon-no-margin"
+            type="button"
+            id="dropdownMenuButton-{{#modid}}{{modid}}{{/modid}}{{^modid}}{{uniqid}}{{/modid}}"
+            data-bs-toggle="dropdown"
+            data-toggle="dropdown"
+            {{#modid}}
+            data-beforemod="{{modid}}"
+            {{/modid}}
+            aria-haspopup="true"
+            aria-expanded="false"
+            aria-label="{{#str}}addcontent, core{{/str}}"
+            tabindex="0"
+            title="{{#str}}addcontent, core{{/str}}"
+    >
+        {{#pix}} t/add, core {{/pix}}
+    </button>
+    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton-{{#modid}}{{modid}}{{/modid}}{{^modid}}{{uniqid}}{{/modid}}">
+        {{#dropdownoptions}}
+            {{#divider}}
+                <div class="dropdown-divider"></div>
+            {{/divider}}
+            <a class="dropdown-item d-flex align-items-center" href="{{url}}" title="{{description}}">
+                <div class="optionicon me-2 {{classes}}">
+                    {{#pix}} {{iconkey}}, {{iconcomponent}} {{/pix}}
+                </div>
+                <div class="optionname">{{name}}</div>
+            </a>
+        {{/dropdownoptions}}
+    </div>
+</div>
+{{/customdropdown}}
+
+{{! Fallback to standard behavior if custom dropdown is not available }}
+{{^customdropdown}}
+    {{> core_course/activitychooserbutton }}
+{{/customdropdown}}

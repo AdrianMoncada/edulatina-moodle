@@ -1,0 +1,18 @@
+<div class="edwiservideo-video-wrapper">
+    {{^isembeded}}
+        <video id="video" class="video-player" controls  controlsList="nodownload">
+            <source src="{{sourcepath}}" type="video/mp4">
+            {{#str}}notsupported, mod_edwiservideoactivity{{/str}}
+        </video>
+
+        <div class="video-overlay" id="overlay">
+            <button id="playButton"></button>
+        </div>
+    {{/isembeded}}
+
+    {{#isembeded}}
+        <iframe class="video-player" src="{{sourcepath}}" frameborder="0" title="Video player"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen></iframe>
+    {{/isembeded}}
+</div>

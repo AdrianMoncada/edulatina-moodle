@@ -1,0 +1,50 @@
+ {{!
+    This file is part of Moodle - http://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+}}
+
+<div class="course-details-header">
+    <div class="course-sub-header1 d-flex align-items-center">
+        {{#categorydata}}
+            <div class="categoryname text-clamp text-clamp-1">
+                <a href="{{categoryurl}}">{{coursecategory}}</a>
+            </div>
+        {{/categorydata}}
+        /
+        {{#coursedata}}
+            <div class="coursename text-clamp text-clamp-1">
+                <a href="{{courseurl}}"> {{coursename}}</a>
+            </div>
+        {{/coursedata}}
+    </div>
+
+    <div class="course-sub-header2">
+        <div class="progress-details">
+            <div class="progress-text">
+                Course progress
+            </div>
+
+            <div class="progress progress-rounded">
+                <div class="progress-bar bg-green-600" style="width: {{{courseprogress}}}%; height: 100%;" role="progressbar">
+                    <span class="sr-only">{{{courseprogress}}}% Complete</span>
+                </div>
+            </div>
+            <div class="percentage">
+                {{courseprogress}}%
+            </div>
+        </div>
+
+    </div>
+</div>

@@ -1,0 +1,165 @@
+{{!
+    This file is part of Moodle - http://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+}}
+<div class="edwiservideo-container">
+    <div class="video-wrapper">
+        {{#isedwiservideoactivity}}
+            {{> mod_edwiservideoactivity/videoactivity}}
+        {{/isedwiservideoactivity}}
+
+        {{^isedwiservideoactivity}}
+            {{> mod_edwiservideoactivity/otheractivity}}
+        {{/isedwiservideoactivity}}
+
+        {{#customprevurl}}<a href="{{customprevurl}}" class="edwactivity-prevbtn"></a>{{/customprevurl}}
+        {{#customnexturl}}<a href="{{customnexturl}}" class="edwactivity-nextbtn"></a>{{/customnexturl}}
+
+    </div>
+    {{> mod_edwiservideoactivity/activityinfo}}
+</div>
+
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        const wrapper = document.querySelector('.video-wrapper');
+        const prevBtn = document.querySelector('.edwactivity-prevbtn');
+        const nextBtn = document.querySelector('.edwactivity-nextbtn');
+
+        let touchTimer = null;
+        let isButtonsVisible = false;
+
+        // Show buttons function
+        const showButtons = () => {
+            if (!wrapper || isButtonsVisible) return;
+
+            wrapper.classList.remove('hide-buttons');
+            isButtonsVisible = true;
+
+            // Auto-hide after 3 seconds
+            touchTimer = setTimeout(() => {
+                hideButtons();
+            }, 3000);
+        };
+
+        // Hide buttons function
+        const hideButtons = () => {
+            if (!wrapper || !isButtonsVisible) return;
+
+            wrapper.classList.add('hide-buttons');
+            isButtonsVisible = false;
+
+            if (touchTimer) {
+                clearTimeout(touchTimer);
+                touchTimer = null;
+            }
+        };
+
+                // Touch event handlers for mobile
+        const handleTouchStart = (e) => {
+            showButtons();
+        };
+
+        const handleTouchEnd = (e) => {
+            // Prevent auto-hide when touching buttons
+            if (e.target.closest('.edwactivity-prevbtn') || e.target.closest('.edwactivity-nextbtn')) {
+                if (touchTimer) {
+                    clearTimeout(touchTimer);
+                    touchTimer = setTimeout(() => {
+                        hideButtons();
+                    }, 3000);
+                }
+            }
+        };
+
+                        // Add touch event listeners for mobile
+        if (wrapper) {
+            wrapper.addEventListener('touchstart', handleTouchStart, { passive: true });
+            wrapper.addEventListener('touchend', handleTouchEnd, { passive: true });
+
+                                    // Special handling for iframe - show buttons on iframe load and keep them visible longer
+            const iframe = wrapper.querySelector('iframe');
+            if (iframe) {
+                // Show buttons when iframe loads
+                iframe.addEventListener('load', () => {
+                    setTimeout(() => {
+                        showButtons();
+                    }, 500);
+                });
+
+                // For iframe content, show buttons initially and keep them visible longer
+                setTimeout(() => {
+                    showButtons();
+                    // Extend visibility time for iframe content
+                    if (touchTimer) {
+                        clearTimeout(touchTimer);
+                        touchTimer = setTimeout(() => {
+                            hideButtons();
+                        }, 5000); // 5 seconds for iframe content
+                    }
+                }, 1000);
+
+                                // Global touch detection for iframe content
+                const handleGlobalTouchStart = (e) => {
+                    // Show buttons on any touch anywhere on the screen
+                    showButtons();
+                };
+
+                                // Add global touch listener for iframe content
+                document.addEventListener('touchstart', handleGlobalTouchStart, { passive: true });
+
+                // Remove global listener when buttons are hidden
+                const originalHideButtons = hideButtons;
+                hideButtons = () => {
+                    originalHideButtons();
+                    document.removeEventListener('touchstart', handleGlobalTouchStart);
+                };
+            }
+
+            // Initial auto-hide after 3 seconds
+            setTimeout(() => {
+                wrapper.classList.add('hide-buttons');
+                isButtonsVisible = false;
+            }, 3000);
+        }
+
+        // Existing video overlay functionality
+        const video = document.getElementById('video');
+        const overlay = document.getElementById('overlay');
+        const playButton = document.getElementById('playButton');
+
+        if (overlay && playButton) {
+            overlay.addEventListener('click', () => {
+                if (video) {
+                    video.play();
+                    overlay.style.display = 'none';
+                }
+            });
+        }
+
+        if (video) {
+            video.addEventListener('pause', () => {
+                if (overlay) {
+                    overlay.style.display = 'flex';
+                }
+            });
+
+            video.addEventListener('play', () => {
+                if (overlay) {
+                    overlay.style.display = 'none';
+                }
+            });
+        }
+    });
+</script>
