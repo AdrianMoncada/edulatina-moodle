@@ -1,0 +1,54 @@
+{{!
+    This file is part of Moodle - http://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
+    Edwiser Bridge
+    @package auth_edwiserbridge
+    @copyright (c) 2024 WisdmLabs (https://wisdmlabs.com/)
+    @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+}}
+{{!
+    @template auth_edwiserbridge/license_form
+
+    Edwiser Bridge license form template
+
+    Context variables required for this template:
+    * isvalidlicense: Is valid license
+    * licensekey: License key
+    * deactivate: Deactivate
+    * licensestatus: License status
+    * ebactive: Active
+    * activate: Activate
+
+    Example context (JSON):
+    {
+        "isvalidlicense": "value1",
+        "licensekey": "value2",
+        "deactivate": "value3",
+        "licensestatus": "value4",
+        "ebactive": "value5",
+        "activate": "value6"
+}}
+<form method="post">
+    <input type="text" class="eb_pro_license_input" name="eb_license_key" placeholder="License key" value="{{ licensekey }}" />
+    {{# isvalidlicense }}
+        <span class="eb_pro_license_active">{{{ ebactive }}}</span>
+        <input type="submit" name="eb_license_deactivate" class="eb_pro_license_btn" value="{{ deactivate }}" />
+    {{/ isvalidlicense }}
+    {{^ isvalidlicense }}
+        <span class="eb_pro_license_not_active">{{ licensestatus }}</span>
+        <input type="submit" name="eb_license_activate" class="eb_pro_license_btn" value="{{ activate }}" />
+    {{/ isvalidlicense }}
+</form>

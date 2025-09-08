@@ -1,0 +1,98 @@
+{{!
+    This file is part of Moodle - http://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
+    Edwiser Bridge
+    @package auth_edwiserbridge
+    @copyright (c) 2024 WisdmLabs (https://wisdmlabs.com/)
+    @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+}}
+{{!
+    @template auth_edwiserbridge/installation_guide
+
+    Setup wizard footer template
+
+    Context variables required for this template:
+    * installationnote1 - Installation note 1
+    * modulenamefreewpplugin - Module name for free WP plugin
+    * modulenamefreemdlplugin - Module name for free MDL plugin
+    * installationnote2 - Installation note 2
+    * continuebtn - Continue button text
+    * step - Current step
+    * nextstep - Next step
+    * isnextsubstep - Is next step a sub step
+    * installationfaq - Installation FAQ
+    * faqdownloadplugin - Download plugin text
+    * faqsteps - FAQ steps
+    * faqstep1 - FAQ step 1
+    * faqstep2 - FAQ step 2
+    * faqstep3 - FAQ step 3
+    * faqstep4 - FAQ step 4
+
+
+    Example context (JSON):
+    {
+        "installationnote1": "value1",
+        "modulenamefreewpplugin": "value2",
+        "modulenamefreemdlplugin": "value3",
+        "installationnote2": "value4",
+        "continuebtn": "value5",
+        "step": "value6",
+        "nextstep": "value7",
+        "isnextsubstep": "value8",
+        "installationfaq": "value9",
+        "faqdownloadplugin": "value10",
+        "faqsteps": "value11",
+        "faqstep1": "value12",
+        "faqstep2": "value13",
+        "faqstep3": "value14",
+        "faqstep4": "value15"
+    }
+
+}}
+<div class="eb_setup_installation_guide es-w-80">
+    <div>
+        <p class="eb_setup_p"> {{installationnote1}} </p>
+        <div class="eb_setup_p_wrap">
+            <p class="eb_setup_h2"> <i class="fa-solid fa-circle-chevron-right"></i> {{modulenamefreewpplugin}} </p>
+            <p class="eb_setup_h2"> <i class="fa-solid fa-circle-chevron-right"></i> {{modulenamefreemdlplugin}} </p>
+        </div>
+        <span class="eb_setup_p"> {{installationnote2}} </span>
+        <div class="eb_setup_btn_wrap">
+            <button class="eb_setup_btn eb_setup_save_and_continue" data-step='{{step}}' data-next-step='{{nextstep}}' data-is-next-sub-step='{{isnextsubstep}}'>
+                {{continuebtn}}
+            </button>
+        </div>
+    </div>
+    <div>
+        <div class='es-p-t-10'>
+            <div class='accordion'> <i class="fa-solid fa-circle-question"></i> {{installationfaq}} <i class="fa-solid fa-chevron-down"></i> <i class="fa-solid fa-chevron-up"></i> </div>
+            <div class="panel">
+                <div>
+                    <a class="eb_setup_sec_btn" href='https://downloads.wordpress.org/plugin/edwiser-bridge.zip'> {{faqdownloadplugin}} </a>
+                </div>
+                <p>
+                    <p class='es-p-t-10'> {{faqsteps}} </p>
+                    <ol>
+                        <li class='es-p-b-10'> {{faqstep1}} </li>
+                        <li class='es-p-b-10'> {{faqstep2}} </li>
+                        <li class='es-p-b-10'> {{faqstep3}} </li>
+                        <li class='es-p-b-10'> {{faqstep4}} </li>
+                    </ol>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,126 @@
+{{!
+    This file is part of Moodle - http://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
+    Edwiser Bridge
+    @package auth_edwiserbridge
+    @copyright (c) 2024 WisdmLabs (https://wisdmlabs.com/)
+    @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+}}
+{{!
+    @template auth_edwiserbridge/web_service
+
+    Web service template
+
+    Context variables required for this template:
+    * setupwebservicenote1: Note for setting up web service
+    * setupwebserviceh1: Heading 1 for setting up web service
+    * setupwebserviceh2: Heading 2 for setting up web service
+    * or: Text for "or" separator
+    * sumwebservices: Label for existing web services dropdown
+    * webservicetip: Tooltip text for web services dropdown
+    * existingservices: Array of existing web services
+        ** key: Key for the web service
+        ** value: Value for the web service
+        ** selected: Whether the option is selected or not
+    * newserviceinplbl: Label for new web service input
+    * namewebservicetip: Tooltip text for new web service input
+    * setupcontinuebtn: Text for continue button
+    * step: Current step number
+    * nextstep: Next step number
+    * isnextsubstep: Whether the next step is a sub-step or not
+    * disable: Class to disable the continue button
+
+    Example context (JSON):
+    {
+        "setupwebservicenote1": "value1",
+        "setupwebserviceh1": "value2",
+        "setupwebserviceh2": "value3",
+        "or": "value4",
+        "sumwebservices": "value5",
+        "webservicetip": "value6",
+        "existingservices": [
+            {
+                "key": "value7",
+                "value": "value8",
+                "selected": true
+            },
+            {
+                "key": "value9",
+                "value": "value10",
+                "selected": false
+            }
+        ],
+        "newserviceinplbl": "value11",
+        "namewebservicetip": "value12",
+        "setupcontinuebtn": "value13",
+        "step": "value14",
+        "nextstep": "value15",
+        "isnextsubstep": true,
+        "disable": "value16"
+    }
+}}
+<div class="eb_setup_web_service es-w-80">
+    <div>
+        <p>{{{setupwebservicenote1}}}</p>
+        <div class="eb_setup_p_wrap">
+            <div class="eb_setup_h2">
+                <i class="fa-solid fa-circle-chevron-right"></i>
+                {{{setupwebserviceh1}}}
+            </div>
+            <div class="eb_setup_separator">
+                <div class="eb_setup_hr"><hr></div>
+                <div><span>{{{or}}}</span></div>
+                <div class="eb_setup_hr"><hr></div>
+            </div>
+            <div class="eb_setup_h2">
+                <i class="fa-solid fa-circle-chevron-right"></i>
+                {{{setupwebserviceh2}}}
+            </div>
+        </div>
+        <div>
+            <div class="eb_setup_conn_url_inp_wrap">
+                <p>
+                    <label class="eb_setup_h2">{{{sumwebservices}}}</label>
+                    <i class="fa-solid fa-info eb-tooltip es-info-icon">
+                        <span class='eb-tooltiptext'>{{{webservicetip}}}</span>
+                    </i>
+                </p>
+                <select name="eb_setup_web_service_list" class="eb_setup_inp eb_setup_web_service_list">
+                    {{#existingservices}}
+                    <option value="{{key}}" {{selected}}>{{value}}</option>
+                    {{/existingservices}}
+                </select>
+            </div>
+            <div class="eb_setup_conn_url_inp_wrap eb_setup_web_service_name_wrap">
+                <p>
+                    <label class="eb_setup_h2">{{{newserviceinplbl}}}</label>
+                    <i class="fa-solid fa-info eb-tooltip es-info-icon">
+                        <span class='eb-tooltiptext'>{{{namewebservicetip}}}</span>
+                    </i>
+                </p>
+                <input class="eb_setup_inp eb_setup_web_service_name" id="eb_setup_web_service_name" name="eb_setup_web_service_name" type="text">
+            </div>
+            <div class="eb_setup_btn_wrap">
+                <button class="eb_setup_btn eb_setup_web_service_btn eb_setup_save_and_continue {{disable}}"
+                        data-step='{{step}}'
+                        data-next-step='{{nextstep}}'
+                        data-is-next-sub-step='{{isnextsubstep}}' {{disable}}>
+                    {{{setupcontinuebtn}}}
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

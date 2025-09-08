@@ -1,0 +1,152 @@
+{{!
+    This file is part of Moodle - http://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
+    Edwiser Bridge
+    @package auth_edwiserbridge
+    @copyright (c) 2024 WisdmLabs (https://wisdmlabs.com/)
+    @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+}}
+{{!
+    @template auth_edwiserbridge/setup_complete_details
+
+    Setup wizard complete details template
+
+    Context variables required for this template:
+    * whatnext: The heading text for the "What's Next?" section.
+    * setupcompletionnote1: The note text for the "What's Next?" section.
+    * setupcompletionnote2: The heading text for the setup completion cards section.
+    * mdlurl: The heading text for the Moodle URL card.
+    * url: The Moodle URL value.
+    * wptoken: The heading text for the WordPress token card.
+    * token: The WordPress token value.
+    * ebmformlangdesc: The heading text for the language code card.
+    * lang: The language code value.
+    * or: The text to display between the setup completion cards and the download credentials button.
+    * setupcompletionnote3: The heading text for the download credentials section.
+    * mdledwiserbridgetxtdownload: The text for the download credentials button.
+    * setupcompletionnote4: The note text for the final section.
+    * back: The text for the "Back" button.
+    * prevurl: The URL for the "Back" button.
+    * continuewpwizardbtn: The text for the "Continue to WordPress Wizard" button.
+    * wpurl: The URL for the "Continue to WordPress Wizard" button.
+    * step: The current step in the setup wizard.
+    * nextstep: The next step in the setup wizard.
+    * isnextsubstep: A flag indicating whether the next step is a sub-step.
+    * setupcontinuebtn: The text for the "Continue" button (hidden by default).
+    * ebsetupredirectionpopup: The HTML content for the redirection popup.
+    * ebsetupcompletionpopup: The HTML content for the completion popup.
+
+    Example context (JSON):
+    {
+        "whatnext": "value1",
+        "setupcompletionnote1": "value1",
+        "setupcompletionnote2": "value1",
+        "mdlurl": "value1",
+        "url": "value1",
+        "wptoken": "value1",
+        "token": "value1",
+        "ebmformlangdesc": "value1",
+        "lang": "value1",
+        "or": "value1",
+        "setupcompletionnote3": "value1",
+        "mdledwiserbridgetxtdownload": "value1",
+        "setupcompletionnote4": "value1",
+        "back": "value1",
+        "prevurl": "value2",
+        "continuewpwizardbtn": "value1",
+        "wpurl": "value2",
+        "step": "value1",
+        "nextstep": "value1",
+        "isnextsubstep": "value1",
+        "setupcontinuebtn": "value1",
+        "ebsetupredirectionpopup": "value1",
+        "ebsetupcompletionpopup": "value1"
+    }
+}}
+<div class="eb_setup_complete_details es-w-80">
+    <div>
+        <div>
+            <span class='eb_setup_h2'>{{{whatnext}}}</span>
+            <div>{{{setupcompletionnote1}}}</div>
+        </div>
+        <div class="eb_setup_complete_card_wrap">
+            <div class="eb_setup_h2">
+                <i class="fa-solid fa-circle-chevron-right"></i>
+                {{{setupcompletionnote2}}}</div>
+            <div class="eb_setup_complete_cards">
+                <div class="eb_setup_complete_card eb_setup_copy" data-copy='{{url}}'>
+                    <div>
+                        <span class="eb_setup_h2">{{{mdlurl}}}</span>
+                        <div class="eb_setup_copy_url">{{url}}</div>
+                    </div>
+                    <div class="eb_setup_copy_icon" data-copy='{{url}}'>
+                        <i class="fa-solid fa-copy"></i>
+                    </div>
+                </div>
+                <div class="eb_setup_complete_card eb_setup_copy" data-copy='{{token}}'>
+                    <div>
+                        <span class="eb_setup_h2">{{{wptoken}}}</span>
+                        <div class="eb_setup_copy_token" style="word-break:break-all;">{{token}}</div>
+                    </div>
+                    <div class="eb_setup_copy_icon" data-copy='{{token}}'>
+                        <i class="fa-solid fa-copy"></i>
+                    </div>
+                </div>
+                <div class='eb_setup_complete_card eb_setup_copy' data-copy='{{lang}}'>
+                    <div>
+                        <span class='eb_setup_h2'>{{{ebmformlangdesc}}}</span>
+                        <div class="eb_setup_copy_lang">{{lang}}</div>
+                    </div>
+                    <div class="eb_setup_copy_icon" data-copy='{{lang}}'>
+                        <i class="fa-solid fa-copy"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="eb_setup_separator">
+                <div class="eb_setup_hr">
+                    <hr>
+                </div>
+                <div>
+                    <span>{{{or}}}</span>
+                </div>
+                <div class="eb_setup_hr">
+                    <hr>
+                </div>
+            </div>
+            <p class="eb_setup_h2">
+                <i class="fa-solid fa-circle-chevron-right"></i>
+                {{{setupcompletionnote3}}}</p>
+            <button class="eb_setup_sec_btn eb_setup_download_creds">
+                {{{mdledwiserbridgetxtdownload}}}</button>
+        </div>
+        <div>
+            <p>{{{setupcompletionnote4}}}</p>
+            <div class="eb_setup_btn_wrap">
+                <a class="eb_setup_sec_btn" href="{{prevurl}}">
+                    {{{back}}}
+                </a>
+                <a class='eb_setup_btn eb_redirect_to_wp' target='_blank' href="{{wpurl}}" data-step='{{step}}' data-next-step='{{nextstep}}' data-is-next-sub-step='{{isnextsubstep}}'>
+                    {{{continuewpwizardbtn}}}
+                </a>
+                <a style='display: none;' class='eb_setup_btn eb_redirect_to_wp_btn' target='_blank' href="{{wpurl}}">
+                    {{{setupcontinuebtn}}}
+                </a>
+            </div>
+        </div>
+    </div>
+    <div>{{{ebsetupredirectionpopup}}}</div>
+    <div>{{{ebsetupcompletionpopup}}}</div>
+</div>

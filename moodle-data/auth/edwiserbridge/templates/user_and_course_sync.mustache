@@ -1,0 +1,113 @@
+{{!
+    This file is part of Moodle - http://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
+    Edwiser Bridge
+    @package auth_edwiserbridge
+    @copyright (c) 2024 WisdmLabs (https://wisdmlabs.com/)
+    @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+}}
+{{!
+    @template auth_edwiserbridge/user_and_course_sync
+
+    User and course sync template
+
+    Context variables required for this template:
+    * setupsyncnote1: Note for user and course sync
+    * selectall: Text for "Select All" option
+    * recommended: Text indicating "Recommended" option
+    * allchecked: Boolean indicating if "Select All" option is checked
+    * syncsettings: Array of sync settings
+      - name: Name of the sync setting
+      - label: Label for the sync setting
+      - tip: Tooltip text for the sync setting
+      - checked: Boolean indicating if the sync setting is checked
+    * prevurl: URL for the previous step
+    * nexturl: URL for the next step
+    * back: Text for the "Back" button
+    * skip: Text for the "Skip" button
+    * setupcontinuebtn: Text for the "Continue" button
+    * step: Current step number
+    * nextstep: Next step number
+    * isnextsubstep: Boolean indicating if the next step is a sub-step
+
+    Example context (JSON):
+    {
+        "setupsyncnote1": "value1",
+        "selectall": "value2",
+        "recommended": "value3",
+        "allchecked": true,
+        "syncsettings": [
+        {
+            "name": "setting1",
+            "label": "value4",
+            "tip": "value5",
+            "checked": true
+        },
+        {
+            "name": "setting2",
+            "label": "value6",
+            "tip": "value7",
+            "checked": false
+        }
+        ],
+        "prevurl": "value8",
+        "nexturl": "value9",
+        "back": "value10",
+        "skip": "value11",
+        "setupcontinuebtn": "value12",
+        "step": 1,
+        "nextstep": 2,
+        "isnextsubstep": false
+    }
+}}
+<div class="eb_setup_user_and_course_sync es-p-t-b-30 es-w-80">
+    <div>
+        <div>
+            <p>{{{setupsyncnote1}}}</p>
+            <div class="eb_setup_inp_wrap">
+                <label class='esw-cb-container'>
+                    <input type='checkbox' name='eb_setup_sync_all' id='eb_setup_sync_all' {{#allchecked}}checked{{/allchecked}}>
+                    <span class='esw-cb-checkmark'></span>
+                    <span class="eb_setup_h2">{{{selectall}}} {{{recommended}}}</span>
+                </label>
+            </div>
+            <hr>
+            {{#syncsettings}}
+            <div class="eb_setup_inp_wrap">
+                <label class='esw-cb-container'>
+                    <input type='checkbox' class="eb_setup_sync_cb" name='{{name}}' id='{{name}}' {{#checked}}checked{{/checked}}>
+                    <span class='esw-cb-checkmark'></span>
+                    <span class="eb_setup_h2">{{{label}}}</span>
+                    <i class="fa-solid fa-info eb-tooltip es-info-icon">
+                        <span class='eb-tooltiptext'>{{{tip}}}</span>
+                    </i>
+                </label>
+            </div>
+            {{/syncsettings}}
+            <div class="eb_setup_btn_wrap">
+                <a class="eb_setup_sec_btn" href="{{prevurl}}">
+                    {{{back}}}
+                </a>
+                <a class="eb_setup_sec_btn" href="{{nexturl}}">
+                    {{{skip}}}
+                </a>
+                <button class="eb_setup_btn eb_setup_save_and_continue" data-step="{{step}}" data-next-step="{{nextstep}}" data-is-next-sub-step="{{isnextsubstep}}">
+                    {{{setupcontinuebtn}}}
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

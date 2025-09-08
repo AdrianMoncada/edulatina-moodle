@@ -1,0 +1,584 @@
+<?php
+// This file is part of Moodle - https://moodle.org/
+//
+// Moodle is free software: you can redistribute it and/or modify
+// it under the terms of the GNU General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+//
+// Moodle is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU General Public License for more details.
+//
+// You should have received a copy of the GNU General Public License
+// along with Moodle.  If not, see <https://www.gnu.org/licenses/>.
+
+/**
+ * Language file for auth_edwiserbridge
+ * English strings
+ *
+ * @package    auth_edwiserbridge
+ * @copyright  2016 WisdmLabs (https://wisdmlabs.com)
+ * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ */
+
+defined('MOODLE_INTERNAL') || die();
+
+/**************  by default strings used by the moodle  ****************/
+$string['auth_edwiserbridgedescription'] = '';
+$string['blank'] = '';
+$string['modulename'] = 'Edwiser Bridge';
+$string['modulename_help'] = '';
+$string['modulenameplural'] = 'Edwiser Bridge';
+$string['pluginadministration'] = 'Edwiser Bridge administrator';
+$string['pluginname'] = 'Edwiser Bridge';
+
+/**************  end of the strings used by default by the moodle  ****************/
+
+/*** TABS  ***/
+$string['summary'] = 'Summary';
+$string['tab_conn'] = 'Wordpress Site';
+$string['tab_mdl_required_settings'] = 'General';
+$string['tab_service'] = 'Web Service';
+$string['tab_sso'] = 'SSO';
+$string['tab_synch'] = 'Synchronization';
+/*******/
+$string['lang_label'] = 'Language Code';
+/******* navigation menu and settings page   ********/
+
+$string['wp_site_settings_title'] = 'Site Settings :';
+$string['nav_name'] = 'Settings';
+$string['default_settings_nav'] = 'Settings';
+$string['run_setup'] = 'Run Setup Wizard';
+
+
+$string['edwiserbridge'] = 'Edwiser Bridge';
+$string['eb-setting-page-title'] = 'Edwiser Bridge Two Way Synchronization Settings';
+$string['eb-setting-page-title_help'] = 'Edwiser Bridge Two Way Synchronization Settings';
+
+$string['eb-setup-page-title'] = 'Edwiser Bridge Setup Wizard';
+$string['eb-setup-page-title_help'] = 'Edwiser Bridge Setup Wizard';
+
+$string['enrollment_checkbox'] = 'User Enrollment.';
+$string['enrollment_checkbox_desc'] = 'Enroll user from Moodle to Wordpress for linked users.';
+$string['unenrollment_checkbox'] = 'User Unenrollment.';
+$string['unenrollment_checkbox_desc'] = 'Unenroll user from Moodle to Wordpress for linked users.';
+$string['user_creation_checkbox'] = 'User Creation';
+$string['user_creation_checkbox_desc'] = 'Create user In linked Wordpress site when created in Moodle Site.';
+$string['user_deletion_checkbox'] = 'User Deletion';
+$string['user_deletion_checkbox_desc'] = 'Delete user In linked Wordpress site when deleted in Moodle Site.';
+
+$string['course_creation_checkbox'] = 'Course Creation';
+$string['course_creation_checkbox_desc'] = 'This will create course in Wordpress site.';
+$string['course_deletion_checkbox'] = 'Course Deletion';
+$string['course_deletion_checkbox_desc'] = 'This won\'t delete course but it will mark course as deleted in linked Wordpress site.';
+$string['user_updation_checkbox'] = 'User Update';
+$string['user_updation_checkbox_desc'] = 'This will update user first name, last name, email and password and won\'t update username.';
+
+$string['wp_settings_section'] = 'Wordpress Connection Settings';
+$string['wordpress_url'] = 'Wordpress URL';
+$string['wp_token'] = 'Moodle Access Token';
+$string['wp_test_conn_btn'] = 'Test Connection';
+$string['wp_test_remove_site'] = 'Remove Site';
+$string['add_more_sites'] = 'Add New Site';
+$string['wordpress_site_name'] = 'Site Name';
+$string['site-list'] = 'Wordpress Sites';
+
+$string['next'] = 'Next';
+$string['save'] = 'Save';
+$string['save_cont'] = 'Save and Continue';
+
+$string['token_help'] = 'Please enter the access token generated while creating the web service.';
+$string['wordpress_site_name_help'] = 'Please enter unique site name.';
+$string['wordpress_url_help'] = 'Please enter Wordpress site URL.';
+
+$string['existing_web_service_desc'] = 'Select existing web service if you have created already.';
+$string['new_web_service_desc'] = 'Create new web service';
+$string['new_web_new_service'] = 'Create new web service';
+
+$string['new_service_inp_lbl'] = 'Name for the Web Service';
+$string['new_service_user_lbl'] = 'Select User';
+$string['existing_service_lbl'] = 'Select web service';
+$string['token_dropdown_lbl'] = 'Select Token';
+
+$string['web_service_token'] = 'Token generated after creating service';
+$string['moodle_url'] = 'Moodle site URL.';
+$string['web_service_name'] = 'Web Service Name';
+$string['web_service_auth_user'] = 'Authorized user.';
+
+$string['auth_user_desc'] = 'All admin users used as Authorized User while creating token.';
+$string['existing_service_desc'] = 'Edwiser web-service functions will get added into it and also be used as reference for upcoming updates.';
+
+$string['eb_settings_msg'] = 'To complete Edwiser Bridge Set up ';
+$string['click_here'] = ' Click Here ';
+$string['eb_dummy_msg'] = 'Set up Wizard field';
+
+$string['eb_mform_service_desc'] = 'Service desc';
+$string['eb_mform_service_desc_help'] = 'Edwiser web-service functions will get added into it and also be used as reference for upcoming updates.';
+
+$string['eb_mform_token_desc'] = 'Webservice Token';
+$string['eb_mform_token_desc_help'] = 'This is your last created token used in wp for site integration.';
+$string['eb_mform_ur_desc_help'] = 'Please copy this URL and paste it to your Wordpress site to complete the connection between Moodle and Wordpress.';
+$string['eb_mform_ur_desc'] = 'Site URL';
+
+$string['eb_mform_lang_desc_help'] = 'Please copy this language code and paste it to your Wordpress site to complete the connection between Moodle and Wordpress.';
+$string['eb_mform_lang_desc'] = 'Site Language Code';
+/*********************************/
+
+/*********** Settings page validation and Modal strings************/
+$string['create_service_shortname_err'] = 'Unable to create the web service please contact plugin owner.';
+$string['create_service_name_err'] = 'This name is already in use please use different name.';
+$string['create_service_creation_err'] = 'Unable to create the web service please contact plugin owner.';
+$string['empty_userid_err'] = 'Please select the user.';
+$string['eb_link_success'] = 'Web service successfully linked.';
+$string['eb_link_err'] = 'Unable to link the web service.';
+$string['eb_service_select_err'] = 'Please select valid external web service.';
+$string['eb_service_info_error'] = ' service functions missing in your currently selected service, Please Update service to add all missing webservice functions.';
+
+$string['dialog_title'] = 'Token And Url';
+$string['site_url'] = 'Site Url ';
+$string['token'] = 'Token ';
+$string['copy'] = 'Copy';
+$string['copied'] = 'Copied !!!';
+$string['create'] = 'Create Web Service';
+$string['create_wp_site'] = '- Create -';
+$string['link'] = 'Update Web Service';
+$string['click_to_copy'] = 'Click to copy.';
+$string['pop_up_info'] = 'Copy Moodle site URL and the token to your Wordpress site Edwiser Bridge connection settings.';
+
+/**********************************/
+
+/******  Form validation.  ******/
+$string['required'] = '- You must supply a value here.';
+$string['sitename-duplicate-value'] = ' - Site Name already exists, Please provide a different value.';
+$string['url-duplicate-value'] = ' - Wordpress Url already exists, Please provide a different value.';
+/************/
+
+/*****  web service  *******/
+$string['web_service_wp_url'] = 'Wordpress site URL.';
+$string['web_service_wp_token'] = 'Web service token.';
+$string['web_service_test_conn'] = 'Web service test connection type.';
+
+$string['web_service_test_conn_status'] = '1 if successful connection and 0 on failure.';
+$string['web_service_test_conn_msg'] = 'Success or error message.';
+
+$string['web_service_site_index'] = 'Site index is the nth no. of site saved in Edwiser Bridge settings.';
+
+$string['web_service_course_enrollment'] = 'Checks if the course enrollment is performed for the saved site';
+$string['web_service_course_un_enrollment'] = 'Checks if the course un-enrollment is performed for the saved site';
+$string['web_service_user_creation'] = 'Checks if the user creation is performed for the saved site';
+$string['web_service_user_deletion'] = 'Checks if the user deletion is performed for the saved site';
+$string['web_service_course_creation'] = 'Checks if Edwiser Bridge 2 way sync course creation is enabled.';
+$string['web_service_course_deletion'] = 'Checks if Edwiser Bridge 2 way sync course deletion is enabled.';
+$string['web_service_user_update'] = 'Checks if Edwiser Bridge 2 way sync user update is enabled.';
+
+$string['web_service_offset'] = 'This is the offset for the select query.';
+$string['web_service_limit'] = 'This limits the number of users returned.';
+$string['web_service_search_string'] = 'This string will be searched in the select query.';
+$string['web_service_total_users'] = 'Total number of users present in Moodle.';
+
+$string['web_service_id'] = 'User Id.';
+$string['web_service_username'] = 'Username of the user.';
+$string['web_service_firstname'] = 'First name of the user.';
+$string['web_service_lastname'] = 'Last name of the user.';
+$string['web_service_email'] = 'Email of the user.';
+$string['eb_plugin_name'] = 'Plugin Name';
+$string['eb_plugin_version'] = 'Plugin Version';
+$string['web_service_rest_protocol'] = 'Check if rest protocol is enabled.';
+$string['web_service_web_service'] = 'Check if web services setting is enabled.';
+$string['web_service_extended_char'] = 'Check if extended characters are allowed in username.';
+$string['web_service_password_policy'] = 'Check if password policy is enabled.';
+$string['web_service_lang_code'] = 'check what is the default language code for the site.';
+$string['web_service_student_role_id'] = 'Default role id of student role.';
+
+$string['web_service_courseid'] = 'Course ID.';
+$string['web_service_fullname'] = 'Course Name.';
+$string['web_service_categoryid'] = 'Category Id of the course.';
+$string['web_service_total_courses'] = 'Total number of courses present in Moodle.';
+
+$string['web_service_cohort_id'] = 'Cohort id which will be deleted in Moodle';
+$string['web_service_operation_status'] = 'Operation status (1 for success, 0 for failure)';
+$string['web_service_manual_enrolment'] = 'Returns 1 if manual enrolment is enabled and 0 if disabled.';
+$string['web_service_user_id'] = 'User ID to get progress for';
+$string['web_service_completion_percentage'] = 'Completion percentage of the user.';
+$string['web_service_cohort_courseid']= 'Course Id in which cohort wil be enrolled.';
+$string['web_service_course_cohortid'] = 'Cohort Id which will be enrolled in the course.';
+$string['web_service_course_unenroll'] = 'If true, cohort will be unenrolled from the course.';
+$string['web_service_instance_id'] = 'Id of the instance';
+$string['api_cohort_not_found'] = 'Cohort does not exist.';
+$string['setup_wizard_next_step_html_data'] = 'Setup wizards next step html content';
+$string['setup_wizard_next_step_title'] = 'Setup wizards next step title';
+$string['wp_test_connection_success'] = 'Connection Successful';
+$string['web_service_test_conn_warnings'] = 'Warnings';
+$string['web_service_test_conn_warning'] = 'warning';
+
+/******/
+
+/****  error handling  ***/
+$string['default_error'] = 'Please check the URL or wordpress site permalink: to know more about this error <a href=\'https://edwiser.helpscoutdocs.com/collection/85-edwiser-bridge-plugin\'  target=\'_blank\'> click here </a>';
+$string['wp_site_error'] = 'HTML response received from WordPress. Please make sure the WordPress site is up and running.';
+$string['bitninja_error'] = 'Request blocked by BitNinja. Please whitelist the IP address of your Moodle server.';
+$string['cloudflare_error'] = 'Request blocked by Cloudflare. Please whitelist the IP address of your Moodle server.';
+$string['modsecurity_error'] = 'Request blocked by Mod Security. Please whitelist the IP address of your Moodle server.';
+
+$string['eb_empty_name_err'] = 'Please enter valid service name.';
+$string['eb_empty_user_err'] = 'Please select user.';
+
+/**/
+$string['please_enable'] = 'Error : Please fix this issue in settings';
+
+/*****************  Set up Moodle Settings  *****************/
+$string['password_policy_cb'] = 'Password Policy.';
+$string['password_policy_cb_desc'] = 'If enabled, user passwords will be checked against the password policy as specified in the settings below. Enabling the password policy will not affect existing users until they decide to, or are required to, change their password.';
+
+$string['extended_char_username_cb'] = 'Allow extended characters in usernames.';
+$string['extended_char_username_cb_desc'] = 'Enable this setting to allow students to use any characters in their usernames (note this does not affect their actual names). The default is \'false\' which restricts usernames to be alphanumeric lowercase characters, underscore (_), hyphen (-), period (.) or at symbol (@).';
+
+$string['web_service_cb'] = 'Enable Web Services.';
+$string['web_service_cb_desc'] = 'Recommended:yes';
+
+$string['web_rest_protocol_cb'] = 'Enable REST Protocol.';
+$string['web_rest_protocol_cb_desc'] = 'Recommended:yes';
+$string['enable_auto_update_check'] = 'Enable Auto Update Check.';
+$string['enable_auto_update_check_desc'] = 'This will enable auto update check for the plugin. When enabled, the plugin will check for updates automatically and show a notification in the Moodle admin dashboard.';
+/**********************************/
+
+/********  Summary page  ********/
+$string['sum_rest_protocol'] = 'Rest Protocol';
+$string['sum_web_services'] = 'Web Service';
+$string['sum_pass_policy'] = 'Password Policy';
+$string['sum_extended_char'] = 'Allow Extended Characters In Username';
+$string['sum_service_link'] = 'Service Linked';
+$string['sum_token_link'] = 'Token Linked';
+$string['web_service_status'] = 'Web Service Function';
+$string['test_connection_status'] = 'Connection Status';
+$string['web_service_cap'] = 'Capability';
+
+$string['sum_error_rest_protocol'] = 'Error: Please enable Rest Protocol';
+$string['sum_error_web_services'] = 'Error: Please enable Web Service';
+$string['sum_error_pass_policy'] = 'Error: Please disable Password Policy';
+$string['sum_error_extended_char'] = 'Error: Please enable Allow Extended Characters in username';
+$string['sum_error_service_link'] = 'Error: Please update Service and Token';
+$string['sum_error_token_link'] = 'Error: Please update Token ';
+
+$string['here'] = ' here ';
+
+$string['summary_setting_section'] = 'General Settings Summary';
+$string['summary_connection_section'] = 'Connection Settings Summary';
+$string['edwiser_bridge_plugin_summary'] = 'Edwiser Bridge Plugin Summary';
+
+$string['enabled'] = 'Enabled';
+$string['disabled'] = 'Disabled';
+
+$string['mdl_url'] = 'Moodle URL';
+$string['wp_test_connection_failed'] = 'Server rewrite rules are not enabled or Wordpress permalink is not postname. Also, check if you have any firewall or security plugin, If yes  Whitelist Moodle URL and IP. If this does not fix then connect with your Hosting providers.';
+/**************/
+
+/*****************************  ADDED FOR SETTINGS PAGE   *****************************/
+$string['manual_notification'] = 'MANUAL NOTIFICATION';
+
+/*********  Form error Handling.    *******/
+$string['service_name_empty'] = 'Please enter web service name';
+$string['user_empty'] = 'Please select User';
+$string['token_empty'] = 'Please select Token';
+
+$string['web_service_creation_status'] = 'Web service creation status';
+$string['web_service_creation_msg'] = 'Web service creation message';
+$string['web_service_api_msg'] = 'message';
+
+/*
+ * GDPR compatibility strings.
+ */
+$string['privacy:metadata:wp_site'] = 'In order to integrate with a WordPress site, user data needs to be exchanged with WordPress. Which will perform actions like user creation, user deletion, user metedata update, user enrollment synchronization and user un-enrollment synchronization on WordPress site.';
+$string['privacy:metadata:wp_site:userid'] = 'The userid is sent from Moodle to perform any of the actions mentioned in above site description on WordPress site.';
+$string['privacy:metadata:wp_site:email'] = 'Your email is sent to the WordPress site to perform any of the actions mentioned in above site description on WordPress site';
+$string['privacy:metadata:wp_site:username'] = 'The username is sent from Moodle to perform any of the actions mentioned in above site description on WordPress site';
+$string['privacy:metadata:wp_site:firstname'] = 'The first name is sent from Moodle to perform any of the actions mentioned in above site description on WordPress site';
+$string['privacy:metadata:wp_site:lastname'] = 'The last name is sent from Moodle to perform any of the actions mentioned in above site description on WordPress site';
+$string['privacy:metadata:wp_site:password'] = 'The password is sent from Moodle to perform any of the actions mentioned in above site description on WordPress site';
+$string['privacy:metadata:wp_site:country'] = 'The country is sent from Moodle to perform any of the actions mentioned in above site description on WordPress site';
+$string['privacy:metadata:wp_site:city'] = 'The city is sent from Moodle to perform any of the actions mentioned in above site description on WordPress site';
+$string['privacy:metadata:wp_site:phone'] = 'The phone is sent from Moodle to perform any of the actions mentioned in above site description on WordPress site';
+$string['privacy:metadata:wp_site:custom_fields'] = 'The custom fields data is sent from Moodle to perform any of the actions mentioned in above site description on WordPress site';
+
+// Plugin stats.
+$string['mdl_edwiser_bridge_lbl'] = 'Edwiser Bridge Moodle:';
+$string['eb_pro_license_lbl'] = 'Edwiser Bridge Pro License key activation';
+$string['eb_pro_license_desc'] = 'To enable the Edwiser Bridge Pro Features, enter and activate the Edwiser Bridge Pro Moodle license key below. You can find the license key';
+$string['mdl_edwiser_bridge_bp_lbl'] = 'Edwiser Bridge Bulk Purchase Moodle:';
+$string['mdl_edwiser_bridge_sso_lbl'] = 'Edwiser Bridge Single Sign On Moodle:';
+$string['mdl_edwiser_bridge_txt_latest'] = 'Latest';
+$string['mdl_edwiser_bridge_txt_download'] = 'Download';
+$string['mdl_edwiser_bridge_txt_download_help'] = 'Click here to download the plugin file.';
+$string['mdl_edwiser_bridge_txt_not_avbl'] = 'Not Available';
+$string['mdl_edwiser_bridge_fetch_info'] = 'Check for update';
+$string['eb_no_sites'] = '--- No Sites Available ---';
+$string['eb_active'] = 'Active';
+$string['deactivate'] = 'Deactivate License';
+$string['activate'] = 'Activate License';
+$string['license_expired'] = 'License key expired';
+$string['license_revoked'] = 'License is disabled from edwiser.org';
+$string['license_invalid'] = 'License key is invalid';
+$string['license_failed'] = 'License activation failed';
+$string['license_no_activation_left'] = 'license key activation limit reached';
+
+
+
+/* ----------
+Setup wizard strings.
+--------------*/
+
+
+$string['setup_footer'] = 'Copyright © 2022 Edwiser | Brought to you by WisdmLabs and Powered by Edwiser';
+$string['setup_contact_us'] = 'Contact Us';
+
+$string['setup_installation_note1'] = 'To start the setup you need to have the following plugins installed on WordPress & Moodle.';
+$string['setup_installation_note2'] = 'If you have already installed Edwiser Bridge FREE plugin on WordPress & Moodle, please click ';
+$string['setup_wp_plugin'] = 'WordPress Plugin';
+$string['setup_mdl_plugin'] = 'Moodle Plugin';
+$string['setup_free'] = 'Free';
+$string['setup_continue_btn'] = 'Continue the setup';
+$string['continue_wp_wizard_btn'] = 'Continue Setup on WordPress';
+$string['install_plugins_failed'] = 'Plugin installation failed.';
+$string['plugininactive'] = 'The plugin is inactive.';
+
+$string['setup_installation_faq'] = 'What to do if I have not installed Wordpress Plugin ';
+
+$string['setup_faq_download_plugin'] = 'Download the plugin now';
+$string['setup_faq_steps'] = 'After download please follow the steps below;';
+
+
+
+$string['setup_faq_step1'] = 'Login to your WordPress site with Administrative access';
+$string['setup_faq_step2'] = 'Navigate to Admin dashboard > Plugins > Install plugins ';
+$string['setup_faq_step3'] = 'Upload the Edwiser Bridge FREE WordPress plugin here';
+$string['setup_faq_step4'] = 'We will assist you with the rest of the setup from there';
+
+
+$string['no_1'] = '1';
+$string['no_2'] = '2';
+$string['no_3'] = '3';
+$string['no_4'] = '4';
+
+
+
+$string['setup_mdl_plugin_note1'] = 'These are mandatory Moodle settings for Edwiser Bridge to work flawlessly on your end.';
+$string['setup_mdl_plugin_note2'] = 'Once you are ready, please click on.';
+$string['setup_mdl_plugin_check1'] = 'Enabling Rest Protocol';
+$string['setup_mdl_plugin_check2'] = 'Enabling Web Service';
+$string['setup_mdl_plugin_check3'] = 'Disable Password Policy';
+$string['setup_mdl_plugin_check4'] = 'Allow extended characters in usernames';
+$string['setup_mdl_settings_success_msg'] = 'The mandatory Moodle settings has been enabled successfully!';
+$string['setup_enable_settings'] = 'Enable the Settings';
+
+
+
+$string['setup_web_service_note1'] = 'Web service configuration is required for connecting Moodle with your WordPress site. ';
+$string['setup_web_service_h1'] = 'You can ‘create a new web service’ by selecting from the dropdown if you are configuring for the first time.';
+$string['setup_web_service_h2'] = 'Select an existing web service from the dropdown if you have previously configured Edwiser Bridge plugin';
+
+
+
+
+$string['setup_wp_site_note1'] = 'Select the WordPress site that needs to be connected to your Moodle site';
+$string['setup_wp_site_note2'] = 'Add your WordPress website name and URL';
+$string['setup_wp_site_dropdown'] = 'The WordPress Site';
+$string['name'] = 'Name';
+$string['url'] = 'URL';
+
+
+$string['setup_permalink_note1'] = 'Check and confirm if the permalink structure is set to ';
+$string['es_postname'] = '‘Postname’.';
+$string['setup_permalink_click'] = 'Click on the ';
+$string['setup_permalink_note2'] = ' link. It will open in a new tab and check the permalink structure.';
+
+$string['setup_permalink_note3'] = 'Click on “Confirmed” once checked.';
+
+$string['confirmed'] = 'Confirmed';
+$string['back'] = 'Back';
+$string['skip'] = 'Skip';
+
+
+$string['setup_sync_note1'] = 'Set your Moodle to WordPress data synchronization preferences';
+$string['select_all'] = 'Select all';
+$string['recommended'] = '(Recommended)';
+$string['user_enrollment'] = 'User enrollment';
+$string['user_unenrollment'] = 'User unenrollment';
+$string['user_creation'] = 'User Creation';
+$string['user_deletion'] = 'User Deletion';
+$string['user_update'] = 'User Update';
+$string['course_creation'] = 'Course Creation';
+$string['course_deletion'] = 'Course Deletion';
+$string['web_service_courselist'] = 'List of course IDs';  
+
+
+$string['what_next'] = 'What Next?';
+$string['setup_completion_note1'] = 'You need to add Moodle credentials to Edwiser Bridge FREE WordPress setup.';
+$string['setup_completion_note2'] = 'Copy and Save the following moodle credential to add details on Edwiser Bridge FREE WordPress plugin setup ';
+$string['setup_completion_note3'] = 'Alternately, you can download the Edwiser Bridge Moodle ‘Credentials file’ from here. ';
+$string['setup_completion_note4'] = 'Once you have saved the details please continue with the Edwiser Bridge FREE WordPress setup by clicking on “Continue the setup”. ';
+
+$string['setup_completion_note5'] = 'Edwiser Bridge FREE plugin Setup is Completed.';
+
+
+
+$string['wp_site_details_note'] = 'Click on ‘Test connection’ once you have added the details.';
+
+$string['or'] = 'OR';
+$string['select'] = 'Select';
+$string['setup_test_conn_succ'] = 'Moodle to WordPress connection successful';
+$string['setup_test_conn_error'] = 'Please check WordPress site configuration.';
+
+
+/*  Tooltip  */
+$string['enabling_rest_tip'] = 'Enables Moodle Site to communicate with the Wordpress site via API (Recommended)';
+$string['enabling_service_tip'] = 'Moodle\'s API service to enable connection from WordPress to Moodle (Recommended)';
+$string['disable_passw_policy_tip'] = '- We Recommend disabling this setting.
+- If enabled, it will check user passwords against the password policy as specified in the settings.
+- ​Enabling the password policy will not affect existing users until they decide to, or are required to, change their password.';
+$string['allow_exte_char_tip'] = 'Enabling this will allow users to use any characters in their usernames (note this does not affect their actual names).
+The default is \'false\' which restricts usernames to be alphanumeric lowercase characters, underscore (_), hyphen (-), period (.), or at symbol (@).';
+$string['web_service_tip'] = 'Its an API service which enables proper communication between WordPress and Moodle sites.';
+$string['name_web_service_tip'] = 'Setup a name for the Web Service for e.g. \'EdwiserBridge\'';
+$string['wp_site_tip'] = 'Select the WordPress site you wish to integrate with the Moodle site.';
+
+$string['wp_site_name_tip'] = 'Key in your WordPress sites name.';
+$string['wp_site_url_tip'] = 'Ensure there is no blank space. And it should follow the URL with Hypertext Transfer Protocol \'https://\'';
+$string['user_enrollment_tip'] = 'It will auto enroll the users from Moodle to Wordpress. Only applies to linked users.';
+$string['user_unenrollment_tip'] = 'It will auto unenroll the users from Moodle to Wordpress. Only applies to linked users.';
+$string['user_creation_tip'] = 'This will auto-create user in linked Wordpress site.';
+$string['user_deletion_tip'] = 'Deletes the user in the linked Wordpress site when deleted in Moodle Site.';
+$string['user_update_tip'] = 'This will update user first name, last name and password and won\'t update Username and Email.';
+$string['course_creation_tip'] = 'This will draft the course on the linked WordPress site and the course will have to published.';
+$string['course_deletion_tip'] = 'It will mark the course as deleted in the linked WordPress site.';
+
+/*****  Pop up close button  *****/
+
+$string['close_quest'] = 'Are you sure you want to close the Edwiser Bridge Moodle setup wizard?';
+$string['yes'] = 'Yes';
+$string['no'] = 'No';
+$string['note'] = 'Note';
+$string['close_note'] = 'You can run the setup wizard again by navigating to Moodle Administration > Plugins > Edwiser Bridge > Run Setup wizard.';
+
+
+/* SSO Settings */
+$string['auth_edwiserbridge_secretkey'] = 'Secret Key';
+$string['auth_edwiserbridge_secretkey_help'] = 'Set a unique alphanumeric password as Secret key & copy-paste it in WordPress, under the same setting (Secret Key).';
+$string['auth_edwiserbridge_auto_generate_key'] = 'Auto Generate';
+
+$string['eb_sso_settings'] = 'Edwiser Bridge SSO Settings';
+
+$string['auth_edwiserbridge_wpsiteurl'] = 'WordPress Site URL';
+$string['auth_edwiserbridge_wpsiteurl_help'] = 'This is necessary to login/logout from WordPress site when a user logs in or logs out from Moodle. Do not forget to add http or https before the URL.';
+$string['auth_edwiserbridge_wpsiteurl_desc_with_warning'] = 'This is necessary to login/logout from WordPress site when a user logs in or logs out from Moodle. Do not forget to add http or https before the URL.<p><span style = "color:red">Warning: </span><a href ="http://php.net/manual/en/book.mcrypt.php" target="_blank">Mcrypt</a> PHP extension is missing! Enable this to work SSO properly.</p>';
+$string['auth_edwiserbridge_war_warning'] = 'Warning';
+$string['auth_edwiserbridge_war_mcrypt'] = 'Mcrypt';
+$string['auth_edwiserbridge_war_desc'] = 'PHP extension is missing! Enable this to work SSO properly.';
+
+$string['WordPress'] = 'WordPress';
+$string['auth_edwiserbridge_logoutredirecturl'] = 'Logout Redirect URL';
+$string['auth_edwiserbridge_logoutredirecturl_help'] = 'Users will be redirected to this URL after logout. Keep it blank for default redirection. Do not forget to add http or https before the URL.';
+$string['privacy:metadata'] = 'The Edwiser Bridge plugin does not store any personal data.';
+$string['auth_edwiserbridge_wploginenablebtn'] = 'Enable WordPress Login';
+$string['auth_edwiserbridge_wploginenablebtn_help'] = 'This will enable login with WordPress button on Moodle login page.';
+$string['auth_edwiserbridge_wploginenablebtn_default'] = 'Default: No';
+$string['auth_edwiserbridge_wploginbtntext'] = 'WordPress Login Text';
+$string['auth_edwiserbridge_wploginbtntext_help'] = 'This text will be shown as WordPress login button text on Moodle login page.';
+$string['auth_edwiserbridge_wploginbtnicon'] = 'WordPress Login Icon';
+$string['auth_edwiserbridge_wploginbtnicon_help'] = 'This icon will be shown as WordPress login button icon on Moodle login page.';
+$string['auth_edwiserbridge_wploginlogo_desc'] = 'This logo will be shown as WordPress login button logo on Moodle login page.';
+
+/* Bulk Purchase */
+$string['menuoption'] = 'auth_edwiserbridge';
+$string['edwiserbridge:add'] = 'Add Edwiser Bridge';
+
+
+
+/********  External service related lang  ********/
+$string['api_error'] = 'Response error status';
+$string['api_error_msg'] = 'Response error message';
+$string['api_user_id'] = 'User Id';
+$string['api_username'] = 'User Name';
+$string['api_password'] = 'Password used to create the User. ';
+$string['api_email'] = 'User Email';
+$string['api_enrolled'] = 'User ENrolled status';
+$string['api_cohort_id'] = 'Cohort id';
+$string['api_creation_error'] = 'User creation error status';
+
+$string['api_firstname'] = 'User First Name';
+$string['api_lastname'] = 'User Last Name';
+
+$string['edwiserbridgepropluginrequired'] = ' You have tried to install latest version of Edwiser Bridge plugin, but we have noticed you are still using older version of edwiser bridge plugins. please remove older version of moodle edwiser bridge, moodle single sign on and moodle bulk purchase plugin and then try to install the Edwiser Bridge plugin again.';
+$string['fromhere'] = 'From here';
+
+$string['settings_migration'] = 'Edwiser Bridge SSO Settings are now migrated to Edwiser Settings. Please visit Edwiser Settings to configure SSO.';
+$string['pluginrequirementsnotmet'] = 'Edwiser Bridge SSO plugin requirements are not met. Please install latest version of Edwiser Bridge plugin.';
+$string['backtopluginoverview'] = 'Back to plugin overview page';
+
+// Plugin update notification.
+$string['plugin_update_notification_title'] = 'Edwiser Bridge - New update available!';
+$string['plugin_update_notification_body'] = 'A new version of Edwiser Bridge plugin is available. Please update to the latest version to get the latest features.';
+$string['plugin_update_notification_changelog'] = ' View Changelog';
+$string['plugin_download'] = 'Download';
+$string['plugin_update'] = 'Update Now';
+$string['plugin_or'] = 'or';
+$string['plugin_update_help_text'] = 'Click here to automatically update plugin';
+$string['plugin_update_dismiss'] = 'Dismiss';
+$string['plugin_update_notification'] = 'Show plugin update notification';
+
+
+
+$string['errors'] = 'Errors';
+$string['invalidzip'] = 'Invalid zip file. <b>{$a}</b>';
+$string['eb_pro_license_msg'] = '<p>Please activate licence from <a href="{$a}">here</a> to access this setting.</p>';
+$string['errorfetching'] = 'Error fetching plugin ZIP. <b>{$a}</b>';
+$string['errorfetchingexist'] = 'Error fetching plugin ZIP: target location exists. <b>{$a}</b>';
+$string['unabletounzip'] = 'Unable to unzip <b>{$a}</b>';
+$string['unabletoloadplugindetails'] = 'Unable to load Plugin details <b>{$a}</b>';
+$string['requirehigherversion'] = 'Requires Moodle version: <b>{$a}</b>';
+$string['noupdates'] = 'Everything is up to date.';
+$string['invalidjsonfile'] = 'Error: Invalid json of Edwiser product list.';
+$string['recommendation'] = 'Recommended Plugins';
+$string['comeswith'] = 'Comes with: {$a}';
+$string['changelog'] = 'Changelog';
+$string['currentrelease'] = 'Current release: {$a}';
+$string['updateavailable'] = 'Update available: {$a}';
+$string['uptodate'] = 'Up to date';
+$string['updatedown'] = 'Update service is down temporarily. <br>Error - {$a}.';
+$string['dismiss'] = 'Dismiss';
+
+$string['wp_test_connection_token'] = 'Token to verify';
+$string['settingdisabled'] = 'Disabled';
+$string['settingenabled'] = 'Enabled';
+$string['plugin_not_configured'] = 'Sorry, this plugin has not yet been configured. Please contact the Moodle administrator for details';
+$string['redirecting_to_wp_setup_wizard'] = 'Redirecting to WordPress Setup wizard...';
+$string['success'] = 'true if the token matches otherwise false';
+$string['more_details'] = 'Check more details';
+$string['success_error_msg'] = 'Success/Failure message';
+$string['wp_test_connection_token_mismatch'] = 'Token does not match with the existing moodle connection settings. it may cause test connection issue on moodle end.';
+$string['wp_test_connection_function_missing'] = 'Web service function is missing.';
+$string['wp_test_connection_functions_missing'] = 'Web service functions are missing.';
+$string['check_wp_site_config'] = 'Please check WordPress site configuration.';
+$string['test_connection_fail_err_1'] = 'Test Connection failed, To check more information about issue click';
+$string['test_connection_fail_err_close_link'] = ' here ';
+$string['test_connection_fail_err_2'] = 'An issue was detected.';
+$string['test_connection_fail_err_3'] = 'Status : Connection  Failed ';
+$string['test_connection_fail_url'] = 'Url :';
+$string['test_connection_fail_response'] = 'Response :';
+$string['test_connection_fail_next'] = 'Next Steps: Please refresh the page and try again. If this still doesnt work. Go to <a href="{$a}" target="_blank"> Connection Settings </a> and click the <strong>Troubleshoot</strong> button .';
+$string['invalid_sso_token_err'] = 'Invalid token provided,please check token and try again';
+$string['valid_sso_token_success'] = 'Token verified successfully';
+$string['incomplete_caps_error'] = 'User don\'t have web service access capabilities, click';
+$string['incomplete_caps_error_know_more'] = 'to know more.';
+$string['installation_free_guide'] = 'Edwiser Bridge FREE plugin installation guide';
+$string['mdl_plugin_config'] = 'Edwiser Bridge - Moodle Plugin configuration';
+$string['web_service_setup'] = 'Setting up Web service';
+$string['wordpress_site_details'] = 'WordPress site details';
+$string['check_permalink'] = 'Check permalink structure';
+$string['test_connection'] = 'Test connection between Moodle and WordPress';
+$string['user_and_course_sync'] = 'Setting up User and course sync';
+$string['complete_details'] = 'Edwiser Bridge FREE Moodle plugin setup complete';
+$string['web_service_validate_token_msg'] = 'Return true if tokens match';
+$string['web_service_validate_user_msg'] = 'Return true if user is manager/site admin';
+$string['checking'] = 'Checking...';

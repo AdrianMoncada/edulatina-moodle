@@ -1,0 +1,132 @@
+{{!
+    This file is part of Moodle - http://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
+    Edwiser Bridge
+    @package auth_edwiserbridge
+    @copyright (c) 2024 WisdmLabs (https://wisdmlabs.com/)
+    @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+}}
+{{!
+    @template auth_edwiserbridge/wordpress_site_details
+
+    WordPress site details template
+
+    Context variables required for this template:
+    * setupwpsitenote1: Note 1 for setting up WordPress site
+    * setupwpsitedropdown: Label for WordPress site dropdown
+    * wpsitetip: Tooltip text for WordPress site dropdown
+    * select: Option text for select option
+    * createwpsite: Option text for creating a new WordPress site
+    * sites: Array of existing WordPress sites
+        - key: Unique identifier for the site
+        - name: Name of the site
+        - url: URL of the site
+        - selected: Whether the site is selected or not (true/false)
+    * class: CSS class for WordPress site details input wrappers
+    * setupwpsitenote2: Note 2 for setting up WordPress site
+    * namelabel: Label for site name input
+    * wpsitenametip: Tooltip text for site name input
+    * selectedname: Pre-filled value for site name input
+    * urllabel: Label for site URL input
+    * wpsiteurltip: Tooltip text for site URL input
+    * selectedurl: Pre-filled value for site URL input
+    * prevurl: URL for the previous step
+    * back: Text for the back button
+    * setupcontinuebtn: Text for the continue button
+    * step: Current step number
+    * nextstep: Next step number
+    * isnextsubstep: Whether the next step is a sub-step or not (true/false)
+    * btnclass: CSS class for the continue button
+
+    Example context (JSON):
+    {
+        "setupwpsitenote1": "value1",
+        "setupwpsitedropdown": "value2",
+        "wpsitetip": "value3",
+        "select": "value4",
+        "createwpsite": "value5",
+        "sites": [
+            {
+                "key": "value6",
+                "name": "value7",
+                "url": "value8",
+                "selected": "value9"
+            }
+        ],
+        "class": "value10",
+        "setupwpsitenote2": "value11",
+        "namelabel": "value12",
+        "wpsitenametip": "value13",
+        "selectedname": "value14",
+        "urllabel": "value15",
+        "wpsiteurltip": "value16",
+        "selectedurl": "value17",
+        "prevurl": "value18",
+        "back": "value19",
+        "setupcontinuebtn": "value20",
+        "step": "value21",
+        "nextstep": "value22",
+        "isnextsubstep": "value23",
+        "btnclass": "value24"
+    }
+}}
+<div class="eb_setup_wordpress_site_details es-w-80">
+    <div>
+        <div>
+            <div class="eb_setup_conn_url_inp_wrap">
+                <p>{{{setupwpsitenote1}}}</p>
+                <p>
+                    <label class="eb_setup_h2">{{{setupwpsitedropdown}}}</label>
+                    <i class="fa-solid fa-info eb-tooltip es-info-icon">
+                        <span class='eb-tooltiptext'>{{{wpsitetip}}}</span>
+                    </i>
+                </p>
+                <select name="eb_setup_wp_sites" class="eb_setup_inp eb_setup_wp_sites">
+                    <option value="">{{{select}}}</option>
+                    <option value="create">{{{createwpsite}}}</option>
+                    {{#sites}}
+                    <option data-name="{{name}}" data-url="{{url}}" value="{{key}}" {{selected}}>{{name}}</option>
+                    {{/sites}}
+                </select>
+            </div>
+            <div class="eb_setup_wp_site_details_inp eb_setup_conn_url_inp_wrap {{class}}">
+                <span>{{{setupwpsitenote2}}}</span>
+                <p>
+                    <label class="eb_setup_h2">{{{namelabel}}}</label>
+                    <i class="fa-solid fa-info eb-tooltip es-info-icon">
+                        <span class='eb-tooltiptext'>{{{wpsitenametip}}}</span>
+                    </i>
+                </p>
+                <input class="eb_setup_inp eb_setup_site_name" id="eb_setup_site_name" name="eb_setup_site_name" type="text" value="{{selectedname}}">
+            </div>
+            <div class="eb_setup_wp_site_details_inp eb_setup_conn_url_inp_wrap {{class}}">
+                <p>
+                    <label class="eb_setup_h2">{{{urllabel}}}</label>
+                    <i class="fa-solid fa-info eb-tooltip es-info-icon">
+                        <span class='eb-tooltiptext'>{{{wpsiteurltip}}}</span>
+                    </i>
+                </p>
+                <input class="eb_setup_inp eb_setup_site_url" id="eb_setup_site_url" name="eb_setup_site_url" type="text" value="{{selectedurl}}">
+            </div>
+            <div class="eb_setup_btn_wrap">
+                <a class="eb_setup_sec_btn" href="{{prevurl}}">{{{back}}}</a>
+                <button class="eb_setup_btn eb_setup_wp_details_btn eb_setup_save_and_continue {{btnclass}}" data-step="{{step}}" data-next-step="{{nextstep}}" data-is-next-sub-step="{{isnextsubstep}}">
+                    {{{setupcontinuebtn}}}
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

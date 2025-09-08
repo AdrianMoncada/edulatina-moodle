@@ -1,0 +1,96 @@
+{{!
+    This file is part of Moodle - http://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
+    Edwiser Bridge
+    @package auth_edwiserbridge
+    @copyright (c) 2024 WisdmLabs (https://wisdmlabs.com/)
+    @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+}}
+{{!
+    @template auth_edwiserbridge/test_connection
+
+    Test connection template
+
+    Context variables required for this template:
+    * wpsitedetailsnote: Note about WordPress site details
+    * namelabel: Label for site name
+    * wpsitenametip: Tooltip text for site name
+    * name: Site name value
+    * urllabel: Label for site URL
+    * wpsiteurltip: Tooltip text for site URL
+    * url: Site URL value
+    * prevurl: Previous URL
+    * back: Back button text
+    * wptestconnbtn: Test connection button text
+    * step: Current step
+    * nextstep: Next step
+    * isnextsubstep: Flag indicating if next step is a sub-step
+    * setupcontinuebtn: Continue button text
+
+    Example context (JSON):
+    {
+        "wpsitedetailsnote": "value1",
+        "namelabel": "value2",
+        "wpsitenametip": "value3",
+        "name": "value4",
+        "urllabel": "value5",
+        "wpsiteurltip": "value6",
+        "url": "value7",
+        "prevurl": "value8",
+        "back": "value9",
+        "wptestconnbtn": "value10",
+        "step": "value11",
+        "nextstep": "value12",
+        "isnextsubstep": "value13",
+        "setupcontinuebtn": "value14"
+    }
+}}
+<div class="eb_setup_wordpress_site_details es-w-80">
+    <div>
+        <div class="eb_setup_conn_url_inp_wrap">
+            <span>{{{wpsitedetailsnote}}}</span>
+            <p>
+                <label class="eb_setup_h2">{{{namelabel}}}</label>
+                <i class="fa-solid fa-info eb-tooltip es-info-icon">
+                    <span class='eb-tooltiptext'>{{{wpsitenametip}}}</span>
+                </i>
+            </p>
+            <input class="eb_setup_inp eb_setup_site_name" name="eb_setup_site_name" type="text" value="{{name}}" disabled>
+        </div>
+        <div class="eb_setup_conn_url_inp_wrap">
+            <p>
+                <label class="eb_setup_h2">{{{urllabel}}}</label>
+                <i class="fa-solid fa-info eb-tooltip es-info-icon">
+                    <span class='eb-tooltiptext'>{{{wpsiteurltip}}}</span>
+                </i>
+            </p>
+            <input class="eb_setup_inp eb_setup_site_url" name="eb_setup_site_url" type="url" value="{{url}}" disabled>
+            <div class="eb_setup_test_conn_resp_msg"></div>
+        </div>
+        <div class="eb_setup_btn_wrap">
+            <a class="eb_setup_sec_btn" href="{{prevurl}}">
+                {{{back}}}
+            </a>
+            <button class="eb_setup_btn eb_setup_test_connection_btn" data-step="{{step}}" data-next-step="{{nextstep}}" data-is-next-sub-step="{{isnextsubstep}}">
+                {{{wptestconnbtn}}}
+            </button>
+            <button class="eb_setup_btn eb_setup_save_and_continue eb_setup_test_connection_continue_btn" data-step="{{step}}" data-next-step="{{nextstep}}" data-is-next-sub-step="{{isnextsubstep}}">
+                {{{setupcontinuebtn}}}
+            </button>
+        </div>
+    </div>
+</div>
+
