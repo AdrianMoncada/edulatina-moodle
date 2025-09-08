@@ -1,0 +1,27 @@
+
+<div class="navbar-carousel collapsed cnc-navbar-carousel">
+    <div class="navbar-inner">
+        <div class="mob-navbar"></div>
+        <ol class="navbar-item-container">
+            {{#categories}}
+            <li class="navitem {{#active}}active{{/active}}" data-categoryid="{{id}}" data-coursecount="{{coursecount}}">
+                <div class="navitem-content">
+                    <P>{{{name}}}</P>
+                    <p class="course-count">{{{coursecount}}}</p>
+                </div>
+            </li>
+            {{/categories}}
+        </ol>
+    </div>
+
+    <button class="dropdown-btn"><img
+            src="{{cdnurl}}/CDN/coursesncategories/dropdown-icon.svg"
+            alt="dropdown icon" /></button>
+
+    <button class="nav-left-arrow border-color-primary hover hover-bg-primary">
+       <span class="fa fa-light fa-angle-left color-primary hover-color-white" aria-hidden="true"></span>
+    </button>
+    <button class="nav-right-arrow border-color-primary hover hover-bg-primary">
+      <span class="fa fa-light fa-angle-right color-primary hover-color-white" aria-hidden="true"></span>
+    </button>
+</div>

@@ -1,0 +1,53 @@
+{
+    "manualsetupplugins": [
+        {
+            "name": "Edwiser Bridge PRO",
+            "url": "https://edwiser.org/documentation/edwiser-bridge-pro/"
+        },
+        {
+            "name": "Edwiser Forms PRO",
+            "url": "https://edwiser.org/documentation/edwiser-forms/"
+        },
+        {
+            "name": "RapidGrader",
+            "url": "https://edwiser.org/documentation/edwiser-rapidgrader/"
+        },
+        {
+            "name": "Edwiser Site Monitor",
+            "url": "https://drive.google.com/file/d/1-lmjMIevYXbxqdQQoR4RXSlRF5SzHDE-/view?usp=sharing"
+        },
+        {
+            "name": "Edwiser Reports PRO",
+            "url": "https://edwiser.org/documentation/edwiser-reports/"
+        }
+    ],
+    "layouts": {
+        "homepage": {
+            "title": "University",
+            "layout": "blocklayout2",
+            "thumbnailurl": "https://staticcdn.edwiser.org/demoimporter/homepage/university.jpeg"
+        },
+        "aboutus": {
+            "title": "About Us (University)",
+            "layout": "blocklayout9",
+            "thumbnailurl": "https://staticcdn.edwiser.org/CDN/blocklayout9/thumbnail.png"
+        },
+        "faqpage": {
+            "title": "FAQ (University)",
+            "layout": "blocklayout13",
+            "thumbnailurl": "https://staticcdn.edwiser.org/CDN/blocklayout13/thumbnail.png"
+        }
+    },
+    "coursedata": [
+        {
+            "name": "Moodle features",
+            "image": "https://edwiser.org/edwiserdemoimporter/courses/Moodle-features.png",
+            "file": "https://edwiser.org/edwiserdemoimporter/courses/Moodle-features.mbz"
+        },
+        {
+            "name": "Digital Literacy",
+            "image": "https://edwiser.org/edwiserdemoimporter/courses/Digital-Literacy.png",
+            "file": "https://edwiser.org/edwiserdemoimporter/courses/Digital-Literacy.mbz"
+        }
+    ]
+}

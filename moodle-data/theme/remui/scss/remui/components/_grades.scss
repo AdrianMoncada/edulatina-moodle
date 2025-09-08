@@ -1,0 +1,27 @@
+$grade-table-cell-padding: 18px;
+.path-grade-report-grader .gradeparent .cell {
+	padding: $grade-table-cell-padding;
+}
+
+.gradereport-grader-table {
+	.heading th * {
+		font-weight: 600;
+		font-size: 14px;
+	}
+	.gradeitemheader {
+		font-weight: 600;
+		font-size: 14px;
+		line-height: 14px;
+	}
+}
+.select-menu ul[role="group"] .dropdown-item{
+	padding: 0px;
+	& a{
+		padding: 16px 24px;
+		padding-left: 40px;
+	}
+}
+
+.path-grade-report-grader .gradeparent .user.cell.actions-menu-active{
+	z-index: 2;
+}

@@ -1,0 +1,73 @@
+$checkbox-font-size: 24px;
+// Checkbox
+.form-group .form-check .edw-icon.edw-custom-checkbox,
+.fdate_time_selector input[type="checkbox"] {
+    display: none;
+}
+.form-group .form-check input[type="checkbox"]:checked ~ .edw-icon.edw-icon-Checkbox_Active {
+    display: flex;
+}
+.form-group .form-check input[type="checkbox"]:not(:checked) ~ .edw-icon.edw-icon-Checkbox_Default {
+    display: flex;
+}
+.checkbox-label {
+    color: $paragraph-color;
+}
+
+// To style checkboxes as per given icons.
+input[type="checkbox"] {
+    &:not(.custom-control-input,.form-switch .form-check-input) {
+        // visibility: hidden;
+        width: $checkbox-font-size !important;
+        height: $checkbox-font-size;
+        // align-items: center;
+        line-height: 1;
+        // margin-right: 15px !important;
+        display: inline-flex !important;
+        align-items: center;
+        // -moz-appearance: initial;
+
+        margin: 0 5px !important;
+        -webkit-appearance: none;
+       -moz-appearance: none;
+       appearance: none;
+
+       &.form-check-input {
+            margin-right: 15px;
+            border: unset;
+
+            &:checked {
+                background-color: unset;
+                border-color: unset;
+            }
+        }
+
+        &:after {
+            font-family: $remui-icon-font-family;
+            visibility: visible;
+            font-size: $checkbox-font-size;
+            color: $ic-default;
+            z-index: 1;
+        }
+        &:checked:after {
+            content: "\4b";
+        }
+        &:not(:checked):after {
+            content: "\4c";
+        }
+    }
+}
+
+// label {
+//     input[type="checkbox"] {
+//         &:not(.custom-control-input,.form-switch .form-check-input) {
+//             line-height: inherit;
+//         }
+//     }
+// }
+
+#page-local-edwiserpagebuilder-editor {
+    input[type="checkbox"]:not(.custom-control-input,.form-switch .form-check-input) {
+        visibility: hidden;
+    }
+}

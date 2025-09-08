@@ -1,0 +1,14 @@
+// small info text color
+$small-text-cust-color : mix($white, $paragraph-color, 15%);
+// rgba($paragraph-color,85%);
+
+
+.text-paragraph {
+    color: $paragraph-color;
+}
+.color-font-small {
+    color: $small-text-cust-color ;
+}
+.color-font-headings{
+    color: $heading-color;
+}

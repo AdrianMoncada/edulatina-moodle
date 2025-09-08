@@ -1,0 +1,849 @@
+
+  <div class="section-all-courses-category-design-{{instid}}">
+    <div class="section-container">
+      {{#hascategories}}
+        {{> filter_edwiserpbf/cnccategorycontent}}
+      {{/hascategories}}
+        <div class="carousel-container">
+            <div class="slider" id="all-courses-category-carousel-{{instid}}" data-catid="{{catids}}" data-totalcourses="{{coursecount}}" data-start="0" data-last="{{fetchedcoursecount}}" data-remaining="{{remaingcourses}}" data-loadmore="{{loadmore}}">
+                {{> filter_edwiserpbf/coursecard}}
+            </div>
+
+            <button class="carousel-control-prev{{instid}} position-absolute border-color-primary" type="button">
+                <span class="fa fa-light fa-angle-left color-primary" aria-hidden="true"></span>
+            </button>
+
+            <button class="carousel-control-next{{instid}} position-absolute border-color-primary" type="button">
+                <span class="fa fa-light fa-angle-right color-primary" aria-hidden="true"></span>
+            </button>
+
+        </div>
+    </div>
+</div>
+
+<style>
+
+.section-all-courses-category-design-{{instid}} {
+  padding: 0 24px 50px;
+  direction: ltr;
+}
+.section-all-courses-category-design-{{instid}} .menu-picker-select .menu-content .manage-course-menu{
+  padding: 4px;
+}
+.section-all-courses-category-design-{{instid}} .menu-picker-select .menu-content .epb-img-icon{
+    height:16px;
+    width: 16px;
+}
+ .section-all-courses-category-design-{{instid}} .section-container {
+     max-width: 1320px;
+     margin: 0 auto;
+}
+ .section-all-courses-category-design-{{instid}} h3 {
+     color: #313848;
+     text-align: center;
+     font-size: 34px;
+     font-weight: 700;
+     line-height: 42px;
+     letter-spacing: -1px;
+     margin: 0;
+}
+ .section-all-courses-category-design-{{instid}} .desc {
+     color: #4C5A73;
+     text-align: center;
+     font-size: 18px;
+     font-weight: 400;
+     line-height: 26px;
+     margin: 3px auto 0;
+     padding: 0 12px;
+     max-width: 900px;
+}
+ .section-all-courses-category-design-{{instid}} .navbar-carousel {
+     position: relative;
+     width: 90%;
+     height: 42px;
+     padding: 0 20px;
+     margin: 0 auto;
+}
+ .section-all-courses-category-design-{{instid}} .navbar-carousel .dropdown-btn {
+     display: none;
+}
+ .section-all-courses-category-design-{{instid}} .navbar-carousel .nav-left-arrow, .section-all-courses-category-design-{{instid}} .navbar-carousel .nav-right-arrow {
+     position: absolute;
+     top: 50%;
+     z-index: 2;
+     width: 28px;
+     height: 28px;
+     border-radius: 100%;
+     border: 1px solid #0051f9;
+     background-color: #fff;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     transition: background-color 0.3s ease-in;
+     transform: translateY(-50%);
+}
+
+ .section-all-courses-category-design-{{instid}} .navbar-carousel .nav-left-arrow {
+     left: 0px;
+}
+ .section-all-courses-category-design-{{instid}} .navbar-carousel .nav-right-arrow {
+     right: 0px;
+}
+ .section-all-courses-category-design-{{instid}} .navbar-carousel .nav-left-arrow:hover, .section-all-courses-category-design-{{instid}} .navbar-carousel .nav-right-arrow:hover {
+     background-color: #0051f9;
+}
+
+
+ .section-all-courses-category-design-{{instid}} .navbar-inner {
+     position: relative;
+     height: 42px;
+     overflow: hidden;
+}
+ .section-all-courses-category-design-{{instid}} .navbar-inner .navbar-item-container {
+     padding: 0;
+     position: absolute;
+     left: 0;
+     top: 0;
+     transition: left 0.4s ease-in;
+     min-width: fit-content;
+     display: flex;
+     gap: 15px;
+     white-space: nowrap;
+}
+ .section-all-courses-category-design-{{instid}} .navbar-inner .navbar-item-container .navitem, .section-all-courses-category-design-{{instid}} .navbar-inner .mob-navbar .navitem {
+     width: fit-content;
+     display: flex;
+
+     cursor: pointer;
+     padding: 8px 14px;
+     border-radius: 4px;
+     border: 1px solid  #D5DDEA;
+     background: #FFF;
+     transition: border 0.3s ease-in, box-shadow 0.3s ease-in;
+}
+
+ .section-all-courses-category-design-{{instid}} .navbar-inner .navbar-item-container .navitem .navitem-content, .section-all-courses-category-design-{{instid}} .navbar-inner
+  .mob-navbar
+  .navitem
+  .navitem-content {
+     display: flex;
+    gap: 6px;
+      justify-content: center;
+      align-items: center;
+
+      max-width: 300px;
+}
+
+
+ .section-all-courses-category-design-{{instid}} .navbar-inner .navbar-item-container .navitem p:first-child, .section-all-courses-category-design-{{instid}} .navbar-inner
+  .mob-navbar
+  .navitem
+  p:first-child{
+     color: #313848;
+     font-size: 16px;
+     font-weight: 400;
+     line-height: 24px;
+     margin: 0;
+
+     white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+}
+ .section-all-courses-category-design-{{instid}} .navbar-inner .navbar-item-container .navitem p:last-child, .section-all-courses-category-design-{{instid}} .navbar-inner
+  .mob-navbar
+  .navitem
+  p:last-child {
+     padding: 0 5px;
+     height: 20px;
+     border-radius: 10px;
+     background:  #FFF;
+     border: 1px solid #D5DDEA;
+     color: #313848;
+     text-align: center;
+     font-size: 12px;
+     font-weight: 600;
+     margin: 0;
+     transition: color 0.2s ease-in, background 0.3s ease-in, border 0.3s ease-in;
+}
+ .section-all-courses-category-design-{{instid}} .navbar-inner .navbar-item-container .navitem.active, .section-all-courses-category-design-{{instid}} .navbar-inner
+  .mob-navbar
+  .navitem.active {
+     border: 1px solid #0051F9;
+     box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.15);
+}
+ .section-all-courses-category-design-{{instid}} .navbar-inner .navbar-item-container .navitem.active p:last-child, .section-all-courses-category-design-{{instid}} .navbar-inner
+  .mob-navbar
+  .navitem.active
+  p:last-child {
+     color: #fff;
+     background: #0051F9;
+     border: 1px solid #0051F9;
+}
+.section-all-courses-category-design-{{instid}}  .navbar-inner .mob-navbar {
+  display: none;
+}
+ .section-all-courses-category-design-{{instid}} .carousel-container {
+     position: relative;
+     margin: 20px auto 0;
+}
+.section-all-courses-category-design-{{instid}} .carousel-container .slick-track {
+      display: flex !important;
+    gap: 24px;}
+    .section-all-courses-category-design-{{instid}} .carousel-container .slick-slide {
+      height: inherit !important; }
+ .section-all-courses-category-design-{{instid}} .carousel-container .slider {
+     padding: 0 16px;
+}
+.section-all-courses-category-design-{{instid}} .slick-slider .slick-slide {
+    padding: 0px;
+}
+ .section-all-courses-category-design-{{instid}} .card-container {
+     height: 100%;
+}
+ .section-all-courses-category-design-{{instid}} .card {
+     height: 100%;
+     border: 0;
+     border-radius: 6px;
+     display: flex !important;
+     overflow: hidden;
+}
+.section-all-courses-category-design-{{instid}} .card .visibilityicon {
+      background-color: #EBF0F9;
+      cursor: unset;
+      border-radius: 2px;
+      border: 1px solid #EBF0F9;
+      padding: 4px;
+    }
+ .section-all-courses-category-design-{{instid}} .card .img-box {
+     position: relative;
+     height: 200px;
+     width: 100%;
+}
+ .section-all-courses-category-design-{{instid}} .card .img-box img {
+     width: 100%;
+     height: 100%;
+     object-fit: cover;
+}
+ .section-all-courses-category-design-{{instid}} .card .img-box .card-name {
+     position: absolute;
+     top: 10px;
+     left: 10px;
+     max-width: calc(100% - 50px);
+     white-space: nowrap;
+     overflow: hidden;
+     text-overflow: ellipsis;
+     padding: 6px 15px;
+     border-radius: 2px;
+     opacity: 0.699999988079071;
+     background: #000819;
+     color: #FFF;
+     font-size: 12px;
+     font-weight: 400;
+     margin: 0;
+}
+ .section-all-courses-category-design-{{instid}} .card .card-body {
+     padding: 20px 24px 26px;
+     border-radius: 0 0 6px 6px;
+     border: 1px solid  #D5DDEA;
+     background: #FFF;
+     display: flex;
+     flex-direction: column;
+}
+ .section-all-courses-category-design-{{instid}} .card .card-content {
+     display: flex;
+     flex-direction: column;
+
+     overflow: hidden;
+    position: relative;
+}
+ .section-all-courses-category-design-{{instid}} .card .card-content .card-title {
+     color: #313848;
+     font-size: 20px;
+     font-weight: 400;
+     line-height: 28px;
+     margin: 0;
+}
+ .section-all-courses-category-design-{{instid}} .card .card-content .card-desc {
+     color: #4C5A73;
+     font-size: 16px;
+     font-weight: 400;
+     line-height: 24px;
+     margin: 4px 0 14px;
+}
+ .section-all-courses-category-design-{{instid}} .card .card-footer {
+     padding: 20px 24px 26px;
+}
+ .section-all-courses-category-design-{{instid}} .card .card-btn {
+     display: block;
+     width: fit-content;
+     margin-top: auto;
+}
+ .section-all-courses-category-design-{{instid}} .card .card-btn button {
+     min-height: 37px;
+     padding: 5px 20px;
+     border-radius: 4px;
+    border-width: 1px;
+    border-style: solid;
+     font-size: 14px;
+     font-weight: 600;
+     transition: background 0.3s ease-in, color 0.2s ease-in;
+}
+
+ .section-all-courses-category-design-{{instid}} .carousel-control-prev{{instid}}, .section-all-courses-category-design-{{instid}} .carousel-control-next{{instid}} {
+     width: 46px;
+     height: 46px;
+     background-color: white;
+     border: 1px solid #0051f9;
+     font-size: 24px;
+     border-radius: 50%;
+     opacity: 1;
+     transition: all 0.3s ease;
+     margin: auto 0;
+     transform: translateY(-100%);
+}
+ .section-all-courses-category-design-{{instid}} .carousel-control-prev{{instid}} .fa, .section-all-courses-category-design-{{instid}} .carousel-control-next{{instid}} .fa {
+    color: #0051f9;
+ }
+.section-all-courses-category-design-{{instid}} .carousel-control-prev{{instid}} {
+    left: 2px;
+    top:50%;
+  }
+  .section-all-courses-category-design-{{instid}} .carousel-control-next{{instid}} {
+    right: 2px;
+    top:50%;
+  }
+ .section-all-courses-category-design-{{instid}} .carousel-control-prev{{instid}}:hover, .section-all-courses-category-design-{{instid}} .carousel-control-next{{instid}}:hover {
+     background-color: white;
+     filter: drop-shadow(0px 4px 15px rgba(0, 0, 0, 0.12));
+}
+ .section-all-courses-category-design-{{instid}} .carousel-indicators {
+     position: static;
+     margin-top: 20px;
+     margin-bottom: 0px;
+     gap: 8px;
+}
+ .section-all-courses-category-design-{{instid}} .carousel-indicators li {
+     opacity: 1;
+     background-color: #D5DDEA !important;
+     width: 7px;
+     height: 7px;
+     border-radius: 50%;
+     margin: 0;
+     cursor: pointer;
+}
+ .section-all-courses-category-design-{{instid}} .carousel-indicators li button {
+     display: none;
+}
+ .section-all-courses-category-design-{{instid}} .carousel-indicators .slick-active {
+     background-color: #5B6880 !important;
+}
+.ellips-item-2{
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+    }
+ @media screen and (max-width: 1024px) {
+
+     .section-all-courses-category-design-{{instid}} .navbar-carousel {
+         width: calc(100% - 24px);
+    }
+     .section-all-courses-category-design-{{instid}} .carousel-container .slider {
+         padding: 0;
+    }
+     .section-all-courses-category-design-{{instid}} .carousel-control-prev{{instid}}, .section-all-courses-category-design-{{instid}} .carousel-control-next{{instid}} {
+         display: none !important;
+    }
+}
+ @media screen and (max-width: 767px) {
+
+     .section-all-courses-category-design-{{instid}} .section-container {
+         max-width: 450px;
+    }
+     .section-all-courses-category-design-{{instid}} .desc {
+         max-width: 450px;
+    }
+     .section-all-courses-category-design-{{instid}} .navbar-carousel {
+         height: 48px;
+         width: 100%;
+         padding: 0;
+         overflow: hidden;
+         background: #fff;
+         border-radius: 0 0 6px 6px;
+         transition: height 0.4s ease-in;
+    }
+     .section-all-courses-category-design-{{instid}} .navbar-carousel .nav-left-arrow, .section-all-courses-category-design-{{instid}} .navbar-carousel .nav-right-arrow {
+         display: none !important;
+    }
+     .section-all-courses-category-design-{{instid}} .navbar-carousel .dropdown-btn {
+         display: block;
+         position: absolute;
+         top: 12px;
+         right: 20px;
+         border: unset;
+         height: 24px;
+         width: 24px;
+         padding: 0;
+         background: #fff;
+         border-radius: 100%;
+         display: flex;
+         align-items: center;
+         justify-content: center;
+    }
+     .section-all-courses-category-design-{{instid}} .navbar-inner {
+         position: relative;
+          height: fit-content;
+          background-color: #fff;
+
+          height: 100%;
+          border-radius: 0 0 6px 6px;
+          border: 1px solid  #D5DDEA;
+          border-top: 0;
+    }
+     .section-all-courses-category-design-{{instid}} .navbar-inner .navbar-item-container {
+          width: 100%;
+          position: static;
+          padding: 4px 0;
+          height: fit-content;
+          max-height: 300px;
+          overflow-y: auto;
+          display: flex;
+          flex-direction: column;
+          gap: 2px;
+    }
+
+
+    .section-all-courses-category-design-{{instid}}  .navbar-inner .mob-navbar {
+      display: block;
+      width: 100%;
+    }
+     .section-all-courses-category-design-{{instid}} .navbar-inner .navbar-item-container .navitem, .section-all-courses-category-design-{{instid}}  .navbar-inner .mob-navbar .navitem {
+         width: 100%;
+         justify-content: start;
+         border: unset;
+         border-radius: unset;
+         background: unset;
+         padding: 12px 20px;
+    }
+     .section-all-courses-category-design-{{instid}}
+    .navbar-inner
+    .mob-navbar
+    .navitem
+    .navitem-content {
+    max-width: 85%;
+  }
+
+     .section-all-courses-category-design-{{instid}} .navbar-inner .navbar-item-container .navitem.active,  .section-all-courses-category-design-{{instid}} .navbar-inner
+    .mob-navbar
+    .navitem.active  {
+         border: unset;
+         box-shadow: unset;
+         background:  #0051F9;
+    }
+     .section-all-courses-category-design-{{instid}} .navbar-inner .navbar-item-container .navitem.active p:first-child,  .section-all-courses-category-design-{{instid}} .navbar-inner
+    .mob-navbar
+    .navitem.active
+    p:first-child {
+         color: #FFF;
+    }
+     .section-all-courses-category-design-{{instid}} .navbar-inner .navbar-item-container .navitem.active p:last-child,  .section-all-courses-category-design-{{instid}} .navbar-inner
+    .mob-navbar
+    .navitem.active
+    p:last-child  {
+         color: #313848;
+         background:  #FFF;
+         border: 1px solid #D5DDEA;
+    }
+     .section-all-courses-category-design-{{instid}} .navbar-carousel.collapsed .dropdown-btn {
+         transform: rotate(180deg);
+    }
+
+    .section-all-courses-category-design-{{instid}} .carousel-container {
+        margin: 20px auto 0;
+      }
+      .section-all-courses-category-design-{{instid}} .carousel-container .slider {
+        padding: 0;
+      }
+      .section-all-courses-category-design-{{instid}}
+        .carousel-container
+        .slick-carousel-item {
+        padding: 0;
+      }
+}
+
+@media screen and (max-width: 450px) {
+  .section-all-courses-category-design-{{instid}}
+    .navbar-inner
+    .navbar-item-container
+    .navitem
+    .navitem-content {
+    max-width: 260px;
+  }
+}
+@media screen and (max-width: 361px) {
+  .section-all-courses-category-design-{{instid}}
+    .navbar-inner
+    .navbar-item-container
+    .navitem
+    .navitem-content {
+    max-width: 230px;
+  }
+}
+
+ @media screen and (min-width: 1024px) {
+
+     .edw-limitedwidth-block .section-all-courses-category-design-{{instid}} .navbar-carousel {
+         width: calc(100% - 24px);
+    }
+
+}
+
+.dir-rtl  .section-all-courses-category-design-{{instid}} .card .img-box .card-name {
+  left: unset;
+  right: 10px;
+}
+
+.dir-rtl  .section-all-courses-category-design-{{instid}} .wdm-course-card-actions  {
+  flex-direction: row-reverse;
+}
+
+.edw-rtl-block .section-all-courses-category-design-{{instid}} .carousel-control-prev{{instid}} .fa-angle-left,
+.edw-rtl-block .section-all-courses-category-design-{{instid}} .carousel-control-next{{instid}} .fa-angle-right {
+  transform: unset;
+}
+
+
+
+</style>
+
+<script>
+if(window.location.href.toLowerCase().indexOf('editor.php') !== -1){
+  $(document).ready((function(){$("#all-courses-category-carousel-{{instid}}").parents(".edw-limitedwidth-block").length>0?$("#all-courses-category-carousel-{{instid}}").slick({slidesToShow:2,slidesToScroll:1,prevArrow:$(".carousel-control-prev{{instid}}"),nextArrow:$(".carousel-control-next{{instid}}"),dots:false,dotsClass:"carousel-indicators",responsive:[{breakpoint:768,settings:{slidesToShow:1,slidesToScroll:1}}]}).on("setPosition",(function(s,o){o.$slides.css("height",o.$slideTrack.height()+"px"),$(".slick-slide > div").css("height","100%")})):$("#all-courses-category-carousel-{{instid}}").slick({slidesToShow:4,slidesToScroll:1,prevArrow:$(".carousel-control-prev{{instid}}"),nextArrow:$(".carousel-control-next{{instid}}"),dots:false,dotsClass:"carousel-indicators",responsive:[{breakpoint:1200,settings:{slidesToShow:3,slidesToScroll:1}},{breakpoint:1024,settings:{slidesToShow:2,slidesToScroll:1}},{breakpoint:768,settings:{slidesToShow:1,slidesToScroll:1}}]}).on("setPosition",(function(s,o){o.$slides.css("height",o.$slideTrack.height()+"px"),$(".slick-slide > div").css("height","100%")}))}));
+}
+  </script>
+
+{{#js}}
+require(['jquery', 'core/ajax', 'core/templates', 'local_edwiserpagebuilder/remuiblck/manage_courses', 'theme_remui/slick'], function ($, Ajax, Templates, managecourse) {
+
+    managecourse.init('.section-all-courses-category-design-{{instid}}');
+
+    $(document).ready(function () {
+        let carousleContainer = $("#all-courses-category-carousel-{{instid}}");
+        if (carousleContainer.parents(".edw-limitedwidth-block").length > 0) {
+          slickvariationlimitedwidth();
+        } else {
+          slickvariationfullwidth();
+        }
+
+        function slickvariationlimitedwidth(){
+          $("#all-courses-category-carousel-{{instid}}").slick({
+            slidesToShow: 2,
+            slidesToScroll: 1,
+            prevArrow: $(".carousel-control-prev{{instid}}"),
+            nextArrow: $(".carousel-control-next{{instid}}"),
+            dots: false,
+            dotsClass: "carousel-indicators",
+            responsive: [
+            {
+                breakpoint: 768,
+                settings: {
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                },
+            },
+            ],
+        })
+        .on('setPosition', function (event, slick) {
+            slick.$slides.css('height', slick.$slideTrack.height() + 'px');
+            $('.slick-slide > div').css('height', '100%');
+          });
+        }
+
+        function slickvariationfullwidth(){
+          $("#all-courses-category-carousel-{{instid}}").slick({
+            slidesToShow: 4,
+            slidesToScroll: 1,
+            prevArrow: $(".carousel-control-prev{{instid}}"),
+            nextArrow: $(".carousel-control-next{{instid}}"),
+            dots: false,
+            dotsClass: "carousel-indicators",
+            responsive: [
+            {
+                breakpoint: 1200,
+                settings: {
+                slidesToShow: 3,
+                slidesToScroll: 1,
+                },
+            },
+            {
+                breakpoint: 1024,
+                settings: {
+                slidesToShow: 2,
+                slidesToScroll: 1,
+                },
+            },
+            {
+                breakpoint: 768,
+                settings: {
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                },
+            },
+            ],
+        })
+        .on('setPosition', function (event, slick) {
+            slick.$slides.css('height', slick.$slideTrack.height() + 'px');
+            $('.slick-slide > div').css('height', '100%');
+          });
+        }
+
+        function get_courses_list(limitfrom,limitto,categorycommalist,emptytrack = false){
+          Ajax.call([{
+            methodname: 'local_edwiserpagebuilder_get_courses',
+            args: {
+                limitstart:limitfrom,
+                limitend :limitto,
+                categorylist: categorycommalist
+            },
+            done: function(data) {
+              if(emptytrack){
+                $('#all-courses-category-carousel-{{instid}} .slick-track').empty();
+                $('#all-courses-category-carousel-{{instid}}').slick('slickAdd', data);
+                $('#all-courses-category-carousel-{{instid}}').attr('data-remaining',remaingcards);
+                $('#all-courses-category-carousel-{{instid}}').attr('data-last',lastcard);
+              }else{
+                $('#all-courses-category-carousel-{{instid}}').slick('slickAdd', data);
+                $('#all-courses-category-carousel-{{instid}}').attr('data-remaining',remaingcards);
+                $('#all-courses-category-carousel-{{instid}}').attr('data-last',lastcard);
+              }
+            },
+            fail: function() {
+                console.log("Error fetching the courses from : Dynamic cnc block Edwiser Page Builder.");
+            }
+        }]);
+        }
+        var limitfrom = 0;
+        var limtitto = 11;
+        var maxlimit = 11;
+        var remaingcards = $('#all-courses-category-carousel-{{instid}}').data('remaining');
+        var lastcard =  $('#all-courses-category-carousel-{{instid}}').data('last');
+        var totalcourses = $('#all-courses-category-carousel-{{instid}}').data('totalcourses');
+        var categorycommalist = $('#all-courses-category-carousel-{{instid}}').data('catid');
+        $('#all-courses-category-carousel-{{instid}}').on('afterChange', function(event, slick, currentSlide){
+            if (slick.options.slidesToShow + currentSlide >= slick.slideCount - slick.options.slidesToShow) {
+                if(!remaingcards == 0){
+                    if(maxlimit < remaingcards){
+                        limitfrom = lastcard;
+                        limitto = maxlimit;
+                        lastcard = limitto + limitfrom;
+                        remaingcards = totalcourses - lastcard;
+                    }else{
+                        limitfrom = lastcard;
+                        limitto = remaingcards;
+                        lastcard = lastcard + remaingcards
+                        remaingcards = 0;
+                    }
+                    get_courses_list(limitfrom,limitto,categorycommalist);
+                }
+              }
+          });
+        $(document).on('click','.navitem',function(){
+          limitfrom = 0;
+          totalcourses = $(this).data('coursecount');
+          var categoryid = $(this).data('categoryid');
+          categorycommalist = categoryid;
+          $('#all-courses-category-carousel-{{instid}}').attr('data-totalcourses',totalcourses);
+          if(totalcourses > maxlimit){
+            limitto = maxlimit
+            remaingcards = totalcourses - maxlimit;
+            lastcard = maxlimit;
+          }else{
+            remaingcards = 0;
+            limitto = totalcourses;
+            lastcard = totalcourses;
+          }
+          $("#all-courses-category-carousel-{{instid}}").slick('unslick');
+          get_courses_list(limitfrom,limitto,categorycommalist,emptytrack = true);
+          if (carousleContainer.parents(".edw-limitedwidth-block").length > 0) {
+            slickvariationlimitedwidth();
+          } else {
+            slickvariationfullwidth();
+          }
+        });
+        {{#hascategories}}
+              class AllCoursesCategory{{instid}} {
+                constructor() {
+                  this.AllCoursesCategory = document.querySelector(
+                    ".section-all-courses-category-design-{{instid}}"
+                  );
+
+                  this.navbarCarousel =
+                    this.AllCoursesCategory.querySelector(".navbar-carousel");
+
+                  this.navbarInner = this.AllCoursesCategory.querySelector(".navbar-inner");
+
+                  this.mobNavbar = this.AllCoursesCategory.querySelector(
+                    ".navbar-inner .mob-navbar"
+                  );
+
+                  this.navItemContainer = this.AllCoursesCategory.querySelector(
+                    ".navbar-inner .navbar-item-container"
+                  );
+
+                  this.navItems = this.AllCoursesCategory.querySelectorAll(
+                    ".navbar-item-container .navitem"
+                  );
+
+                  this.dropdownBtn = this.AllCoursesCategory.querySelector(".dropdown-btn");
+
+                  this.navLeftArrow =
+                    this.AllCoursesCategory.querySelector(".nav-left-arrow");
+                  this.navRightArrow =
+                    this.AllCoursesCategory.querySelector(".nav-right-arrow");
+
+                  this.leftValue = 0;
+                  this.maxNavItemWidth = 0;
+
+                  // bind methods
+                  this.dropdownBtnClicked = this.dropdownBtnClicked.bind(this);
+                  this.leftClicked = this.leftClicked.bind(this);
+                  this.rightClicked = this.rightClicked.bind(this);
+                  this.handleResize = this.handleResize.bind(this);
+                  this.navItemClicked = this.navItemClicked.bind(this);
+
+                  this.initializeEventListeners();
+                  this.initialize();
+                  this.handleResize();
+                }
+
+                initializeEventListeners() {
+                  this.dropdownBtn.addEventListener("click", this.dropdownBtnClicked);
+
+                  this.navLeftArrow.addEventListener("click", this.leftClicked);
+                  this.navRightArrow.addEventListener("click", this.rightClicked);
+
+                  this.navItems.forEach((navItem) => {
+                    navItem.addEventListener("click", this.navItemClicked);
+                  });
+
+                  window.addEventListener("resize", this.handleResize);
+                }
+
+                  handleMobNavbar(currentTarget = "") {
+                    let activeNavItem = currentTarget
+                      ? currentTarget
+                      : this.AllCoursesCategory.querySelector(
+                          ".navbar-item-container .navitem.active"
+                        );
+
+                    let clonedNavItem = activeNavItem.cloneNode(true);
+
+                    this.mobNavbar.innerHTML = "";
+                    this.mobNavbar.appendChild(clonedNavItem);
+                  }
+
+                initialize() {
+                  this.leftValue = 0;
+                  this.navLeftArrow.style.display = "none";
+
+                  this.navItems.forEach((navItem) => {
+                    this.maxNavItemWidth = Math.max(
+                      this.maxNavItemWidth,
+                      navItem.offsetWidth
+                    );
+                  });
+
+                  this.handleMobNavbar();
+                }
+
+                handleResize(e) {
+                  let navInnerWidth = this.navbarInner.offsetWidth;
+                  let navItemContainerWidth = this.navItemContainer.offsetWidth;
+
+                  const windowWidth = window.innerWidth;
+
+                  if (navItemContainerWidth + this.leftValue <= navInnerWidth) {
+                    this.leftValue = navInnerWidth - navItemContainerWidth;
+
+                    if (this.leftValue >= 0) {
+                      this.leftValue = 0;
+                      this.navLeftArrow.style.display = "none";
+                    }
+
+                    this.navRightArrow.style.display = "none";
+                    this.navItemContainer.style.left = this.leftValue + "px";
+                  } else {
+                    this.navRightArrow.style.display = "flex";
+                  }
+
+                  if (this.navbarCarousel.classList.contains("collapsed")) {
+                    this.navbarCarousel.style.height = 48 + "px";
+                  } else {
+                    this.navbarCarousel.style.height =
+                      this.navItemContainer.offsetHeight + 49 + "px";
+                  }
+
+                  if (windowWidth > 767) {
+                    this.navbarCarousel.style.height = "";
+                  }
+                }
+
+                leftClicked() {
+                  this.navRightArrow.style.display = "flex";
+
+                  this.leftValue += this.maxNavItemWidth;
+
+                  if (this.leftValue >= 0) {
+                    this.leftValue = 0;
+                    this.navLeftArrow.style.display = "none";
+                  }
+
+                  this.navItemContainer.style.left = this.leftValue + "px";
+                }
+
+                rightClicked() {
+                  this.navLeftArrow.style.display = "flex";
+
+                  let navInnerWidth = this.navbarInner.offsetWidth;
+                  let navItemContainerWidth = this.navItemContainer.offsetWidth;
+
+                  this.leftValue -= this.maxNavItemWidth;
+
+                  if (navItemContainerWidth + this.leftValue <= navInnerWidth) {
+                    this.leftValue = navInnerWidth - navItemContainerWidth;
+                    this.navRightArrow.style.display = "none";
+                  }
+
+                  this.navItemContainer.style.left = this.leftValue + "px";
+                }
+
+                navItemClicked(e) {
+                  let activeNavItem = this.AllCoursesCategory.querySelector(
+                    ".navbar-item-container .navitem.active"
+                  );
+
+                  activeNavItem.classList.remove("active");
+                  e.currentTarget.classList.add("active");
+
+                  this.handleMobNavbar(e.currentTarget);
+                }
+
+                dropdownBtnClicked() {
+                  if (this.navbarCarousel.classList.contains("collapsed")) {
+                    this.navbarCarousel.style.height =
+                      this.navItemContainer.offsetHeight + 49 + "px";
+
+                    this.navbarCarousel.classList.remove("collapsed");
+                  } else {
+                    this.navbarCarousel.style.height = 48 + "px";
+                    this.navbarCarousel.classList.add("collapsed");
+                  }
+                }
+              }
+
+        const allCoursesCategory{{instid}} = new AllCoursesCategory{{instid}}();
+        {{/hascategories}}
+    });
+});
+{{/js}}

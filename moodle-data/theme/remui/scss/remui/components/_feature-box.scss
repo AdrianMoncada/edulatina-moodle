@@ -1,0 +1,43 @@
+.feature-box {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    transition: transform .3s;
+    min-height: 200px;
+    @include get-box-shadow(md);
+
+    * {
+        margin: 0;
+    }
+    &__icon {
+        width: auto;
+        max-width: max-content;
+        height: 42px;
+        font-size: 28px;
+        color: $ic-default;
+    }
+    &__heading {
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 17px;
+        letter-spacing: 0.5px;
+        color: $heading-color;
+    }
+    &__text {
+        font-size: 15px;
+        width: 100%;
+        line-height: 1.4;
+        color: $paragraph-color;
+    }
+    &__link {
+        font-size: 14px;
+        color: $brand-primary;
+        &:hover {
+            text-decoration: none;
+        }
+    }
+    &:hover {
+        transform: translateY(-1.5rem) scale(1.03);
+    }
+}

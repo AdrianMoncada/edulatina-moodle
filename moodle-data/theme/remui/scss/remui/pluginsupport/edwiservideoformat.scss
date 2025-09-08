@@ -1,0 +1,125 @@
+body#page-course-view-edwiservideoformat {
+
+  a.stretched-link {
+    .instancename {
+      color: $heading-color !important;
+    }
+  }
+
+
+  a.nav-link.active {
+    color: $brand-primary !important;
+    border-bottom-color: $brand-primary !important;
+  }
+
+
+  .activity-bg-color {
+    background-color: $body-bg !important;
+    border-radius: 8px !important;
+  }
+
+  .course-content {
+    .edwiservideoformat-course-content {
+      .moremenu.navigation {
+        .more-nav {
+          & > [data-key="coursehome"] a::before {
+            background-color: $brand-primary !important;
+          }
+          & > [data-key="editsettings"] a:hover::before,
+          & > [data-key="participants"] a:hover::before,
+          & > [data-key="grades"] a:hover::before,
+          & > [data-key="courseoverview"] a:hover::before,
+          & > [data-key="coursereports"] a:hover::before,
+          & > [data-key="competencies"] a:hover::before {
+            background-color: $brand-primary !important;
+          }
+          [data-region="morebutton"] a:hover{
+            .moremenuicon{
+              color: $brand-primary !important;
+            }
+          }
+          a.nav-link:hover {
+            border-bottom-color: $brand-primary !important;
+          }
+        }
+      }
+    }
+  }
+  .course-sub-header1 {
+    .categoryname a:hover,
+    .coursename a:hover {
+      color: $link-color !important;
+    }
+  }
+}
+
+.bg-small-ui {
+  background-color: $bg-small-ui !important;
+}
+
+.small-text-color {
+  color: $small-text-color !important;
+}
+
+.edw-btn-secondary,
+.edw-btn-secondary.disabled,
+.edw-btn-secondary:disabled {
+  .fa,
+  .edw-icon {
+    color: $button-secondary-color-icon !important;
+  }
+  text-decoration: none !important;
+  &:hover {
+    color: $button-secondary-color-texthover !important;
+    background-color: $button-secondary-color-backgroundhover !important;
+    border-color: $button-secondary-border-colorhover !important;
+    .fa,
+    .edw-icon {
+      color: $button-secondary-color-iconhover !important;
+    }
+  }
+
+  &:not(:disabled):not(.disabled):active:focus,
+  &:not(:disabled):not(.disabled).active,
+  &:not(:disabled):not(.disabled):focus,
+  &:not(:disabled):not(.disabled):active,
+  &:not(:disabled):not(.disabled).focus,
+  .show > &.dropdown-toggle {
+    color: $button-secondary-color-textactive !important;
+    background-color: $button-secondary-color-backgroundactive !important;
+    border-color: $button-secondary-border-coloractive !important;
+    .fa,
+    .edw-icon {
+      color: $button-secondary-color-iconactive !important;
+    }
+  }
+
+  color: $button-secondary-color-text !important;
+  border-color: $button-secondary-border-color !important;
+  background: $button-secondary-color-background !important;
+  --bs-btn-disabled-color: unset;
+  --bs-btn-disabled-bg: unset;
+  --bs-btn-disabled-border-color: unset;
+}
+
+body#page-mod-edwiservideoactivity-view,
+body#page-course-view-edwiservideoformat {
+  .edwiservideo-container {
+    .metadata {
+      .tabs {
+        .tab-buttons {
+          .tab-button {
+            &.active {
+              color: $brand-primary !important;
+              border-color: $brand-primary !important;
+            }
+
+            &.active::before {
+              background-color: $brand-primary !important;
+            }
+          }
+        }
+      }
+    }
+  }
+}

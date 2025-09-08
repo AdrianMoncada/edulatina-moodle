@@ -1,0 +1,307 @@
+// $datatables_pad_y:16px;
+// $datatables_pad_x:24px;
+
+$table_head_bg_color: $bg-small-ui;
+$table-border-rad:8px;
+$table-th-height:50px;
+$table-bd-hd-height:50px; // height of table body th
+$box-shadow-value :0 13px 37px rgba(92, 107, 121, 0.1);
+
+
+table {
+
+    &.dataTable,
+    &.generaltable ,&.rolecap{
+        font-size: 14px;
+        border-radius: $table-border-rad;
+        color: $heading-color;
+        // filter: drop-shadow(map-get($box-shadows-values, xs));
+        box-shadow: $box-shadow-value;
+
+        thead {
+            background-color: $table_head_bg_color;
+
+            tr {
+                th {
+                    // padding:$pad-y  $pad-x;
+                    height: $table-th-height;
+                    vertical-align: middle;
+                    border-right: 1px solid $medium-border;
+                    padding-left: map-get($spacerspx, '4') !important;
+                    padding-right: map-get($spacerspx, '4') !important;
+                    // @extend .h-semibold-6;
+                    @include get_typography(6, semibold, all);
+
+                    &:last-child {
+                        border-right: unset;
+                    }
+
+                }
+            }
+        }
+
+        tbody {
+
+            td,
+            th {
+                // padding: $pad-y $pad-x;
+                height: $table-bd-hd-height;
+                background-color: $white;
+                color: $paragraph-color;
+                vertical-align: middle;
+                border-top: 1px solid $light-border;
+                border-right: 1px solid $light-border;
+
+                padding-left: map-get($spacerspx, '4') !important;
+                padding-right: map-get($spacerspx, '4') !important;
+                // &:last-child {
+                //     border-right: unset;
+                // }
+                &:first-child {
+                    border-left: 1px solid $light-border;
+                }
+
+                // @extend .h-regular-6;
+                @include get_typography(6, regular, all);
+            }
+            tr:last-child{
+                border-bottom: 1px solid $light-border;
+            }
+        }
+    }
+}
+
+
+.gradereport-grader-table {
+    .heading {
+        background-color: $table_head_bg_color;
+    }
+}
+
+.show-drawer-right,
+.show-drawer-left {
+    table {
+        font-size: 12px;
+    }
+}
+
+
+#page-report-outline-index {
+    .table-responsive {
+        // filter: drop-shadow(map-get($box-shadows-values, xs));
+        box-shadow: $box-shadow-value;
+        border-radius: $table-border-rad;
+
+        .generaltable {
+            filter: unset;
+            overflow: hidden;
+
+            tbody {
+                td.numviews {
+                    text-align: left;
+                }
+
+                tr.section {
+                    color: $heading-color;
+                }
+            }
+        }
+    }
+}
+
+
+#page-admin-plugins {
+    .table-responsive {
+        // filter: drop-shadow(map-get($box-shadows-values, xs));
+        box-shadow: $box-shadow-value;
+        border-radius: $table-border-rad;
+
+        .generaltable {
+            filter: unset;
+
+            tbody {
+                tr.plugintypeheader {
+                    th {
+                        // @extend .h-semibold-6;
+                        @include get_typography(6, semibold, all);
+                        color: $heading-color;
+                    }
+                }
+            }
+        }
+    }
+}
+
+#page-admin-user {
+    .table-responsive {
+        .generaltable {
+            overflow: hidden;
+        }
+    }
+}
+
+// multiple table have issue with overflow
+// added css global level
+
+.table-responsive {
+    overflow: auto
+}
+
+#page-admin-theme-index{
+    .table-responsive{
+        // filter: drop-shadow(map-get($box-shadows-values, xs));
+        box-shadow: $box-shadow-value;
+        .generaltable{
+            filter: unset;
+            overflow: hidden;
+        }
+    }
+}
+
+// permission page tables modifications
+#page-admin-roles-permissions,#page-admin-roles-override,#page-admin-roles-check{
+    .generalbox{
+        overflow-x: auto;
+        padding: 0px !important;
+        margin-bottom:  map-get($spacerspx, 4 );
+    }
+    table{
+        border: 1px solid $light-border;
+        // overflow: hidden;
+        &.rolecap{
+            width: 100%;
+            white-space: nowrap;
+            margin-top:  map-get($spacerspx, 6 );
+            thead{
+                @extend .h-semibold-6;
+            }
+            th,td{
+                padding: map-get($spacerspx, '2d5' ) map-get($spacerspx, 2 );
+                box-sizing: content-box;
+            }
+        }
+    }
+}
+
+#page-admin-reportbuilder-index{
+    .reportbuilder-report {
+        .table-dynamic{
+            overflow: scroll;
+            white-space: nowrap
+        }
+    }
+}
+
+#report-eventlist-table {
+    overflow: auto;
+}
+
+#question_table,
+#questionscontainer {
+    overflow: auto;
+    white-space: nowrap;
+    max-height: 600px;
+    min-height: 400px;
+}
+
+body.edw-m402 {
+    .reportbuilder-report .reportbuilder-wrapper .table-dynamic {
+        overflow: auto;
+    }
+}
+
+body:not(.edw-m402) {
+    .reportbuilder-report .reportbuilder-wrapper .table-dynamic:not(#page-badges-index .table-dynamic) {
+        overflow: auto;
+        min-height: 300px;
+    }
+}
+
+//For making the table background transparent
+.course-overview{
+    .table{
+        --#{$prefix}table-accent-bg: transparent;
+    }
+}
+
+
+//Fix table layout issue in question bank
+#questionsubmit{
+    .categoryquestionscontainer{
+       #question_table{
+          #categoryquestions{
+             table-layout: auto;
+          }
+       }
+    }
+}
+
+//Increased the height of questions container
+#page-question-edit{
+    .questionbankwindow{
+        #questionscontainer {
+            max-height: 1000px;
+        }
+    }
+}
+
+#page-question-edit{
+    .questionbankwindow{
+       #questionscontainer{
+           #questionsubmit{
+               .invisiblefieldset{
+                   .categoryquestionscontainer{
+                       #question_table{
+                           max-height: 600px;
+                       }
+                    }
+               }
+           }
+       }
+   }
+}
+
+//Fix of three scrollbars appearing in quiz edit page
+#page-mod-quiz-edit{
+    #questionscontainer{
+        max-height: unset;
+    }
+
+    #question_table{
+        max-height: 600px;
+    }
+}
+
+#page-message-notificationpreferences{
+    //Fix of incorrect accent color of table in notification preferences page
+    #region-main-box{
+        .preferences-page-container{
+            .preferences-container {
+                table.preference-table{
+                    --bs-table-accent-bg: transparent;
+                }
+            }
+        }
+    }
+
+    // Centered aligned the toggles on Notification preferences page
+    .preference-state{
+        .form-check{
+           justify-content: space-evenly;
+           input{
+              margin-left: -1em;
+           }
+        }
+     }
+}
+
+// These table properties are modified because they are causing table background color issue in dark mode
+.table {
+   --bs-table-bg: unset;
+}
+html[nighteyeplgn="active"] {
+   .table {
+      --bs-table-bg-type: unset;
+      --bs-table-bg-state: unset;
+   }
+}

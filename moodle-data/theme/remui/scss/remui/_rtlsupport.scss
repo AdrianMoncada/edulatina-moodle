@@ -1,0 +1,174 @@
+// #rtl issues
+.dir-rtl {
+   #conversation-actions-menu {
+      position: absolute;
+      transform: translate3d(138px, 37px, 0px) !important;
+   }
+
+   [data-region="send-message-txt"] {
+      text-align: right;
+   }
+   .maincalendar{
+      .header {
+         .dropdown-menu.show {
+            transform: translate3d(4px, 46px, 0px) !important;
+            width: fit-content;
+            li{
+               width: unset;
+            }
+         }
+      }
+   }
+   .calendarwrapper {
+      .calendar-controls {
+
+         .edw-icon-Left-Arrow,
+         .edw-icon-Right-Arrow {
+            display: block;
+            transform: rotate(180deg);
+         }
+      }
+   }
+
+   .dashboard-card {
+      .dropdown-menu.dropdown-menu-right {
+         transform: translate3d(0px, 24px, 0px) !important;
+      }
+   }
+
+   .pagination {
+      .page-item {
+         .page-link {
+            display: flex;
+            height: 100%;
+            justify-content: center;
+            align-items: center;
+         }
+
+         &:first-child .edw-icon,
+         &:last-child .edw-icon {
+            transform: rotate(180deg);
+         }
+      }
+   }
+
+   #page-footer {
+      .popover {
+         transform: translate(190px, -56px) !important;
+
+         .popover-arrow{
+            transform: translate(-90px, 0px) !important;
+         }
+      }
+   }
+
+   .edw-icon-Square-Arrow_left:before {
+      content: "{";
+   }
+   .edw-icon-Show:before{
+      content:"(" ;
+   }
+   .edw-icon-Shortcut:before{
+      content:")" ;
+   }
+   .edw-icon-Preferences::before{
+      content: "]";
+   }
+   .edw-icon-Private-Files::before{
+      content: "[";
+   }
+   .edw-icon-Time:before{
+      content: ">";
+   }
+   .edw-icon-Todo-list::before{
+      content: "<";
+   }
+   .edw-icon-Square-Arrow_Right,
+   .edw-icon-Square-Arrow_left,
+   .edw-icon-Right-Arrow,
+   .edw-icon-Left-Arrow,
+   .fa-angle-right,
+   .fa-angle-left,
+   .fa-arrow-left,
+   .fa-arrow-right {
+      display: block;
+      transform: rotate(180deg);
+   }
+   #feedback-canvas{
+      position: relative;
+   }
+   #feedback-highlighter{
+      transform: translate(-50%,-50%);
+      right: unset;
+      left: 50%;
+   }
+
+   .block_remuiblck{
+      #courseprogress{
+         .progress-percent{
+            margin-left: 0px;
+            margin-right: 50px;
+
+         }
+      }
+   }
+
+   &.pagelayout-login{
+      &.loginleft {
+         .login-container {
+             left: 0;
+             right: unset;
+         }
+
+         .login-description-container {
+             left: $login-container-width;
+             right: unset;
+         }
+
+     }
+     &.loginright {
+         .login-container {
+             right: 0;
+             left: unset;
+         }
+         .login-description-container{
+             right: $login-container-width;
+             left: unset;
+         }
+     }
+   }
+
+   #add-block-float-menu {
+      transform: translate(50%, 0);
+
+      .dropdown-menu {
+         transform: translate(50%,-103%)!important;
+      }
+   }
+
+   &.notloggedin {
+      #page-footer {
+         .popover {
+            transform: translate3d(213px,-214px,0)!important;
+         }
+      }
+   }
+
+   // toast message which is shown after checkforupdate
+   .fullwidth-modal {
+
+      .modal-body {
+
+         .updateinfoalert {
+            transform: translate(50%, -50%);
+         }
+      }
+
+   }
+
+   .section_goto {
+      .btn {
+         transform: rotate(180deg);
+      }
+   }
+}

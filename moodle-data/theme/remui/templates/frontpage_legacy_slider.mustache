@@ -1,0 +1,76 @@
+{{!
+    This file is part of Moodle - http://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+    GNU General Public License for more details.
+
+    Edwiser RemUI
+    @package theme_remui
+    @copyright (c) 2023 WisdmLabs (https://wisdmlabs.com/)
+    @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+
+}}
+{{!
+    @template theme_remui/frontpage_legacy_slider
+}}
+
+{{# slider }}
+<section id="edwiser-slider">
+        {{# isslider }}
+        <!-- slider -->
+        <div class="carousel slide" id="edwiser-carousel-old" data-interval="{{ slideinterval }}" data-ride="carousel" data-bs-ride="carousel">
+            <ol class="carousel-indicators">
+                {{# slides }}
+                    <li data-slide-to="{{count}}" data-target="#edwiser-carousel-old" data-bs-slide-to="{{count}}" data-bs-target="#edwiser-carousel-old" class="{{#active}}active{{/active}}"></li>
+                {{/ slides}}
+            </ol>
+
+            <div class="carousel-inner" role="listbox">
+                {{# slides }}
+                    <div class="carousel-item align-items-center {{#active}}active{{/active}}">
+                    <div id="banner-img-slider" class="col-12" style="background-image:url({{ img }}); background-position: center; background-size: cover; background-repeat:no-repeat; min-height:500px;"></div>
+                    <div class="carousel-caption">
+                        {{{ img_txt }}}
+                        {{# btn_txt }}
+                        <p><a href="{{ btn_link }}" class="btn btn-primary mt-2">{{{ btn_txt }}}</a></p>
+                        {{/ btn_txt }}
+                    </div>
+                    </div>
+                {{/ slides }}
+
+                <a class="carousel-control-prev" href="#edwiser-carousel-old" role="button" data-target="#edwiser-carousel-old" data-bs-target="#edwiser-carousel-old" data-slide="prev" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon edw-icon edw-icon-Left-Arrow" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#edwiser-carousel-old" role="button" data-target="#edwiser-carousel-old" data-bs-target="#edwiser-carousel-old" data-slide="next" data-bs-slide="next">
+                    <span class="carousel-control-next-icon edw-icon edw-icon-Right-Arrow" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+        </div>
+        <!-- slider ends -->
+        {{/ isslider }}
+
+        {{# isimage }}
+        <div class="cover card card-inverse rem-staticimage border-0">
+            <div id="banner-img-slider" class="col-12" style="background-image:url({{ staticimage }}); background-position: center; background-size: cover; background-repeat:no-repeat; min-height:500px;"></div>
+            <div class="carousel-caption cover-background centered card-img-overlay white">
+            {{{addtxt}}}
+            </div>
+        </div>
+        {{/ isimage }}
+
+        {{# isvideo }}
+            <div class="w-100 wdm-home-video">
+                <iframe class="h-100 w-100 border-0" src="{{ video }}?rel=0" allowfullscreen></iframe>
+            </div>
+        {{/ isvideo }}
+</section>
+{{/ slider }}

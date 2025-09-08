@@ -1,0 +1,109 @@
+{{!
+    This file is part of Moodle - http://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
+    Edwiser RemUI
+    @package theme_remui
+    @copyright (c) 2023 WisdmLabs (https://wisdmlabs.com/)
+    @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+}}
+{{!
+    @template core/filemanager_page_generallayout
+
+    This template renders the html for displaying one file manager
+
+    Example context (json):
+    {
+        "client_id": "Unique-string",
+        "restrictions": "<span>Maximum size for new files: Unlimited</span>",
+        "helpicon": "<a class='btn'><i class='icon fa fa-question-circle'></i></a>"
+    }
+}}
+<div id="filemanager-{{{client_id}}}" class="filemanager w-100 fm-loading">
+    <div class="fp-navbar bg-faded card mb-0">
+        <div class="filemanager-toolbar icon-no-spacing d-flex justify-content-between">
+            <div class="fp-toolbar d-flex align-items-center flex-gap-4">
+                <div class="fp-pathbar">
+                    <span class="fp-path-folder d-flex align-items-center flex-gap-1">
+                        <span class="edw-icon edw-icon-Folder"></span>
+                        <a class="fp-path-folder-name aalink" href="#"></a>
+                    </span>
+                </div>
+                <div class="fp-btn-add  d-flex align-items-center flex-gap-1">
+                    <a role="button" title="{{#str}}addfile, repository{{/str}}" href="#">
+                        <span class="edw-icon edw-icon-File_Activity"></span>
+                    </a>
+                    <span class="btn-label h-regular-6">{{#str}}addfile, repository{{/str}}</span>
+                </div>
+                <div class="fp-btn-mkdir">
+                    <a role="button" title="{{#str}}makeafolder{{/str}}" href="#">
+                        {{#pix}}a/create_folder{{/pix}}
+                    </a>
+                </div>
+                <div class="fp-btn-download">
+                    <a role="button" title="{{#str}}download, repository{{/str}}" href="#">
+                        <span class="edw-icon edw-icon-Download"></span>
+                    </a>
+                </div>
+                <div class="fp-btn-delete">
+                    <a role="button" title="{{#str}}delete{{/str}}" href="#">
+                        <span class="edw-icon edw-icon-Delete-Course"></span>
+                    </a>
+                </div>
+                <span class="fp-img-downloading">
+                    <span class="sr-only">{{#str}}loadinghelp{{/str}}</span>
+                    {{#pix}}i/loading_small{{/pix}}
+                </span>
+
+            </div>
+            <div class="fp-viewbar btn-group float-sm-right flex-gap-4">
+                <a title="{{#str}}displayicons, repository{{/str}}" class="fp-vb-icons" href="#">
+                    <span class="edw-icon edw-icon-Card-View"></span>
+                </a>
+                <a title="{{#str}}displaydetails, repository{{/str}}" class="fp-vb-details" href="#">
+                    <span class="edw-icon edw-icon-List-View-08"></span>
+                </a>
+                <a title="{{#str}}displaytree, repository{{/str}}" class="fp-vb-tree" href="#">
+                    <span class="edw-icon edw-icon-Folder"></span>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="filemanager-loading mdl-align">{{#pix}}i/loading_small{{/pix}}<span class="sr-only">{{#str}}loadinghelp{{/str}}</span></div>
+    <div class="filemanager-container card p-p-4" >
+        <div class="fm-content-wrapper">
+            <div class="fp-content"></div>
+            <div class="fm-empty-container">
+                <div class="dndupload-message">{{#str}}dndenabled_inbox{{/str}}<br/>
+                    <div class="dndupload-arrow d-flex">
+                        <i class="fa fa-arrow-circle-o-down fa-3x m-auto"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="dndupload-target">{{#str}}droptoupload{{/str}}<br/>
+                <div class="dndupload-arrow d-flex">
+                    <i class="fa fa-arrow-circle-o-down fa-3x m-auto"></i>
+                </div>
+            </div>
+            <div class="dndupload-progressbars"></div>
+            <div class="dndupload-uploadinprogress">{{#pix}}i/loading_small{{/pix}}<span class="sr-only">{{#str}}loadinghelp{{/str}}</span></div>
+        </div>
+        <div class="filemanager-updating">{{#pix}}i/loading_small{{/pix}}<span class="sr-only">{{#str}}loadinghelp{{/str}}</span></div>
+    </div>
+    <div class="fp-restrictions p-mt-4 text-paragraph">
+        {{{restrictions}}}
+        <span class="dnduploadnotsupported-message"> - {{#str}}dndnotsupported_insentence{{/str}}{{{helpicon}}}</span>
+    </div>
+</div>

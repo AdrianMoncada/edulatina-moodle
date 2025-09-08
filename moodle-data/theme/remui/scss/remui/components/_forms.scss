@@ -1,0 +1,171 @@
+$form-autocomplete-selection-mb: 16px;
+.form-autocomplete-selection {
+    margin-bottom: $form-autocomplete-selection-mb;
+}
+.mform .form-inline {
+    .fdate_time_selector {
+        gap: 4px;
+        .form-group {
+            margin: 0;
+        }
+    }
+}
+
+.edw-custom-checkbox,
+.edw-icon-Calendar {
+    color: $ic-default;
+}
+.col-form-label {
+    color: $input-label-color;
+}
+.edw-form-label {
+    @include get_typography(6, regular, desktop);
+    @include media-breakpoint-down(md) {
+        font-weight: 600;
+        font-size: 14px;
+        line-height: 17px;
+    }
+}
+.fieldset-title {
+    // @extend .h-semibold-4;
+    @include get_typography(4, semibold, desktop);
+    @include media-breakpoint-down(md) {
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 24px;
+    }
+}
+.checkbox-label {
+    @include media-breakpoint-down(md) {
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 22px;
+    }
+}
+.form-control {
+    @include media-breakpoint-down(md) {
+        padding: $input-padding-y-sm $input-padding-x-sm;
+        height: $input-height-sm;
+    }
+}
+@include media-breakpoint-down(sm) {
+    .form-check {
+      padding-left: 0;
+    }
+}
+.form-check {
+    display: flex;
+}
+
+// in lots of places the textarea is either two small or overflowing the container
+textarea.form-control {
+	width: 100% !important;
+}
+
+
+div[data-plugin='aiplacement_courseassist'] {
+    .form-check.form-switch {
+      padding-left: 0px;
+    }
+
+    input[type="checkbox"]:not(.custom-control-input) {
+      width: 32px !important;
+      height: 1em;
+    }
+
+    input[type="checkbox"]:not(.custom-control-input):checked:after {
+      content: none;
+    }
+
+    input[type="checkbox"]:not(.custom-control-input):not(:checked):after{
+      content: none;
+    }
+  }
+
+  div[data-plugin='aiplacement_editor'] {
+    .form-check.form-switch {
+      padding-left: 0px;
+    }
+
+    input[type="checkbox"]:not(.custom-control-input) {
+      width: 32px !important;
+      height: 1em;
+    }
+
+    input[type="checkbox"]:not(.custom-control-input):checked:after {
+      content: none;
+    }
+
+    input[type="checkbox"]:not(.custom-control-input):not(:checked):after{
+      content: none;
+    }
+  }
+
+
+// For Fixing the UI issues in the modal form of Remui custom fields
+.mform:not(.full-width-labels) {
+  .col-form-label {
+      .form-label-addon {
+          margin-left: unset;
+      }
+  }
+}
+
+.modal-body {
+  .mform {
+      .row {
+          --bs-gutter-x: none;
+      }
+  }
+}
+
+
+// Fixing UI issue on remui setting page
+.settingsform {
+  .form-item {
+    .form-setting {
+      .defaultsnext:not(:has(select)) {
+        display: inline;
+      }
+    }
+  }
+}
+
+// Fixing UI issue of dropdown element on remui setting page
+.settingsform {
+  .form-item {
+    .form-setting {
+      .defaultsnext:has(select) {
+        width: unset;
+      }
+    }
+  }
+}
+
+// Fixing UI issue in form on upgradesettings page
+#page-admin-upgradesettings {
+  form[action="upgradesettings.php"] {
+    .adminsettings {
+      .form-item {
+        .form-setting {
+          .defaultsnext {
+            width: unset;
+          }
+        }
+      }
+    }
+  }
+}
+
+// For fixing UI issue in form of setting page of grader plugin
+#page-admin-setting-block_edwiser_grader_category {
+  form#adminsettings {
+    fieldset.adminsettings {
+      .form-setting {
+        .form-checkbox.defaultsnext {
+          width: unset;
+        }
+      }
+    }
+  }
+}

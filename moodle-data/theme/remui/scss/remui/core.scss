@@ -1,0 +1,1306 @@
+* {
+   @include thin-scrolls($gray-100);
+}
+body {
+   text-transform: $body-text-transform;
+   letter-spacing: $body-letterspacing;
+}
+@if $font-size-tablet-base != null {
+   @include media-breakpoint-down(md) {
+      body {
+         font-size: $font-size-tablet-base;
+      }
+   }
+}
+@if $font-size-mobile-base != null {
+   @include media-breakpoint-down(sm) {
+      body {
+         font-size: $font-size-mobile-base;
+      }
+   }
+}
+
+#page {
+   background: $body-background;
+   @if $body-bg-attachment != null {
+      background-attachment: $body-bg-attachment;
+      @if $body-bg-attachment == fixed {
+         background-size: cover;
+      }
+      @if $body-bg-attachment != fixed {
+         background-size: auto;
+      }
+   }
+}
+.userpicture {
+   border-radius: 50%;
+   border: $navbar-avatar-bordersize solid $navbar-avatar-bordercolor;
+   margin-right: 0.25rem;
+}
+.userinitials {
+   border: $navbar-userinitials-bordersize solid $navbar-avatar-bordercolor;
+}
+
+.path-grade-report-grader {
+   .gradeparent {
+      overflow: auto;
+      max-height: 500px;
+
+      @include media-breakpoint-up(md) {
+         th.header {
+            position: sticky;
+            left: 0;
+         }
+      }
+
+      .gradereport-grader-table tr.lastrow:not(.userrow) {
+         bottom: -1px;
+      }
+   }
+   #region-main {
+      div[role="main"] {
+         filter: unset !important;
+     }
+   }
+}
+
+// form#adminsettings .settingsform h2 {
+// @extend .h-semibold-3;
+// margin-bottom: 2.5rem;
+// }
+.edw-icon-container {
+   width: 24px;
+   height: 24px;
+}
+
+.edw-icon {
+   &.large {
+      font-size: $edw-icon-size-large;
+   }
+   &.small {
+      font-size: $edw-icon-size-small;
+   }
+}
+.form-label-color {
+   color: $paragraph-color;
+}
+
+// body:not(.pagelayout-frontpage) {
+body:not(.transparent-header) {
+   .site-announcement.alert {
+      position: absolute;
+   }
+}
+
+#page-wrapper {
+   #page:has(.site-announcement.alert) {
+      #region-fullwidthtop-blocks {
+         margin-top: 59px;
+      }
+   }
+}
+
+// License notice positioning
+// When I write license-notice css "not for frotpage" and "for frontpage" than it's works fine otherwise not so I write separte codes
+body:not(.pagelayout-frontpage),
+body.pagelayout-frontpage {
+   .license-notice{
+      position: fixed !important;
+      top: $navbar-height;
+   }
+}
+
+.site-announcement.alert{
+   // position: fixed ;
+   // top: $navbar-height;
+   width: 100%;
+   top: 0px;
+   left: 0;
+   right: 0;
+   z-index: $zindex-sticky;
+   transition: all 1s ease-in-out;
+   &.show-more {
+      &:hover > .ellipsis {
+         transition: all 0.5s ease-in-out;
+         display: block;
+      }
+      // &.fixedtop-0 {
+      //    transition: all 0.5s ease-in-out;
+      //    top: 0;
+      // }
+   }
+}
+body:not(.notloggedin) {
+   .site-announcement.alert{
+      @include media-breakpoint-down(md) {
+         top: $navbar-height;
+      }
+   }
+}
+body.transparent-header{
+   .site-announcement.alert{
+      top: 80px;
+   }
+}
+#dictionarypopup .popover {
+   width: 400px;
+}
+
+
+.pagelayout-incourse {
+   // code to handle color of the quiz timer
+   .time_circles>div>h4 {
+      color: $paragraph-color;
+   }
+
+   .time_circles>div>span {
+      color: $paragraph-color;
+   }
+
+   // code to handler activity header alignment
+   .page-context-header {
+      align-items: center;
+   }
+
+   .tertiary-navigation .row:has(.simplesearchform ) .navitem {
+      .btn {
+         display: flex;
+         align-items: center;
+      }
+   }
+}
+
+// license-notice z-index value
+.license-notice {
+   z-index: 1700 !important;
+}
+// Color for primary and light badge
+.badge-primary {
+   background-color: $ascent-bg-color;
+}
+
+// Small ui element badge.
+.badge-light {
+   background-color: $bg-small-ui;
+}
+//settings page  admin settings nav bar and page improvement  in mobile view.
+#adminsettings {
+   .settingsform {
+      ::-webkit-scrollbar {
+         display: none;
+      }
+
+      .form-setting {
+         .form-control[size] {
+            width: 50%;
+         }
+         .form-description{
+            p{
+               // margin-bottom: 0px;
+            }
+         }
+
+         // .colourdialogue {
+         //    width: 100%;
+         // }
+      }
+   }
+
+   .edw-tabs-navigation {
+      @include media-breakpoint-down(sm) {
+         overflow-x: auto;
+         height: $secondary-navmenu-height+5;
+      }
+
+      .nav-tabs {
+         @include media-breakpoint-down(sm) {
+            white-space: nowrap;
+            flex-wrap: nowrap;
+         }
+
+         .nav-link {
+            // color: $heading-color;
+            background-color: transparent;
+
+            &.active,
+            &.focus,
+            &:focus {
+               box-shadow: unset;
+               color: $brand-primary;
+            }
+         }
+      }
+   }
+}
+#page-admin-setting-themesettingremui{
+   #adminsettings{
+      fieldset{
+         .form-item{
+            margin-top: 20px;
+            &:first-child{
+               margin-top: 0px !important
+            }
+         }
+         h3.main{
+            @extend .h-bold-3;
+            border-bottom: unset;
+            margin-bottom: 6px;
+            margin-top: 60px;
+            & ~ .box.generalbox.formsettingheading{
+               p{
+                  margin-bottom: 0px;
+                  padding-bottom: 10px;
+                  border-bottom: 1px solid $medium-border;
+               }
+            }
+            &:first-of-type{
+               margin-top: 0px !important;
+            }
+            & ~ .form-item{
+               margin-top: 20px;
+               margin-left: 20px;
+            }
+         }
+      }
+      .form-description{
+         word-break: break-word;
+      }
+      @include media-breakpoint-down(sm){
+         .colourdialogue{
+            width: 100%;
+         }
+      }
+      #admin-showenrolledtextinput,
+      #admin-showlessontextinput{
+         & .form-label{
+            visibility: hidden;
+         }
+         margin-top: 0px;
+      }
+      #admin-setupwizard{
+         margin-left: 0px;
+         .form-setting{
+            padding-left: 0px;
+         }
+         .form-label,
+         .defaultsnext,
+         .form-defaultinfo{
+            display: none !important;
+         }
+      }
+   }
+}
+
+
+
+
+hr {
+   border-top: $hr-border-width solid $medium-border;
+}
+
+.dropdown-item {
+   &[aria-current="true"] {
+      background-color: $bg-small-ui;
+   }
+}
+.edw-paragraph-color{
+   color: $paragraph-color;
+}
+
+.edw-heading-color{
+   color: $heading-color;
+}
+// static code for badges
+.badge,.current-badge{
+   border-radius: 50px;
+   padding: 4px 8px;
+   font-size: 12px !important;;
+   line-height: 14px !important;
+   font-weight: 400!important;
+   height: fit-content;
+}
+/*ER-407 Fix*/
+#page-mod-glossary-view .container-fluid.tertiary-navigation .navitem:last-child .dropdown-menu{
+   left: -245% !important;
+}
+#region-top-blocks.has-blocks{
+   margin-bottom: $blocks-gap-lg;
+}
+.course-info-container{
+   .rating-short-design{
+      .avgrating,.rnr-link{
+         color: $paragraph-color;
+     }
+      div{
+         span{
+            order: 2;
+            text-align: right;
+            margin-left: 0.25rem;
+         }
+      }
+   }
+
+}
+#page-mod-quiz-mod #id_reviewoptionshdr{
+   .form-group{
+      .col-form-label{
+         max-width: none;
+      }
+      .felement{
+         max-width: none;
+      }
+   }
+}
+// #80819 support issue fix
+#page-mod-hvp-mod{
+   div[role="main"]{
+      filter: unset;
+      #fitem_id_h5peditor{
+         .felement{
+            .form-control-static{
+               width: 100%;
+            }
+         }
+      }
+   }
+}
+
+.hasbackground.design-1 .aalink:focus{
+   color: black;
+}
+
+// #81215 topic format support issue fix
+#page-course-view-topics{
+   .inplaceeditable-text{
+      .quickeditlink{
+         z-index: 1;
+      }
+   }
+}
+
+// choice mod activity issue
+.horizontal,.vertical{
+   .choices{
+      .option{
+         input{
+            margin-right: 15px !important;
+         }
+      }
+   }
+}
+
+// #81299 adminer issue
+#page-admin-local-adminer-index.path-admin-local-adminer{
+   div[role="main"]{
+      filter: unset !important;
+   }
+}
+
+.mark-all-read-button{
+   color: $paragraph-color;
+   position: relative;
+   .loading-icon{
+      position: absolute;
+      top: 0px;
+      left: 50%;
+   }
+}
+
+
+// #81882 course progress block modal issue
+.block_remuiblck .block-content-area{
+  filter:unset !important;
+}
+
+//#82175 rubric modal no overflow issue
+.path-mod-assign [data-region="grade-panel"] .fitem.popout{
+   overflow: auto;
+}
+
+
+
+#sticky-footer{
+   div.form-check{
+      align-items: center;
+   }
+   @include media-breakpoint-down(md){
+      white-space: nowrap;
+      overflow: auto;
+      .actions.nav{
+         flex-wrap: nowrap;
+      }
+   }
+   // height: unset;
+   min-height: 60px;
+   padding-top: 5px !important;
+   padding-bottom: 5px !important;
+   .col,.col-auto{
+      label{
+         margin-bottom: 0px;
+      }
+   }
+}
+
+.pagelayout-course .course-content #sticky-footer {
+   justify-content: unset !important;
+}
+
+
+// Rating and Review block getting added on multiple pages
+.block.block_edwiserratingreview{
+   display: none;
+}
+
+.pagelayout-mydashboard,.pagelayout-course{
+   .block.block_edwiserratingreview {
+      display: block ;
+   }
+}
+
+
+// fix for report builder filters alignment
+.reportbuilder-filters-wrapper{
+   form.full-width-labels{
+      .filter {
+         .felement.col-lg-9{
+            max-width: 100%;
+         }
+      }
+      .form-group.row.fitem.femptylabel {
+         flex-direction: column;
+      }
+   }
+}
+
+.font-size-16{
+   font-size: 16px;
+}
+
+#page-grade-report-user-index,
+#page-admin-comment-index{
+   div[role="main"] {
+      filter: unset !important;
+  }
+}
+
+// fix for long settings name
+.path-admin-setting{
+   .form-shortname{
+      word-break: break-all;
+   }
+}
+
+#page-admin-grade-edit-letter-index{
+   #fitem_id_gradeentryadd{
+      margin-top: 24px;
+   }
+}
+#page{
+   overflow: unset !important;
+}
+ .cell .action-icon{
+   display: inline !important;
+}
+
+#page-mod-quiz-edit{
+   .inplaceeditable-text{
+   text-align: left;
+   }
+  .slotnumber{
+   overflow: auto;
+  }
+  .page-add-actions{
+   .dropdown-menu{
+      z-index: 9;
+   }
+  }
+}
+
+.stickyfooter .btn{
+   font-size: (0.9375rem * 1.10) !important;
+}
+
+// button overlap due to not enough width
+.stickyfooter {
+   .fitem {
+      gap: 8px;
+
+      & > div {
+         width: fit-content;
+      }
+   }
+}
+// It will apply only on moodle42
+.pagelayout-course.edw-m402 {
+   .activity-item .bulkselect{
+      margin-left: 6px;
+   }
+}
+
+// It will apply moodle43 or above
+.pagelayout-course:not(.edw-m402) {
+   &:not(#page-course-view-weeks){
+      .course-section-header{
+         .bulkselect{
+            margin-left: 8px;
+         }
+      }
+      .activity-item .bulkselect{
+         margin-left: 6px;
+      }
+   }
+}
+
+.pagelayout-course{
+   .header-enrolbtn-wrapper {
+      .btn-enrolpage {
+         font-size: 12px;
+         &.disabled {
+            background-color: $secondary;
+            color: #fff;
+            border: unset;
+	    font-style: normal;
+         }
+      }
+   }
+}
+
+
+
+.activity-navigation{
+   @include media-breakpoint-down(sm){
+      #prev-activity-link,
+      #next-activity-link{
+         justify-content: center;
+         .edw-icon{
+            width: fit-content !important;
+         }
+      }
+   }
+}
+
+
+
+// homepage deprication changes
+.homepage-dep-warn-container{
+   padding: 30px;
+   border: 1px solid #FFC107;
+   border-radius: 10px;
+   background: rgba(255, 193, 7, 0.1);
+   word-break: break-word;
+   .homepage-dep-top-region{
+      gap: 10px;
+   }
+   display: flex;
+   flex-direction: column;
+   gap: 30px;
+   .homepage-dep-bottom-region{
+      display: flex;
+      @include media-breakpoint-down(md){
+         flex-direction: column;
+      }
+      .bottom-divider-region{
+         padding: 0px 30px;
+         @include media-breakpoint-down(md){
+            padding: 30px 0px;
+         }
+         .divicer-line{
+            border-left: 1px solid $medium-border;
+            @include media-breakpoint-down(md){
+               border-top: 1px solid $medium-border;
+               width: 100%;
+            }
+         }
+         .divider-text{
+            background-color: #343A40;
+               height: 30px;
+               width: 30px;
+               border-radius: 50%;
+               top: 50%;
+               left: 50%;
+               transform: translate(-50%, -50%);
+         }
+      }
+      .bottom-secondary-region{
+         display: flex;
+         flex-direction: column;
+         gap: 20px;
+         .bottom-secondary-region-note{
+            color: #DC3545;
+         }
+      }
+      .homepage-dep-info-accordion{
+         border: 1px solid $medium-border;
+         border-radius: 10px;
+         padding: 12px 16px;
+         max-width: 385px;
+         width: 100%;
+         .edw-icon{
+            font-size: 24px;
+            color: $ic-default;
+         }
+      }
+   }
+   .homepage-dep-upgrade-info{
+      padding-top: 20px;
+      border-top: 1px solid $medium-border;
+   }
+}
+
+//homepage depricaration modal
+#homepagedepricationmodal{
+   .modal-dialog {
+      max-width: 680px;
+
+      .redirect-shortcut {
+         font-size: 20px;
+         width: 20px;
+         height: 20px;
+         transform: translateY(2px);
+         display: inline-block;
+      }
+   }
+
+   .action-wrapper {
+      display: flex;
+      align-items: center;
+      margin-top: 24px;
+   }
+
+   .action-cta-wrapper {
+      display: flex;
+      gap: 12px;
+
+      &.disabled {
+         pointer-events: none;
+         // opacity: 0.5;
+
+         .btn {
+            background-color: #B9BCC1;
+            color: #FFFFFF;
+            border-color: #B9BCC1;
+         }
+      }
+   }
+
+   .deprication-choice {
+      .choice-1,
+      .choice-2 {
+         width: 50%;
+      }
+      @include media-breakpoint-down(sm) {
+         flex-direction: column;
+         .choice-1,
+         .choice-2 {
+            width: 100%;
+         }
+      }
+   }
+}
+
+// body:has(#homepagedepricationmodal.show) {
+//    .modal-backdrop.show {
+//       opacity: 0.5 !important;
+//    }
+// }
+
+.migrate-toast-message {
+	border-radius: 8px;
+	background: #28A745;
+	padding: 16px;
+	border:  0;
+	gap: 40px;
+	align-items: center;
+        max-width: fit-content;
+
+    .toast-body{
+        color: #F8F9FA;
+        font-size: 14px;
+        font-weight: 600;
+        line-height: 20px;
+        letter-spacing: -0.28px;
+        padding: 0px;
+        justify-content: center;
+        align-items: center;
+
+        a {
+            color: inherit;
+            text-decoration-line: underline;
+        }
+    }
+
+    .close {
+      margin-left: 20px;
+      opacity: 1;
+
+      span {
+         font-size: 24px;
+         color: #F8F9FA;;
+         opacity: 1;
+      }
+   }
+}
+
+.toast-wrapper:has(.migrate-toast-message) {
+   max-width: fit-content;
+}
+
+.edw_toast{
+   position: fixed !important;
+   bottom: 90px !important;
+
+   .btn-close {
+      font-size: 8px;
+      margin-top: 4px;
+   }
+}
+
+.block-indicator{
+   height: 60px;
+   background-image: url([[pix:theme_remui|blockindicatorbg]]);
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.25) inset;
+   .block-indicator-text-wrapper{
+      width: fit-content;
+      color: #343A40;
+      font-size: 12px;
+      font-style: italic;
+      font-weight: 600;
+      line-height: normal;
+      letter-spacing: 1.68px;
+      text-transform: uppercase;
+   }
+}
+
+#page-grade-report-grader-index{
+   #page-footer{
+      .footer-container {
+         margin-bottom: 100px;
+         .floating-buttons-wrapper{
+            margin-bottom: 100px;
+         }
+      }
+   }
+}
+body.hasstickyfooter{
+   #page-footer{
+      .footer-container {
+         margin-bottom:calc(max(96px, calc(1rem * 3)));
+         .floating-buttons-wrapper{
+            margin-bottom:calc(max(96px, calc(1rem * 3)));
+         }
+      }
+   }
+   &.path-grade{
+      #sticky-footer{
+         #fitem_id_submitbutton{
+            margin-right: 24px;
+         }
+      }
+   }
+   .floating-widget {
+      bottom: calc(max(96px, calc(1rem * 3)));
+  }
+}
+
+body:not(.edw-m402) {
+   &.hasstickyfooter {
+      &.path-grade{
+         #sticky-footer{
+            #fitem_id_submitbutton{
+               margin-right: 24px;
+            }
+         }
+      }
+   }
+   #userselector_options_inner{
+      .form-check label{
+         gap: 8px;
+      }
+   }
+}
+
+// Beacon CSS.
+.Beacon .BeaconFabButtonFrame {
+   display: none;
+}
+
+.warning-msg-wrapper {
+   display: flex;
+   align-items: center;
+   gap: 12px;
+
+   margin: 0 0 16px 0;
+   padding: 16px 24px;
+   border-radius: 6px;
+   border: 1px solid #FFBD81;
+   background: #FEF8EE;
+   width: fit-content;
+   max-width: 770px;
+   min-width: 346px;
+
+   .warning-img,
+   .edw-icon  {
+     font-size: 36px;
+     width: 36px;
+     height: 36px;
+   }
+
+   .warning-msg {
+      line-height: 20px;
+   }
+
+   @media(max-width:360px){
+       min-width: 240px;
+   }
+ }
+
+ #edwisersiteimporter #importer-homepage,
+ #edwisersiteimporter .nav-item:has(.nav-link[aria-controls="homepage"]),
+ #edwisersiteimporter #refresh-templates {
+   display: none !important;
+ }
+
+
+//this css is added to resolve the modal backdrop conflict with remuihomepage
+//start
+body:has(#customfieldinfovideo) .modal-backdrop.show {
+   opacity: 0.5 !important;
+}
+body:has(.tutorial-video-modal.show #customfieldinfovideo) {
+   .modal-backdrop.show {
+      opacity: 0.8 !important;
+   }
+}
+//end
+
+// Many client faced scrolling Issue in mobile and this is the solution for it
+body {
+   touch-action: auto !important;
+}
+
+// this css resolve the Issue with tiny_cloze
+.tiny_cloze .tiny_cloze_qtype {
+   display: block !important;
+}
+
+#page-admin-report-capability-index {
+    &.edw-m402,
+    &.edw-m403 {
+        #capabilitysearch {
+            width: 30em;
+        }
+    }
+}
+
+// For all select dropdowns (some have too many options to fit on one page)
+.dropdown.select-menu .dropdown-menu {
+   max-height: 400px;
+   overflow-y: auto;
+}
+
+// 5.0 all dropdown-menu item got bigger fixed by addin font-size
+.dropdown-menu {
+   .dropdown-item {
+       font-size: 14px;
+   }
+}
+
+#page-message-output-popup-notifications,
+#page-mod-forum-user,
+#page-blog-index {
+   .dashboard-bar-wrapper {
+      .page-context-header {
+         align-items: center;
+         // gap: 24px;
+      }
+   }
+}
+
+.path-backup .backup-section {
+   .simplesearchform  {
+      min-width: 192px;
+
+      @include media-breakpoint-down(sm) {
+         min-width: 150px;
+      }
+   }
+}
+
+
+// static color for personalizer info on dashboard
+.personalizer-info-dashboard{
+   border: 1px solid #FFC107;
+   background-color: #FFF9E5;
+   border-radius: 20px;
+   display: flex;
+   flex-direction: column;
+   gap: 24px;
+
+   @include media-breakpoint-down(sm) {
+      display: none;
+   }
+}
+
+.pagelayout-course {
+   .feedbackcollection-modal {
+      @include media-breakpoint-down(sm) {
+         .modal-dialog.modal-lg {
+            min-height: calc(100% - 1rem);
+            height: fit-content;
+            margin: 0.5rem;
+         }
+      }
+   }
+}
+
+.feedbackcollection-wrapper {
+  padding: 24px;
+  border-radius: 16px;
+  background-color: #fff;
+  text-align: center;
+
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+
+  .feedback-heading  {
+    color: #343A40;
+    text-align: center;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 28px;
+    margin: 0;
+  }
+
+  .feedbacks {
+    display: flex;
+    gap: 8px 24px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .feedback-text {
+    color: #343A40;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 22px;
+  }
+
+  .feedback-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px;
+    border-radius: 6px;
+    border: 1px solid #D9DEE3;
+    background-color: #FFF;
+    box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.10);
+    cursor: pointer;
+
+    &:has(input[type="radio"]:checked) {
+      border-radius: 6px;
+      border-color:  #6BF28A;
+      background-color: #6BF28A;
+      box-shadow: none;
+
+      .feedback-text {
+        font-weight: 600;
+      }
+    }
+  }
+
+  .feedback-submitbtn {
+    max-width: 310px;
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  &:not(:has(input[type="radio"]:checked)) {
+    .feedback-submitbtn {
+      background-color: #b9bcc1;
+      border-color: #b9bcc1;
+      pointer-events: none;
+      touch-action: none;
+    }
+  }
+
+  .skip-btn {
+      color: #343A40;
+      cursor: pointer;
+      width: fit-content;
+      margin: 0;
+  }
+}
+
+#page-local-edwiserpagebuilder-editor {
+   .feedbackcollection-wrapper {
+      .feedback-submitbtn {
+         font-weight: 600;
+         font-size: .875rem;
+         padding-top: .719rem;
+         padding-bottom: .719rem;
+         letter-spacing: 1px;
+      }
+
+      .skip-btn {
+		   font-size: 13px;
+		   line-height: 17px;
+		   font-weight: 600;
+         letter-spacing: 1px;
+      }
+
+      &:has(input[type="radio"]:checked) {
+         .feedback-submitbtn {
+            border-color: #0051F9;
+            background: #0051F9;
+         }
+      }
+   }
+}
+
+.font-Size14 {
+   font-size: 14px !important;
+}
+
+
+// For fixing the position of login dropdown and usermenu dropdown
+.navbar {
+   .dropdown-menu.dropdown-menu-right {
+      right: 0;
+      left: auto;
+   }
+}
+
+#user-menu-toggle.dropdown-toggle {
+   border: none;
+}
+
+// Increasing the font size of icons on Course Activities page
+#course-overview-page {
+   span {
+       i.edw-icon-Right-Arrow, i.edw-icon-Down-Arrow, i.edw-icon-Left-Arrow {
+           font-size: 28px;
+       }
+   }
+}
+
+//For changing the border color of the div (course-overview) table
+.border-secondary {
+   border-color:  $bs-secondary-rgb !important;
+}
+
+//Fix for dropdown arrow wasn't not displayed in Edwiser Rating and Review
+.reviews-container {
+   .reviewheader {
+     .reviewselector {
+         appearance: auto !important;
+     }
+   }
+ }
+
+// Resolving UI issue in the modal form used for adding question in quiz and question bank
+.moodle-dialogue-bd {
+   .choosercontainer #chooseform .moduletypetitle, .choosercontainer #chooseform .option {
+      padding-left: 0px;
+      padding-right: 0px;
+   }
+}
+
+// Fix of background color of progress bars (in darkmode)
+.progress {
+   background-color: $gray-200;
+
+}
+
+// Fix of background color of the text in edit mode (in darkmode)
+#region-fullwidthtop-blocks-indicator, 
+#region-fullwidthbottom-blocks-indicator, 
+#region-top-blocks-indicator, 
+#block-region-content-indicator,
+#region-bottom-blocks-indicator{
+   .bg-white{
+      background-color: $white !important;
+   }
+}
+
+// Fix of background color of the alerts not displaying properly on the page (in darkmode)
+.notifications{
+   .alert-info{
+      background-color: #d1ecf1;
+   }
+   .alert-success{
+      background-color: #d4edda;
+   }
+
+}
+
+.alert-danger{
+   background-color: #f8d7da;
+}
+
+// Fix of positioning issue of add question dropdown in quiz edit page
+#page-mod-quiz-edit .page-add-actions .dropdown-menu {
+   transform: translate3d(-159px, 25px, 0px) !important;
+}
+
+// To fix UI issue in Competancy breakdown page
+.pagelayout-incourse.path-report-competency {
+   .clearfix {
+      .page-context-header {
+         display: flex;
+      }
+   }
+}
+.icons-collapse-expand{
+   background-color: transparent !important;
+   .edw-icon{
+      color: #5c6980;
+   }
+}
+
+// Fix of the issue of the text not displaying properly in the quiz adding question page (answers block)
+#id_answerhdrcontainer{
+   .fitem{
+       .visually-hidden{
+           height: unset !important;
+       }
+   }
+}
+
+// Fix of the issue of the text not displaying properly in the quiz adding question page (units block)
+#id_unithdr {
+   .fitem {
+      label.visually-hidden {
+         height: unset !important;
+      }
+   }
+}
+
+// Fix of the issue of the text not displaying properly in the quiz adding question page (unit handling section)
+#id_unithandling{
+   #id_unithandlingcontainer{
+      #fgroup_id_penaltygrp{
+         label.visually-hidden {
+           display: none;
+         }
+      }
+   }
+}
+
+//Fix of issue of the label text not displaying properly in the quiz adding question page (select missing words question)
+#id_choicehdr{
+   #id_choicehdrcontainer{
+      .fitem{
+         label.visually-hidden{
+            height: unset !important;
+         }
+      }
+   }
+}
+
+//Fix issue where the arrow size was too big inside the With Selected button (Question bank Page)
+#bulkactionsui-container{
+   button.dropdown-toggle::after{
+      font-size: 9px !important;
+
+   }
+}
+
+//Fix of height issue of the Social media links select dropdown in the visual personalizer
+.setting-type-select{
+   .felement{
+      select{
+         height: unset !important;
+      }
+   }
+
+}
+
+.form-group.row.fitem{
+   margin-left: 0px;
+}
+
+//Fix of issue of the label text not displaying properly in the adding drag and drop markers (Drop zones section)
+#id_dropzoneheader{
+   #id_dropzoneheadercontainer{
+      .felement{
+         label.visually-hidden{
+            height: unset !important;
+         }
+      }
+   }
+}
+
+//Fix of issue of the label text not displaying properly in the adding drag and drop onto image (Draggable items section)
+#id_draggableitemheader{
+   #id_draggableitemheadercontainer{
+      .fitem {
+         label.visually-hidden{
+            height: unset !important;
+         }
+      }
+   }
+}
+
+// To Fix background color issue in hidden from students badge on course overview page
+#page-course-overview {
+   #course-overview-page {
+      .course-overview {
+         .course-overview-table {
+            span.badge.rounded-pill.text-bg-secondary.fw-normal {
+               @extend .bg-secondary;
+               @extend .text-dark;
+            }
+         }
+      }
+   }
+   .drawer-right-toggle {
+		display: none;
+	}
+	#add-block-float-menu {
+		display: none;
+	}
+}
+
+// Applied primary color to the read more and read less buttons
+#readmorebtn, #readlessbtn{
+   color: $brand-primary !important;
+}
+
+//Fix of width of enabledarkmode and pagewidth dropdown in the theme remui settings page
+#id_s_theme_remui_enabledarkmode,#id_s_theme_remui_pagewidth{
+   width: 100% ;
+}
+
+// Fix of dropdown positioning issue on cohorts settings page
+#page-admin-cohort-index {
+   .reportbuilder-report {
+      .filters-dropdown.dropdown-menu.dropdown-menu-end {
+         transform: translate3d(799px, 40px, 0px) !important;
+         margin: 0.5rem 0 0;
+      }
+
+      .table-responsive {
+         min-height: 300px;
+      }
+
+      table.reportbuilder-table {
+         margin-bottom: 1rem;
+      }
+   }
+}
+
+#usernavigation{
+   .simplesearchform{
+      .searchform-navbar{
+         .input-group {
+            max-width: 100%;
+         }
+      }
+   }
+}

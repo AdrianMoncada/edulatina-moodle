@@ -1,0 +1,7 @@
+<li class="category-list-item category-selector block-filter active" data-target="all" data-filter="block-filter"><a class="category-link " href="#"><span>{{#str}}staticallcategory, local_edwiserpagebuilder{{/str}}</span></a></li>
+<li class="category-list-item category-selector dynamic-filter active" data-target="all" data-filter="dynamic-filter"><a class="category-link " href="#"><span>{{#str}}dynamicallcategory, local_edwiserpagebuilder{{/str}}</span></a></li>
+<li class="category-list-item category-selector blocklayout-filter active" data-target="all" data-filter="blocklayout-filter"><a class="category-link " href="#"><span>{{#str}}layoutallcategory, local_edwiserpagebuilder{{/str}}</span></a></li>
+{{#categories}}
+{{! categorytitle (About us), categoryvalue(about_us), type(block) use it Whowever you want }}
+  <li class="category-list-item category-selector {{type}}-filter" data-target="{{categoryvalue}}-{{type}}" data-filter="{{type}}-filter"><a class="category-link" href="#"><span>{{{categorytitle}}}</span><span class="edw-icon edw-icon-Cancel"></span></a></li>
+{{/categories}}

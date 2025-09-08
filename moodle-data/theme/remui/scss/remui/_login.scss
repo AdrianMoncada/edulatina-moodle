@@ -1,0 +1,365 @@
+$login-container-width: 422px !default;
+$login-heading-color: $heading-color !default;
+$login-para-color: $paragraph-color !default;
+
+$login-heading-color:$loginpaneltextcolor;
+$login-para-color:$loginpanelcontentcolor;
+$login-panel-link-color : $loginpanellinkcolor;
+$login-link-hover-color:$loginpanellinkhovercolor;
+
+.navbar {
+    .loginddown {
+        width: 360px;
+        @include media-breakpoint-down(sm) {
+            width: 90vw;
+            margin-right: -50%;
+        }
+        .login-form{
+            label{
+                color: $login-para-color;
+            }
+            .login-form-forgotpassword a{
+                color: $login-panel-link-color;
+                &:hover{
+                    color: $login-link-hover-color;
+                }
+            }
+        }
+    }
+}
+
+.text-align-middle {
+    display: flex;
+    flex-direction: row;
+    &:before,
+    &:after {
+      content: "";
+      flex: 1 1;
+      border-bottom: 1px solid;
+      margin: auto;
+    }
+    &:before {
+      margin-right: map-get($spacerspx, '2d5');
+    }
+    &:after {
+      margin-left: map-get($spacerspx, '2d5');
+    }
+}
+#page-login-signup{
+    #fgroup_id_buttonar{
+        background-color: transparent;
+    }
+}
+.pagelayout-login {
+    #page {
+        background: $login-page-background;
+        z-index: 0;
+        width: 100%;
+        // height: 100%;
+        background-position: center top;
+        background-size: cover;
+        background-attachment: fixed;
+        padding: 0px;
+        @include media-breakpoint-down(md) {
+            &.container-fluid {
+                padding: 0;
+            }
+        }
+        @if $login-page-opacity != null {
+            #page-content {
+                background: rgba(0, 0, 0, $login-page-opacity);
+            }
+        }
+
+        #region-main-box,
+        #region-main {
+            padding: 0;
+        }
+    }
+    #page-footer{
+        .footer-container.container{
+            padding: 0px;
+            .footer-secondarysection-wrapper,.footer-mainsection-wrapper,.footer-content-popover{
+                display: none;
+            }
+        }
+    }
+
+    &.logincenter {
+        .login-container {
+            margin-top: 2rem;
+            margin-bottom: 2rem;
+        }
+    }
+
+    .logo-area {
+        padding: 5px 0px;
+        .logo,
+        .logomini {
+            height: $navbar-height - $navbar-vertical-padding - $navbar-vertical-padding;
+        }
+    }
+    .login-welcome-wrapper {
+        h2 {
+            color: $login-heading-color;
+        }
+        p {
+            color: $login-para-color;
+        }
+    }
+    .login-container {
+        max-width: $login-container-width;
+        width: 422px;
+        // -ms-overflow-style: none;  /* Internet Explorer 10+ */
+        // scrollbar-width: none;  /* Firefox */
+        // &::-webkit-scrollbar {
+        //     display: none;  /* Safari and Chrome */
+        // }
+
+        div[role="main"]{
+            height: unset !important;
+        }
+        @include media-breakpoint-down(sm) {
+            margin: 2rem;
+            border-radius: 4px;
+        }
+    }
+    .login-description-container {
+        background: transparent;
+        position: absolute;
+        top: 0;
+        padding: $container-main-area-pad;
+        width: calc(100% - #{$login-container-width});
+        max-height: 100%;
+        overflow-y: auto;
+        @include media-breakpoint-down(sm) {
+            display: block;
+            width: 100%;
+            position: unset;
+        }
+    }
+    .cookies-section {
+        padding: 30px 0;
+        * {
+            color: $login-panel-link-color;
+
+            &:hover{
+                color: $login-link-hover-color;
+            }
+        }
+
+    }
+
+    .loginform {
+        .login-form-forgotpassword a {
+            color: $login-panel-link-color;
+
+            &:hover {
+                text-decoration: none;
+                color: $login-link-hover-color;
+            }
+        }
+        .login-form-username label,.login-form-password label,.login-heading{
+            color: $loginpanelcontentcolor;
+        }
+    }
+    .signupform {
+        .form-group {
+            margin-bottom: 0;
+            .form-control {
+                width: 100%;
+            }
+            .edw-form-label {
+                margin-bottom: 8px!important;
+            }
+        }
+    }
+    .form-group {
+        .edw-form-label {
+            @extend .text-link-semibold;
+            // @extend .form-label-color;
+            color: $loginpanelcontentcolor;
+        }
+    }
+    #fgroup_id_buttonar {
+        padding: 0;
+    }
+    &#page-login-forgot_password {
+        .mform {
+            #id_searchbyusernamecontainer,
+            #id_searchbyemailcontainer {
+                .form-group {
+                    .col-form-label {
+                        display: none; // Hide Label from form.
+                    }
+                }
+            }
+            .form-group {
+                .col-lg-9,
+                .col-lg-3 {
+                    flex: 0 0 100%;
+                    max-width: 100%;
+                    .form-control {
+                        width: 100%;
+                    }
+                }
+            }
+            .fieldset-header {
+                margin-bottom: 8px;
+                .ftoggler {
+                    padding: 0;
+                    .fieldset-title {
+                        @extend .text-link-semibold;
+                        color: $login-para-color;
+                    }
+                }
+            }
+            fieldset {
+                border-bottom: 0;
+            }
+            #fitem_id_passwordpolicyinfo .col-lg-3,
+            #id_setpasswordcontainer #fitem_id_username {
+                display: none;
+            }
+
+            #id_setpassword .fieldset-header .fieldset-title {
+                // @extend .h-bold-3;
+                @include get_typography(3, bold, all);
+            }
+            #fitem_id_username2 {
+                .col-form-label span {
+                    @extend .text-link-semibold;
+                    // @extend .form-label-color;
+                    color: $loginpanelcontentcolor;
+                }
+                .form-control-static {
+                    width: 100%;
+                    background: $bg-small-ui;
+                    border: 1px solid $light-border;
+                    border-radius: 4px;
+                    padding: 16px 10px;
+                    @extend .text-link-regular;
+                }
+            }
+        }
+        .generalbox {
+            padding-top: 0 !important;
+        }
+    }
+
+    &#page-login-signup {
+        .mform {
+            .form-group {
+                .custom-select {
+                    width: 100%;
+                }
+            }
+        }
+    }
+
+    @include media-breakpoint-up(md) {
+        &.loginleft,
+        &.loginright {
+            .login-container {
+                border-radius: 0;
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                overflow: auto;
+                animation-duration: 1s;
+                animation-timing-function: ease-out;
+                animation-fill-mode: both;
+            }
+            .logo-area {
+                position: sticky;
+                top: -$container-main-area-pad;
+                // background: white;
+                display: flex;
+                align-items: center;
+            }
+        }
+        &.loginleft {
+            .login-container {
+                left: 0;
+                animation-name: slide-left;
+            }
+
+            .login-description-container {
+                left: $login-container-width;
+            }
+
+        }
+        &.loginright {
+            .login-container {
+                right: 0;
+                animation-name: slide-right;
+            }
+            .login-description-container{
+                right: $login-container-width;
+            }
+        }
+    }
+}
+
+.password-field-eye {
+    input {
+        padding-right: map-get($spacerspx, '10');
+    }
+    .edw-icon {
+        position: absolute;
+        top: $input-padding-y;
+        right: $input-padding-x;
+        font-size: $edw-icon-size-large;
+        color: $ic-default;
+        cursor: pointer;
+    }
+}
+.login-identityproviders {
+    .login-heading {
+        color: $login-para-color;
+        letter-spacing: 0.6px;
+        &:before,
+        &:after {
+            color: $light-border;
+        }
+    }
+}
+.login-wrapper{
+    @include media-breakpoint-down(sm){
+        align-items: flex-start;
+        flex-direction: column;
+        height: unset;
+        .login-description-container{
+            order: 1;
+            .summary-collapsed{
+                max-height: 295px;
+                position: relative;
+                overflow: hidden;
+            }
+            .readbtn{
+                text-decoration: underline;
+                &:hover{
+                    cursor: pointer;
+                }
+            }
+        }
+        .login-container{
+            order: 2;
+            max-width: unset;
+            width: unset;
+        }
+    }
+}
+
+// For fixing the position of login dropdown
+.dropdown-menu.dropdown-menu-right.loginddown {
+    top: 100%;
+}
+
+// To remove scroll bar coming at the bottom of login page
+#page-login-index.notloggedin.pagelayout-login {
+    #page-content.row {
+      margin-left: unset;
+      margin-right: unset;
+  }
+}

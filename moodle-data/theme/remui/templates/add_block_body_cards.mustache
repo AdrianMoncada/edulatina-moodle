@@ -1,0 +1,25 @@
+{{#blocks}}
+<div class="card-wrapper" data-parentblock="{{name}}" data-block="{{name}}" data-blockid="{{id}}" title="{{title}}">
+    <div class="card-item h-100 ">
+        <a href="{{url}}&amp;bui_addblock={{name}}{{#section}}&amp;section={{section}}{{/section}}" class="blockurl"></a>
+        <div class="card">
+            <a href="{{url}}&amp;bui_addblock={{name}}" class="p-0 " title="{{title}}" >
+                <div class="card-body d-flex justify-content-center align-items-center position-relative">
+                    <div class="block-cover " style="background: url('https://staticcdn.edwiser.org/CDN/moodle_block_plugins/{{name}}.png'); !important">
+
+                    </div>
+                </div>
+            </a>
+            <div class="card-footer">
+                <div class="h-semibold-6"><a href="{{url}}&amp;bui_addblock={{name}}" class="text-decoration-none">{{title}}</a></div>
+            </div>
+        </div>
+    </div>
+</div>
+{{/blocks}}
+
+{{^blocks}}
+    <div class="alert alert-primary" role="alert">
+        {{#str}} noblockstoaddhere {{/str}}
+    </div>
+{{/blocks}}

@@ -1,0 +1,7 @@
+<a class="dropdown-item  category-selector block-filter" data-target="all" data-filter="block-filter"  href="#">{{#str}}staticallcategory, local_edwiserpagebuilder{{/str}}</a>
+<a class="dropdown-item  category-selector dynamic-filter" data-target="all" data-filter="dynamic-filter" href="#">{{#str}}dynamicallcategory, local_edwiserpagebuilder{{/str}}</a>
+<a class="dropdown-item  category-list-item category-selector blocklayout-filter" data-target="all" data-filter="blocklayout-filter" href="#">{{#str}}layoutallcategory, local_edwiserpagebuilder{{/str}}</a>
+{{#categories}}
+{{! categorytitle (About us), categoryvalue(about_us), type(block) use it Whowever you want }}
+  <a class="dropdown-item category-selector {{type}}-filter" data-target="{{categoryvalue}}-{{type}}" data-filter="{{type}}-filter" href="#">{{{categorytitle}}}</a>
+{{/categories}}

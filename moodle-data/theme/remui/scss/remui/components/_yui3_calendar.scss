@@ -1,0 +1,128 @@
+$yui3-calendar-padding-y: 18px;
+$yui3-calendar-padding-x: 16px;
+$yui3-row-gap: 13px;
+$yui3-row-gap-sm: 6px;
+@mixin get_calendar_size() {
+    width: 32px;
+    height: 32px;
+    padding: $yui3-row-gap!important;
+    @include media-breakpoint-down(xs) {
+        width: 14px;
+        height: 14px;
+        padding: $yui3-row-gap-sm!important;
+    }
+}
+.yui3-g [class *= "yui3-u"] {
+    font-family: $font-family-base;
+}
+.yui3-widget.yui3-calendarbase.yui3-calendar {
+    min-width: 357px;
+    max-width: 100%;
+    @include media-breakpoint-down(xs) {
+        min-width: 300px;
+    }
+}
+
+.dir-rtl .yui3-widget.yui3-calendarbase.yui3-calendar {
+    min-width: 450px;
+    @include media-breakpoint-down(xs) {
+        min-width: 320px;
+    }
+}
+
+.yui3-skin-sam {
+    .yui3-calendar-content {
+        padding: 0px;
+        color: #000;
+        background: $white!important;
+        border: 1px solid $light-border!important;
+        .yui3-calendar-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: $yui3-calendar-padding-y $yui3-calendar-padding-x;
+
+            .yui3-calendar-header-label {
+                width: auto !important;
+                font-weight: 600;
+                font-size: 16px;
+                line-height: 19px;
+                letter-spacing: -0.02em;
+                color: $heading-color;
+            }
+
+            .yui3-calendarnav-prevmonth,
+            .yui3-calendarnav-nextmonth {
+                border-color: transparent !important;
+                margin: 0 !important;
+                position: relative!important;
+                width: initial!important;
+                border: 0!important;
+                &:after {
+                    font-family: "Remui";
+                    font-size: 24px;
+                    color: $ic-default;
+                }
+            }
+            .yui3-calendarnav-prevmonth:after {
+                content: "\74";
+            }
+            .yui3-calendarnav-nextmonth:after {
+                content: "\23";
+            }
+        }
+        .yui3-calendar-pane .yui3-u-1 {
+            padding: $yui3-calendar-padding-y $yui3-calendar-padding-x;
+        }
+        .yui3-calendar-day,
+        .yui3-calendar-prevmonth-day,
+        .yui3-calendar-nextmonth-day {
+            border: 0!important;
+        }
+    }
+    .yui3-calendar-weekdayrow {
+        th {
+            @include get_calendar_size();
+            &.yui3-calendar-weekday {
+                font-style: normal;
+                font-weight: 600;
+                font-size: 12px;
+                line-height: 18px;
+                text-align: center;
+                color: $heading-color;
+            }
+        }
+    }
+    tr {
+        &.yui3-calendar-row {
+            .yui3-calendar-day,
+            .yui3-calendar-prevmonth-day {
+                font-style: normal;
+                font-weight: 400;
+                font-size: 14px;
+                line-height: 20px;
+                @include get_calendar_size();
+                &:hover {
+                    color: $white;
+                }
+            }
+            .yui3-calendar-day {
+                color: $paragraph-color;
+            }
+            .yui3-calendar-prevmonth-day {
+                color: $small-text-cust-color;
+            }
+        }
+    }
+}
+
+#dateselector-calendar-content {
+    border-radius: 10px;
+    background-color: white;
+    @include get-drop-shadow(xs);
+}
+@include media-breakpoint-down(xs){
+    #dateselector-calendar-panel {
+        left: 25px!important;
+    }
+}

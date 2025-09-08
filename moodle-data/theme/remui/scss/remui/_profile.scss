@@ -1,0 +1,441 @@
+// $border-8:8px;
+#page-user-profile{
+    #page-header{
+        display: none;
+    }
+    .user-desc-target{
+        #readmorebtn,#readlessbtn{
+            cursor: pointer;
+        }
+    }
+}
+
+#page-user-profile,.path-user:not(#page-course-view-participants.path-user) {
+
+    .profile-general-info-wrapper {
+        background-color: $white;
+        @include get-box-shadow(sm);
+        border-radius: $border-radius-lg;
+        margin-bottom: map-get($spacerspx, '12');
+
+    }
+    .interest-field-disabled{
+        padding: map-get($spacerspx, '2d5') map-get($spacerspx, '3d5');
+        background-color: #e9ecef;
+        border: 1px solid #ced4da;
+        border-radius: $border-radius;
+        cursor: not-allowed;
+    }
+    .profile-general-body-wrapper{
+        display: flex;
+        padding: map-get($spacerspx, '8');
+        gap: map-get($gapspace,'8');
+
+        .profile-pic-wrapper .userinitials{
+            height: 116px;
+            width: 116px;
+            font-size: 32px;
+            color: $ic-default;
+        }
+
+        @include media-breakpoint-down(sm){
+            flex-direction: column;
+            gap: map-get($gapspace,'6');
+            padding: map-get($spacerspx, '6');
+        }
+
+        .profile-general-content-wrapper{
+            display: flex;
+            flex-direction: column;
+            gap: map-get($gapspace,'6');
+
+            .heading-content-wrapper{
+                justify-content: space-between;
+                align-items: center;
+
+                @include media-breakpoint-down(sm){
+                    gap: map-get($gapspace,'6');
+                    text-align: center;
+                    flex-direction: column;
+                }
+
+                .username{
+                    // @include get_typography(2, semibold, mobile);
+                    color: $heading-color;
+                }
+
+                .profile-job{
+                    // @include get_typography(5, regular, mobile);
+                    color: $paragraph-color
+                }
+            }
+            .user-desc,
+            .lastaccesstext,
+            .lastaccessdate {
+                color: $paragraph-color;
+            }
+
+            .user-desc-lastseen-wrapper{
+                gap: map-get($gapspace,'4');
+
+                @include media-breakpoint-down(sm){
+                    gap: map-get($gapspace,'6');
+                }
+            }
+        }
+    }
+
+    .profile-general-footer-wrapper{
+        @extend .p-p-6;
+
+        .profile-stats-wrapper{
+            display: flex;
+            justify-content: center;
+            gap: 80px;
+
+            @include media-breakpoint-down(sm){
+                justify-content: space-between;
+                gap: map-get($gapspace,'8');
+                align-items: flex-start;
+                flex-wrap: wrap;
+
+                .profile-stat-item{
+                    flex: 1 0 calc(50% - 32px);
+
+                    &:nth-child(2),
+                    &:nth-child(4){
+                        justify-content: flex-end;
+                    }
+                }
+            }
+
+            .profile-stat-count{
+                color: $heading-color;
+            }
+
+            .stat-desc-text{
+                color: $paragraph-color;
+                width: fit-content;
+                border-bottom: 1px solid $paragraph-color;
+                // @include get_typography(6, semibold, mobile);
+
+                &:hover{
+                    color: $link-color;
+                    border-bottom-color: $link-color;
+                }
+            }
+        }
+    }
+    .profile-tab-wrapper div[role="main"] {
+        padding: 0px !important;
+        background-color: transparent !important;
+        filter: unset !important;
+
+        section{
+            .about-me-edit-icon-wrapper{
+                border-radius: $border-radius-lg;
+                @include get-drop-shadow(xs);
+            }
+
+            .edit-profile-icon-wrapper{
+                padding: map-get($spacerspx, '8');
+                text-align: right;
+
+                .edw-icon{
+                    font-size: $edw-icon-size-large;
+                    height: $edw-icon-size-large;
+                    width: $edw-icon-size-large;
+                    color: $navbar-icon-color;
+                    cursor: pointer;
+
+                    &:hover{
+                        color: $link-color;
+                    }
+                }
+            }
+        }
+        .profile-about-me-wrapper,
+        .profile-about-me-edit-wrapper{
+            padding: map-get($spacerspx, '8');
+            padding-top: 0px;
+            display: flex;
+            flex-direction: column;
+            gap:map-get($gapspace,'8');
+
+            @include media-breakpoint-down(sm){
+                gap:map-get($gapspace,'6');
+            }
+
+            .profile-info-item-wrapper{
+                display: flex;
+                flex-direction: column;
+                gap:map-get($gapspace,'1');
+
+                select.form-control{
+                    appearance: auto;
+                }
+            }
+
+            .profile-item-row {
+                display: grid;
+                grid-template-columns: repeat(2,1fr);
+                gap:map-get($gapspace,'6');
+
+                @include media-breakpoint-down(sm){
+                    grid-template-columns: 1fr;
+                    gap:map-get($gapspace,'6');
+                }
+            }
+        }
+        .profile-about-me-edit-wrapper{
+            padding-bottom: unset;
+            gap:map-get($gapspace,'6');
+        }
+    }
+
+    .userpicture{
+        margin: unset;
+    }
+
+    #page-header {
+        .page-context-header {
+            display: none;
+        }
+    }
+
+    .userprofile {
+        .description {
+            display: none;
+        }
+    }
+
+    .nav-tabs .nav-link {
+        &.active {
+            color: $link-color;
+            border-color: transparent;
+        }
+    }
+
+    .profile-tabs {
+        padding: 15px 15px;
+    }
+
+    .badges-container{
+        border-radius: $border-radius-lg;
+        overflow: hidden;
+        margin-top: map-get($spacerspx, '8');
+        @include get-drop-shadow(xs);
+
+        .badges-container-heading{
+            color: $heading-color;
+            background-color: $bg-small-ui;
+        }
+
+        .badge-item{
+            border: 1px solid $light-border;
+            border-radius: $border-radius-lg;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+            align-items: center;
+            text-align: center;
+            gap:map-get($gapspace,'4');
+            padding: map-get($spacerspx, '6');
+            min-height: 164px;
+
+            img{
+                width: 56px;
+            }
+
+            a{
+                color: $paragraph-color;
+            }
+
+            &:hover{
+                border-color: $link-color;
+            }
+        }
+    }
+    .badge-grid {
+        list-style: none;
+        padding: map-get($spacerspx, '8');
+        display: grid;
+        grid-gap: map-get($gapspace , '6');
+        grid-template-columns: repeat(auto-fill, minmax(15%, 1fr));
+
+        @include media-breakpoint-down(sm) {
+            grid-template-columns: repeat(auto-fill, minmax(40%, 1fr));
+        }
+    }
+
+    .extra-buttons-container {
+        .header-button-group {
+            gap: map-get($gapspace, '4');
+            display: flex;
+            flex-direction: row-reverse;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        #message-user-button {
+            >span {
+                display: flex;
+
+                >i {
+                    font-size: 18px;
+                    // color: $white;
+                }
+            }
+        }
+    }
+
+    #userprefs {
+        .userprofile {
+            .page-context-header{
+                display: none;
+            }
+        }
+    }
+}
+
+.container:has(.profile-cards-wrapper) {
+    padding: 0 !important;
+}
+
+/*Profile Card Design*/
+.profile-cards-wrapper {
+
+    .date{
+        width: fit-content;
+    }
+
+    .edw-card-design-ft{
+        @include media-breakpoint-down(sm){
+            flex-direction: column;
+        }
+
+        .view-course-btn{
+            max-width: 250px !important;
+
+            @include media-breakpoint-down(sm){
+                max-width: 100% !important;
+                width: 100%;
+            }
+        }
+    }
+}
+
+#page-user-editadvanced {
+    .page-context-header {
+        align-items: center;
+
+    }
+}
+
+.userprofile .profile_tree{
+    gap:map-get($gapspace,'6');
+
+    .node_category.card{
+        border-radius: $border-radius-lg;
+        border: 1px solid $light-border;
+        overflow: hidden;
+
+        .card-body{
+            padding: unset;
+
+            .lead{
+                margin: 0px;
+                padding: map-get($spacerspx, '6');
+                background-color: $bg-small-ui;
+                // @extend .h-semibold-4;
+            }
+
+            ul{
+                padding: map-get($spacerspx, '6');
+                padding-left: map-get($spacerspx, '6');
+                display: flex;
+                flex-direction: column;
+                gap:map-get($gapspace,'4');
+
+                &.inline-list{
+                    display: flex;
+                    flex-direction: row;
+                    gap:map-get($gapspace,'d5');
+                    flex-wrap: wrap;
+                    padding: unset;
+
+                    li{
+                        .badge{
+                            height: unset;
+                            color: white;
+                            text-decoration: none;
+                        }
+                    }
+                }
+            }
+            .contentnode{
+                ul{
+                    padding: unset;
+                }
+            }
+        }
+        a{
+            color: $heading-color;
+            text-decoration: underline;
+            @extend .h-regular-5;
+            box-shadow: unset;
+        }
+        dl{
+            margin: 0px;
+            display: flex;
+            flex-direction: column;
+            gap:map-get($gapspace,'1');
+
+            dt{
+                @extend .h-semibold-5;
+            }
+
+            dd{
+                margin: 0px;
+                @extend .h-regular-5;
+            }
+        }
+    }
+    @include media-breakpoint-down(sm){
+        column-count: 1;
+    }
+
+    .node_category.contact{
+        ul{
+            display: flex;
+            gap:map-get($gapspace,'d5');
+
+            li{
+                dl{
+                    display: flex;
+                    flex-direction: row;
+                    gap:map-get($gapspace,'4');
+
+                    dt{
+                        width: 30%;
+                    }
+
+                    dd{
+                        width: 70%;
+                        word-break: break-word;
+                    }
+                }
+            }
+        }
+    }
+    .node_category.badges{
+        display: none !important;
+    }
+}
+
+#page-header {
+    .page-context-header {
+        display: flex;
+    }
+}

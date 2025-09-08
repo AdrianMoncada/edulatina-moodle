@@ -1,0 +1,6 @@
+// stylelint-disable declaration-no-important
+$background-colors: () !default;
+
+// @each $color, $value in $background-colors {
+//     @include bg-variant(".bg-#{$color}", $value, true);
+// }

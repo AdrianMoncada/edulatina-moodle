@@ -1,0 +1,143 @@
+{{!
+    This file is part of Moodle - http://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
+    Edwiser RemUI
+    @package theme_remui
+    @copyright (c) 2023 WisdmLabs (https://wisdmlabs.com/)
+    @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+}}
+{{!
+    @template theme_remui/mypublic
+
+    remui drawer template.
+
+    Context variables required for this template:
+    * sitename - The name of the site
+    * output - The core renderer for the page
+    * bodyattributes - attributes for the body tag as a string of html attributes
+    * sidepreblocks - HTML for the blocks
+    * hasblocks - true if there are blocks on this page
+    * courseindexopen - true if the nav drawer should be open on page load
+    * regionmainsettingsmenu - HTML for the region main settings menu
+    * hasregionmainsettingsmenu - There is a region main settings menu on this page.
+
+    Example context (json):
+    {
+        "sitename": "Moodle",
+        "output": {
+            "doctype": "<!DOCTYPE html>",
+            "page_title": "Test page",
+            "favicon": "favicon.ico",
+            "main_content": "<h1>Headings make html validators happier</h1>"
+         },
+        "bodyattributes":"",
+        "sidepreblocks": "<h2>Blocks html goes here</h2>",
+        "hasblocks":true,
+        "courseindexopen": true,
+        "navdraweropen": false,
+        "blockdraweropen": true,
+        "regionmainsettingsmenu": "",
+        "hasregionmainsettingsmenu": false,
+        "addblockbutton": ""
+    }
+}}
+{{> theme_remui/common_start}}
+
+<div id="page-content" class="pb-3 d-print-block">
+    <div id="region-main-box">
+        {{#hasregionmainsettingsmenu}}
+        <div id="region-main-settings-menu" class="d-print-none">
+            <div> {{{ regionmainsettingsmenu }}} </div>
+        </div>
+        {{/hasregionmainsettingsmenu}}
+        <section id="region-main" aria-label="{{#str}}content{{/str}}">
+            {{#hasregionmainsettingsmenu}}
+                <div class="region_main_settings_menu_proxy"></div>
+            {{/hasregionmainsettingsmenu}}
+            {{{ output.course_content_header }}}
+            {{#headercontent}}
+                {{> core/activity_header }}
+            {{/headercontent}}
+            {{#overflow}}
+                <div class="container-fluid tertiary-navigation">
+                    <div class="navitem">
+                        {{> core/url_select}}
+                    </div>
+                </div>
+            {{/overflow}}
+            {{# user }}
+            {{>theme_remui/profile_general_details}}
+            {{/user}}
+            {{# user }}
+                <div class="edw-tabs-navigation">
+                    <ul class="nav nav-tabs more-nav " role="tablist">
+                        <li class="nav-item" role="presentation">
+                            <a id="aboutmetab" class="nav-link active"  data-toggle="tab"  data-bs-toggle="tab" href="#aboutme" aria-controls="aboutme" role="tab">
+                                {{# notcurrentuser }} {{ firstname }}{{/ notcurrentuser}}
+                                {{^ notcurrentuser }}{{# str }} aboutme, theme_remui {{/ str }}{{/ notcurrentuser}}
+                            </a>
+                        </li>
+                        {{#usercourses}}
+                        <li class="nav-item" role="presentation">
+                            <a class="nav-link"  data-toggle="tab"  data-bs-toggle="tab" href="#usercourses" aria-controls="usercourses"
+                                role="tab">
+                                {{# str }} courses, theme_remui {{/ str }}
+                            </a>
+                        </li>
+                        {{/usercourses}}
+                        <li class="nav-item" role="presentation">
+                            <a class="nav-link"  data-toggle="tab"  data-bs-toggle="tab" href="#userprefs" aria-controls="userprefs" role="tab">
+                                {{# str }} moredetails, theme_remui {{/ str }}
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="tab-content profile-tab-wrapper">
+                    <div class="tab-pane active animation-slide-left" id="aboutme" role="tabpanel">
+                        <div role="main">
+                            {{> theme_remui/profile_about_me}}
+                        </div>
+                    </div>
+
+                    <div class="tab-pane animation-slide-left" id="usercourses" role="tabpanel">
+                        <div role="main">
+                            {{> theme_remui/profile_courses }}
+                        </div>
+                    </div>
+                    <div class="tab-pane animation-slide-left float-right" id="userprefs" role="tabpanel">
+                        {{/ user }}
+                        {{{ output.main_content }}}
+                        {{# user }}
+                    </div>
+                </div>
+            {{/ user }}
+            {{{ output.activity_navigation }}}
+            {{{ output.course_content_footer }}}
+        </section>
+    </div>
+</div>
+{{> theme_remui/common_end}}
+
+{{#js}}
+require(['jquery', 'theme_remui/profile'], function(){
+$(document).ready(function(){
+$('.header-button-group').removeClass('btn-group').appendTo(".extra-buttons-container");
+$('#message-user-button').addClass('btn-primary btn-lg');
+$('#toggle-contact-button').addClass('btn-secondary btn-lg');
+
+});
+});
+{{/js}}

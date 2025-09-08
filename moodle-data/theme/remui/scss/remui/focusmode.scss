@@ -1,0 +1,485 @@
+$navigation-width: 100px;
+$navigation-width-md: $navbar-height;
+$navigation-item-height: 5rem;
+$navigation-large-width: 3.5rem;
+$navigation-activity-width: 2.5rem;
+$navigation-activity-icon-width: 2rem;
+$border-width: 2px;
+$border-default-color: #d0d6d8;
+$border-done-color: green;
+$border-current-color: #000000;
+$title-font-weight: 600;
+$disable-color: #d4d4d4;
+$disable-bgcolor: #f9f9f9;
+$text-color: #263238;
+$navbar-top-pos: -$navbar-height;
+$animate-time: 0.5s;
+
+body {
+    @include media-breakpoint-up(sm) {
+        &.focusmode {
+            margin-left: 0 !important;
+
+            &:not(#page-mod-quiz-attempt):not(#page-mod-book-view) {
+                .drawer-right-toggle {
+                    display: none;
+                }
+            }
+            .site-announcement {
+                top: -100%;
+            }
+            .secondary-navigation,
+            #page-footer .footer-mainsection-wrapper,
+            #page-footer .footer-secondarysection-wrapper {
+                display: none !important;
+            }
+            #page-footer .footer-container {
+                padding: 0;
+            }
+
+            #nav-drawer,
+            #page-footer .container-fluid,
+            #wdm_course-stats,
+            #page-header,
+            .block-controls,
+            // .action-menu.moodle-actionmenu,
+            .page-aside-switch {
+                display: none !important;
+            }
+
+            &.path-mod{
+                #page-header{
+                    display: block !important;
+                    #page-navbar{
+                        display: none;
+                    }
+                }
+            }
+
+            .navbar {
+                &:not(.fm-navbar) {
+                    top: $navbar-top-pos !important;
+                    transition: all $animate-time ease;
+                }
+
+                &.fm-navbar {
+                    display: flex !important;
+                    transition: all $animate-time ease $animate-time;
+                    top: 0 !important;
+                    color: $primary !important;
+
+                    .courseheaderbar{
+                        width: 100% !important;
+                        @include media-breakpoint-only(md) {
+                            width: 90% !important;
+                        }
+
+                        .focus-mode-active-info {
+                            background-color: #FFF9E5;
+                            border: 2px solid #FFC107;
+                            border-radius: 4px;
+                            padding: map-get($spacerspx, '2') map-get($spacerspx, '1');
+                            opacity: 1;
+                            transition: opacity 0.3s ease;
+                            position: absolute;
+                            top: 50%;
+                            left: 50%;
+                            transform: translate(-50%, -50%);
+
+                            .fm-info-text {
+                              color: #343A40;
+                            }
+
+                            // Animation to fade out after a few seconds
+                            animation: fadeOut 3s forwards 3s; // 2s delay, 3s duration
+
+                            &:hover {
+                              opacity: 1;
+                              animation: none; // Remove animation on hover
+                            }
+                            @include media-breakpoint-down(md){
+                                position: absolute;
+                                top: 90px; // Adjust as per requirement
+                                left: 50%;
+                                transform: translate(-50%, 0%);
+                                &.scrolled {
+                                    position: relative;
+                                }
+                            }
+                            html[dir="rtl"] & {
+                                right: 50%;
+                                left: unset;
+                            }
+                        }
+
+                          @keyframes fadeOut {
+                            to {
+                              opacity: 0;
+                            }
+                        }
+
+                    }
+                    .nav-link {
+                        color: $link-color;
+                        font-weight: $title-font-weight;
+                        width: 100%;
+                        &.disabled{
+                            color: $disable-color !important;
+                            background-color: $disable-bgcolor;
+                            font-style: normal;
+                        }
+                    }
+
+                    .navbar-brand{
+                        // padding: 0px 0px 0px map-get($spacerspx, 6);
+                    }
+
+                    .sub-nav{
+                        padding: 0px map-get($spacerspx, 6);
+                    }
+                }
+            }
+
+            .page-header-actionss {
+                align-items: center;
+            }
+
+            #course-progress-bar .progress {
+                width: 150px !important;
+                border: 1px solid $border-default-color;
+            }
+
+            #page-footer {
+                background-color: transparent !important;
+            }
+
+            .floating-buttons {
+                display: block !important;
+            }
+
+            #page-content {
+                #region-main{
+                    font-size: 18px;
+                }
+                .section.main {
+                    margin: 2rem 0;
+                    // border: 1px solid $border-default-color;
+                }
+            }
+
+            .btn, .custom-select {
+                font-size: 1rem;
+            }
+
+            &.pagelayout-course  .course-content .sectionname{
+                font-size: 1.286rem;
+                .wdm-sectionname {
+                    font-size: 1.6rem;
+                }
+            }
+
+            &.pagelayout-incourse #region-main{
+                &> .card{
+                    margin: 2rem 0;
+                    border: 1px solid $border-default-color;
+                }
+                .activity-navigation{
+                    display: none;
+                }
+            }
+
+            #wdm-courseheader {
+                // width: 65% !important;
+                padding: map-get($spacerspx, '4') 0px ;
+                .title{
+                    a {
+                        color: $link-color ;
+                        margin-bottom: 0.7rem;
+                        font-weight: $title-font-weight;
+                        white-space: nowrap;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                        width: 100%;
+                        display: inline-block;
+                        margin: 0;
+                    }
+                    a:hover{
+                        color: $link-hover-color;
+                    }
+
+                }
+
+                .progress {
+                    border-radius: 20px;
+
+                    .progress-bar {
+                       background-color: $brand-secondary-static;
+                    }
+                 }
+
+                 .progress-text {
+                    color: $paragraph-color;
+                }
+            }
+
+            .activity-navigation {
+                font-size: 1rem;
+                flex-wrap: nowrap;
+                @include media-breakpoint-only(md) {
+                    .nav-item .nav-link i {
+                        font-size: 30px;
+                    }
+                }
+
+                #coursePrevious,#courseNext{
+                    .nav-link{
+                        .edw-icon{
+                            font-size: 24px;
+                            color: inherit;
+                        }
+                        .navigation-text{
+                            font-size: 12px;
+                            font-weight: 600;
+                            line-height: normal;
+                        }
+                    }
+                }
+
+                .focus-dropdown {
+                    height: fit-content;
+                    .dropdown-toggle span, .activity-item h5 {
+                        display: block;
+                        overflow: hidden;
+                        white-space: nowrap;
+                        text-overflow: ellipsis;
+                    }
+                    .dropdown-toggle{
+                        padding: map-get($spacerspx, '3')  map-get($spacerspx, '3d5');
+                        background-color: #EBF0F9;
+                        border-radius: 4px;
+                        gap: map-get($spacerspx, '4');
+                        max-width: 350px;
+                        span{
+                            color: $paragraph-color;
+                        }
+                        &::after{
+                            font-size: 10px;
+                            color: $navbar-icon-color;
+                        }
+
+                        @include media-breakpoint-down(md) {
+                            max-width: 200px;
+                        }
+                        @include media-breakpoint-down(sm) {
+                            max-width: 150px;
+                        }
+                        &.active::after{
+                            transform: rotate(180deg)
+                        }
+                    }
+                    .focus-dropdown-menu {
+                        width: 350px;
+                        position: absolute;
+                        top: 36px;
+                        overflow-y: auto;
+                        bottom: auto;
+                        z-index: $zindex-dropdown;
+                        max-height: 450px;
+                        margin-top: 5px !important;
+                        display: none;
+                        min-width: 160px;
+                        font-size: 14px;
+                        color: $text-color;
+                        text-align: left;
+                        list-style: none;
+                        background-color: #fff;
+                        background-clip: padding-box;
+                        border: 1px solid $border-default-color;
+                        background-color: #fff;
+                        background-clip: padding-box;
+                        border: 1px solid  $light-border;
+                        border-radius: .25rem;
+                        padding-bottom: map-get($spacerspx,'3d5');
+                        // box-shadow: 0 3px 12px rgba(0,0,0,.05);
+
+                        .activity-item {
+                            border: none;
+                            padding: map-get($spacerspx, '2d5') map-get($spacerspx, '9') map-get($spacerspx,'2d5') map-get($spacerspx, '9');
+                            box-shadow: unset;
+                            cursor: none;
+                        }
+
+                        .card-body {
+                            .card-header a h5{
+                                color: $link-color !important;
+                            }
+                            .activity-completion-indicator {
+                                &.complete_icon{
+                                    color: $brand-secondary;
+                                    font-size: 16px;
+                                }
+                            }
+                            img.activityicon{
+                                height: 24px;
+                                width: 24px;
+                                margin-left: -8px;
+                                vertical-align: middle;
+                            }
+                        }
+                        .card-body .card:last-of-type{
+                            .activity-item:last-of-type{
+                                padding-bottom:  map-get($spacerspx, 4);
+                            }
+                        }
+
+                        .card:not(.border-bottom) {
+                            border: none;
+                        }
+                    }
+                }
+            }
+            .accordion {
+                .card{
+                    .card-header {
+                        background-color: $white;
+                        outline: none !important;
+                        a {
+                            h5{
+                                color: $text-color ;
+                            }
+                            &:hover{
+                                text-decoration: none !important;
+                            }
+
+                            &.collapsed{
+                                i.edw-icon{
+                                    transform: rotate(180deg);
+                                }
+                            }
+                        }
+                    }
+                    &.active .card-header{
+                        background-color: $bg-small-ui;
+                        border-radius: 0px;
+                    }
+                }
+                & > .card{
+                    & > .card-header {
+                        padding: map-get($spacerspx, "1d5")  map-get($spacerspx, "7");
+                    }
+                    &:first-of-type{
+                        & > .card-header:first-of-type{
+                            padding-top: map-get($spacerspx, "5");
+                        }
+
+                    }
+                    &:last-of-type{
+                        & > .card-header:first-of-type{
+                            // padding-bottom: map-get($spacerspx, "5");
+                        }
+
+                    }
+                }
+
+                .fm-dropdown-subsections {
+                    margin: 0 28px 8px;
+                    border-radius: 8px;
+
+                    background-color: $courseindex-section-title-bg;
+                    overflow: hidden;
+
+                    .card-header,
+                    .card-body .card {
+                        background: transparent !important;
+
+
+                    }
+
+                    .card.active .card-header {
+                        background-color: darken($courseindex-section-title-bg, 15%) !important;
+                    }
+
+                    .subsection-header {
+                        padding: 10px 12px 5px;
+
+                                a {
+                                    h5{
+                                        color: $text-color ;
+                                    }
+                                    &:hover{
+                                        text-decoration: none !important;
+                                    }
+
+                                    &.collapsed{
+                                        i.edw-icon{
+                                            transform: rotate(180deg);
+                                        }
+                                    }
+                        }
+                    }
+                }
+            }
+
+            #region-fullwidthtop-blocks {
+                margin-top: unset !important;
+            }
+        }
+        &:not(.focusmode) {
+            .navbar {
+                &:not(.fm-navbar) {
+                    top: 0 !important;
+                    transition: all $animate-time ease;
+                }
+                &.fm-navbar {
+                    top: $navbar-top-pos !important;
+                    transition: all $animate-time ease $animate-time;
+                    .activity-navigation {
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
+    @include media-breakpoint-down(sm) {
+        .fm-navbar, #focusmode {
+            display: none;
+        }
+        #focusmodebutton{
+            display: none !important;
+        }
+    }
+}
+// for fixing the position of focusmode dropdown menu
+.focus-dropdown-menu.dropdown-menu-right {
+    right: 0;
+    left: auto;
+}
+
+// Added space above subsection in focusmode activity dropdown
+@include media-breakpoint-up(sm) {
+    body.focusmode {
+        .focus-dropdown-menu.dropdown-menu-right {
+            .accordion {
+                .fm-dropdown-subsections {
+                    margin: 8px 28px;
+                }
+            }
+        }
+    }
+}
+
+// For fixing subsection height adjustment issue in card layout in focusmode
+body.focusmode {
+    #page-content {
+        .activity-cards.section {
+            .section.main.delegated-section {
+                margin: unset;
+            }
+        }
+        .general-section-activities {
+            .section.main.delegated-section {
+                margin: unset;
+            }
+        }
+    }
+}

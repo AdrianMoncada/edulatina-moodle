@@ -1,0 +1,12 @@
+.alert span.ellipsis > :last-child {
+    margin-bottom: 0 !important;
+}
+
+.alert-dismissible .close{
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 2;
+    padding: 1rem 1.5rem;
+    color: inherit;
+}

@@ -1,0 +1,71 @@
+
+$header-icon-size:$navbar-icon-size;
+$input-field-padding-y :map-get($spacerspx, '3');
+$input-field-padding-x :map-get($spacerspx, '4');
+#page-header {
+    margin-bottom: $page-header-margin-bottom;
+
+    .header-wrapper {
+        .header-actions-container {
+            .header-action {
+                .simplesearchform {
+                    // max-width: $searchfield-width;
+                    form {
+                        height: 100%;
+                        @include media-breakpoint-down(sm) {
+                            padding: 0px;
+                        }
+                    }
+                    .input-group {
+                        padding: $input-field-padding-y $input-field-padding-x;
+                        input{
+                            color: $header-text-default;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .dashboard-bar-wrapper {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        gap: 24px;
+
+        @include media-breakpoint-down(sm) {
+            gap: 8px;
+        }
+
+        h3.welcome-note {
+            color: $heading-color;
+        }
+
+        h3.welcome-note,
+        .page-header-headings .header-heading {
+            // @extend .h-semibold-3;
+            @include get_typography(3, semibold, all);
+            margin: 0;
+
+            @include media-breakpoint-down(sm) {
+                @include get_typography(3, bold, mobile);
+
+            }
+        }
+
+        .page-context-header,
+        .page-header-headings {
+            padding: 0;
+        }
+    }
+}
+div.reset-pagebutton-wrapper {
+    justify-content: flex-end;
+    .singlebutton form {
+        margin: 0;
+    }
+    @include media-breakpoint-down(sm) {
+        margin-top: $page-header-margin-bottom;
+        justify-content: flex-start;
+    }
+}

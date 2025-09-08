@@ -1,0 +1,56 @@
+{{!
+    This file is part of Moodle - http://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+}}
+{{!
+    @template theme_remui/setupwizard/setup_licenseactivation
+}}
+
+<div class="setup-container">
+
+    <div class="license-form-top p-mb-9">
+        <h4 class="h-semibold-4">{{#str}}setupwizard:licensehead, theme_remui{{/str}}</h4>
+
+        <p class="h-regular-5 desc m-0">{{#str}}setupwizard:licensedesc, theme_remui{{/str}}</p>
+    </div>
+    <div class="license-form-bottom">
+        <p class="h-semibold-6 addinstruction p-mb-2 d-flex align-items-center justify-content-start">
+            {{#str}}setupwizard:licenseformtext1, theme_remui{{/str}}
+             <span class="licenseactivation-tooltip">
+                <span class="edw-icon edw-icon-Info"></span>
+                <span class="tooltip-text">{{#str}}licensetooltipmsg, theme_remui{{/str}}</span>
+            </span>
+
+        </p>
+
+        <div class="input-btn-wrapper">
+            <div class="input-alert-wrapper">
+                <input type="text" placeholder="{{#str}}setupwizard:licenseforminputplaceholder, theme_remui{{/str}}" id="licensekey-input" class="form-control" name="licensekey" value={{#licensekey}}{{{licensekey}}}{{/licensekey}}>
+                <span class="license-ack-msg small-info-regular d-none"></span>
+            </div>
+            <button class="btn btn-primary license-submit-btn next-page disabled" data-step="3">{{#str}}submit, theme_remui{{/str}} </button>
+        </div>
+    </div>
+
+    <div class="guide-link-wrapper p-mt-4">
+         <span class="text h-regular-6">{{#str}}setupwizard:licenseformtext2, theme_remui{{/str}}</span>
+         <a href="https://edwiser.helpscoutdocs.com/article/216-where-can-i-find-the-license-key-and-plugin-files-after-purchase" target="_blank" class="guide-link text-link-semibold p-ml-1d5">{{#str}}setupwizard:licenseformtext3, theme_remui{{/str}}</a>
+    </div>
+
+    <div class="setup-navigation d-flex justify-content-between p-mt-9">
+      <button class="btn btn-primary next-page ml-auto d-none" data-nextstep="{{#questionsgenerated}}userinformation{{/questionsgenerated}}{{^questionsgenerated}}servercheck{{/questionsgenerated}}">{{#str}}continue, theme_remui{{/str}} </button>
+    </div>
+</div>
+

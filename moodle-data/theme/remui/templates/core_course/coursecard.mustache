@@ -1,0 +1,107 @@
+{{!
+    This file is part of Moodle - http://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Moodle. If not, see <http: //www.gnu.org/licenses />.
+
+    Edwiser RemUI
+    @package theme_remui
+    @copyright (c) 2023 WisdmLabs (https://wisdmlabs.com/)
+    @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+}}
+{{!
+    @template course_course/coursecard
+
+    This template renders the a card for the course cards.
+
+    Example context (json):
+    {
+        "courses": [{
+            "name": "Assignment due 1",
+            "viewurl": "https://moodlesite/course/view.php?id=2",
+            "courseimage": "https://moodlesite/pluginfile/123/course/overviewfiles/123.jpg",
+            "fullname": "course 3",
+            "hasprogress": true,
+            "progress": 10,
+            "visible": true
+        }]
+    }
+}}
+<div class="card dashboard-card edwanimate-{{cardanimation}} " role="listitem" data-region="course-content" data-course-id="{{{id}}}">
+    <div tabindex="-1">
+        <div class="card-img dashboard-card-img p-p-4 edw-course-img-wrapper"
+            style='background-image: url("{{{courseimage}}}");'>
+            <a href="{{ viewurl }} " class="view-course-url"></a>
+            <div class="card-img-icons-wrapper d-flex align-items-center flex-gap-2 ml-auto">
+                {{> core_course/favouriteicon }}
+                {{^visible}}
+                <div class="visibilityicon">
+                    <span class="hidden-icon edw-icon edw-icon-Hide visible" aria-hidden="true"
+                        title="{{#str}} hiddencourse, theme_remui {{/str}}"></span>
+                </div>
+                {{/visible}}
+                {{$menu}}{{/menu}}
+                <span class="sr-only">{{#str}}aria:courseimage, theme_remui{{/str}}</span>
+            </div>
+        </div>
+    </div>
+    <div class="card-body course-info-container d-flex flex-column  justify-content-between  flex-gap-3"
+id="course-info-container-{{id}}-{{uniqid}}">
+        <div class="edw-card-design-hd d-flex flex-column flex-gap-3">
+            <div class="d-flex flex-column align-items-start flex-gap-3">
+                <!-- <div class="text-muted muted d-flex flex-wrap"> -->
+                    <span class="categoryname text-truncate small-info-semibold" title=" {{{coursecategory}}}">
+                        {{$coursecategory}}{{/coursecategory}}
+                    </span>
+                <!-- </div> -->
+                <div class="w-100 text-truncate">
+                    {{#showshortname}}
+                    <div class="text-muted muted d-flex mb-1 flex-wrap">
+                        <span class="sr-only">
+                            {{#str}}aria:courseshortname, core_course{{/str}}
+                        </span>
+                        <div>
+                            {{{shortname}}}
+                        </div>
+                        {{$divider}}{{/divider}}
+                    </div>
+                    {{/showshortname}}
+                    <a href="{{viewurl}}" class="aalink coursename text-decoration-none ellipsis ellipsis-3 h-semibold-6" title="{{{fullname}}}">
+                        <span class="sr-only">
+                            {{#str}}aria:coursename, core_course{{/str}}
+                        </span>
+                        {{$coursename}}{{/coursename}}
+                    </a>
+                </div>
+            </div>
+            {{#instructor}}
+            <div class="d-flex flex-row flex-gap-0d5">
+                <div class="d-flex flex-row instructor-info-wrapper">
+                    <a href="{{ url }}" class="d-flex align-items-center flex-gap-d5 instructor-img {{ imgStyle }}"
+                        aria-label="Instructor for {{coursename}} is - {{name}}" title="{{{name}}}">
+                        <img src="{{ picture }}" class="rounded-circle" alt="{{ name }}" loading="lazy"/>
+                        <h6 class="h-regular-6 course-instructors m-0" title="{{{name}}}">{{{name}}}</h6>
+                    </a>
+                </div>
+                {{#instructorcount}}<span class="small-info-semibold instructorscount d-flex align-items-center justify-content-center">+{{instructorcount}}</span>{{/instructorcount}}
+            </div>
+            {{/instructor}}
+        </div>
+	    <div class="edw-card-design-ft d-flex flex-column align-self-strech flex-gap-5">
+            <div class="progress-data-wrapper">
+                {{$progress}}{{/progress}}
+            </div>
+            <a class="btn btn-secondary btn-sm view-course-btn ml-auto" href="{{viewurl}}" title="{{#str}}viewcoursetitle,theme_remui{{/str}}">{{#str}}viewcourse,theme_remui{{/str}}</a>
+        </div>
+    </div>
+</div>

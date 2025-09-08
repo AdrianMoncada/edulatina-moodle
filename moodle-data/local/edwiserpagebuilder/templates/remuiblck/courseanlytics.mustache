@@ -1,0 +1,75 @@
+
+{{!
+    This file is part of Moodle - http://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+}}
+{{^cannotview}}
+<div id="quiz_overview-{{uniqid}}" class="remuiblck-courseanalysis courseanalytics-wrapper">
+    <div class="w-full">
+        <div class="quiz-overview-body-ft">
+            <select id='coursecategorylist' class='form-control mb-10'>
+                <option value="" title="{{#str}}selectacourse, local_edwiserpagebuilder{{/str}}">{{#str}}selectacourse, local_edwiserpagebuilder{{/str}}</option>
+                {{#quizcourse}}
+                <option data-id="{{id}}" title="{{{name}}}">{{{name}}}</option>
+                {{/quizcourse}}
+            </select>
+        </div>
+        <div class="quiz-overview-body d-flex flex-column">
+            <div id="course-stats" class="row justify-content-center">
+                <div class="d-flex  flex-column each-stats-wrapper">
+                    <div id="highestgrade" class="counter-label counter-label-value ">0</div>
+                    <div id="highestgradelabel" class="counter-label  rmblck-grade-label" title="{{#str}}highestgrade,local_edwiserpagebuilder{{/str}}">
+                        {{#str}}highestgrade,local_edwiserpagebuilder{{/str}}
+                    </div>
+                    <div id="highestactivity" class="counter-label "></div>
+                </div>
+                <div class=" d-flex  flex-column each-stats-wrapper">
+                    <div id="lowestgrade" class="counter-label counter-label-value">0</div>
+                    <div id="lowestgradelabel" class="counter-label  rmblck-grade-label">
+                        {{#str}}lowestgrade,local_edwiserpagebuilder{{/str}}
+
+                    </div>
+                    <div id="lowestactivity" class="counter-label  "></div>
+                </div>
+                <div class=" d-flex  flex-column each-stats-wrapper">
+                    <div id="averagegrade" class="counter-label counter-label-value">0</div>
+                    <div id="averagegradelabel" class="counter-label  rmblck-grade-label">
+                        {{#str}}averagegrade,local_edwiserpagebuilder{{/str}}
+                    </div>
+                    <div id="allactivities" class="counter-label d-none">{{#str}}allActivities, local_edwiserpagebuilder{{/str}}
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12 p-0 chart-area-wrapper">
+                <div id="analysis-chart-area">
+                    <div class="analysis-chart-wrapper">
+                        <canvas id="analysischart"></canvas>
+                    </div>
+                    <div class="analysis-chart-pagination d-none">
+                        {{> local_edwiserpagebuilder/remuiblck/per-page-and-pagination-selector }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+{{#js}}
+require(['local_edwiserpagebuilder/remuiblck/courseanalytics'], function(courseanalytics){
+    courseanalytics.init('#quiz_overview-{{uniqid}}', "{{uniqid}}");
+});
+{{/js}}
+{{/cannotview}}

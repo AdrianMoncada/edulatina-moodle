@@ -1,0 +1,137 @@
+$drawer-open-container-padding-x: 3rem !default;
+@include media-breakpoint-up(md) {
+    body:not(.limitedwidth) {
+        .header-maxwidth,
+        .secondary-navigation {
+            max-width: none;
+            padding-left: 0;
+            padding-right: 0;
+        }
+
+        // Add some padding for the drawer toggle buttons
+        // div[role="main"] {
+        // padding-left: 0;
+        // padding-right: 0;
+        // }
+    }
+}
+
+@include media-breakpoint-up(lg) {
+    // Trigger to handle sidebars
+    .show-drawer-left {
+        & + #page-footer {
+            margin-left: $drawer-left-width;
+        }
+    }
+    // Trigger to handle sidebars
+    .show-drawer-right {
+        & + #page-footer {
+            margin-right: $drawer-right-width;
+        }
+    }
+    .show-drawer-left,
+    .show-drawer-right {
+        .container {
+            padding-left: $drawer-open-container-padding-x;
+            padding-right: $drawer-open-container-padding-x;
+        }
+        & + #page-footer {
+            @include transition($layout-transition-effects);
+            // max-width: $course-content-maxwidth;
+            padding-left: $drawer-open-container-padding-x;
+            padding-right: $drawer-open-container-padding-x;
+        }
+    }
+}
+
+.show-drawer-left,
+.show-drawer-right {
+    &+ #page-footer .footer-container .footer-mainsection-wrapper .footerdata {
+        @include media-breakpoint-up(lg) {
+            gap: $footer-content-gap-drawer-open;
+        }
+    }
+}
+.show-drawer-left.show-drawer-right {
+    &+ #page-footer .footer-container .footer-mainsection-wrapper .footerdata {
+        @include media-breakpoint-up(lg) {
+            gap: $footer-content-gap-drawer-open;
+        }
+    }
+}
+// @media (min-width: 1399) and (max-width: 1700) {
+
+// }
+
+// @media (min-width: 1399) and (max-width: 1700) {
+//     .show-drawer-left.show-drawer-right {
+//         & + #page-footer {
+//             .footer-container {
+//                 .footer-mainsection-wrapper {
+//                     .footerdata {
+//                         gap: $footer-content-gap-drawer-open;
+//                     }
+//                 }
+//             }
+//         }
+//     }
+// }
+// @include media-breakpoint-between(lg, md) {
+//     .show-drawer-left,
+//     .show-drawer-right {
+//         & + #page-footer {
+//             .footer-container {
+//                 .footer-mainsection-wrapper {
+//                     .footerdata {
+//                         gap: $footer-content-gap-drawer-open;
+//                     }
+//                 }
+//             }
+//         }
+//     }
+// }
+
+#page.drawers {
+    .main-inner {
+        margin-top: $drawer-main-inner-margin-y ;
+        margin-bottom: $drawer-main-inner-margin-y ;
+    }
+    .reset-pagebutton-wrapper {
+        margin-bottom: $drawer-main-inner-margin-y;
+    }
+}
+body.remui-notification #page.drawers:has(.site-announcement) {
+    .main-inner {
+        margin-top: $drawer-main-inner-margin-y + 1rem;
+    }
+}
+
+.main-area-bg {
+    &:not(.pagelayout-login) {
+        div[role="main"] {
+            background: $container-main-area-bg;
+            padding: $container-main-area-pad;
+            border-radius: $container-main-area-rad;
+            // @include get-drop-shadow(xs);
+            // filter property is commented above added equivalent box shadow property
+            box-shadow: 0 13px 37px rgba(92, 107, 121, 0.1);
+
+        }
+    }
+    &.pagelayout-login {
+        .login-container {
+            background: $login-container-bg;
+            padding: $container-main-area-pad;
+            @include get-drop-shadow(xs);
+            .logo-area {
+                background: $login-container-bg;
+                z-index: 10;
+            }
+        }
+        &.logincenter {
+            .login-container {
+                border-radius: $container-main-area-rad;
+            }
+        }
+    }
+}

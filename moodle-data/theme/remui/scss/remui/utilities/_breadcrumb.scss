@@ -1,0 +1,37 @@
+#page-header {
+    #page-navbar {
+        &.has-actions {
+            margin-bottom: 12px;
+        }
+        &:not(.has-actions) {
+            margin-bottom: 24px;
+        }
+
+        nav {
+            ol.breadcrumb {
+                .breadcrumb-item {
+                    flex-grow: unset;
+                    padding: 0px;
+                    @extend .small-info-regular;
+                    span {
+                        color: $paragraph-color;
+                    }
+
+                    a {
+                        color: $brand-primary;
+                    }
+
+                    &.dimmed_text {
+                        font-weight: 600 !important;
+                    }
+
+                    &::before {
+                        padding: 0px;
+                        margin-left: 2px;
+                        margin-right: 4px;
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,236 @@
+// stylelint-disable
+$spacerspx: () !default;
+$spacerspx: map-merge((
+  0d5 : 2px,
+  1   : 4px,
+  1d5 : 6px,
+  2   : 8px,
+  2d5 : 10px,
+  3   : 12px,
+  3d5 : 14px,
+  4   : 16px,
+  4d5 : 18px,
+  5   : 20px,
+  6   : 24px,
+  7   : 28px,
+  8   : 32px,
+  9   : 36px,
+  10  : 40px,
+  11  : 44px,
+  12  : 48px,
+  14  : 56px,
+  16  : 64px,
+  20  : 80px,
+  24  : 96px,
+  28  : 112px,
+  32  : 128px,
+  36  : 144px,
+  40  : 160px
+), $spacerspx);
+
+$edwspacer: 1rem !default;
+$spacersrem: () !default;
+$spacersrem: map-merge(
+  (
+    0d5 : 0.125rem,
+    1   : 0.25rem,
+    1d5 : 0.375rem,
+    2   : 0.5rem,
+    2d5 : 0.625rem,
+    3   : 0.75rem,
+    3d5 : 0.85rem,
+    4   : 1rem,
+    5   : 1.25rem,
+    6   : 1.5rem,
+    7   : 1.75rem,
+    8   : 2rem,
+    9   : 2.25rem,
+    10  : 2.5rem,
+    11  : 2.75rem,
+    12  : 3rem,
+    14  : 3.5rem,
+    16  : 4rem,
+    20  : 5rem,
+    24  : 6rem,
+    28  : 7rem,
+    32  : 8rem,
+    36  : 9rem,
+    40  : 10rem
+  ),
+  $spacersrem
+);
+
+// Margin and Padding - px
+
+@each $breakpoint in map-keys($grid-breakpoints) {
+  @include media-breakpoint-up($breakpoint) {
+    $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+
+    @each $prop, $abbrev in (margin: p-m, padding: p-p) {
+      @each $size, $length in $spacerspx {
+        .#{$abbrev}#{$infix}-#{$size} { #{$prop}: $length; }
+        .#{$abbrev}t#{$infix}-#{$size},
+        .#{$abbrev}y#{$infix}-#{$size} {
+          #{$prop}-top: $length;
+        }
+        .#{$abbrev}r#{$infix}-#{$size},
+        .#{$abbrev}x#{$infix}-#{$size} {
+          #{$prop}-right: $length;
+        }
+        .#{$abbrev}b#{$infix}-#{$size},
+        .#{$abbrev}y#{$infix}-#{$size} {
+          #{$prop}-bottom: $length;
+        }
+        .#{$abbrev}l#{$infix}-#{$size},
+        .#{$abbrev}x#{$infix}-#{$size} {
+          #{$prop}-left: $length;
+        }
+      }
+    }
+
+    // Negative margins (e.g., where `.mb-n1` is negative version of `.mb-1`)
+    @each $size, $length in $spacerspx {
+      @if $size != 0 {
+        .p-m#{$infix}-n#{$size} { margin: -$length; }
+        .p-mt#{$infix}-n#{$size},
+        .p-my#{$infix}-n#{$size} {
+          margin-top: -$length;
+        }
+        .p-mr#{$infix}-n#{$size},
+        .p-mx#{$infix}-n#{$size} {
+          margin-right: -$length;
+        }
+        .p-mb#{$infix}-n#{$size},
+        .p-my#{$infix}-n#{$size} {
+          margin-bottom: -$length;
+        }
+        .p-ml#{$infix}-n#{$size},
+        .p-mx#{$infix}-n#{$size} {
+          margin-left: -$length;
+        }
+      }
+    }
+
+    // Some special margin utils
+    .p-m#{$infix}-auto { margin: auto; }
+    .p-mt#{$infix}-auto,
+    .p-my#{$infix}-auto {
+      margin-top: auto;
+    }
+    .p-mr#{$infix}-auto,
+    .p-mx#{$infix}-auto {
+      margin-right: auto;
+    }
+    .p-mb#{$infix}-auto,
+    .p-my#{$infix}-auto {
+      margin-bottom: auto;
+    }
+    .p-ml#{$infix}-auto,
+    .p-mx#{$infix}-auto {
+      margin-left: auto;
+    }
+  }
+}
+
+
+// Margin and Padding - rem
+
+@each $breakpoint in map-keys($grid-breakpoints) {
+  @include media-breakpoint-up($breakpoint) {
+    $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+
+    @each $prop, $abbrev in (margin: r-m, padding: r-p) {
+      @each $size, $length in $spacersrem {
+        .#{$abbrev}#{$infix}-#{$size} { #{$prop}: $length; }
+        .#{$abbrev}t#{$infix}-#{$size},
+        .#{$abbrev}y#{$infix}-#{$size} {
+          #{$prop}-top: $length;
+        }
+        .#{$abbrev}r#{$infix}-#{$size},
+        .#{$abbrev}x#{$infix}-#{$size} {
+          #{$prop}-right: $length;
+        }
+        .#{$abbrev}b#{$infix}-#{$size},
+        .#{$abbrev}y#{$infix}-#{$size} {
+          #{$prop}-bottom: $length;
+        }
+        .#{$abbrev}l#{$infix}-#{$size},
+        .#{$abbrev}x#{$infix}-#{$size} {
+          #{$prop}-left: $length;
+        }
+      }
+    }
+
+    // Negative margins (e.g., where `.mb-n1` is negative version of `.mb-1`)
+    @each $size, $length in $spacersrem {
+      @if $size != 0 {
+        .r-m#{$infix}-n#{$size} { margin: -$length; }
+        .r-mt#{$infix}-n#{$size},
+        .r-my#{$infix}-n#{$size} {
+          margin-top: -$length;
+        }
+        .r-mr#{$infix}-n#{$size},
+        .r-mx#{$infix}-n#{$size} {
+          margin-right: -$length;
+        }
+        .r-mb#{$infix}-n#{$size},
+        .r-my#{$infix}-n#{$size} {
+          margin-bottom: -$length;
+        }
+        .r-ml#{$infix}-n#{$size},
+        .r-mx#{$infix}-n#{$size} {
+          margin-left: -$length;
+        }
+      }
+    }
+
+    // Some special margin utils
+    .r-m#{$infix}-auto { margin: auto; }
+    .r-mt#{$infix}-auto,
+    .r-my#{$infix}-auto {
+      margin-top: auto;
+    }
+    .r-mr#{$infix}-auto,
+    .r-mx#{$infix}-auto {
+      margin-right: auto;
+    }
+    .r-mb#{$infix}-auto,
+    .r-my#{$infix}-auto {
+      margin-bottom: auto;
+    }
+    .r-ml#{$infix}-auto,
+    .r-mx#{$infix}-auto {
+      margin-left: auto;
+    }
+  }
+}
+
+// stylelint-disable
+$gapspace: () !default;
+$gapspace: map-merge((
+  d5:4px,
+  0d5:6px,
+  1 : 8px,
+  1d5:10px,
+  2 : 12px,
+  3 : 14px,
+  4 : 16px,
+  4d5: 18px,
+  5 : 20px,
+  6 : 24px,
+  7 : 28px,
+  8 : 32px,
+  9   : 36px,
+  10  : 40px,
+  11  : 44px,
+  12  : 48px,
+  14  : 56px,
+), $gapspace);
+
+@each $size, $length in $gapspace {
+  .flex-gap-#{$size} {
+    gap: $length;
+  }
+}
+
+.lh-1 {line-height: 1;}

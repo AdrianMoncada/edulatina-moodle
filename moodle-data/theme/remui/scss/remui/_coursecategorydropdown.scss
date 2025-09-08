@@ -1,0 +1,114 @@
+.category-wrapper {
+    background-color: $white;
+    align-items: start !important;
+    padding: map-get($spacerspx, '4') map-get($spacerspx, '5');
+    gap: map-get($gapspace , 4 );
+
+     > * {
+        width: 100%;
+    }
+
+    .menu-wrapper {
+        background-color: $white;
+        display: flex;
+        flex-direction: column;
+        gap: map-get($gapspace, 4);
+
+        .menu-body {
+            display: flex;
+            flex-direction: column;
+            gap: map-get($gapspace, 4);
+            margin-left: map-get($spacerspx, "8");
+        }
+
+        .hidden-label {
+            &:not(.catvisibility-0) {
+                display: none;
+            }
+        }
+    }
+
+    .category-link {
+        color: $paragraph-color;
+        text-decoration: none;
+        -webkit-line-clamp: 1;
+        width: fit-content;
+
+        &:hover {
+          color: $blue;
+        }
+
+        &.catvisibility-0{
+            opacity: 0.7;
+        }
+    }
+
+    .menu-heading {
+        color: $paragraph-color;
+        @include get_typography(6, regular, desktop);
+
+        &:not(:has(.toggle-btn.collapsed)) {
+            .category-link {
+                -webkit-line-clamp: unset;
+                font-weight: 600;
+                color: $heading-color;
+
+                &:hover {
+                    color: $blue;
+                }
+
+                &.catvisibility-0{
+                    opacity: 0.5;
+                }
+            }
+        }
+    }
+
+    .edw-icon {
+        font-size: $edw-icon-size-small !important;
+        height: $edw-icon-size-small !important;
+        width: $edw-icon-size-small !important;
+        color: $ic-default;
+
+        &:hover {
+            color: $ic-default
+        }
+    }
+
+    .toggle-btn {
+        height: fit-content;
+        cursor: pointer;
+        width: 22px;
+        height: 22px;
+        background-color: $header-menu-element-bg-color;
+        border-radius: 3px;
+
+        .expande-icon {
+            display: none;
+        }
+
+        &.collapsed {
+            .collaps-icon {
+                display: none;
+            }
+
+            .expande-icon {
+                display: block;
+            }
+        }
+
+        &:hover {
+            background-color: darken($header-menu-element-bg-color, 8%);
+        }
+    }
+
+    ul {
+        list-style-type:disc;
+        padding-left: 22px;
+        li {
+            padding-left: map-get($spacerspx, '3');
+            color: $paragraph-color;
+            @include get_typography(6, regular, desktop);
+        }
+    }
+}

@@ -1,0 +1,42 @@
+
+{{#liveeditorlink}}{{{liveeditorlink}}}{{/liveeditorlink}}
+<div class="block-content {{#haslimitedwidth}}{{haslimitedwidth}}{{/haslimitedwidth}} {{#hasrtlclass}}{{hasrtlclass}} {{/hasrtlclass}}">
+{{#blockcss}}<style type="text/css">{{{blockcss}}}</style>{{/blockcss}}
+
+{{{blockhtml}}}
+
+{{! Script to Inject another script into html }}
+
+{{#js}}
+$(document).ready(function(){
+    if($('body').hasClass('limitedwidth')){
+        $(document).on('click','.moodle-actionmenu .move-top ' ,function(){
+            checkregion(this, 200);
+        });
+        $(document).on('click','.moodle-actionmenu .move-bottom ' ,function(){
+            checkregion(this,200);
+        });
+
+        $(document).on('mouseleave','.moodle-actionmenu [data-draggroups="block"]' ,function(){
+            checkregion(this,300);
+        });
+
+        function checkregion(currentblock,time){
+            setTimeout(function () {
+                var regionname =  $(currentblock).closest("aside[data-blockregion]").attr("data-blockregion");
+                if(regionname == "full-width-top" || regionname == "full-bottom" ){
+
+                    $(currentblock).closest('.block').find(".block-content").removeClass('edw-limitedwidth-block');
+                }else{
+                    $(currentblock).closest('.block').find(".block-content").addClass('edw-limitedwidth-block');
+                }
+
+            }, time);
+        }
+    }else{
+        $('.block').find('.edw-limitedwidth-block').removeClass('edw-limitedwidth-block');
+    }
+});
+{{/js}}
+<script type='text/javascript' id='block-script'>{{{blockjs}}}</script>
+</div>

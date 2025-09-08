@@ -1,0 +1,16 @@
+<div class="page-course-card-wrapper">
+    {{#pagecards}}
+        <div class="single-card-wrapper">
+            <img class="thumbnail-img" src="{{thumbnailurl}}" alt="">
+            <div class="card-footer- d-flex align-items-center jusify-content-start">
+                <span class="edw-icon edw-icon-Check check-mark-icon type-2"></span>
+                <p class="small-info-semibold head-color m-0 p-pl-2">{{title}}</p>
+            </div>
+        </div>
+    {{/pagecards}}
+ </div>
+{{#notice}}
+    <div class="page-setup-notice p-mt-3">
+        <p class="para-regular-2 m-0">{{{notice}}}</p>
+    </div>
+{{/notice}}

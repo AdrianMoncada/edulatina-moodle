@@ -1,0 +1,64 @@
+{{!
+    This file is part of Moodle - http://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
+    Edwiser RemUI
+    @package theme_remui
+    @copyright (c) 2023 WisdmLabs (https://wisdmlabs.com/)
+    @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+}}
+{{!
+    @template core/add_block_body
+
+    Template for the body of the add block modal.
+
+    Context variables required for this template:
+    * blocks - list of blocks containing name and title
+    * url - base url for links back to same page.
+
+    Example context (json):
+    {
+        "blocks" : [ { "name": "test", "title": "Test block" } ],
+        "url" : "?a=b"
+    }
+
+}}
+<div class="d-flex flex-column modal-body-wrapper h-100">
+
+    <div class="modal-subheader bg-white d-flex justify-content-between flex-gap-8  add-block-filters-wrapper">
+        <div class="edw-tabs-navigation mb-0 d-flex flex-grow-1 justify-content-between left-filters">
+            <ul class="nav nav-tabs m-0" id="epbTab" role="tablist">
+                <li class="nav-item " role="presentation">
+                    <a class="nav-link edwmoodleblockstab loadpagelayouts active" id="moodleblock-tab"  data-toggle="tab"  data-bs-toggle="tab" href="#moodleblocktab" role="tab" aria-controls="moodleblocktab">{{#str}}moodleblocks, theme_remui{{/str}}</a>
+                </li>
+            </ul>
+            <div class="d-flex flex-gap-8 align-items-center justify-content-between right-filters">
+                <div class="view-btn-wrapper  align-items-center">
+                    <a href="#" class="add-block-grid-view viewbtn text-decoration-none active"><span class="edw-icon edw-icon-Card-View"></span></a>
+                    <a href="#" class="add-block-list-view viewbtn text-decoration-none"><span class="edw-icon edw-icon-List-View-08"></span></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="addblock-modal-body h-100">
+        <div class="tab-content">
+            <div class=" block-cards default-blocks default-blocks-wrapper grid-view">
+                <div class="block-cards-wrapper">
+                    {{>theme_remui/add_block_body_cards}}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

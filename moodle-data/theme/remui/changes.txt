@@ -1,0 +1,28 @@
+Release
+=======
+
+Version  5.0.3
+===========
+Tweak - Further UI/UX improvements.
+Tweak - Minor changes in feedback collection flow.
+Tweak - Minor improvements in setup wizard.
+Tweak - Hide empty fields on profile page.
+Tweak - Renamed the "Settings" tab in profile settings to "More Details".
+Fix - API documentation page now loads correctly without getting stuck on the loader screen
+Fix - Error when installing RemUI theme, activating it, or adding an activity to a course.
+
+Version 5.0.2
+=============
+Tweak - Minor improvements in left sidebar.
+Tweak - Css support added for Edwiser video format plugin
+
+Version 5.0.1
+=============
+Tweak - Improved alert messaging on the settings page.
+Tweak - Further UI/UX improvements implemented.
+Fix - Resolved issue with the collapse/expand icon not working as expected.
+
+Version 5.0.0
+=============
+Feature - Compatibility with Moodle 5.0.
+

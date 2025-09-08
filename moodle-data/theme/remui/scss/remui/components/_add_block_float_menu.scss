@@ -1,0 +1,81 @@
+$edwqmenu-bgcolor: #222222;
+$edwqmenu-color: #d1d1d1;
+$customizer-icon-color: #00a1a8;
+$edwqmenu-hover-bgcolor: $bg-small-ui;
+$edwqmenu-shadow: 0 0 30px -5px rgb(0 0 0 / 30%);
+$edwqmenu-margin: 14px;
+#add-block-float-menu{
+    border-radius: 10px;
+    .btn.btn-dark{
+        background-color: $edwqmenu-bgcolor;
+    }
+    &.floating-widget{
+        left: 50%;
+        transform: translate(-50%, 0%);
+        z-index: 16;
+    }
+    .dropdown-toggle-split::after{
+        content: unset;
+    }
+    .floating-add-block-button{
+        border-top-left-radius: 10px;
+        border-bottom-left-radius: 10px;
+        .edw-icon{
+            font-size: $edw-icon-size-large;
+        }
+    }
+    .add-block-split-icon-btn{
+        border-top-right-radius: 10px;
+        border-bottom-right-radius: 10px;
+    }
+    .dropdown-menu{
+        background-color: $edwqmenu-bgcolor;
+        border-radius: 10px;
+        overflow: hidden;
+        border: unset;
+        left: 50% !important;
+        bottom: auto !important;
+        transform: translate(-50%, -103%) !important;
+        width: 100%;
+        @include media-breakpoint-down(sm){
+            width: unset;
+        }
+        .dropdown-item {
+            display: flex;
+            align-items: center;
+            white-space: pre-wrap;
+            word-break: break-word;
+            &:hover{
+                background-color: #333333;
+            }
+            .region-name-text{
+                color: $white;
+            }
+            &.activeregion{
+               span{
+                color:  #37be71 ;
+                &.edw-icon{
+                    opacity: 1;
+                }
+               }
+            }
+            .edw-icon{
+                font-size: $edw-icon-size-small;
+                opacity: 0.3;
+            }
+        }
+    }
+}
+
+#page-my-index.pagelayout-mycourses{
+    #add-block-float-menu{
+        display: none;
+    }
+    #block-region-content{
+        .block-controls{
+            .move-top,.move-bottom{
+                display: none;
+            }
+        }
+    }
+}

@@ -1,0 +1,69 @@
+$form-control-min-height: 48px;
+fieldset {
+    .fcontainer {
+        .form-group {
+            .col-form-label {
+                .inner {
+                    min-height: 48px;
+                }
+            }
+            .edw-icon {
+                width: $edw-icon-size-large;
+                height: $edw-icon-size-large;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin: 0;
+            }
+        }
+    }
+}
+.fdescription.required,
+#fgroup_id_buttonar,
+#fitem_id_submitbutton {
+    display: flex;
+    justify-content: end;
+    padding-top: $form-group-py;
+    padding-bottom: $form-group-py;
+    padding-left: $form-group-px;
+    padding-right: $form-group-px;
+    @include media-breakpoint-down(md) {
+        padding-top: $form-group-py-md;
+        padding-bottom: $form-group-py-md;
+        padding-left: $form-group-px-md;
+        padding-right: $form-group-px-md;
+    }
+    @include media-breakpoint-down(sm) {
+        padding-top: $form-group-py-sm;
+        padding-bottom: $form-group-py-sm;
+        padding-left: $form-group-px-sm;
+        padding-right: $form-group-px-sm;
+    }
+}
+.fdescription.required {
+    padding-top: 0;
+    .icon {
+        width: 24px;
+        height: 24px;
+        font-size: 24px;
+    }
+}
+#fgroup_id_buttonar,
+#fitem_id_submitbutton {
+    margin-bottom: 0;
+    background: $white;
+    div[data-fieldtype="group"] {
+        fieldset,
+        .inner-reverse {
+            display: flex;
+            justify-content: end;
+        }
+    }
+    .inner-reverse {
+        gap: 16px;
+        .form-group {
+            margin: 0;
+        }
+    }
+}
+

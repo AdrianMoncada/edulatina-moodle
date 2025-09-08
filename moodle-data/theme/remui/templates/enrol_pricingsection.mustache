@@ -1,0 +1,246 @@
+{{!
+    This file is part of Moodle - http://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+    GNU General Public License for more details.
+
+    Edwiser RemUI
+    @package theme_remui
+    @copyright (c) 2023 WisdmLabs (https://wisdmlabs.com/)
+    @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+
+}}
+{{!
+    @template theme_remui/enrol_pricingsection
+}}
+
+<div class="section pricing-section d-flex flex-column">
+    <div class="doted-border">
+        {{#editing}}
+            <a href="{{editcourseimglink}}" target="_blank" class="textlink-with-icon text-link-semibold d-flex flex-gap-0d5 align-items-center p-py-2 p-pr-6 ml-auto">
+                <span>{{#str}}changecourseimage, theme_remui{{/str}}</span>
+                <span class="edw-icon edw-icon-Shortcut"></span>
+            </a>
+        {{/editing}}
+        <div class="courseimage">
+            <img src="{{{courseimage}}}" alt="" />
+        </div>
+    </div>
+    <div class="top">
+        {{^editing}}
+            <div>
+                {{#customcourseprice}} 
+                <div class="pricing">
+                    <p class="pricing--price h-bold-2 m-0">{{{customcourseprice}}} </p>
+                </div>
+                {{/customcourseprice}}
+
+                {{^customcourseprice}}
+                    {{#courseprice}}
+                    <div class="pricing">
+                        <div>
+                            {{{courseprice}}}
+                            {{{currency}}}
+                        </div>
+                    </div>
+                    {{/courseprice}}
+                {{/customcourseprice}}
+            </div>
+        {{/editing}}
+
+        {{#editing}}
+        <div class="doted-border pricing">
+
+            <div class="{{^customcourseprice}}d-none{{/customcourseprice}}" id="custom-price-box">
+                <p class="pricing--price h-bold-2 m-0">{{{customcourseprice}}} </p>
+                <div class="p-p-2 p-mt-4 enable-pricing-text-msg">
+                    <p class="small-info-regular m-0">{{#str}}enablepricingsettingstext, theme_remui{{/str}} </p>
+                </div>
+                <a class="textlink-with-icon text-link-semibold d-inline-flex flex-gap-0d5 align-items-center p-py-2 p-px-1" id="enable-default-pricing">
+                    <span>{{#str}}enabledefaultpricing, theme_remui{{/str}}</span>
+                </a>
+            </div>
+
+            {{#courseprice}}
+                <div class="default-pricing-section {{#customcourseprice}}disabled{{/customcourseprice}} ">
+                    <a href="{{editfreelabelsettinglink}}" target="_blank" class="textlink-with-icon text-link-semibold d-inline-flex flex-gap-0d5 align-items-center p-py-2 p-px-1">
+                        <span>{{#str}}showhidefreelabel, theme_remui{{/str}}</span>
+                        <span class="edw-icon edw-icon-Shortcut"></span>
+                    </a>
+                    <div>
+                        {{{courseprice}}}
+                        {{{currency}}}
+                        <a href="{{editenrolmethodspagelink}}" target="_blank" class="textlink-with-icon text-link-semibold d-inline-flex flex-gap-0d5 align-items-center p-py-2 p-px-1">
+                            <span>{{#str}}editpricing, theme_remui{{/str}}</span>
+                            <span class="edw-icon edw-icon-Shortcut"></span>
+                        </a>
+                    </div>
+                </div>
+                
+            {{/courseprice}}
+        </div>
+        {{/editing}}
+
+        <div class="enroll-btn-wrapper doted-border">
+            <div class="p-px-6">
+                <a class="btn btn-primary btn-block" {{^editing}} href="{{buttonurl}}" {{/editing}}>{{{buttontext}}}</a>
+            </div>
+            {{#editing}}
+                <div class="btn-group enroll-editbtn-wrapper">
+                    <a class="textlink-with-icon form-dropdown-toggler text-link-semibold d-flex flex-gap-0d5 align-items-center p-py-2 ml-auto p-mt-2"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <span>{{#str}}changebtntextandlink, theme_remui{{/str}}</span>
+                        <span class="edw-icon edw-icon-link"></span>
+                    </a>
+
+                    <div class="dropdown-menu dropdown-menu-right w-100 enroll-btn-upd-dropdown">
+                        <div class="card-header h-semibold-5 p-p-4">
+                            {{#str}}changebtntextandlink, theme_remui{{/str}}
+                        </div>
+                        <form class="p-p-6" id="enroll-now-btn-form">
+                            <div class="form-group">
+                                <label for="enrolbtntext" class="text-link-semibold">{{#str}}changebtntext, theme_remui{{/str}}</label>
+                                <input type="text" value="{{buttontextinput}}" class="form-control text-link-regular" id="enrolbtntext">
+                            </div>
+                            <div class="form-group">
+                                <label for="enrolbtntext" class="text-link-semibold">{{#str}}addcustomprice, theme_remui{{/str}}</label>
+                                <input type="text" value="{{customcoursepriceinput}}" max="17" class="form-control text-link-regular" id="custompricetext">
+                            </div>
+                            <div class="form-group">
+                                <label for="enrolbtnurl" class="text-link-semibold">{{#str}}addlink, theme_remui{{/str}}</label>
+                                <input type="text" value="{{{textforbtnlinkinput}}}" class="form-control text-link-regular" id="enrolbtnurl">
+                            </div>
+
+                            <div class="d-flex flex-gap-3 justify-content-right">
+                                <button type="button" class="btn btn-secondary ml-auto cancel-enroll-dropdown-btn" data-dismiss="dropdown">{{#str}}cancel, theme_remui{{/str}}</button>
+                                <button type="submit" class="btn btn-primary submitbtnenrolbtnform">{{#str}}save, theme_remui{{/str}}</button>
+                            </div>
+                        </form>
+                        <div class="top-pointer-icon"></div>
+                    </div>
+                </div>
+            {{/editing}}
+        </div>
+    </div>
+    <div class="bottom">
+        <div class="list-item-group d-flex flex-column {{#editing}}flex-gap-6{{/editing}}">
+
+            <div class="doted-border {{#editing}}p-py-2{{/editing}}">
+                {{#editing}}
+                    <a href="{{editcourseinforsettinglink}}" target="_blank" class="textlink-with-icon text-link-semibold d-flex flex-gap-0d5 align-items-center p-py-2 p-pr-6 ml-auto">
+                        <span>{{#str}}edit, theme_remui{{/str}}</span>
+                        <span class="edw-icon edw-icon-Shortcut"></span>
+                    </a>
+                {{/editing}}
+
+                {{#showselecteddatesetting}}
+                <div class="list-item d-flex justify-content-between">
+                    <span class="d-flex flex-gap-1 custom-title-wrapper">
+                        <span class="edw-icon edw-icon-Calendar large"></span>
+                        <span class="label h-regular-5">{{{showselecteddatesettingname}}}</span>
+                    </span>
+                    <span class="sub-label h-semibold-5 text-right">{{showselecteddatesettingdate}}</span>
+                </div>
+                {{/showselecteddatesetting}}
+
+                {{#totallessons}}
+                <div class="list-item d-flex justify-content-between ">
+                    <span class="d-flex flex-gap-1 custom-title-wrapper">
+                        <span class="edw-icon edw-icon-Book large"></span>
+                        <span class="label h-regular-5">{{{lessonstitletext}}}</span>
+                    </span>
+                    <span class="sub-label h-semibold-5 text-right">{{totallessons}}</span>
+                </div>
+                {{/totallessons}}
+
+                {{#enrolledstudents}}
+                <div class="list-item d-flex justify-content-between ">
+                    <span class="d-flex flex-gap-1 custom-title-wrapper">
+                        <span class="edw-icon edw-icon-Group-user large"></span>
+                        <span class="label h-regular-5">{{{enrolledusertitletext}}}</span>
+                    </span>
+                    <span class="sub-label h-semibold-5 text-right">{{enrolledstudents}}</span>
+                </div>
+                {{/enrolledstudents}}
+
+                {{#language}}
+                <div class="list-item d-flex justify-content-between ">
+                    <span class="d-flex flex-gap-1 custom-title-wrapper">
+                        <span class="edw-icon edw-icon-Language large"></span>
+                        <span class="label h-regular-5">{{#str}}language, theme_remui{{/str}}</span>
+                    </span>
+                    <span class="sub-label h-semibold-5 text-right">{{language}}</span>
+                </div>
+                {{/language}}
+            </div>
+            <div class="doted-border {{#editing}}p-py-2{{/editing}}">
+
+                {{#editing}}
+                <div class="custom-field-editing-text-wrapper list-item d-flex justify-content-between">
+                    <a href="{{editaddremuicustomfieldlink}}" target="_blank" class="textlink-with-icon text-link-semibold d-flex flex-gap-0d5 align-items-center">
+                        <span>{{#str}}addremuicustomfield, theme_remui{{/str}}</span>
+                        <span class="edw-icon edw-icon-Shortcut"></span>
+                    </a>
+                    <a href="{{editcoursecustomfields}}" target="_blank" class="textlink-with-icon text-link-semibold d-flex flex-gap-0d5 align-items-center ml-auto">
+                        <span>{{#str}}editremuicustomfield, theme_remui{{/str}}</span>
+                        <span class="edw-icon edw-icon-Shortcut"></span>
+                    </a>
+                </div>
+                {{/editing}}
+
+                {{#courselength}}
+                <div class="list-item d-flex justify-content-between">
+                    <span class="d-flex flex-gap-1 custom-title-wrapper">
+                        <span class="edw-icon edw-icon-Length-01 large"></span>
+                        <span class="label h-regular-5">{{#str}}length, theme_remui{{/str}}</span>
+                    </span>
+                    <span class="sub-label h-semibold-5 text-right">{{courselength}}</span>
+                </div>
+                {{/courselength}}
+
+                {{#skilllevel}}
+                <div class="list-item d-flex justify-content-between">
+                    <span class="d-flex flex-gap-1 custom-title-wrapper">
+                        <span class="edw-icon edw-icon-Skill-level-01 large"></span>
+                        <span class="label h-regular-5">{{#str}}skilllevel, theme_remui{{/str}}</span>
+                    </span>
+                    <span class="sub-label h-semibold-5 text-right">{{skilllevel}}</span>
+                </div>
+                {{/skilllevel}}
+
+
+                {{{additionalcustomfields}}}
+
+                {{#editing}}
+                    <div class="list-item d-flex justify-content-between">
+                        <a class="textlink-with-icon text-link-semibold d-flex flex-gap-0d5 align-items-center" data-toggle="modal" data-target=".tutorial-video-modal">
+                            <img src="{{{playiconurl}}}" alt="" width="20" height="20" />
+                            <span>{{#str}}howtoaddcustomfield, theme_remui{{/str}}</span>
+                        </a>
+                    </div>
+
+                    <div class="modal fade tutorial-video-modal" tabindex="-1" role="dialog" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered modal-lg">
+                            <div class="modal-content">
+                                <button type="button" class="close ml-auto modal-close-btn" data-dismiss="modal" aria-label="Close">
+                                    <span class="edw-icon edw-icon-Cancel"></span>
+                                </button>
+
+                                <video id = "customfieldinfovideo" class="tutorial-video w-100" controls>
+                                    <source src="https://staticcdn.edwiser.org/theme_remuiassets/videos/remui_customfield_tutorial.mp4" type="video/mp4">
+                                </video>
+
+                            </div>
+                        </div>
+                    </div>
+                {{/editing}}
+            </div>
+        </div>
+    </div>
+</div>

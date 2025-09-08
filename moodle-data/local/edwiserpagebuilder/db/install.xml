@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<XMLDB PATH="local/edwiserpagebuilder/db" VERSION="2019091100" COMMENT="XMLDB file for Edwiser Page Builder"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="../../../lib/xmldb/xmldb.xsd">
+    <TABLES>
+        <TABLE NAME="edw_page_blocks" COMMENT="Edwiser Page Builder blocks table">
+            <FIELDS>
+                <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+                <FIELD NAME="title" TYPE="char" LENGTH="255" NOTNULL="false" SEQUENCE="false" COMMENT="Block title"/>
+                <FIELD NAME="label" TYPE="char" LENGTH="255" NOTNULL="true" SEQUENCE="false" COMMENT="Label to be shown to users"/>
+                <FIELD NAME="thumbnail" TYPE="text" NOTNULL="true" SEQUENCE="false" COMMENT="Thumbnail Image url"/>
+                <FIELD NAME="content" TYPE="text" NOTNULL="false" SEQUENCE="false" COMMENT="Block Content"/>
+                <FIELD NAME="version" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false" COMMENT="Block Version"/>
+                <FIELD NAME="updateavailable" TYPE="int" LENGTH="1" NOTNULL="false" DEFAULT="0" SEQUENCE="false" COMMENT="Update Available (1/0)"/>
+                <FIELD NAME="visible" TYPE="int" LENGTH="1" NOTNULL="false" DEFAULT="0" SEQUENCE="false" COMMENT="Block visible (1/0)"/>
+                <FIELD NAME="type" DEFAULT="block" TYPE="char" LENGTH="100" NOTNULL="false" SEQUENCE="false" COMMENT="Block is block or page"/>
+                <FIELD NAME="categories" TYPE="char" LENGTH="100" NOTNULL="false" SEQUENCE="false" COMMENT="Block is related to which page"/>
+            </FIELDS>
+            <KEYS>
+                <KEY NAME="primary" TYPE="primary" FIELDS="id" COMMENT="Unique key for the table."/>
+            </KEYS>
+        </TABLE>
+        <TABLE NAME="edw_page_block_layouts" COMMENT="Edwiser Page Builder blocks card layouts table">
+            <FIELDS>
+                <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+                <FIELD NAME="title" TYPE="char" LENGTH="255" NOTNULL="false" SEQUENCE="false" COMMENT="Card layout title"/>
+                <FIELD NAME="belongsto" TYPE="char" LENGTH="255" NOTNULL="false" SEQUENCE="false" COMMENT="Block title"/>
+                <FIELD NAME="label" TYPE="char" LENGTH="255" NOTNULL="true" SEQUENCE="false" COMMENT="Label to be shown to users"/>
+                <FIELD NAME="thumbnail" TYPE="text" NOTNULL="true" SEQUENCE="false" COMMENT="Thumbnail Image url"/>
+                <FIELD NAME="content" TYPE="text" NOTNULL="false" SEQUENCE="false" COMMENT="Block Content"/>
+                <FIELD NAME="version" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false" COMMENT="Block Version"/>
+                <FIELD NAME="updateavailable" TYPE="int" LENGTH="1" NOTNULL="false" DEFAULT="0" SEQUENCE="false" COMMENT="Update Available (1/0)"/>
+                <FIELD NAME="visible" TYPE="int" LENGTH="1" NOTNULL="false" DEFAULT="0" SEQUENCE="false" COMMENT="Block visible (1/0)"/>
+            </FIELDS>
+            <KEYS>
+                <KEY NAME="primary" TYPE="primary" FIELDS="id" COMMENT="Unique key for the table."/>
+            </KEYS>
+        </TABLE>
+         <TABLE NAME="edw_pages" COMMENT="This table is for publish edw_pages">
+            <FIELDS>
+                <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+                <FIELD NAME="pagename" TYPE="text" NOTNULL="true" SEQUENCE="false"/>
+                <FIELD NAME="pagedesc" TYPE="text" NOTNULL="false" SEQUENCE="false"/>
+                <FIELD NAME="capabilities" TYPE="text" NOTNULL="false" SEQUENCE="false"/>
+                <FIELD NAME="pagecontent" TYPE="text" NOTNULL="false" SEQUENCE="false"/>
+                <FIELD NAME="deleted" TYPE="int" LENGTH="1" NOTNULL="false" DEFAULT="0" SEQUENCE="false"/>
+                <FIELD NAME="pagelayout" TYPE="text" NOTNULL="false" SEQUENCE="false"/>
+                <FIELD NAME="startdate" TYPE="int" LENGTH="10" NOTNULL="false" DEFAULT="0" SEQUENCE="false"/>
+                <FIELD NAME="enddate" TYPE="int" LENGTH="10" NOTNULL="false" DEFAULT="0" SEQUENCE="false"/>
+                <FIELD NAME="pagemodified" TYPE="int" LENGTH="10" NOTNULL="false" DEFAULT="0" SEQUENCE="false"/>
+                <FIELD NAME="allowloginonly" TYPE="int" LENGTH="1" NOTNULL="false" DEFAULT="0" SEQUENCE="false"/>
+                <FIELD NAME="visible" TYPE="int" LENGTH="1" NOTNULL="false" DEFAULT="0" SEQUENCE="false"/>
+                <FIELD NAME="seotag" TYPE="text" NOTNULL="false" SEQUENCE="false"/>
+                <FIELD NAME="seodesc" TYPE="text" NOTNULL="false" SEQUENCE="false"/>
+                <FIELD NAME="allowindex" TYPE="int" LENGTH="1" NOTNULL="false" DEFAULT="0" SEQUENCE="false"/>
+                <FIELD NAME="refid" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+            </FIELDS>
+            <KEYS>
+                <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+                <KEY NAME="fk_refid" TYPE="foreign" FIELDS="refid" REFTABLE="edw_pages_draft" REFFIELDS="id"/>
+            </KEYS>
+        </TABLE>
+        <TABLE NAME="edw_pages_draft" COMMENT="This table is for storing draft of edw_pages">
+            <FIELDS>
+                <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+                <FIELD NAME="pagename" TYPE="text" NOTNULL="true" SEQUENCE="false"/>
+                <FIELD NAME="pagedesc" TYPE="text" NOTNULL="false" SEQUENCE="false"/>
+                <FIELD NAME="capabilities" TYPE="text" NOTNULL="false" SEQUENCE="false"/>
+                <FIELD NAME="pagecontent" TYPE="text" NOTNULL="false" SEQUENCE="false"/>
+                <FIELD NAME="deleted" TYPE="int" LENGTH="1" NOTNULL="false" DEFAULT="0" SEQUENCE="false"/>
+                <FIELD NAME="pagelayout" TYPE="text" NOTNULL="false" SEQUENCE="false"/>
+                <FIELD NAME="startdate" TYPE="int" LENGTH="10" NOTNULL="false" DEFAULT="0" SEQUENCE="false"/>
+                <FIELD NAME="enddate" TYPE="int" LENGTH="10" NOTNULL="false" DEFAULT="0" SEQUENCE="false"/>
+                <FIELD NAME="pagemodified" TYPE="int" LENGTH="10" NOTNULL="false" DEFAULT="0" SEQUENCE="false"/>
+                <FIELD NAME="allowloginonly" TYPE="int" LENGTH="1" NOTNULL="false" DEFAULT="0" SEQUENCE="false"/>
+                <FIELD NAME="visible" TYPE="int" LENGTH="1" NOTNULL="false" DEFAULT="0" SEQUENCE="false"/>
+                <FIELD NAME="seotag" TYPE="text" NOTNULL="false" SEQUENCE="false"/>
+                <FIELD NAME="seodesc" TYPE="text" NOTNULL="false" SEQUENCE="false"/>
+                <FIELD NAME="allowindex" TYPE="int" LENGTH="1" NOTNULL="false" DEFAULT="0" SEQUENCE="false"/>
+                <FIELD NAME="refid" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+            </FIELDS>
+            <KEYS>
+                <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+                <KEY NAME="fk_refid" TYPE="foreign" FIELDS="refid" REFTABLE="edw_pages" REFFIELDS="id"/>
+            </KEYS>
+        </TABLE>
+        <TABLE NAME="edw_taskslist" COMMENT="This table has the list of task">
+            <FIELDS>
+                <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+                <FIELD NAME="subject" TYPE="char" LENGTH="500" NOTNULL="true" SEQUENCE="false" COMMENT="Subject of the task"/>
+                <FIELD NAME="summary" TYPE="char" LENGTH="1000" NOTNULL="false" SEQUENCE="false" COMMENT="Task Summary"/>
+                <FIELD NAME="createdby" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false" COMMENT="User id Created by"/>
+                <FIELD NAME="assignedto" TYPE="char" LENGTH="1000" NOTNULL="false" SEQUENCE="false" COMMENT="Array of Users Assigned to"/>
+                <FIELD NAME="completed" TYPE="int" LENGTH="10" NOTNULL="false" DEFAULT="0" SEQUENCE="false" COMMENT="Is completed true or false"/>
+                <FIELD NAME="deleted" TYPE="int" LENGTH="10" NOTNULL="false" DEFAULT="0" SEQUENCE="false" COMMENT="Is Deleted true or false"/>
+                <FIELD NAME="notify" TYPE="int" LENGTH="10" NOTNULL="false" DEFAULT="0" SEQUENCE="false" COMMENT="Notify when completed"/>
+                <FIELD NAME="visible" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false" COMMENT="Is Visible true or false"/>
+                <FIELD NAME="timedue" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false" COMMENT="Due Date"/>
+                <FIELD NAME="timecreated" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false" COMMENT="Time Created"/>
+                <FIELD NAME="timemodified" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false" COMMENT="Time Modified"/>
+            </FIELDS>
+            <KEYS>
+                <KEY NAME="id" TYPE="primary" FIELDS="id" COMMENT="The unique id for Tasks"/>
+            </KEYS>
+        </TABLE>
+    </TABLES>
+</XMLDB>

@@ -1,0 +1,66 @@
+{{!
+    This file is part of Moodle - http://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+}}
+{{!
+    @template theme_remui/setupwizard/setup_plugin_progress_status
+}}
+
+{{#success}}
+<div class="setupwizard-success-msg p-mt-2">
+    <img class="p-mr-1" src="{{config.wwwroot}}/theme/remui/pix/setupwizard/setupwizard_success.svg" width="16" height="16" >
+    <span>{{{message}}}</span>
+</div>
+{{/success}}
+
+{{#error}}
+<div class="setupwizard-error-msg p-mt-2">
+    <img class="p-mr-1" src="{{config.wwwroot}}/theme/remui/pix/setupwizard/setupwizard_error.svg" width="14" height="14" >
+    <span>{{{message}}}</span>
+</div>
+{{/error}}
+
+{{#exception}}
+<div>
+    <div class="align-items-center setupwizard-error-msg p-mt-2">
+        <img class="p-mr-1" src="{{config.wwwroot}}/theme/remui/pix/setupwizard/setupwizard_error.svg" width="12" height="12" >
+        <span>{{{message}}}</span>
+        <a class="view-exception" data-toggle="collapse" data-target="#{{id}}" aria-expanded="false" aria-controls="{{id}}">{{#str}}view, theme_remui {{/str}}</a>
+    </div>
+
+    <div class="collapse" id="{{id}}">
+        <div class="exceptionmsg-body" style="word">
+            <span class="close-btn" data-toggle="collapse" data-target="#{{id}}" aria-expanded="false" aria-controls="{{id}}">
+                <i class="icon fa fa-xmark fa-fw m-0"></i>
+            </span>
+            {{{exceptionmsg}}}
+        </div>
+    </div>
+</div>
+{{/exception}}
+
+{{#info}}
+<div class="setupwizard-info-msg p-mt-2">
+    <img src="{{config.wwwroot}}/theme/remui/pix/setupwizard/setupwizard_info.svg" width="16" height="16" >
+    <span>{{{message}}}</span>
+</div>
+{{/info}}
+
+{{#setupbtn}}
+<button class="{{btnclass}} p-mt-2" >
+    {{text}}
+    <img class="inner-loader" src="{{config.wwwroot}}/theme/remui/pix/siteinnerloader.svg" width="16" height="16" >
+</button>
+{{/setupbtn}}

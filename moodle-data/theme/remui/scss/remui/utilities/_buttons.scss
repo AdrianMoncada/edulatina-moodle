@@ -1,0 +1,277 @@
+$btn-floating-size: 48px !default;
+$btn-floating-font-size: 18px !default;
+$floating-button-margin: 14px;
+
+.floating-buttons-wrapper {
+    position: fixed;
+    // width: $btn-floating-size;
+    bottom: $floating-button-margin;
+    right: $floating-button-margin;
+    display: flex;
+    flex-direction: column;
+    @include transition($layout-transition-effects);
+
+    > .btn-floating {
+        width: $btn-floating-size;
+        height: $btn-floating-size;
+        border-radius: 50%;
+        margin-top: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        max-width: 48px;
+        margin-left: auto;
+        transition: max-width .5s ease-in-out;
+
+        &> i,
+        &>span {
+            font-size: 24px;
+        }
+
+        .btn-floating-text {
+            display: none;
+            white-space: nowrap;
+            color: #FFF;
+            font-family: Inter;
+            font-size: 12px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: normal;
+            margin-left: 8px;
+
+            overflow: hidden;
+            max-width: 0;
+            width: 0;
+            transition: max-width .5s ease-out;
+        }
+
+        &:hover,
+        &:has(.popover),
+	&.open {
+            &:has(.btn-floating-text) { //This css is only applied when text is available on button
+                width: fit-content;
+                max-width: 200px;
+                border-radius: 25px;
+            }
+
+            .btn-floating-text {
+                display: block;
+
+                width: fit-content;
+                max-width: 200px;
+            }
+        }
+
+        // Beacon button style.
+        &.beaconbtn,
+        &.moodlehelpbtn {
+            .edw-icon-Cancel {
+                display: none;
+            }
+            &.show,
+            &:has(.popover) {
+                .edw-icon-Comment-03,
+                .edw-icon-Help {
+                    display: none;
+                }
+                .edw-icon-Cancel {
+                    display: block;
+                }
+            }
+        }
+    }
+}
+@include media-breakpoint-up(lg){
+    .drawer.drawer-right.show {
+        ~ #page-footer .floating-buttons-wrapper {
+            right: $drawer-right-width + $floating-button-margin;
+        }
+    }
+}
+.jsenabled #page.drawers.show-drawer-right{
+    ~ #page-footer .floating-buttons-wrapper {
+        right: $drawer-right-width + $floating-button-margin;
+    }
+}
+.btn-outline-primary {
+    &:hover, &:active {
+        color: white !important;
+        background-color: $brand-primary !important;
+    }
+    &:focus {
+        box-shadow: none !important;
+    }
+}
+.btn{
+    border-width: #{$button-md-border-width}px;
+    border-radius: #{$button-md-border-radius}px;
+    letter-spacing: $button-md-letterspacing;
+    font-family: $button-common-fontfamily;
+    text-transform: $button-common-text-transform;
+    font-weight: $button-md-fontweight;
+    line-height: $button-md-lineheight;
+    font-size: #{$button-md-fontsize}rem;
+    padding-top: #{$button-md-padingtop}rem;
+    padding-right: #{$button-md-padingright}rem;
+    padding-bottom: #{$button-md-padingbottom}rem;
+    padding-left: #{$button-md-padingleft}rem;
+    text-decoration: none;
+}
+/* Primary button styling except colors. */
+.btn-primary, .btn-primary.disabled,.btn-primary:disabled {
+    text-decoration: none;
+    .fa,.edw-icon {
+        color: $button-primary-color-icon;
+    }
+    &:hover {
+        color: $button-primary-color-texthover;
+        background-color: $button-primary-color-backgroundhover;
+        border-color: $button-primary-border-colorhover;
+        .fa,.edw-icon {
+            color: $button-primary-color-iconhover;
+        }
+    }
+
+    &:not(:disabled):not(.disabled):active,
+    &:not(:disabled):not(.disabled).active,
+    &:not(:disabled):not(.disabled):active:focus,
+    .show>&.dropdown-toggle {
+        color: $button-primary-color-textactive;
+        background-color: $button-primary-color-backgroundactive;
+        border-color: $button-primary-border-coloractive;
+        .fa,.edw-icon {
+            color: $button-primary-color-iconactive;
+        }
+    }
+    &:not(:disabled):not(.disabled):focus,
+    &:not(:disabled):not(.disabled).focus {
+        color: $button-primary-color-text;
+        border-color: $button-primary-border-color;
+        background: $button-primary-color-background;
+    }
+    color: $button-primary-color-text;
+    border-color: $button-primary-border-color;
+    background: $button-primary-color-background;
+}
+
+/* Secondary button */
+.btn-secondary, .btn-secondary.disabled,.btn-secondary:disabled {
+    .fa,.edw-icon {
+        color: $button-secondary-color-icon;
+    }
+    text-decoration: none;
+    &:hover {
+        color: $button-secondary-color-texthover;
+        background-color: $button-secondary-color-backgroundhover;
+        border-color: $button-secondary-border-colorhover;
+        .fa,.edw-icon {
+            color: $button-secondary-color-iconhover;
+        }
+    }
+
+    &:not(:disabled):not(.disabled):active:focus,
+    &:not(:disabled):not(.disabled).active,
+    &:not(:disabled):not(.disabled):focus,
+    &:not(:disabled):not(.disabled):active,
+    &:not(:disabled):not(.disabled).focus,
+    .show>&.dropdown-toggle {
+        color: $button-secondary-color-textactive;
+        background-color: $button-secondary-color-backgroundactive;
+        border-color: $button-secondary-border-coloractive;
+        .fa,.edw-icon {
+            color: $button-secondary-color-iconactive;
+        }
+    }
+
+    color: $button-secondary-color-text;
+    border-color: $button-secondary-border-color;
+    background: $button-secondary-color-background;
+}
+.btn-lg{
+    font-weight: $button-lg-fontweight;
+    line-height: $button-lg-lineheight;
+    border-width: #{$button-lg-border-width}px;
+    border-radius: #{$button-lg-border-radius}px;
+    letter-spacing: $button-lg-letterspacing;
+    font-size: #{$button-lg-fontsize}rem;
+    padding-top: #{$button-lg-padingtop}rem;
+    padding-right: #{$button-lg-padingright}rem;
+    padding-bottom: #{$button-lg-padingbottom}rem;
+    padding-left: #{$button-lg-padingleft}rem;
+}
+.btn-sm{
+    font-weight: $button-sm-fontweight;
+    line-height: $button-sm-lineheight;
+    border-width: #{$button-sm-border-width}px;
+    border-radius: #{$button-sm-border-radius}px;
+    letter-spacing: $button-sm-letterspacing;
+    font-size: #{$button-sm-fontsize}rem;
+    padding-top: #{$button-sm-padingtop}rem;
+    padding-right: #{$button-sm-padingright}rem;
+    padding-bottom: #{$button-sm-padingbottom}rem;
+    padding-left: #{$button-sm-padingleft}rem;
+
+}
+.btn-warning{
+    color: $warning-btn-color;
+    &:hover{
+        color: $warning-btn-color;
+    }
+    &:focus{
+        color: $warning-btn-color;
+    }
+    &:not(:disabled):not(.disabled):active{
+        color: $warning-btn-color !important;
+    }
+}
+
+// To fix the issue where secondary buttons appear gray after being clicked
+.btn-secondary{
+    --bs-btn-disabled-color: unset;
+    --bs-btn-disabled-bg: unset;
+    --bs-btn-disabled-border-color: unset;
+}
+
+//Fix of Action button hover color was incorrect on the assignment submission page
+.container-fluid {
+    .navitem {
+        .action-menu{
+            .menubar {
+                .action-menu-trigger{
+                    .dropdown{
+                        .btn-outline-primary:hover{
+                            color: $button-secondary-color-texthover !important;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+// To fix color sync issue in Add a block button (Right side Bar)
+.drawer-right {
+    .drawercontent {
+        .add_block_button {
+            a.btn {
+                @extend .btn-secondary
+            }
+        }
+    }
+}
+
+
+body.bulkenabled.hasstickyfooter {
+    .course-content {
+        #sticky-footer {
+            ul.actions.nav {
+                li.nav-item {
+                    button.btn.disabled {
+                        border-color: transparent;
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,37 @@
+{{!
+    This file is part of Moodle - http://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+    GNU General Public License for more details.
+
+    Edwiser RemUI
+    @package theme_remui
+    @copyright (c) 2023 WisdmLabs (https://wisdmlabs.com/)
+    @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+
+}}
+{{!
+    @template theme_remui/personalizer_info_dashboard
+}}
+
+<div id="edwpersonalizer-settings">
+    <div class="personalizer-info-dashboard p-p-6 activatepersonalizer p-mb-5">
+        <div  class="personalizer-info-top">
+            <h4 class="h-regular-4 p-mb-3">{{#str}}personalizertophead,theme_remui {{/str}}</h4>
+            <a class="btn btn-primary" href={{config.wwwroot}}/theme/remui/customizer.php?url={{config.wwwroot}}//my/">{{#str}}editwithpersonalizertopctatext,theme_remui {{/str}}</a>
+        </div>
+
+        <div class="personalizer-info-bottom">
+            <h5 class="h-regular-5 p-mb-2">{{#str}}personalizerbottomhead,theme_remui {{/str}}</h5>
+            <a class="btn btn-secondary btn-sm" href="https://remui-docs.edwiser.org/remui-theme-setup/visual-personalizer-colour-customization" target="_blank">{{#str}}editwithpersonalizerbottomctatext,theme_remui {{/str}}</a>
+        </div>
+    </div>
+</div>
+

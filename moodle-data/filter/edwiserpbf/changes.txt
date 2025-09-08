@@ -1,0 +1,59 @@
+CHANGES LOG
+
+Version 4.2.8
+=============
+Feature - Compatibility with Moodle 4.5.
+Fix Conflict between featured courses and courses/categories has been resolved.
+
+Version 4.2.7
+=============
+Tweak– Dynamic block colors are now synchronized with RemUI theme colors.
+
+Version 4.2.6
+=============
+Feature - Compatibility with Moodle 4.5.
+
+Version 4.2.5
+=============
+Feature - Added functionality to handle featured courses block.
+Tweak - Minor improvement in courses and categories block.
+
+Version 4.2.4
+=============
+Feature - Added language translation files for:
+        - Spanish (Spain) (es)
+        - Deutsch (German) (de)
+        - Spanish (Mexico) (es_mx)
+        - Portuguese (Brazil) (pt_br)
+        - France (fr)
+        - Polish (pl)
+        - Arabic (ar)
+Tweak - Multi lang filter plugins  support added
+
+
+Version 4.2.3
+=============
+
+Tweak - Minor improvement in courses and categories block.
+
+Version 4.2.2
+=============
+
+Tweak - UI/UX improvement.
+
+Version 4.2.1
+=============
+
+Tweak - UI/UX improvement.
+
+Version 4.2.0
+=============
+
+Tweak - UI/UX improvement.
+Tweak - Added functionality to handle course and category block component.
+
+Version 4.0.0
+=============
+
+Moodle 4.0 compatible version of Edwiser Page Builder Filter plugin.
+It allows users add courses and categories blocks using Edwiser Page Builder plugin. 

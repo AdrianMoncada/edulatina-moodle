@@ -1,0 +1,32 @@
+CHANGES LOG
+
+Version 4.2.2 
+=============  
+Fix– multilangv2 content was not editable when revisiting the live customizer.  
+Fix– Information now added in dynamic blocks when the filter plugin is disabled.
+
+Version 4.2.1
+=============
+Feature - Added language translation files for:
+            - Spanish (Spain) (es)
+            - Deutsch (German) (de)
+            - Spanish (Mexico) (es_mx)
+            - Portuguese (Brazil) (pt_br)
+            - France (fr)
+            - Polish (pl)
+            - Arabic (ar)
+
+
+Version 4.2.0
+=============
+Tweak - UI/UX improvements with the block plugin.
+Tweak - Extended support for Edwiser Page Builder.
+
+Version 4.0.1
+=============
+Tweak - Improvement in save functionality of live customizer.
+Tweak - Further UI/UX improvements done.
+
+Version 4.0.0
+=============
+Moodle 4.0 compatible Version of Edwiser Advanced Block compatible. Edwiser Advanced Block integrates with Edwiser Page builder Plugin and allow users to create dynamic html blocks.

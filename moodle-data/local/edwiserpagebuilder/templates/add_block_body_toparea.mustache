@@ -1,0 +1,76 @@
+{{!
+    This file is part of Moodle - http://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+}}
+{{!
+    @template core/add_block_body_toparea
+
+}}
+  <div class="alert bg-success alert-dismissible fade show text-white updateinfoalert d-none" role="alert">
+    <span class="updateinfotext">{{#str}}updatedblocksinfotext,local_edwiserpagebuilder{{/str}}</span>
+     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+       <span aria-hidden="true" class="text-white">&times;</span>
+     </button>
+  </div>
+  <div class="modal-subheader bg-white d-flex justify-content-between flex-gap-8  add-block-filters-wrapper">
+    <div class="edw-tabs-navigation mb-0 d-flex flex-grow-1 justify-content-between left-filters">
+        <ul class="nav nav-tabs m-0" id="epbTab" role="tablist">
+          <li class="nav-item " role="presentation">
+              <a class="nav-link edwiseradvancedblocktab active" id="block-tab"  data-toggle="tab"  data-bs-toggle="tab" href="#blocktab" role="tab" aria-controls="blocktab" aria-selected="true">{{#str}}remuiblocks, local_edwiserpagebuilder{{/str}}</a>
+          </li>
+
+          <li class="nav-item " role="presentation">
+              <a class="nav-link edwmoodleblockstab loadpagelayouts" id="moodleblock-tab"  data-toggle="tab"  data-bs-toggle="tab" href="#moodleblocktab" role="tab" aria-controls="moodleblocktab">{{#str}}moodleblocks, local_edwiserpagebuilder{{/str}}</a>
+          </li>
+        </ul>
+
+        <div class="d-flex flex-gap-8 align-items-center justify-content-between right-filters">
+          <div class="view-btn-wrapper  align-items-center">
+            <a href="#" class="add-block-grid-view viewbtn text-decoration-none active"><span class="edw-icon edw-icon-Card-View"></span></a>
+            <a href="#" class="add-block-list-view viewbtn text-decoration-none"><span class="edw-icon edw-icon-List-View-08"></span></a>
+          </div>
+        </div>
+      </div>
+  </div>
+{{#isadmin}}
+    {{#pbfpluginexist}}
+        {{#edwpbfnotenable}}
+          <div class="alert alert-info alert-dismissible fade show alerthandler" role="alert">
+            {{#str}}epbfpluginexistinfo,local_edwiserpagebuilder{{/str}}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+        {{/edwpbfnotenable}}
+
+        {{#showfilterreleasenotice}}
+          <div class="alert alert-warning alert-dismissible fade show alerthandler" role="alert">
+            {{#str}}filterpluginreleasenoteice,local_edwiserpagebuilder{{/str}}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+        {{/showfilterreleasenotice}}
+
+    {{/pbfpluginexist}}
+    {{^pbfpluginexist}}
+    <div class="alert alert-info alert-dismissible fade show" role="alert">
+    {{#str}}epbfpluginnotexistinfo,local_edwiserpagebuilder{{/str}}
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    {{/pbfpluginexist}}
+{{/isadmin}}

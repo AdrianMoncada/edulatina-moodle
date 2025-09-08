@@ -1,0 +1,60 @@
+{{!
+    This file is part of Moodle - http://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+    GNU General Public License for more details.
+
+    Edwiser RemUI
+    @package theme_remui
+    @copyright (c) 2023 WisdmLabs (https://wisdmlabs.com/)
+    @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+
+}}
+{{!
+    @template theme_remui/footer_sections
+}}
+
+<div class="footerdata">
+    {{#sections}}
+    <div id="footer-column-{{coulumnid}}" class="footer-section-wrapper {{#classes}}{{classes}}{{/classes}}" style="">
+        <div class="footer-menu menu-{{orientation}} {{#customhtml}}d-none{{/customhtml}}">
+            <h6 class="h-semibold-6 mb-0 ftr-column-title" >{{{ title }}}</h6>
+            <hr class="d-sm-block d-md-none my-0 ">
+            <div class="footer-menu-list">
+                {{#menu}}
+                <h6 class="h-regular-6 mb-0"><a target="_blank" href="{{address}}" >{{text}}</a></h6>
+                {{/menu}}
+            </div>
+        </div>
+
+        <div class="custom-html {{^customhtml}}d-none{{/customhtml}}">
+            {{#hascontenthtml}}
+            <div class="contenthtml">
+                <h6 class="h-semibold-6 mb-0 ftr-column-title" >{{{title}}}</h6>
+                <hr class="d-sm-block d-md-none my-0">
+                <div class="section-html-content">
+                   <p class="p-0 m-0">
+                    {{{content}}}
+                   </p>
+                </div>
+            </div>
+            {{/hascontenthtml}}
+            {{#hassocial}}
+            <div class="contentsocial social-links {{^socialiconvisibility}}d-none{{/socialiconvisibility}}">
+                {{#social}}
+                <a href="{{link}}" class="{{class}} text-decoration-none" title="{{title}}"><i class="{{icon}}"></i></a>
+                {{/social}}
+            </div>
+            {{/hassocial}}
+        </div>
+    </div>
+    {{/sections}}
+</div>
+<hr class="d-block mb-0">

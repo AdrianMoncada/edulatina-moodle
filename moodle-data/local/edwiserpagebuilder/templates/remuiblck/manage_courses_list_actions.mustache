@@ -1,0 +1,49 @@
+{{!
+    This file is part of Moodle - http://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+}}
+<div class="menu-picker-select">
+    <button class="btn coursemenubtn p-0 d-flex align-items-center justify-content-center" type="button" aria-expanded="false" data-toolbar='#manage-course-{{id}}'>
+        <span class="showmenuoption" aria-hidden="true" aria-label="">
+            <img class="epb-img-icon"
+                src="{{#geariconimg}}{{{geariconimg}}}{{/geariconimg}}{{^geariconimg}}{{{moreiconimg}}}{{/geariconimg}}"
+                width="16" height="16"
+            >
+        </span>
+        <span class="hidemenuoption d-none" aria-hidden="true" aria-label=""><img class="epb-img-icon" src="{{{canceliconimg}}}"  width="16" height="16"></span>
+    </button>
+    <div id="manage-course-{{id}}" class="menu-content d-none">
+       <a href="{{enrollink}}" class="btn btn-primary manage-course-menu" title="{{#str}}enrolusers, core_enrol{{/str}}">
+            {{! <i class="edw-icon edw-icon-Group-user1" aria-hidden="true"></i> }}
+            <img class="epb-img-icon" src="{{{enroluserlinkimg}}}"  width="16" height="16">
+        </a>
+        <a href="{{graderreportlink}}" class="btn btn-primary manage-course-menu" title="{{#str}}graderreport, core_grades{{/str}}">
+            {{! <i class="edw-icon edw-icon-Rating-stars_Active" aria-hidden="true"></i> }}
+            <img class="epb-img-icon" src="{{{graderreportimg}}}"  width="16" height="16">
+        </a>
+        <a href="{{activityreportlink}}" class="btn btn-primary manage-course-menu" title="{{#str}}activityreport, moodle{{/str}}">
+            {{! <i class="edw-icon fa fa-pie-chart" aria-hidden="true"></i> }}
+            <img class="epb-img-icon" src="{{{activityreportimg}}}"  width="16" height="16">
+        </a>
+        <a href="{{editcourselink}}" class="btn btn-primary manage-course-menu" title="{{#str}}editcourse, filter_edwiserpbf{{/str}}">
+            {{! <i class="edw-icon edw-icon-Edit" aria-hidden="true"></i> }}
+            <img class="epb-img-icon" src="{{{editcoursesettingimg}}}"  width="16" height="16">
+        </a>
+        <a href="#" class="btn btn-primary manage-course-menu epb-view-course-report" data-course-id="{{courseid}}" title="{{#str}}coursereport, moodle{{/str}}">
+            {{! <i class="edw-icon fa fa-table" aria-hidden="true"></i> }}
+            <img class="epb-img-icon" src="{{{coursereportimg}}}"  width="16" height="16">
+        </a>
+    </div>
+</div>

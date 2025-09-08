@@ -1,0 +1,29 @@
+<div class="row w-p100 text-center justify-content-center m-0 p-0">
+    <div class=" pb-50 px-50 pt-0" >
+        {{#title}}
+            {{#text}}
+                <p class="
+                    {{#textbold}}font-weight-bold{{/textbold}}
+                    {{#textitalic}}font-italic{{/textitalic}}
+                    {{#fontsize}}font-size-{{fontsize}}{{/fontsize}}
+                    " {{#color}}style="color:{{color}};"{{/color}}>
+                    {{#textunderline}}<u>{{{text}}}</u>{{/textunderline}}
+                    {{^textunderline}}{{{text}}}{{/textunderline}}
+                </p>
+            {{/text}}
+        {{/title}}
+
+        {{#description}}
+            {{#text}}
+                <p class="
+                    {{#textbold}}font-weight-bold{{/textbold}}
+                    {{#textitalic}}font-italic{{/textitalic}}
+                    {{#fontsize}}font-size-{{fontsize}}{{/fontsize}}
+                    " {{#color}}style="color:{{color}};"{{/color}}>
+                    {{#textunderline}}<u>{{{text}}}</u>{{/textunderline}}
+                    {{^textunderline}}{{{text}}}{{/textunderline}}
+                </p>
+            {{/text}}
+        {{/description}}
+    </div>
+</div>

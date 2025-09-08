@@ -1,0 +1,71 @@
+{{#pages}}
+    <tr class="epb_table_row" id={{id}}>
+
+        <td>
+            <div class="epb_table_row-name">
+
+                <div class="pagename_box">
+                    <a href="{{{config.wwwroot}}}/local/edwiserpagebuilder/{{pageurl}}" title="{{pagename}}" class="pagename">{{pagename}}</a>
+
+                    <div class="pagename_edit_form">
+                        <div class="input-group"  data-value="{{id}}">
+                            <input type="text" name="old_pagename"
+                                style="display: none"
+                                value="{{pagename}}"
+                            >
+                            <input type="text" aria-label="{{#str}}pagename, local_edwiserpagebuilder{{/str}}" class="form-control rounded-0" name="pagename"
+                                        placeholder="{{#str}}pagename, local_edwiserpagebuilder{{/str}}" value="{{pagename}}"
+                                    >
+                            <div class="btn-submitedit" title="{{#str}}submitpagename, local_edwiserpagebuilder{{/str}}">
+                                <img src="{{{config.wwwroot}}}/local/edwiserpagebuilder/pix/check_icon.svg" alt="change name" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                {{#indraft}}
+                <p class="btn-tag draft-tag" title="{{#str}}draft_text, local_edwiserpagebuilder{{/str}}">
+                    {{#str}}draft_text, local_edwiserpagebuilder{{/str}}
+                </p>
+                {{/indraft}}
+
+
+                {{^visible}}
+                    <div class="btn-tag hidden-tag" title="{{#str}}hidden_text, local_edwiserpagebuilder{{/str}}" >
+                        {{#str}}hidden_text, local_edwiserpagebuilder{{/str}}
+                    </div>
+                {{/visible}}
+
+
+                <div class="btn-icon btn-edit" title="{{#str}}editpagetitle, local_edwiserpagebuilder{{/str}}" data-value="{{id}}">
+                    <img src="{{{config.wwwroot}}}/local/edwiserpagebuilder/pix/edit_icon-dark.svg" alt="Edit" />
+                </div>
+
+                <div class="btn-icon btn-copyurl" title="{{#str}}copyurl, local_edwiserpagebuilder{{/str}}"  data-value="{{id}}">
+                    <img src="{{config.wwwroot}}/local/edwiserpagebuilder/pix/copy_icon-dark.svg" alt="copy" />
+                    <!-- this Input is created for holding the page url for copy -->
+                    <input type="text" value="{{{config.wwwroot}}}/local/edwiserpagebuilder/{{pageurl}}" class="target_url" style="display: none;" data-pagename="{{pagename}}">
+                </div>
+            </div>
+        </td>
+
+        <td><p class="epb_table_row-date" title="{{pagemodified}}">{{pagemodified}}</p></td>
+
+        <td>
+            <div class="epb_table_row-actions">
+                <div class="btn-icon btn-duplicate" title="{{#str}}duplicatepage, local_edwiserpagebuilder{{/str}}" data-value="{{id}}">
+                    <img src="{{{config.wwwroot}}}/local/edwiserpagebuilder/pix/duplicate_icon-dark.svg" alt="duplicate" />
+                </div>
+
+                <a  href="{{{config.wwwroot}}}/local/edwiserpagebuilder/pageedit.php?id={{id}}" class="btn-icon" title="{{#str}}pagesettings, local_edwiserpagebuilder{{/str}}">
+                    <img src="{{{config.wwwroot}}}/local/edwiserpagebuilder/pix/setting_icon-dark.svg" alt="setting" />
+                </a>
+
+                <div class="btn-icon btn-delete" title="{{#str}}deletepage, local_edwiserpagebuilder{{/str}}" data-value="{{id}}">
+                    <img src="{{{config.wwwroot}}}/local/edwiserpagebuilder/pix/delete_icon-dark.svg" alt="delete" />
+                </div>
+            </div>
+        </td>
+    </tr>
+
+{{/pages}}

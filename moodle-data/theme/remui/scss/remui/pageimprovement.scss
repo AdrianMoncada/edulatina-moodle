@@ -1,0 +1,493 @@
+#page-course-view-participants,
+#page-enrol-instances,
+#page-grade-report-grader-index,
+#page-grade-report-overview-index,
+#page-grade-edit-tree-index,
+#page-grade-report-user-index,
+#page-report-outline-index,
+#page-report-completion-index,
+#page-report-progress-index,
+#page-mod-assign-grading{
+    #page #topofscroll > div.container{
+        max-width: 90%;
+    }
+
+    .tertiary-navigation > div {
+        flex-wrap: wrap;
+    }
+}
+
+#page-grade-report-singleview-index,
+#page-mod-assign-grading {
+    .tertiary-navigation > div {
+        flex-wrap: wrap;
+    }
+}
+
+@include media-breakpoint-up(sm) {
+    #page-question-edit {
+        #page #topofscroll > div.container{
+            max-width: 90%;
+        }
+    }
+}
+
+
+#page-course-view-participants{
+    .userlist {
+        #participantsform {
+            .buttons {
+                margin-top: map-get($spacerspx, '3');
+                margin-bottom: map-get($spacerspx, '3');
+                .btn-group + div {
+                    display: flex;
+                    text-align: start;
+                    gap: 0px;
+                    @include media-breakpoint-down(sm){
+                        flex-direction: column;
+                        gap: 8px;
+                        margin-top: map-get($spacerspx, '2d5');
+                    }
+                    label[for="formactionid"] {
+                            display: flex !important;
+                            align-items: center;
+                        padding: 0px 0px 0px  map-get($spacerspx, '4');
+                        @include media-breakpoint-down(sm){
+                            padding: 0px;
+                        }
+                    }
+                    #formactionid {
+                        padding: 0px map-get($spacerspx, '2d5');
+                        height: 39px;
+                        @include media-breakpoint-down(sm){
+                            width: 100%;
+                        }
+
+                    }
+                }
+                + br { // Add this line
+                    display: none; // This will hide the sibling `br` tag
+                }
+            }
+        }
+    }
+    .table-dynamic {
+        overflow: visible;
+
+        table.generaltable{
+            filter: unset;
+            box-shadow: unset;
+            border-bottom: 1px solid $light-border;
+            @include media-breakpoint-down(md){
+                display: block;
+                overflow: auto;
+            }
+        }
+        nav.pagination{
+            ul.pagination {
+                margin: unset;
+                .page-link{
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    height: 100%;
+                }
+            }
+            &:first-of-type{
+                margin-bottom: map-get($spacerspx, '4');
+            }
+            &:last-of-type{
+                margin-top: map-get($spacerspx, '4');
+            }
+        }
+        & + br { // Add this line
+            display: none; // This will hide the sibling `br` tag
+        }
+    }
+
+    div[data-filterregion="filter"] {
+        fieldset {
+            .d-flex.align-items-md-stretch{
+                align-items: start !important;
+            }
+        }
+    }
+    @include media-breakpoint-down(xl){
+        #theme_remui-drawers-courseindex.show ~ #page{
+            .table-dynamic table.generaltable{
+                display: block;
+                overflow: auto;
+            }
+        }
+    }
+}
+
+.form-autocomplete-downarrow {
+    top: 50%;
+    right: .625rem;
+    transform: translate(0, -50%);
+}
+
+#page-enrol-instances{
+    table{
+        &.generaltable{
+            filter: unset;
+            box-shadow: unset;
+
+            tbody {
+
+                td,
+                th {
+                    // border-top: 1px solid $light-border;
+                    // border-right: 1px solid $light-border;
+                    // &:first-child {
+                    //     border-left: 1px solid $light-border;
+                    // }
+                    // @extend .h-regular-6;
+                    @include get_typography(6, regular, all);
+                }
+                // tr:last-child{
+                //     border-bottom: 1px solid $light-border;
+                // }
+            }
+        }
+
+    }
+    .urlselect select.urlselect {
+        margin-left: .5rem;
+    }
+}
+
+#page-grade-report-grader-index,
+#page-grade-edit-tree-index{
+    .moodle-actionmenu.grader{
+        .cellmenubtn{
+            background-color: transparent;
+            &:hover{
+                background-color: white;
+            }
+        }
+        .dropdown-menu{
+            .dropdown-header{
+                padding-top: 1rem;
+                padding-left: .5rem;
+            }
+        }
+    }
+    .gradeparent{
+        max-height: unset;
+        min-height: 450px;
+        table{
+            padding-right: 0px !important;
+        }
+        .heading .cell{
+            white-space:nowrap;
+        }
+        .user.cell.actions-menu-active{
+            z-index: 3 !important;
+        }
+        th.header{
+            z-index: 2;
+        }
+    }
+    .gradetreebox{
+        @include media-breakpoint-down(sm){
+            overflow: hidden;
+        }
+    }
+    @include media-breakpoint-down(sm){
+        #sticky-footer{
+        	flex-wrap: wrap;
+        	& > div {
+        		width: 100% !important;
+        		margin-bottom:6px;
+        		nav.pagination{
+        			justify-content: start !important;
+        		}
+        	}
+        }
+    }
+}
+
+
+#page-grade-report-overview-index{
+    #toggle-contact-button,
+    #message-user-button{
+        .edw-icon{
+            font-size: $edw-icon-size-large;
+        }
+    }
+    .page-context-header{
+        align-items: center;
+    }
+    #overview-grade{
+        border-bottom: 1px solid $light-border;
+    }
+}
+
+
+#page-grade-edit-tree-index,
+#page-grade-report-user-index{
+    div[role="main"]{
+        .tertiary-navigation{
+            .row{
+                .navitem-divider.ml-auto{
+                    margin-left: unset !important;
+                    display: none;
+                }
+            }
+        }
+        .user-heading{
+            #toggle-contact-button,
+            #message-user-button{
+                .edw-icon{
+                    font-size: $edw-icon-size-large;
+                }
+            }
+        }
+        .generaltable{
+            // tr.spacer{
+            //     th{
+            //         width: unset;
+            //         min-width: unset;
+            //         padding: 0px !important;
+            //     }
+            // }
+            margin-bottom: unset;
+        }
+        .gradetreebox input[type=text]{
+        	padding: 5.5px 10px 5.5px 10px !important;
+        	height: unset;
+        }
+    }
+}
+
+#page-report-outline-index{
+    div[role="main"]{
+        .table-responsive,.generaltable{
+            filter: unset;
+            box-shadow: unset;
+        }
+        .tertiary-navigation.full-width-bottom-border{
+            width: 100%;
+            margin: unset;
+        }
+        .loginfo{
+            margin-bottom: map-get($spacerspx, '4');
+        }
+        #id_filterheader{
+            & .fieldset-header > div.ftoggler{
+                padding: map-get($spacerspx,'6' ) 0px !important;
+            }
+        }
+        td.lastaccess {
+            font-size: 14px;
+        }
+    }
+}
+
+#page-report-completion-index{
+    div[role="main"]{
+        .groupselector{
+            margin-bottom: map-get($spacerspx, '6');
+        }
+        .tertiary-navigation{
+            & ~ h3{
+                margin-bottom: map-get($spacerspx, '9');
+            }
+        }
+        table{
+            &.generaltable {
+                overflow-x: scroll;
+                display: block;
+                filter: unset;
+                box-shadow: unset;
+                thead{
+                    th{
+                        overflow: hidden;
+                        border-bottom: 1px solid $medium-border;
+                        text-align: start !important;
+                        .rotated-text-container{
+                            width: 244px;
+                            .rotated-text{
+                                transform: unset;
+                                white-space: normal;
+                                &::after{
+                                    content: unset;
+                                    margin: unset;
+                                }
+                            }
+                        }
+                        &.completion-sortchoice{
+                            min-width: 267px;
+                            a{
+                                display: inline;
+                                width: fit-content;
+                            }
+                        }
+                        &.completion-identifyfield{
+                            min-width: 476px;
+                        }
+                        &.criteriaicon{
+                            text-align: center !important;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+}
+
+
+#page-report-progress-index{
+    .initialbar.firstinitial{
+        margin-top: map-get($spacerspx, '6') !important;
+    }
+    th{
+        border-right: 1px solid $medium-border !important;
+        a{
+            display: flex;
+            align-items: center;
+            // overflow: hidden;
+            .rotated-text-container{
+                width: 140px;
+                order: 1;
+                .rotated-text{
+                    transform: unset;
+                    white-space: normal;
+                    word-break: break-all;
+                    text-align: start;
+                    display: flex;
+                    &::after{
+                        content: unset;
+                        margin: unset;
+                    }
+                }
+            }
+            .modicon{
+                order: 0;
+                display: flex;
+                padding: 0px;
+                img{
+                    margin-left: 0px;
+                    margin-right: 8px;
+                }
+
+            }
+        }
+        &.completion-sortchoice{
+            min-width: 267px;
+            a{
+                display: inline;
+                width: fit-content;
+            }
+        }
+        &.completion-identifyfield{
+            min-width: 476px;
+        }
+    }
+}
+.edw-course-card-grid.theme_card_grid{
+    // grid-template-columns: repeat(3,minmax(auto,33%));
+    .dashboard-card{
+        min-height: unset;
+        height: 100%;
+        // background-size: contain;
+        .card-body{
+            padding: 16px;
+            padding-bottom: 0px;
+        }
+    }
+}
+#page-my-index.pagelayout-mycourses{
+    .header-wrapper{
+       .dashboard-bar-wrapper{
+          width: unset;
+          flex-grow: 1;
+       }
+       .my-action-buttons.my-action-buttons-right{
+          display: flex;
+          gap: map-get($spacerspx, '4');
+       }
+    }
+}
+
+.gradingtable {
+    overflow: auto;
+}
+
+#page-admin-reportbuilder-edit {
+    .navbar > .container-fluid {
+        padding-left: 12px;
+        padding-right: 12px;
+    }
+}
+
+.tiny_image_footer_template {
+    .openimagebrowser {
+        @media screen and (max-width: 1024px) and (min-width: 767px) {
+            margin-top: 8px;
+        }
+    }
+
+    .tiny_image_addurl:disabled {
+        color: $button-secondary-color-text;
+    }
+}
+
+
+#page-question-bank-managecategories-category {
+    #region-main {
+    	div[role="main"] {
+            .row {
+                & > div:first-child {
+                    padding-left: 0 !important;
+                }
+            }
+
+            #categoryroot {
+                padding-top: map-get($spacerspx, 4);
+            }
+    	}
+    }
+}
+
+#page-mod-assign-grading {
+    #sticky-footer {
+        overflow: unset;
+    }
+
+    .tertiary-navigation > div {
+        flex-wrap: wrap;
+    }
+}
+
+#page-mod-assign-view {
+	&.path-mod-assign.jsenabled .mod-assign-history-link-open,
+    &.path-mod-assign.jsenabled .mod-assign-history-link-closed {
+		padding-left: 34px;
+	}
+}
+
+
+// For making 'Manage Courses btn' sync with customizer
+.btn-outline-primary {
+    @extend .btn-secondary;
+}
+
+#managecoursesform .btn-outline-primary {
+    &:hover {
+        color: $button-secondary-color-texthover !important;
+    }
+}
+
+#page-admin-roles-admins {
+    table.generaltable tbody td {
+        vertical-align: top;
+    }
+}
+
+#page-mod-quiz-edit .question-bank-table .questionnametext{
+    width: 60% important;
+}

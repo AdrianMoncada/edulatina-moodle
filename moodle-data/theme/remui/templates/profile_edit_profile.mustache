@@ -1,0 +1,124 @@
+{{!
+    This file is part of Moodle - http://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+    GNU General Public License for more details.
+
+    Edwiser RemUI
+    @package theme_remui
+    @copyright (c) 2023 WisdmLabs (https://wisdmlabs.com/)
+    @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+
+}}
+{{!
+    @template theme_remui/profile_edit_profile
+}}
+<div id="editprofile" class="panel-body px-0  edit-profile-details-wrapper d-none">
+  <div class="summary-errors alert alert-success alert-dismissible slide-bottom" id="error-message"
+  style="display:none;margin-top:10px">
+  <p></p>
+</div>
+    <form class="form-horizontal fv-form fv-form-bootstrap4" id="exampleStandardForm" autocomplete="off"
+      novalidate="novalidate">
+      <div class="profile-about-me-edit-wrapper">
+        <div class=" profile-item-row">
+          <div class=" profile-item-col">
+            <div class="profile-info-item-wrapper">
+              <p class="m-0 info-label text-link-semibold">{{# str }} firstname, theme_remui {{/ str }}</p>
+              <input type="text" class="form-control" id='first_name' name="first_name" data-fv-field="first_name"
+                value="{{ firstname }}" {{#field_lock_firstname}}disabled{{/field_lock_firstname}}>
+            </div>
+          </div>
+          <div class=" profile-item-col">
+            <div class="profile-info-item-wrapper">
+              <p class="m-0 info-label text-link-semibold">{{# str }} lastname, theme_remui {{/ str }}</p>
+              <input type="text" class="form-control" id='surname' name="surname" data-fv-field="surname"
+                value="{{ lastname }}" {{#field_lock_lastname}}disabled{{/field_lock_lastname}}>
+            </div>
+          </div>
+
+          <div class=" profile-item-col">
+            <div class="profile-info-item-wrapper">
+              <p class="m-0 info-label text-link-semibold">{{# str }} email, moodle {{/ str }}</p>
+              <input type="email" class="form-control" id='standard_email' name="standard_email"
+                data-fv-field="standard_email" value="{{ editmodeemail }}" disabled>
+            </div>
+          </div>
+          <div class="profile-item-col">
+            <div class="profile-info-item-wrapper">
+              <p class="m-0 info-label text-link-semibold">{{# str }} sitephone, core_hub {{/ str }}</p>
+              <input type="text" class="form-control" id='phone_number' name="phone_number"
+                data-fv-field="phone_number" value="{{#phone1}}{{phone1}}{{/phone1}}">
+            </div>
+          </div>
+
+          <div class=" profile-item-col">
+            <div class="profile-info-item-wrapper">
+              <p class="m-0 info-label text-link-semibold">{{# str }} department, moodle {{/ str }}</p>
+              <input type="text" class="form-control" id='department' name="department" data-fv-field="department"
+                value="{{#department}}{{ department }}{{/department}}">
+            </div>
+          </div>
+          <div class=" profile-item-col">
+            <div class="profile-info-item-wrapper ">
+              <p class="m-0 info-label text-link-semibold">{{# str }} interests, moodle {{/ str }}</p>
+              <div class="d-flex flex-wrap flex-gap-2 interest-field-disabled"> {{# hasinterests }}
+                {{# interests }}
+                <a href="{{{config.wwwroot}}}/tag/index.php?id={{id}}" class="badge badge-primary" disabled>{{rawname}}</a>
+                {{/ interests }}
+                {{/ hasinterests }}
+              </div>
+              <div>
+                <p class="m-0 info-label text-link-semibold">{{# str }} profileinterestinfo, theme_remui {{/ str }} <a href="{{{config.wwwroot}}}/user/editadvanced.php#id_moodle_interests">{{# str }} profileinterest, theme_remui {{/ str }}</a></p>
+              </div>
+            </div>
+          </div>
+
+          <div class=" profile-item-col">
+            <div class="profile-info-item-wrapper">
+              <p class="m-0 info-label text-link-semibold">{{# str }} country, moodle {{/ str }}</p>
+              <select class="form-control" id="country" name="country" required="" data-fv-field="country"
+                {{#field_lock_country}}disabled{{/field_lock_country}}>
+                {{# countries }}
+                <option value="{{ keyName }}">{{ valName }}</option>
+                {{/ countries }}
+              </select>
+            </div>
+          </div>
+          <div class=" profile-item-col">
+            <div class="profile-info-item-wrapper">
+              <p class="m-0 info-label text-link-semibold">{{# str }} citytowntext, theme_remui {{/ str }}</p>
+              <input type="text" class="form-control" id='city' name="city" data-fv-field="city"
+                value="{{{editmodecity}}}" {{#field_lock_city}}disabled{{/field_lock_city}}>
+            </div>
+          </div>
+          <div class=" profile-item-col">
+            <div class="profile-info-item-wrapper">
+              <p class="m-0 info-label text-link-semibold">{{# str }} description, theme_remui {{/ str }}</p>
+              <textarea class="form-control" id='description' name="description" rows="3"
+                data-fv-field="description">{{{editmodedescription}}}</textarea>
+            </div>
+          </div>
+          <div class="profile-item-col">
+            <div class="profile-info-item-wrapper">
+              <p class="m-0 info-label text-link-semibold">{{# str }} address, moodle {{/ str }}</p>
+              <textarea class="form-control" id='address' name="address" rows="3" data-fv-field="description">{{#address}}{{address}}
+                            {{/address}}</textarea>
+            </div>
+          </div>
+      </div>
+    </div>
+      <div class="text-right buttons-wrapper p-p-6">
+        <button type="button" class="btn btn-primary" id="btn-save-changes">{{# str }} save, moodle {{/ str
+          }}</button>
+      </div>
+    </form>
+    <!--<div class="alert alert-danger" id="error-message" style="display:none;margin-top:10px"></div>-->
+  </div>

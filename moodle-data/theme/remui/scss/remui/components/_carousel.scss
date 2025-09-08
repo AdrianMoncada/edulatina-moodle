@@ -1,0 +1,13 @@
+
+.carousel-control-next,
+.carousel-control-prev {
+    &-icon {
+        font-size: 40px
+    }
+    &:focus {
+        box-shadow: none;
+    }
+}
+.carousel-indicators li {
+    border-radius: 50%;
+}

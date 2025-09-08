@@ -1,0 +1,132 @@
+{{!
+    This file is part of Moodle - http://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+}}
+{{!
+    @template filter_edwiserpbf/featurecoursecard
+
+    TODO describe template featurecoursecard
+
+    Example context (json):
+    {
+    }
+}}
+
+{{#courses}}
+<div class="slick-carousel-item h-100" data-courseid="{{courseid}}" data-catid={{categoryid}} data-courseshortname="{{shortname}}">
+    <div class="course_card-0 card-wrapper card dashboard-card">
+        <div tabindex="-1">
+            <div class="card-img dashboard-card-img" style='background-image: url("{{{courseimage}}}");'>
+                <a href="{{ courseurl }} " class="view-course-url"></a>
+
+                <div class="d-flex align-items-center justify-content-between">
+                    {{#skillleveltag}}
+                        <p class="skilltag m-0 badge {{badge}}">{{{labeltag}}}</p>
+                    {{/skillleveltag}}
+
+                    <div class="wdm-course-card-actions d-flex" style="gap: 8px;">
+                        {{^visible}}
+                            <div class="visibilityicon d-flex align-items-center justify-content-center">
+                                {{! <i class="hidden-icon edw-icon edw-icon-Hide" aria-hidden="true" title="Hidden Course"></i> }}
+                                <img class="epb-img-icon" src="{{{hideiconimg}}}"  width="16" height="16">
+                            </div>
+                        {{/visible}}
+                        {{#canview_manage_course_action}}
+                            {{> local_edwiserpagebuilder/remuiblck/manage_courses_list_actions }}
+                        {{/canview_manage_course_action}}
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+        <div class="course-card-body-wrapper d-flex h-100">
+        <div class="card-body course-info-container d-flex flex-column  justify-content-between">
+            <div class="edw-card-design-hd d-flex flex-column">
+                <div class="d-flex flex-column align-items-start" style="gap: 12px;">
+                    <span class="categoryname text-truncate s-info-semibold small-info-semibold" title="{{{categoryname}}}">
+                        {{{categoryname}}}
+                    </span>
+                    <div class="w-100 ">
+                        <a class="coursename text-decoration-none ellips ellips-3" href="{{courseurl}}" title="{{{ coursename }}}">
+                            {{{coursename}}}
+                        </a>
+                    </div>
+                </div>
+                {{#instructors}}
+                    <div class="d-flex flex-row" style="gap: 6px;">
+                        <div class="d-flex flex-row instructor-info-wrapper">
+                            <a href="{{ url }}" class="d-flex  align-items-center instructor-img {{ imgStyle }}" style="gap: 4px;"
+                                aria-label="Instructor for {{coursename}} is - {{name}}" title="{{{name}}}">
+                                <img src="{{ picture }}" class="rounded-circle" alt="{{ name }}" loading="lazy"/>
+                                <h6 class="course-instructors m-0 ellips ellips-2" title="{{{name}}}">{{{name}}}</h6>
+                            </a>
+                        </div>
+
+                        {{#instructorcount}}
+                            <span class="s-info-semibold instructorscount d-flex align-items-center justify-content-center" title="{{#str}}instructorcounttitle,theme_remui{{/str}}">
+                                +{{instructorcount}}
+                            </span>
+                        {{/instructorcount}}
+                    </div>
+                {{/instructors}}
+
+                {{#coursesummary}}
+                    <p class="coursesummary ellips ellips-2 para-regular-2 paragraph-color m-0">{{{coursesummary}}}</p>
+                {{/coursesummary}}
+            </div>
+            <div class="edw-card-design-ft d-flex flex-column align-self-strech" style="gap: 20px;">
+                <div class="d-flex text-nowrap ernr-lesson-wrapper" style="gap: 8px;">
+                    <div class="lesson-date-wrapper d-flex flex-wrap justify-content-between">
+                         {{#lessoncount}}
+                        <div class="lesson-count s-info-semibold m-0 d-flex align-items-center" style="gap: 4px;">
+                            <span class="edw-icon-img" title="{{lessoncount}} lessons">
+                                <img class="" src="{{{bookiconimg}}}"  width="16" height="16">
+                            </span> <span>{{lessoncount}} {{{lessonstitletext}}}</span>
+                        </div>
+                        {{/lessoncount}}
+                        {{#showselecteddatesetting}}
+                        <div class="updated-date s-info-semibold m-0 d-flex align-items-center" style="gap: 4px;">
+                            <span class="edw-icon-img" title=""> <img class="" src="{{{watchiconimg}}}"  width="16" height="16"></span> {{showselecteddatesetting}}
+                        </div>
+                        {{/showselecteddatesetting}}
+                    </div>
+                    <div class="rating-enroll-wrapper d-flex justify-content-between">
+                        {{#ernrshortdesign}}
+                            <div>{{{ernrshortdesign}}}</div>
+                        {{/ernrshortdesign}}
+                        {{#enrolleduserscount}}
+                            <div class="enrolled-users-count s-info-semibold m-0 d-flex align-items-center" style="gap: 4px;">
+                            <span class="edw-icon-img" title=""><img class="" src="{{{profileiconimg}}}"  width="16" height="16"></span> <span>{{{enrolleduserscount}}} {{{enrolledusertitletext}}}</span>
+                            </div>
+                        {{/enrolleduserscount}}
+                    </div>
+                </div>
+                <div class="payment-view-wrapper d-flex justify-content-between" style="gap: 16px;">
+                    <div class="d-flex align-items-center enrollmenticons-wrapper" style="gap: 8px;">
+                        {{#enrollmenticons }}{{{enrollmenticons}}}{{/enrollmenticons }}
+                        {{#enrollmenticonsremainig}}
+                            <span class="s-info-semibold paymentmethodcount d-flex align-items-center justify-content-center" title="">+{{{enrollmenticonsremainig}}}</span>
+                        {{/enrollmenticonsremainig}}
+                    </div>
+                    <a class="btn btn-secondary btn-sm view-course-btn" href="{{ courseurl }} " title="{{#str}}viewcoursetitle,theme_remui{{/str}}">{{#str}}viewcourse,theme_remui{{/str}}</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+{{/courses}}

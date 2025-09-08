@@ -1,0 +1,19 @@
+{{#movebuttons}}
+<div class="{{wrapperclass}}" id="yui_3_17_2_1_1687317559796_554">
+    <span title="{{title}}">
+        <i class="{{iconclass}} d-flex" aria-hidden="true" style="cursor: pointer;"></i>
+    </span>
+</div>
+{{/movebuttons}}
+
+
+{{#js}}
+require(['jquery'], function($){
+	$(document).ready(function(){
+        if(!$('body[class*="latest-frontpage"]').length > 0 ){
+            $({{blockid}}).find(".move-bottom").detach().prependTo("#{{blockid}} .block-header-wrapper .menubar");
+            $({{blockid}}).find(".move-top").detach().prependTo("#{{blockid}} .block-header-wrapper .menubar");
+        }
+	});
+});
+{{/js}}

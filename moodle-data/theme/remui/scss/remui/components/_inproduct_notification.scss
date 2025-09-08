@@ -1,0 +1,93 @@
+
+/// product notification
+
+#inproduct-notification .overlay-complete {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background-color: black;
+    z-index: 1500;
+    opacity: 0.6;
+ }
+ #inproduct-notification .inproduct-notification-popup {
+    position: fixed;
+    background-color: white;
+    z-index: 1600;
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
+ }
+ #inproduct-notification .edwiser-logo {
+    width: 100px;
+ }
+ #inproduct-notification .btn.brand-btn{
+    background-color: #F55D29;
+    letter-spacing: 1.5px;
+    padding: 10px 20px;
+    color: white;
+    font-size: 18px;
+ }
+ #inproduct-notification .close {
+    cursor: pointer;
+ }
+ @media only screen and (max-width: 600px) {
+    #inproduct-notification .card-body {
+        text-align: center;
+        margin-bottom: 1.5rem!important;
+        flex-direction: column-reverse;
+    }
+ }
+
+ #inproduct-notification .fa-times.fa-custom:before {
+    content: "\00d7";
+ }
+ #inproduct-notification .fa-times {
+    color: #45ACB6;
+    font-size: 22px;
+ }
+ @media (max-width:350px)  {
+    .card-text {
+        font-size: 12px!important;
+    }
+ }
+ @media (max-width:480px)  {
+    .inproduct-notification-popup {
+        height: 94vh;
+        width: 90vw;
+    }
+    .card-text {
+        font-size: 16px!important;
+    }
+ }
+ @media (min-width:480px)  {
+    .inproduct-notification-popup {
+        width: 90vw;
+    }
+ }
+ @media (min-width:600px)  {
+    .inproduct-notification-popup {
+        width: 90vw;
+    }
+ }
+ @media (min-width:801px)  {
+    .inproduct-notification-popup {
+        width: 80vw;
+    }
+ }
+ @media (min-width:1025px) {
+    .inproduct-notification-popup {
+        width: 90vw;
+    }
+ }
+ @media (min-width:1281px) {
+    .inproduct-notification-popup {
+        width: 60vw;
+    }
+ }
+ .graphics-1, .graphics-2 {
+    width: 80% !important;
+ }

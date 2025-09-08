@@ -1,0 +1,15 @@
+<div class="header-enrolbtn-wrapper d-flex flex-gap-3 align-items-center justify-content-end p-mb-5">
+    {{#isenrolled}}
+    <p class="m-0 small-btn-text">
+        <a href="{{{participantspageurl}}}">{{#str}}unenrol, enrol{{/str}}</a>
+        <span>{{#str}}toactivateenrollmenttext, theme_remui{{/str}}</span>
+    </p>
+    {{/isenrolled}}
+    <a
+        href="{{^isenrolled}}{{{enrollpageurl}}}{{/isenrolled}}{{#isenrolled}}#{{/isenrolled}}"
+        class="btn btn-sm btn-secondary btn-enrolpage {{#isenrolled}}disabled{{/isenrolled}}"
+        aria-disabled="{{{isenrolled}}}"
+    >
+            {{#str}}viewcourseenrollmentpage, theme_remui, {{#str}}enrolment, enrol{{/str}}{{/str}}
+    </a>
+</div>

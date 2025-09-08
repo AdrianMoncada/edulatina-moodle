@@ -1,0 +1,215 @@
+$aboutus-card-height : 200px !default;
+$aboutus-card-border-radius: 20px !default;
+
+body.pagelayout-frontpage {
+    &.old-frontpage,
+    &.latest-frontpage {
+        .cover.rem-staticimage{
+            .cover-background {
+                padding:20% 0;
+            }
+        }
+        #region-fullwidthtop-blocks,
+        #region-fullwidthbottom-blocks,
+        [data-region="#region-fullwidthtop-blocks"],
+        [data-region="#region-fullwidthbottom-blocks"]{
+            display: none !important;
+        }
+    }
+
+    #page.drawers {
+        .main-inner {
+            margin-top: 0;
+            // margin-left: 0;
+            // margin-right: 0;
+
+            .frontpage-sections {
+                max-width: map-get($grid-breakpoints, xxl);
+                margin-bottom: map-get($spacersrem, '14');
+
+                #edwiser-slider {
+                    .wdm-home-video iframe {
+                        min-height: 500px;
+                    }
+                }
+
+                #edwiser-aboutus, #edwiser-testimonials {
+                    .heading {
+                        .title { 
+                            color: $heading-color; 
+                        }
+                        .desc { 
+                            color: $paragraph-color; 
+                        }
+                    }
+                }    
+
+                #edwiser-aboutus {
+                    .cards-deck {
+                        display: grid;
+                        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                        gap: 24px;
+
+                        .card {
+                            border: 0;
+                            display: flex;
+                            flex-direction: column;
+                            align-items: center;
+                            text-align: center;
+                        }
+                    }
+                    @include media-breakpoint-up(lg){
+                        .container.incol {
+                            display: flex;
+                            width: 100%;
+                            .heading {
+                                flex: 1 0 40%;
+                            }
+                            .cards-deck {
+                                flex: 1 0 60%;
+                            }
+                        }
+                    }
+                }
+                #edwiser-testimonials {
+                    .avatar {
+                        display: block;
+                        width: 100px;
+                        height: 100px;
+                        margin: auto;
+                        background-size: cover;
+                        background-position: center;
+                        border-radius: 50%;
+                        @include get-box-shadow(sm);
+                        border: $navbar-avatar-bordersize solid $navbar-avatar-bordercolor;
+                    }
+                    .carousel-inner {
+                        width: 70%;
+                        margin: auto;
+                        text-align: center;
+                    }
+                }
+                #edwiser-blogs {
+                    .blogs {
+                        display: grid;
+                        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+                        gap: 24px;
+                        grid-auto-rows: 1fr;
+                    }
+                }
+            }
+        }
+    }
+
+    &.latest-frontpage {
+        .btn-floating {
+            color: white;
+        }
+    }
+
+    #frontpage-available-course-list {
+        // .slick-track{
+        //     display: flex;
+        //     min-height: 380px;
+        // }
+        // .slick-slide{
+        //     height: inherit;
+        // }
+        @include date-styling();
+        & h2{
+            // @extend .h-semibold-3;
+            @include get_typography(3, semibold, all);
+            color:$heading-color;
+            margin-bottom: map-get($spacerspx, '6');
+        }
+        .dashboard-card {
+            filter: unset;
+        }
+        .available-courses.button-container {
+            .btn {
+                border-radius: 50%;
+                // padding: 0px;
+                width: 50px;
+                height: 50px;
+
+                .edw-icon {
+                    font-size: $edw-icon-size-large;
+                    height: $edw-icon-size-large;
+                    width: $edw-icon-size-large;
+                    color: $button-primary-color-icon;
+                }
+            }
+        }
+
+        .edw-icon {
+            font-size: $edw-icon-size-small;
+            color: $ic-default;
+        }
+
+        .enrollmenticons-wrapper {
+
+            .edw-icon,
+            .icon {
+                margin: 0px;
+                font-size: $edw-icon-size-small;
+                height: $edw-icon-size-small;
+                width: $edw-icon-size-small;
+            }
+
+            .paymentmethodcount {
+                color: $small-text-color;
+                height: 24px;
+                width: 24px;
+                min-width: 24px;
+                border-radius: 50%;
+                background-color: $instructor-count-bg-color;
+            }
+        }
+    }
+
+    #page{
+        #page-header,.secondary-navigation.edw-tabs-navigation{
+            display: $hideheadercontent;
+        }
+        .course-content{
+            display: $hideactivitysection;
+        }
+    }
+
+    .carousel-indicators li {
+        list-style-type: none;
+    }
+
+    .carousel-control-prev-icon,
+    .carousel-control-next-icon {
+        background-image: unset;
+    }
+
+    &:not(.editing) {
+        #page {
+            @if $hideheadercontent == none {
+                &.drawers:not(:has(
+                    #site-news-forum,
+                    #frontpage-available-course-list,
+                    #frontpage-course-list,
+                    #frontpage-category-names,
+                    #frontpage-category-combo
+                )) {
+                    .main-inner {
+                        margin: 0;
+                        #page-content {
+                            padding-top: 0;
+                            padding-bottom: 0 !important;
+                            br {
+                                display: none;
+                            }
+                        }
+                        .frontpage-sections:not(:has(:first-child)) {
+                            margin: 0;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

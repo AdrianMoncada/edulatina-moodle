@@ -1,0 +1,35 @@
+
+<div class="modal_card default">
+    <div class="modal_card_body">
+        <a href="#" class="btn_add_block d-flex flex-column align-items-center">
+            <img src="{{config.wwwroot}}/local/edwiserpagebuilder/pix/add-block.svg" alt="add block icon" />
+            <p class="btn_add_block-text">{{#str}}addblanktemplatetext, local_edwiserpagebuilder{{/str}}</p>
+        </a>
+    </div>
+</div>
+{{#blocklist}}
+<div class="modal_card" data-layoutid="{{id}}">
+    <div class="modal_card_body" data-layoutid="{{id}}">
+        <img src="{{thumbnail}}" alt="layout-1" />
+    </div>
+    <div class="modal_card_footer d-flex justify-content-between">
+        <div class="template_name d-flex">
+            <input type="radio" class="custom-radio-btn" name="layoutsradiobtn" value="{{id}}"/>
+            <p class="template_name_text">{{title}}</p>
+        </div>
+        <a href="#" class="btn_view_icon" data-layoutid="{{id}}">
+            <img src="{{config.wwwroot}}/local/edwiserpagebuilder/pix/show.svg" alt="show icon" />
+        </a>
+    </div>
+    <div class="layout-preview-{{id}}  d-none ">
+        <div class="preview-header">
+            <div class="layout_close_btn" data-layoutid="{{id}}">&larr;</div>
+        </div>
+        <div class="preview-body">
+            <div class="preview_thumbnail">
+                <img src="{{thumbnail}}" alt="layout-1" />
+            </div>
+        </div>
+    </div>
+</div>
+{{/blocklist}}

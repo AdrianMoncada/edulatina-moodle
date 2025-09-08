@@ -1,0 +1,143 @@
+{{!
+    This file is part of Moodle - http://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+    GNU General Public License for more details.
+
+    Edwiser RemUI
+    @package theme_remui
+    @copyright (c) 2023 WisdmLabs (https://wisdmlabs.com/)
+    @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+
+}}
+{{!
+    @template theme_remui/customizer/main
+}}
+
+<div id="customizer" class="mode-desktop" data-sitename="{{sitename}}">
+    <form id="customize-controls" class="wrap">
+        <div class="disable-overlay">
+            <div class="disable-warning para-regular-2">{{#str}}disabledmwarning, theme_remui{{/str}}</div>
+        </div>
+        <div class="customizer-header">
+            <a class="customize-controls-close color-primary d-flex align-items-center text-decoration-none" href="{{url}}" title="{{#str}}customizecontrolsclose, theme_remui{{/str}}">
+                <span class="edw-icon edw-icon-Cancel large"></span>
+            </a>
+            <div class="customize-save-button-wrapper">
+                <button id="reset-settings" type="button" class="btn btn-secondary mr-2" title="{{#str}}reset-settings, theme_remui{{/str}}">
+                    {{#str}} reset, theme_remui{{/str}}
+                </button>
+                <button id="publish-settings" type="button" class="btn btn-primary">
+                {{#str}} save {{/str}}
+                </button>
+            </div>
+        </div>
+        <div class="customizer-panels">
+            {{#panels}}
+            <div class="sidebar-panel m-0 p-0{{#current}} current {{/current}}" id="{{name}}">
+                {{#root}}
+                    <div class="customize-info">
+                        <span class="small-text small-info-regular">{{#str}} customizing, theme_remui {{/str}}</span>
+                        <div class="panel-title my-2">{{label}}</div>
+                    </div>
+                {{/root}}
+                {{#parent}}
+                    <div class="customize-back py-2">
+                        <div class="customize-panel-back d-flex align-items-center flex-gap-1" data-panel-id="{{parent}}">
+                            <span class="edw-icon edw-icon-Left-Arrow large"></span>
+                            <span class="small-info-regular small-text">{{#str}} customizing, theme_remui {{/str}}</span>
+                        </div>
+
+                        <div class="panel-title small-info-regular my-2">{{{label}}}</div>
+                    </div>
+                {{/parent}}
+                {{#children}}
+                    {{#panel}}
+                    <div class="group-item edw-nav-border" sidebar-panel-link data-panel-id="{{name}}">
+                        <h6 class="group-item-title m-0">{{label}}</h6>
+                        <span class="edw-icon edw-icon-Right-Arrow large"></span>
+                    </div>
+                    {{/panel}}
+                    {{^panel}}
+                    {{#setting}}
+                        {{#wrap_item}}
+                        <div class="setting-item setting-type-{{get_type}} {{get_css_classes}}">
+                        {{/wrap_item}}
+                            {{{output}}}
+                            {{#js}}
+                                {{{js}}}
+                            {{/js}}
+                        {{#wrap_item}}
+                        </div>
+                        {{/wrap_item}}
+                    {{/setting}}
+                    {{/panel}}
+                {{/children}}
+            </div>
+            {{/panels}}
+        </div>
+
+        <div class="customizer-footer d-flex justify-content-between">
+            <button type="button" class="customizer-controls-toggle btn btn-sm" title="{{#str}}hide-customizer, theme_remui{{/str}}">
+                <span class="edw-icon edw-icon-Long-Left_24 large"></span>
+            </button>
+            <div class="customizer-moDde-button-wrapper d-flex flex-gap-2">
+                <button type="button" data-mode="desktop" class="mode-toggle btn btn-sm p-0 h-100">
+                    <span class="large edw-icon edw-icon-Desktop"></span>
+                </button>
+                <button type="button" data-mode="tablet" class="mode-toggle btn btn-sm p-0 h-100">
+                    <span class="large edw-icon edw-icon-Tab"></span>
+                </button>
+                <button type="button" data-mode="mobile" class="mode-toggle btn btn-sm p-0 h-100">
+                    <span class="large edw-icon edw-icon-Mobile"></span>
+                </button>
+            </div>
+        </div>
+    </form>
+    <div id="customizer-wrap">
+        <div class="inner-wrap">
+            <div class="customizer-preview h-100 m-auto">
+                <iframe class="h-100 w-100" id="customizer-frame" data-src="{{{url}}}" frameborder="0"></iframe>
+                <div class="customizer-overlay bg-white" id="preview-overlay">
+                    {{#loader}}<img src="{{{loader}}}"/>{{/loader}}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="bg-white customizer-overlay d-none" id="main-overlay">
+        {{#loader}}<img src="{{{loader}}}"/>{{/loader}}
+    </div>
+</div>
+<div id="settings-save-modal" class="modal moodle-has-zindex" data-region="modal-container" role="dialog" tabindex="-1" style="z-index: 1052;">
+    <div class="modal-dialog modal-dialog-scrollable moodle-has-zindex" role="document" data-region="modal" aria-labelledby="2-modal-title" tabindex="0" style="z-index: 1201;">
+        <div class="modal-content">
+            <div class="modal-header " data-region="header">
+                <h5 class="modal-title" data-region="title">Modal Title</h5>
+                <button type="button" class="close" data-action="close" aria-label="Close">
+                    <span aria-hidden="true" class="edw-icon edw-icon-Cancel small"></span>
+                </button>
+            </div>
+            <div class="modal-body" data-region="body">Modal body.</div>
+            <div class="modal-footer" data-region="footer">
+                <button type="button" class="btn btn-primary" data-action="close">OK</button>
+            </div>
+        </div>
+    </div>
+</div>
+{{#dmstatus}}
+    {{>theme_remui/customizer/darkmodewidgets}}
+{{/dmstatus}}
+{{#js}}
+    // require(["jquery", "jqueryui"], function($){
+    // $(document).ready(function(){
+    // $("#customize-controls").draggable();
+    // });
+    // });
+{{/js}}

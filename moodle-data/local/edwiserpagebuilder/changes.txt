@@ -1,0 +1,174 @@
+CHANGES LOG
+
+Version 4.2.19
+=============
+Fix – Resolved Course Analytics dropdown  issue not working.
+Tweak – Further UI/UX improvements implemented.
+
+Version 4.2.18
+=============
+Feature - Compatibility with Moodle 5.0.
+
+Version 4.2.17
+=============
+Tweak– Additional UI/UX improvements in Edwiser advanced blocks.
+
+Version 4.2.16
+=============
+Feature - Block import and export functionality added on the static blocks
+Feature - New Import block added.
+
+Version 4.2.15
+=============
+Fix - "Programming error was detected" issue resolved in Course Progress block.
+
+Version 4.2.14
+=============
+Feature - Compatibility with Moodle 4.5.
+
+Version 4.2.13
+=============
+Feature - A Featured Courses block has been added.
+Fix - The issue of the editing area not auto-resizing in the editor has been resolved.
+
+Version 4.2.12
+=============
+Tweak - The loader image for the live customizer editor and page creation modal has been changed.
+
+
+Version 4.2.11
+=============
+Fix - The issue of block regions not being visible on custom pages has been resolved. Additionally, the issue of blocks appearing in the wrong regions on custom pages has also been fixed.
+
+Version 4.2.10
+=============
+Feature - Added language translation files for:
+        - Spanish (Spain) (es)
+        - Deutsch (German) (de)
+        - Spanish (Mexico) (es_mx)
+        - Portuguese (Brazil) (pt_br)
+        - France (fr)
+        - Polish (pl)
+        - Arabic (ar)
+Tweak - UI/UX Improvements:
+        - Removed the title attribute displayed on hover from each block.
+        - Replaced the images of the slider and testimonial action buttons with icons.
+        - Tweak - Added missing translated string in  lang files.
+
+Version 4.2.9
+=============
+Feature - New layouts added:
+            -   Pricing Page 1
+            -   Pricing Page 2
+Tweak   - Extra spaces removed from the bottom of Custom Pages.
+Fix     - New categories not being added after 'Check for updates' in the 'Add a block' modal.
+
+Version 4.2.8
+=============
+Feature - Category filter added for RemUI blocks in add a block modal
+Tweak - UI/UX Improvement in add a block modal UI.
+
+Version 4.2.7
+=============
+Feature - Components added to page builder library:
+            -   Accordion set 1
+            -   Accordion set 2
+            -   Accordion set 3
+            -   Video Slider 1
+            -   Video Testimonial 1
+            -   Vertical Slider 3
+            -   Testimonial Design 6
+            -   Accordion set 2 with tab
+            -   Accordion set 3 with tab
+Feature - New layouts added to page builder
+            -   FAQ (Classic)
+            -   FAQ (University)
+            -   FAQ (Corporate)
+            -   FAQ (School)
+            -   Languange Instructor
+            -   Moodle Expert
+Feature -  Video Upload functionality added in pagebuilder editor.
+Tweak   - Tab with accordion 1 rename to Accordion set 1 with tab.
+Tweak   - Further UI/UX improvements made.
+Fix     - Keyframes getting removed from the css in editor on CSS change.
+Fix     - The update issue with the page builder in Moodle 4.4 has been fixed.
+Version 4.2.6
+=============
+Feature - Compatibility with Moodle 4.4.
+Tweak   - Further UI/UX improvements done.
+
+Version 4.2.5
+=============
+Tweak - Minor UI improvements.
+
+Version 4.2.4
+=============
+Feature - RemUI dashboard blocks added as dynamic blocks
+Tweak - Manage courses  block functionality merged  in  courses and categories  block
+Fix - Minor UI improvements
+
+Version 4.2.3
+=============
+Feature - New components added :
+    1. Image slider with text
+    2. Edwiser Profile Sliders
+    3. Edwiser Tabs With Accordion
+    4. Vertical Slider 1
+    5. Vertical Slider 2
+Fix - Blocks unintentionally deleted from custom pages when adding page layouts to a other custom page.
+
+Version 4.2.2
+=============
+Feature - Adding functionality to create custom pages. This functionality is in sync with Edwiser RemUI Theme.
+Fix - About us section migration bg image issue fixed.
+
+Version 4.2.1
+=============
+Tweak: Responsive designs can now be created by applying styling in the device mode provided in Pagebuilder (Desktop, Tablet, Mobile).
+Tweak: Improved Testimonial design 4.
+Tweak: Enhanced autoplay settings of sliders.
+Tweak: Added Undo/Redo shortcut with Ctrl+Z/Ctrl+Y and added Reload option with Alt+R.
+Fix: Fixed the timeout issue with the block update button
+
+Version 4.2.0
+=============
+Feature - Introducing new 88 blocks along with older blocks.
+Feature - Redesigned the UI of the page builder live customizer.
+Feature - Option to add a new row in the page builder live customizer.
+Feature - New components added  
+    1. Edwiser Image gallery  
+    2. Edwiser Testimonials  
+    3. Edwiser Sliders  
+    4. Edwiser Courses and Categories  
+    5. Separator
+Feature - New page layouts added for a quick start with page creation.
+Feature - Added a block modal, which will show blocks in separate categories.
+
+Version 4.1.2
+=============
+Fix   -  Categories not visible in courses block this issue is fixed.
+Tweak -  Lang strings changed
+Tweak -  Further UI/UX improvements done.
+
+Version 4.1.1
+=============
+Tweak - Add a block modal design improvements.
+
+Version 4.1.0
+=============
+Version Compatible with Edwiser RemUI 4.1.0
+
+Version 4.0.2
+=============
+Version Compatible with Edwiser RemUI 4.0.4(Beta)
+Tweak - Button light not visible with Edwiser RemUI Beta theme.
+
+Version 4.0.1
+=============
+
+Tweak - Added Note on add block modal to activate Edwiser Page Builder Filter plugin if it is not active.
+
+Version 4.0.0
+=============
+
+Moodle 4.0 compatible version of Edwiser Page Builder. It allows users to edit content dynamically using our page editor.

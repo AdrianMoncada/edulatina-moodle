@@ -1,0 +1,804 @@
+$enrol-section-bg-color: $white;
+$enrol-section-pad-lg: map-get($spacerspx, '6');
+$enrol-section-pad-sm: map-get($spacerspx, '4');
+$enrol-section-gap: map-get($gapspace , '4');
+$enrol-section-gutter: map-get($gapspace , '6');
+$enrol-course-heading-color: $heading-color;
+$enrol-course-para-color: $paragraph-color;
+$course-metadata-gap: 70px;
+
+@mixin course-metadata-responsiveness() {
+    // flex-direction: column;
+    gap: map-get($gapspace , 4) map-get($gapspace , 12);
+    flex-wrap: wrap;
+}
+
+#page-enrol-index {
+    #page-header {
+        display: none;
+    }
+
+    .enrollment-sections {
+        margin-bottom: $enrol-section-gutter;
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        gap: 24px;
+
+        @include media-breakpoint-down(sm) {
+            grid-template-columns: 1fr;
+            width: 100%;
+        }
+
+        .section {
+            background: $enrol-section-bg-color;
+            padding: $enrol-section-pad-sm;
+            border-radius: 4px;
+            height: fit-content;
+
+            @include media-breakpoint-up(md) {
+                padding: $enrol-section-pad-lg;
+                border-radius: 8px;
+            }
+
+            .divider {
+                border: 1px solid $light-border;
+            }
+        }
+
+        .header-section {
+            display: flex;
+            flex: 0 0 calc(70% - #{$enrol-section-gutter});
+            flex-direction: column;
+            padding: 0;
+
+            .rating-short-design {
+                .inner {
+                    flex-wrap: wrap;
+
+                    .avgratingstat {
+                        white-space: nowrap;
+                    }
+                }
+                .avgrating {
+                    order: 2;
+                    text-align: right;
+                    margin-left: 0.25rem;
+                }
+                .avgrating, .rnr-link {
+                    // font-weight: 600;
+                    @include get_typography(6, semibold, all);
+                    color: $paragraph-color;
+                    font-size: 12px;
+                }
+            }
+        }
+
+        .pricing-section {
+            grid-row: span 3;
+            flex: 0 0 30%;
+            padding: 0;
+
+            @include media-breakpoint-down(sm) {
+                grid-row: unset;
+            }
+
+            .courseimage {
+                img {
+                    width: 100%;
+                    max-height: 237px;
+                    object-fit: cover;
+                    border-radius: 8px 8px 0px 0px;
+                }
+            }
+
+            .top {
+                display: flex;
+                flex-direction: column;
+            }
+
+            .bottom {
+                margin-top: 0;
+                .list-item-group {
+                    .list-item {
+                        padding: map-get($spacerspx, 4) map-get($spacerspx, 6);
+
+                        .custom-title-wrapper{
+                            width: 40%;
+                        }
+
+                        .sub-label{
+                            width: 60%;
+                            word-break: break-word;
+                            color: $paragraph-color;
+                        }
+
+                        p {
+                            margin: 0;
+                        }
+
+                        @include media-breakpoint-down(lg) {
+                            padding: map-get($spacerspx, 4);
+                        }
+                        &.edwfocusmode{
+                            display: none !important;
+                        }
+                    }
+
+                    .custom-field-editing-text-wrapper {
+                        gap: map-get($gapspace, 12);
+
+                        .textlink-with-icon {
+                            max-width: 116px;
+                        }
+
+                        @include media-breakpoint-down(lg) {
+                            gap: map-get($gapspace, 6);
+                        }
+
+                        @include media-breakpoint-down(sm) {
+                            gap: map-get($gapspace, 12);
+                        }
+                    }
+
+                    .tutorial-video-modal {
+                        .modal-close-btn {
+                            position: absolute;
+                            top: 0;
+                            right: 0;
+                            transform: translate(100%, -100%);
+                            width: 24px;
+                            height: 24px;
+                            color: $white;
+
+                            .edw-icon {
+                                color: $white !important;
+                                font-size: $edw-icon-size-large;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .pricing {
+                display: flex;
+                flex-direction: column;
+                padding: map-get($spacerspx, 6) map-get($spacerspx, 6) map-get($spacerspx, 1);
+                // color: $enrol-course-heading-color;
+
+                &--label {
+                    // @extend .h-regular-6;
+                    color: $heading-color;
+                    @include get_typography(6, regular, all);
+                }
+
+                &--price {
+                    // @extend .h-bold-2;
+                    @include get_typography(2, bold, all);
+                    word-break: break-word;
+                }
+
+                .default-pricing-section.disabled {
+                    opacity: 0.3;
+                    pointer-events: none;
+                }
+            }
+            .enable-pricing-text-msg {
+                background-color: $orange;
+                border-radius: $secondarynavbar-border-size;
+
+                p {
+                    color: $warning-btn-color;
+                }
+            }
+            .custom-price-form-box {
+                .form-group {
+                    height: 40px;
+                    position: relative;
+                    max-width: 200px;
+
+                    .form-control {
+                        height: 100%;
+                    }
+
+                    .clear-customprice-input {
+                        color: $button-primary-color-background !important;
+                        position: absolute;
+                        font-size: $edw-icon-size-large;
+                        width: $edw-icon-size-large;
+                        height: $edw-icon-size-large;
+                        top: 50%;
+                        right: 10px;
+                        transform: translateY(-50%);
+                        cursor: pointer;
+                    }
+                }
+
+                .save-btn-wrapper {
+                    min-width: fit-content;
+                }
+
+                .value-saved {
+                    color: $green;
+                }
+
+                @include media-breakpoint-down(lg) {
+                    flex-wrap: wrap;
+                }
+            }
+            .enroll-btn-wrapper {
+                padding: map-get($spacerspx, 4) 0;
+
+                .dropdown-menu {
+                    border: 1px solid $medium-border;
+                    background: $white;
+                }
+
+                .card-header {
+                    border-bottom: 1px solid $light-border;
+                    background-color: $light;
+                }
+
+                .enroll-editbtn-wrapper {
+                    width: calc(100% - 48px);
+                    margin: 0 map-get($spacerspx, 6);
+
+                    @include media-breakpoint-down(lg) {
+                        margin: 0;
+                        width: 100%;
+
+                        .textlink-with-icon {
+                            padding-right: map-get($spacerspx, 6);
+                            padding-left: map-get($spacerspx, 6);
+                        }
+                    }
+                }
+
+                .top-pointer-icon {
+                    width: 18px;
+                    height: 14px;
+                    position: absolute;
+                    top: 0;
+                    right: 10%;
+                    background-color: $medium-border;
+                    transform: translateY(-90%);
+                    clip-path: polygon(47% 0, 53% 0, 100% 100%, 0% 100%);
+                    z-index: -1;
+
+                    &::before {
+                        content: "";
+                        position: absolute;
+                        top: 1px;
+                        left: 1px;
+                        right: 1px;
+                        bottom: 1px;
+                        background-color: $light;
+                        clip-path: polygon(47% 0, 53% 0, 100% 100%, 0% 100%);
+                    }
+                }
+            }
+        }
+
+        .courseoverview-section {
+            display: flex;
+            flex-direction: column;
+            gap: 32px;
+            flex: 0 0 calc(70% - #{$enrol-section-gutter});
+
+            ::-webkit-scrollbar {
+                display: none;
+            }
+
+            @include media-breakpoint-down(sm) {
+                overflow: auto;
+
+                .secondary-navigation {
+                    overflow: auto;
+
+                    .navigation {
+                        .nav-tabs {
+                            flex-wrap: nowrap;
+
+                            li {
+                                white-space: nowrap;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .title-meta-wrapper {
+            padding: map-get($spacerspx, 6) map-get($spacerspx, 6) map-get($spacerspx, 2);
+            gap: map-get($gapspace, 4);
+        }
+        .course-metadata {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(151px, max-content));
+            gap: map-get($gapspace, 4) map-get($gapspace, 14);
+
+            .instructors {
+                display: flex;
+                align-items: center;
+                gap: map-get($gapspace,1);
+
+                .instructorscount {
+                    @include get_typography(6, semibold, all);
+                    text-decoration: none;
+                }
+            }
+
+            .noratingavailable {
+                .ratings-details {
+                    opacity: 0.5;
+                }
+            }
+
+            @include media-breakpoint-down(md) {
+                @include course-metadata-responsiveness()
+            }
+
+            @include media-breakpoint-down(sm) {
+                // flex-wrap: wrap;
+                row-gap: map-get($gapspace , 6) !important;
+            }
+        }
+        .video-container {
+            padding: map-get($spacerspx, 4) map-get($spacerspx, 6) map-get($spacerspx, 6);
+
+            .videoframe {
+                width: 100%;
+                min-height: 390px;
+                border-radius: 8px;
+
+                @include media-breakpoint-down(sm) {
+                    min-height: 175px;
+                }
+            }
+        }
+    }
+
+    .empty-box {
+        background: $light;
+
+        p {
+            color: $small-text-color;
+            text-align: center;
+        }
+    }
+
+    .enrol-mainarea-hidden-contentainer {
+        background-color: $white;
+    }
+
+    .textlink-with-icon {
+        text-decoration: none;
+        width: fit-content;
+        cursor: pointer;
+
+        .edw-icon {
+            font-size: 20px;
+            color: inherit;
+        }
+
+        span {
+            word-break: break-word;
+        }
+    }
+
+    .modal-backdrop.show {
+        background-color: $black;
+        opacity: 0.8;
+    }
+
+    .btn-backtocourse {
+        padding: map-get($spacerspx, 0d5) map-get($spacerspx, 3) map-get($spacerspx, 0d5) map-get($spacerspx, 0d5);
+        width: fit-content;
+        .edw-icon {
+            font-size: $edw-icon-size-large;
+        }
+    }
+
+    &.editing {
+        .enrollment-sections {
+            .header-section {
+                gap: map-get($gapspace, 5);
+            }
+        }
+        .pricing-section {
+            gap: map-get($gapspace, 6);
+
+            .top {
+                gap: map-get($gapspace, 4);
+            }
+
+            .pricing {
+                padding-bottom: map-get($spacerspx, 4);
+            }
+        }
+        .doted-border {
+            border: 2px dashed $medium-border;
+        }
+    }
+
+    .edw-icon:not(.btn .edw-icon):not(.textlink-with-icon .edw-icon):not(#edw-quick-menu .edw-icon):not(.asw-container .edw-icon) {
+        color: $ic-default;
+    }
+
+    .generalbox {
+        .coursebox {
+            .content {
+                overflow-wrap: anywhere;
+            }
+        }
+    }
+    .coursebox .courseimage,
+    .coursebox .summary,
+    .coursebox .teachers,
+    .customfields-container .customfield_edwcourseduration,
+    .customfields-container .customfield_edwcourseintrovideourlembedded,
+    .customfields-container .customfield_edwskilllevel{
+        display: none;
+    }
+
+    .latest-available-courses.button-container {
+        .btn {
+            border-radius: 50%;
+            // padding: 0px;
+            width: 50px;
+            height: 50px;
+
+            .edw-icon {
+                font-size: $edw-icon-size-large;
+                height: $edw-icon-size-large;
+                width: $edw-icon-size-large;
+            }
+        }
+        .slick-arrow.slick-disabled{
+            box-shadow: none;
+            opacity: .4;
+        }
+        .slick-arrow span {
+            margin: 0;
+            color: $white;
+        }
+    }
+    .slick-slider .slick-slide{
+        padding: 0px 12px;
+        // margin: 0 12px;
+    }
+    .slick-track{
+        display: flex !important;
+        margin: unset;
+        // margin: 0 -12px;
+        // gap: 24px;
+    }
+    .latestcourses-wrapper,
+    .relatedcourses-wrapper{
+        .dashboard-card{
+            filter: unset !important;
+        }
+
+        .edw-icon {
+            font-size: $edw-icon-size-small;
+            color: $ic-default;
+        }
+
+        .enrollmenticons-wrapper {
+
+            .edw-icon,
+            .icon {
+                margin: 0px;
+                font-size: $edw-icon-size-small;
+                height: $edw-icon-size-small;
+                width: $edw-icon-size-small;
+            }
+
+            .paymentmethodcount {
+                color: $small-text-color;
+                height: 24px;
+                width: 24px;
+                min-width: 24px;
+                border-radius: 50%;
+                background-color: $instructor-count-bg-color;
+            }
+        }
+
+        .lesson-date-wrapper {
+            gap: 2px;
+            row-gap: map-get($gapspace, 1);
+            flex-wrap: wrap;
+
+            .lesson-count,
+            .updated-date {
+                gap: 2px !important
+            }
+        }
+
+        .rating-enroll-wrapper:not(:has(.enrolled-users-count)):not(:has(.rating-short-design)) {
+            display: none !important;
+        }
+    }
+    .header-content-wrapper{
+        a:hover{
+            color: $heading-color;
+        }
+    }
+}
+
+.opacity-50 {
+    opacity: 0.5 !important;
+}
+
+.details {
+    &-block {
+        display: flex;
+        flex-direction: column;
+    }
+    &--title {
+        // @extend .h-semibold-6;
+        @include get_typography(6, semibold, all);
+        color: $enrol-course-heading-color;
+    }
+    &--info {
+        // @extend .h-regular-6;
+        @include get_typography(6, regular, all);
+        color: $enrol-course-para-color;
+    }
+}
+.instructor-details{
+    .instructor-name-url{
+        &:hover{
+            color: $heading-color;
+        }
+    }
+}
+.instructors-stack-imgs {
+    display: flex;
+    .avatars {
+        display: flex;
+        .avatar {
+            transition: margin 0.1s ease-in-out;
+            width: 32px;
+            height: 32px;
+            &:not(:first-child) {
+                margin-left: -10px;
+            }
+            .userinitials {
+                border: 2px solid #ced4da;
+                margin-right: 0;
+            }
+
+            @include media-breakpoint-down(md) {
+                width: 48px;
+                height: 48px;
+            }
+
+            a{
+                width: 100%;
+                height: 100%;
+
+                img {
+                    width: 100%;
+                    height: 100%;
+                    border: 1px solid $light-border;
+                }
+            }
+        }
+    }
+}
+.stat-container {
+    display: flex;
+    align-items: center;
+    gap: map-get($gapspace , d5);
+    .stat {
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 22px;
+        color: $small-text-color;
+    }
+}
+.instructor-profile {
+    .avatar {
+        img {
+            height: 48px;
+            width: 48px;
+        }
+    }
+    .userinitials {
+        height: 48px;
+        width: 48px;
+        margin: 0;
+        &.size-35{
+            width: 35px;
+            height: 35px;
+        }
+    }
+}
+.accordion-list-group {
+    margin: 0;
+    padding: 0;
+    li {
+        list-style: none;
+        &.accordion-list-item {
+            // @extend .h-regular-6;
+            @include get_typography(6, regular, all);
+            color: $enrol-course-heading-color;
+            padding: 16px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            .edw-icon {
+                transition: rotate .5s ease-in-out;
+            }
+            img{
+                width: $edw-icon-size-large;
+                height: $edw-icon-size-large;
+            }
+            &.accordion-bb:not(:first-of-type) {
+                border-top: 1px solid $medium-border;
+            }
+            &:not(.collapsed) {
+                .edw-icon {
+                    transform: rotate(180deg);
+                    transition: rotate .3s ease-in-out;
+                }
+            }
+        }
+    }
+    .accordion-list-item + .subsection-wrapper {
+        border-top: 1px solid  $medium-border;
+     }
+    .subsection-wrapper {
+        &:has(+ .accordion-list-item) {
+          border-bottom: 1px solid $medium-border;
+        }
+    }
+}
+
+#page-enrol-index.limitedwidth {
+    .enrollment-sections {
+        .course-metadata {
+            @include course-metadata-responsiveness();
+        }
+    }
+    .enrollment-sections {
+        .pricing-section {
+            .bottom {
+                .list-item-group {
+                    .list-item {
+                        padding: map-get($spacerspx, 4);
+                    }
+                    .custom-field-editing-text-wrapper {
+                        gap: map-get($gapspace, 6);
+                    }
+                }
+            }
+            .enroll-btn-wrapper {
+                .enroll-editbtn-wrapper {
+                    margin: 0;
+                    width: 100%;
+
+                    .textlink-with-icon {
+                        padding-right: map-get($spacerspx, 6);
+                        padding-left: map-get($spacerspx, 6);
+                    }
+                }
+            }
+            .custom-price-form-box {
+                flex-wrap: wrap;
+            }
+        }
+    }
+}
+
+// Ernr review block support css start.
+.courseoverview-section {
+
+    .instructors {
+        .instructor {
+            .instructor-profile {
+                .userpicture, .userinitials {
+                    width: 116px;
+                    height: 116px;
+                }
+                .userpicture {
+                    border: 0;
+                }
+                .userinitials {
+                    font-size: 32px;
+                }
+            }
+
+            .instructor-stats {
+                gap: map-get($gapspace, 4) map-get($gapspace, 6);
+
+                .stat-container {
+                    .stat {
+                        background-color: unset;
+                    }
+                }
+            }
+
+            @include media-breakpoint-down(sm) {
+                flex-direction: column;
+                row-gap: map-get($gapspace , 4);
+
+                .instructor-profile,
+                .instructor-name {
+                    text-align: center;
+                }
+            }
+        }
+    }
+
+    #reviewarea {
+        .ratings-block-wrapper {
+            display: flex !important;
+            margin-bottom: 30px;
+
+            @media only screen and (min-width: 800px) {
+                .avg-rating-stat {
+                    flex: 1 1 20%;
+                }
+
+                .avg-rating-progress {
+                    flex: 1 1 80%;
+                }
+            }
+
+            @media only screen and (max-width: 800px) {
+                flex-direction: column-reverse;
+            }
+        }
+
+        .progress-wrapper {
+            display: flex;
+            align-items: center;
+
+            .progress {
+                @media only screen and (min-width: 800px) {
+                    flex: 1 1 80%;
+                    margin-right: 30px;
+                }
+
+                @media only screen and (max-width: 800px) {
+                    flex: 1 1 60%;
+                    margin-right: 10px;
+                }
+            }
+
+            .stars {
+                @media only screen and (min-width: 800px) {
+                    flex: 1 1 20%;
+                }
+
+                @media only screen and (max-width: 800px) {
+                    flex: 1 1 40%;
+                }
+            }
+        }
+
+        .reviewheader {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            .reviewselector {
+                max-width: max-content;
+                padding: 0.5rem 1rem 0.5rem 0.5rem;
+            }
+
+            @media only screen and (min-width: 800px) {
+                .inner-flex {
+                    display: flex;
+                }
+            }
+        }
+
+        .avg-rating-stat {
+            text-align: center;
+        }
+    }
+}
+
+// Ernr review block support code end.

@@ -1,0 +1,375 @@
+
+  <div class="section-all-courses-category-design-{{instid}}  {{blockclass}}">
+    <div class="section-container">
+      {{#hascourses}}
+        <div class="carousel-container fccourses-wrapper">
+            <div class="slider" id="all-courses-category-carousel-{{instid}}" data-catid="{{catids}}" data-totalcourses="{{coursecount}}" data-start="0" data-last="{{fetchedcoursecount}}" data-remaining="{{remaingcourses}}" data-loadmore="{{loadmore}}">
+                {{> filter_edwiserpbf/featurecoursecard}}
+            </div>
+
+            <button class="carousel-control-prev{{instid}} position-absolute border-color-primary" type="button">
+                <span class="fa fa-light fa-angle-left color-primary" aria-hidden="true"></span>
+            </button>
+
+            <button class="carousel-control-next{{instid}} position-absolute border-color-primary" type="button">
+                <span class="fa fa-light fa-angle-right color-primary" aria-hidden="true"></span>
+            </button>
+        </div>
+      {{/hascourses}}
+
+      {{#showinforegion}}
+              <div class="mainpagenocourseblock">
+                <div class="inner-region">
+                {{#showfcmainpageinfo}}
+                  <span class="main-page-message">
+                        {{#str}}fccoursenocontentmsg,filter_edwiserpbf{{/str}}
+                  </span>
+                  {{/showfcmainpageinfo}}
+                  {{#showfcinfoineditor}}
+                    <span class="editorpagenoblock-msg">
+                    {{#str}}fcnocourseeditorpagemsg,filter_edwiserpbf{{/str}}
+                    </span>
+                  {{/showfcinfoineditor}}
+                </div>
+              </div>
+      {{/showinforegion}}
+    </div>
+</div>
+
+<style>
+
+.section-all-courses-category-design-{{instid}} {
+  padding: 0 0 50px;
+}
+.section-all-courses-category-design-{{instid}} .menu-picker-select .menu-content .manage-course-menu{
+  padding: 4px;
+}
+.section-all-courses-category-design-{{instid}} .menu-picker-select .menu-content .epb-img-icon{
+    height:16px;
+    width: 16px;
+}
+ .section-all-courses-category-design-{{instid}} .section-container {
+     max-width: 1320px;
+     margin: 0 auto;
+  }
+ .section-all-courses-category-design-{{instid}} h3 {
+     color: #313848;
+     text-align: center;
+     font-size: 34px;
+     font-weight: 700;
+     line-height: 42px;
+     letter-spacing: -1px;
+     margin: 0;
+}
+ .section-all-courses-category-design-{{instid}} .desc {
+     color: #4C5A73;
+     text-align: center;
+     font-size: 18px;
+     font-weight: 400;
+     line-height: 26px;
+     margin: 3px auto 0;
+     padding: 0 12px;
+     max-width: 900px;
+}
+.section-all-courses-category-design-{{instid}} .section-container .mainpagenocourseblock {
+    height: 200px;
+    padding: 24px;
+    border: 2px dashed #D5DDEA;
+  }
+.section-all-courses-category-design-{{instid}} .section-container .mainpagenocourseblock .inner-region{
+  height:100%;
+  width:100%;
+  border-radius: 8px;
+  background:#EBF0F9;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  padding: 24px;
+
+}
+
+.section-all-courses-category-design-{{instid}} .section-container .mainpagenocourseblock .inner-region .main-page-message{
+  padding: 16px 24px;
+  border-radius: 6px;
+  border: 1px solid #FFBD81;
+  background: #FEF8EE;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  color:#313848;
+}
+
+.section-all-courses-category-design-{{instid}} .section-container .mainpagenocourseblock .inner-region .editorpagenoblock-msg{
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 22px;
+}
+
+ .section-all-courses-category-design-{{instid}} .carousel-container {
+     position: relative;
+     margin: 20px auto 0;
+}
+.section-all-courses-category-design-{{instid}} .carousel-container .slick-track {
+      display: flex !important;
+    gap: 24px;
+    margin-left: unset;
+  }
+    .section-all-courses-category-design-{{instid}} .carousel-container .slick-slide {
+      height: inherit !important; }
+ .section-all-courses-category-design-{{instid}} .carousel-container .slider {
+     padding: 0 16px;
+}
+.section-all-courses-category-design-{{instid}} .slick-slider .slick-slide {
+    padding: 0px;
+}
+
+ .section-all-courses-category-design-{{instid}} .card {
+     height: 100%;
+     display: flex !important;
+}
+
+
+ .section-all-courses-category-design-{{instid}} .carousel-control-prev{{instid}}, .section-all-courses-category-design-{{instid}} .carousel-control-next{{instid}} {
+     width: 46px;
+     height: 46px;
+     background-color: white;
+     border: 1px solid #0051f9;
+     font-size: 24px;
+     border-radius: 50%;
+     opacity: 1;
+     transition: all 0.3s ease;
+     margin: auto 0;
+     transform: translateY(-100%);
+}
+ .section-all-courses-category-design-{{instid}} .carousel-control-prev{{instid}} .fa, .section-all-courses-category-design-{{instid}} .carousel-control-next{{instid}} .fa {
+    color: #0051f9;
+ }
+.section-all-courses-category-design-{{instid}} .carousel-control-prev{{instid}} {
+    left: 2px;
+    top:50%;
+  }
+  .section-all-courses-category-design-{{instid}} .carousel-control-next{{instid}} {
+    right: 2px;
+    top:50%;
+  }
+ .section-all-courses-category-design-{{instid}} .carousel-control-prev{{instid}}:hover, .section-all-courses-category-design-{{instid}} .carousel-control-next{{instid}}:hover {
+     background-color: white;
+     filter: drop-shadow(0px 4px 15px rgba(0, 0, 0, 0.12));
+}
+ .section-all-courses-category-design-{{instid}} .carousel-indicators {
+     position: static;
+     margin-top: 20px;
+     margin-bottom: 0px;
+     gap: 8px;
+}
+ .section-all-courses-category-design-{{instid}} .carousel-indicators li {
+      list-style-type: none;
+     opacity: 1;
+     background-color: #5B6880;
+     width: 8px;
+     height: 8px;
+     border-radius: 50%;
+     margin: 0;
+     cursor: pointer;
+}
+ .section-all-courses-category-design-{{instid}} .carousel-indicators li button {
+     display: none;
+}
+ .section-all-courses-category-design-{{instid}} .carousel-indicators .slick-active {
+     background-color: #0051F9;
+}
+.ellips-item-2{
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+    }
+ @media screen and (max-width: 1024px) {
+
+     .section-all-courses-category-design-{{instid}} .carousel-container .slider {
+         padding: 0;
+    }
+     .section-all-courses-category-design-{{instid}} .carousel-control-prev{{instid}}, .section-all-courses-category-design-{{instid}} .carousel-control-next{{instid}} {
+         display: none !important;
+    }
+}
+ @media screen and (max-width: 767px) {
+
+     .section-all-courses-category-design-{{instid}} .section-container {
+         max-width: 450px;
+    }
+     .section-all-courses-category-design-{{instid}} .desc {
+         max-width: 450px;
+    }
+
+    .section-all-courses-category-design-{{instid}} .carousel-container {
+        margin: 20px auto 0;
+      }
+      .section-all-courses-category-design-{{instid}} .carousel-container .slider {
+        padding: 0;
+      }
+      .section-all-courses-category-design-{{instid}}
+        .carousel-container
+        .slick-carousel-item {
+        padding: 0;
+      }
+}
+
+.edw-rtl-block .section-all-courses-category-design-{{instid}} .carousel-container .slick-list {
+      direction: ltr;
+      margin-right: unset;
+      margin-left: auto;
+  }
+
+.edw-rtl-block .section-all-courses-category-design-{{instid}} .carousel-container .slick-list > * {
+      direction: rtl;
+  }
+
+.edw-rtl-block .section-all-courses-category-design-{{instid}} .carousel-control-prev{{instid}} .fa-angle-left,
+.edw-rtl-block .section-all-courses-category-design-{{instid}} .carousel-control-next{{instid}} .fa-angle-right {
+  transform: unset;
+}
+
+
+</style>
+
+<script>
+if(window.location.href.toLowerCase().indexOf('editor.php') !== -1){
+  $(document).ready((function(){$("#all-courses-category-carousel-{{instid}}").parents(".edw-limitedwidth-block").length>0?$("#all-courses-category-carousel-{{instid}}").slick({slidesToShow:2,slidesToScroll:1,prevArrow:$(".carousel-control-prev{{instid}}"),nextArrow:$(".carousel-control-next{{instid}}"),dots:false,dotsClass:"carousel-indicators",responsive:[{breakpoint:768,settings:{slidesToShow:1,slidesToScroll:1}}]}).on("setPosition",(function(s,o){o.$slides.css("height",o.$slideTrack.height()+"px"),$(".slick-slide > div").css("height","100%")})):$("#all-courses-category-carousel-{{instid}}").slick({slidesToShow:4,slidesToScroll:1,prevArrow:$(".carousel-control-prev{{instid}}"),nextArrow:$(".carousel-control-next{{instid}}"),dots:false,dotsClass:"carousel-indicators",responsive:[{breakpoint:1200,settings:{slidesToShow:3,slidesToScroll:1}},{breakpoint:1024,settings:{slidesToShow:2,slidesToScroll:1}},{breakpoint:768,settings:{slidesToShow:1,slidesToScroll:1}}]}).on("setPosition",(function(s,o){o.$slides.css("height",o.$slideTrack.height()+"px"),$(".slick-slide > div").css("height","100%")}))}));
+}
+  </script>
+
+{{#js}}
+require(['jquery', 'core/ajax', 'core/templates', 'local_edwiserpagebuilder/remuiblck/manage_courses', 'theme_remui/slick'], function ($, Ajax, Templates, managecourse) {
+
+    managecourse.init('.section-all-courses-category-design-{{instid}}');
+
+    $(document).ready(function () {
+        let carousleContainer = $("#all-courses-category-carousel-{{instid}}");
+        if (carousleContainer.parents(".edw-limitedwidth-block").length > 0) {
+          slickvariationlimitedwidth();
+        } else {
+          slickvariationfullwidth();
+        }
+
+        if ($('.fccourses-wrapper .slick-arrow').length) {
+            $('.fccourses-wrapper .slick-list .slick-track').css('height', $('.fccourses-wrapper .slick-track').outerHeight(true) + 10);
+        }
+
+        function slickvariationlimitedwidth(){
+          $("#all-courses-category-carousel-{{instid}}").slick({
+            slidesToShow: 2,
+            slidesToScroll: 2,
+            prevArrow: $(".carousel-control-prev{{instid}}"),
+            nextArrow: $(".carousel-control-next{{instid}}"),
+            dots: true,
+            dotsClass: "carousel-indicators",
+            responsive: [
+            {
+                breakpoint: 768,
+                settings: {
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                },
+            },
+            ],
+        })
+        .on('setPosition', function (event, slick) {
+            slick.$slides.css('height', slick.$slideTrack.height() + 'px');
+            $('.slick-slide > div').css('height', '100%');
+          });
+        }
+
+        function slickvariationfullwidth(){
+          $("#all-courses-category-carousel-{{instid}}").slick({
+            slidesToShow: 4,
+            slidesToScroll: 4,
+            prevArrow: $(".carousel-control-prev{{instid}}"),
+            nextArrow: $(".carousel-control-next{{instid}}"),
+            dots: true,
+            dotsClass: "carousel-indicators",
+            responsive: [
+            {
+                breakpoint: 1200,
+                settings: {
+                slidesToShow: 3,
+                slidesToScroll: 3,
+                },
+            },
+            {
+                breakpoint: 1024,
+                settings: {
+                slidesToShow: 2,
+                slidesToScroll: 2,
+                },
+            },
+            {
+                breakpoint: 768,
+                settings: {
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                },
+            },
+            ],
+        })
+        .on('setPosition', function (event, slick) {
+            slick.$slides.css('height', slick.$slideTrack.height() + 'px');
+            $('.slick-slide > div').css('height', '100%');
+          });
+        }
+
+        function get_courses_list(limitfrom,limitto,categorycommalist,emptytrack = false){
+          Ajax.call([{
+            methodname: 'local_edwiserpagebuilder_get_courses',
+            args: {
+                limitstart:limitfrom,
+                limitend :limitto,
+                categorylist: categorycommalist
+            },
+            done: function(data) {
+              if(emptytrack){
+                $('#all-courses-category-carousel-{{instid}} .slick-track').empty();
+                $('#all-courses-category-carousel-{{instid}}').slick('slickAdd', data);
+                $('#all-courses-category-carousel-{{instid}}').attr('data-remaining',remaingcards);
+                $('#all-courses-category-carousel-{{instid}}').attr('data-last',lastcard);
+              }else{
+                $('#all-courses-category-carousel-{{instid}}').slick('slickAdd', data);
+                $('#all-courses-category-carousel-{{instid}}').attr('data-remaining',remaingcards);
+                $('#all-courses-category-carousel-{{instid}}').attr('data-last',lastcard);
+              }
+            },
+            fail: function() {
+                console.log("Error fetching the courses from : Dynamic cnc block Edwiser Page Builder.");
+            }
+        }]);
+        }
+        var limitfrom = 0;
+        var limtitto = 11;
+        var maxlimit = 11;
+        var remaingcards = $('#all-courses-category-carousel-{{instid}}').data('remaining');
+        var lastcard =  $('#all-courses-category-carousel-{{instid}}').data('last');
+        var totalcourses = $('#all-courses-category-carousel-{{instid}}').data('totalcourses');
+        var categorycommalist = $('#all-courses-category-carousel-{{instid}}').data('catid');
+        $('#all-courses-category-carousel-{{instid}}').on('afterChange', function(event, slick, currentSlide){
+            if (slick.options.slidesToShow + currentSlide >= slick.slideCount - slick.options.slidesToShow) {
+                if(!remaingcards == 0){
+                    if(maxlimit < remaingcards){
+                        limitfrom = lastcard;
+                        limitto = maxlimit;
+                        lastcard = limitto + limitfrom;
+                        remaingcards = totalcourses - lastcard;
+                    }else{
+                        limitfrom = lastcard;
+                        limitto = remaingcards;
+                        lastcard = lastcard + remaingcards
+                        remaingcards = 0;
+                    }
+                    get_courses_list(limitfrom,limitto,categorycommalist);
+                }
+              }
+          });
+    });
+});
+{{/js}}

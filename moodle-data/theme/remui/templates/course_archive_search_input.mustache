@@ -1,0 +1,58 @@
+{{!
+    This file is part of Moodle - http://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+    GNU General Public License for more details.
+
+    Edwiser RemUI
+    @package theme_remui
+    @copyright (c) 2023 WisdmLabs (https://wisdmlabs.com/)
+    @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+
+}}
+{{!
+    @template theme_remui/course_archive_search_input.mustache
+}}
+
+<div class="simplesearchform {{ extraclasses }}">
+    {{^inform}}
+    <form autocomplete="off" action="{{ action }}" method="get" accept-charset="utf-8" class="mform form-inline simplesearchform m-0">
+    {{/inform}}
+    {{#hiddenfields}}
+        <input type="hidden" name="{{ name }}" value="{{ value }}">
+    {{/hiddenfields}}
+    <div class="input-group">
+        <div class="input-group-append">
+            <button type="submit" class="btn {{^btnclass}}btn-submit{{/btnclass}}  search-icon p-0 m-0 border-0">
+                <span class="edw-icon edw-icon-Search"></span>
+                <span class="sr-only">{{ searchstring }}</span>
+            </button>
+        </div>
+        <label for="searchinput-{{uniqid}}">
+            <span class="sr-only">{{{ searchstring }}}</span>
+        </label>
+        <input type="text"
+           id="searchinput-{{uniqid}}"
+           class="form-control"
+           placeholder="{{ searchstring }}"
+           aria-label="{{ searchstring }}"
+           name="{{ inputname }}"
+           data-region="input"
+           autocomplete="off"
+           value="{{ query }}"
+        >
+    </div>
+    {{#otherfields}}
+        <div  class="ml-2">{{{ otherfields }}}</div>
+    {{/otherfields}}
+{{^inform}}
+    </form>
+{{/inform}}
+</div>

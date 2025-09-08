@@ -1,0 +1,57 @@
+{{!
+    This file is part of Moodle - http://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+}}
+{{!
+    @template theme_remui/feedbackcollection_form
+}}
+
+
+<div class="modal fade feedbackcollection-modal" aria-hidden="true"  data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog  modal-dialog-centered modal-lg">
+        <div class="modal-content overflow-hidden">
+             <form id="feedbackcollection-form" class="feedbackcollection-wrapper">
+                <p class="feedback-heading">{{{name}}}</p>
+                <input type="hidden" value="{{{name}}}" name="question" />
+                <input type="hidden" value="{{{questionname}}}" name="questionname" />
+                <div class="feedbacks">
+                    {{#options}}
+                        <label class="feedback-item" for="feedback-{{id}}">
+                            <img class="feedback-item-icon" src="{{{emoji}}}" />
+                            <span class="feedback-text">{{value}}</span>
+                            <div class="d-none">
+                                <input type="radio" id="feedback-{{id}}" name="answer" value="{{value}}" />
+                            </div>
+                        </label>
+                    {{/options}}
+                </div>
+
+                <div class="d-flex justify-content-center align-items-center flex-gap-6">
+                    <p class="skip-btn text-link-semibold">{{#str}}skipfornow, theme_remui{{/str}}</p>
+                    <button class="btn btn-primary feedback-submitbtn">{{#str}}submit, theme_remui{{/str}}</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+{{#js}}
+require(['jquery'], function($) {
+    $(document).ready(function() {
+        {{! $(".feedbackcollection-modal").modal('show'); }}
+    });
+});
+{{/js}}

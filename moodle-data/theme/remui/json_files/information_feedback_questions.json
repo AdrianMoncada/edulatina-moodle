@@ -1,0 +1,204 @@
+{
+    "userinformation": [
+        {
+            "name": "forclient",
+            "question": "Are you building this site for a client?",
+            "options": [
+            {
+                "id": "forclient1",
+                "value": "Yes"
+            },
+            {
+                "id": "forclient2",
+                "value": "No"
+            }
+            ]
+        },
+        {
+            "name": "bestdescribes",
+            "question": "What best describes the main goal of your website?",
+            "options": [
+            {
+                "id": "bestdescribes1",
+                "value": "Selling courses or training programs"
+            },
+            {
+                "id": "bestdescribes2",
+                "value": "Providing formal education (school, college, university)"
+            },
+            {
+                "id": "bestdescribes3",
+                "value": "Training employees or staff"
+            },
+            {
+                "id": "bestdescribes4",
+                "value": "Building a community or a membership website"
+            },
+            {
+                "id": "bestdescribes5",
+                "value": "Personal project or hobby"
+            }
+            ],
+            "fullwidth": true,
+            "userinput": {
+            "id": "bestdescribesuserinput",
+            "placeholder": "Type your answer"
+            }
+        },
+        {
+            "name": "yourrole",
+            "question": "What is your role in this project?",
+            "options": [
+            {
+                "id": "yourrole1",
+                "value": "Owner / Entrepreneur"
+            },
+            {
+                "id": "yourrole2",
+                "value": "Developer"
+            },
+            {
+                "id": "yourrole3",
+                "value": "Admin / IT Head / Project Manager "
+            },
+            {
+                "id": "yourrole4",
+                "value": "Instructor"
+            }
+            ],
+            "fullwidth": true
+        }
+    ],
+    "feedbackquestionlists": {
+        "homepage_question": {
+            "name": "How was the Home page editing experience?",
+            "options": [
+                {
+                    "id": "easy",
+                    "value": "Easy",
+                    "emoji": "{{>siteurl}}/theme/remui/pix/feedback_easy.svg"
+                },
+                {
+                    "id": "normal",
+                    "value": "Normal",
+                    "emoji": "{{>siteurl}}/theme/remui/pix/feedback_normal.svg"
+                },
+                {
+                    "id": "hard",
+                    "value": "Hard",
+                    "emoji": "{{>siteurl}}/theme/remui/pix/feedback_hard.svg"
+                }
+            ]
+        },
+        "visualpersonalizer_question": {
+            "name": "How was the personalization experience?",
+            "options": [
+                {
+                    "id": "easy",
+                    "value": "Easy",
+                    "emoji": "{{>siteurl}}/theme/remui/pix/feedback_easy.svg"
+                },
+                {
+                    "id": "normal",
+                    "value": "Normal",
+                    "emoji": "{{>siteurl}}/theme/remui/pix/feedback_normal.svg"
+                },
+                {
+                    "id": "hard",
+                    "value": "Hard",
+                    "emoji": "{{>siteurl}}/theme/remui/pix/feedback_hard.svg"
+                }
+            ]
+        },
+        "livecustomizer_question": {
+            "name": "Did the customization options work as expected?",
+            "options": [
+                {
+                    "id": "yes",
+                    "value": "Yes",
+                    "emoji": "{{>siteurl}}/theme/remui/pix/feedback_easy.svg"
+                },
+                {
+                    "id": "no",
+                    "value": "No",
+                    "emoji": "{{>siteurl}}/theme/remui/pix/feedback_hard.svg"
+                }
+            ]
+        },
+        "remuiformat_question": {
+            "name": "How was the Edwiser course format layout experience?",
+            "options": [
+                {
+                    "id": "easy",
+                    "value": "Easy",
+                    "emoji": "{{>siteurl}}/theme/remui/pix/feedback_easy.svg"
+                },
+                {
+                    "id": "normal",
+                    "value": "Normal",
+                    "emoji": "{{>siteurl}}/theme/remui/pix/feedback_normal.svg"
+                },
+                {
+                    "id": "hard",
+                    "value": "Hard",
+                    "emoji": "{{>siteurl}}/theme/remui/pix/feedback_hard.svg"
+                }
+            ]
+        },
+        "remuisettingvisit_question": {
+            "name": "Did you find the settings easy to navigate?",
+            "options": [
+                {
+                    "id": "yes",
+                    "value": "Yes",
+                    "emoji": "{{>siteurl}}/theme/remui/pix/feedback_easy.svg"
+                },
+                {
+                    "id": "no",
+                    "value": "No",
+                    "emoji": "{{>siteurl}}/theme/remui/pix/feedback_hard.svg"
+                }
+            ]
+        },
+        "custompage_question": {
+            "name": "How was your experience creating a custom page?",
+            "options": [
+                {
+                    "id": "easy",
+                    "value": "Easy",
+                    "emoji": "{{>siteurl}}/theme/remui/pix/feedback_easy.svg"
+                },
+                {
+                    "id": "normal",
+                    "value": "Normal",
+                    "emoji": "{{>siteurl}}/theme/remui/pix/feedback_normal.svg"
+                },
+                {
+                    "id": "hard",
+                    "value": "Hard",
+                    "emoji": "{{>siteurl}}/theme/remui/pix/feedback_hard.svg"
+                }
+            ]
+        },
+        "setupexperience_question": {
+            "name": "How was the setup experience?",
+            "options": [
+                {
+                    "id": "hard",
+                    "value": "Had issues",
+                    "emoji": "{{>siteurl}}/theme/remui/pix/feedback_hard.svg"
+                },
+                {
+                    "id": "normal",
+                    "value": "Normal",
+                    "emoji": "{{>siteurl}}/theme/remui/pix/feedback_normal.svg"
+                },
+                {
+                    "id": "easy",
+                    "value": "Smooth and fast",
+                    "emoji": "{{>siteurl}}/theme/remui/pix/feedback_easy.svg"
+                }
+            ]
+        }
+    }
+}

@@ -1,0 +1,68 @@
+{{!
+    This file is part of Moodle - http://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+    GNU General Public License for more details.
+
+    Edwiser RemUI
+    @package theme_remui
+    @copyright (c) 2023 WisdmLabs (https://wisdmlabs.com/)
+    @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+
+}}
+{{!
+    @template theme_remui/enrol_coursecontentmenu
+}}
+
+<div class="accordion" id="courseContentAccordion">
+    <ul class="accordion-list-group">
+        {{#sections}}
+            <li class="accordion-list-item accordion-bb {{^sectionactive}}collapsed{{/sectionactive}}" id="heading{{index}}" data-toggle="collapse" data-target="#collapse{{index}}" aria-expanded="true" aria-controls="collapse{{index}}">
+                {{name}}
+                <span class="edw-icon edw-icon-Down-Arrow large"></span>
+            </li>
+            {{#hasactivity}}
+            <div id="collapse{{index}}" class="collapse {{#sectionactive}}show{{/sectionactive}} p-pl-2" aria-labelledby="heading{{index}}" data-parent="#courseContentAccordion">
+                <ul class="accordion-list-group">
+                    {{#activities}}
+                        {{^delegatesection}}
+                        <li class="accordion-list-item d-flex flex-gap-2 justify-content-start">
+                            <img src="{{icon}}">
+                            {{name}}
+                        </li>
+                        {{/delegatesection}}
+
+                        {{#delegatesection}}
+                        <div class="subsection-wrapper">
+                            <li class="accordion-list-item accordion-bb {{^sectionactive}}collapsed{{/sectionactive}}" id="heading{{index}}" data-toggle="collapse" data-target="#collapse{{index}}" aria-expanded="true" aria-controls="collapse{{index}}">
+                                {{name}}
+                                <span class="edw-icon edw-icon-Down-Arrow large"></span>
+                            </li>
+                            {{#hasactivity}}
+                            <div id="collapse{{index}}" class="collapse {{#sectionactive}}show{{/sectionactive}} p-pl-2" aria-labelledby="heading{{index}}" >
+                                <ul class="accordion-list-group">
+                                    {{#inneractivities}}
+                                    <li class="accordion-list-item d-flex flex-gap-2 justify-content-start">
+                                        <img src="{{icon}}">
+                                        {{name}}
+                                    </li>
+                                    {{/inneractivities}}
+                                </ul>
+                            </div>
+                            {{/hasactivity}}
+                        </div>
+                        {{/delegatesection}}
+                    {{/activities}}
+                </ul>
+            </div>
+            {{/hasactivity}}
+        {{/sections}}
+    </ul>
+</div>

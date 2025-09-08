@@ -1,0 +1,40 @@
+<div class="edwfilter-note-container">
+    <div class="edwfilter-note">
+            {{#str}}note, block_edwiseradvancedblock{{/str}} <span>
+            {{#edwiserpbfavailable}}
+                {{#str}}not_enable_edwiserpbf, block_edwiseradvancedblock{{/str}}
+                <a href="{{wwwroot}}/admin/filters.php">{{#str}}go_here, block_edwiseradvancedblock{{/str}}</a>
+                {{/edwiserpbfavailable}}
+                {{^edwiserpbfavailable}}
+                {{#str}}not_installed_edwiserpbf, block_edwiseradvancedblock{{/str}}
+                {{/edwiserpbfavailable}}
+            </span>
+    </div>
+</div>
+
+<style>
+
+    .edwfilter-note-container {
+        padding: 10px 40px 40px;
+    }
+
+    .edwfilter-note{
+        font-weight: 700;
+        font-size: 16px;
+        color: rgba(0, 0, 0, 0.8);
+        line-height: 150%;
+        letter-spacing: -1.1%;
+        max-width: 980px;
+        padding: 16px 24px;
+        border-radius: 5px;
+        background-color: rgba(254, 245, 231, 1);
+        margin: 0 auto;
+    }
+
+    .edwfilter-note > span{
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 150%;
+        letter-spacing: -1.1%;
+    }
+</style>

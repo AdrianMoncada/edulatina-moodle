@@ -1,0 +1,626 @@
+$header-searchfied-icon-gap : map-get($gapspace , '4');
+$contact-list-gap:map-get($gapspace , '4');
+$avatar-icon-height:48px;
+$avatar-icon-width:48px;
+$msg-panel-padding-bottom-tab:14px;
+$msg-panel-badge-height:24px;
+$msg-panel-badge-width:23px;
+$chat-image-height: 32px;
+$chat-image-width:32px;
+$message-info-gap :map-get($gapspace , '1');
+$message-clickable-icon-size:16px;
+$image-border-color:$gray-400;
+
+// it is used to style the icons of the messaging pannel
+@mixin edw-msg-icon-style($font-size, $height, $width) {
+    font-size: $font-size;
+    height: $height;
+    width: $width;
+}
+
+// it is used to design the badges
+@mixin edw-msg-pane-badge-styles($height:$msg-panel-badge-height, $width:$msg-panel-badge-width) {
+    @extend .small-info-semibold;
+    min-height: $height;
+    min-width: $width;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: $bg-small-ui;
+    color: $paragraph-color;
+    padding: map-get($spacerspx, '1');
+}
+// By remuiformate badge color is overridden so I add this css to prevent overriding
+body#page-course-view-remuiformat .nav-item .edw-msg-panel-badge {
+    background-color: $bg-small-ui;
+}
+
+@mixin edw-view-overview-msg-tabs {
+    .view-overview-body {
+        .tab-body-container {
+            .section {
+                min-height: unset !important
+            }
+
+            .msg-panel-tab {
+                background-color: transparent
+            }
+
+            .nav-item {
+                @extend .text-link-regular;
+                color: $paragraph-color;
+
+                &:focus,
+                &.expanded {
+                    cursor: pointer;
+                    font-weight: 600;
+                    color: $heading-color;
+                    border-bottom: 3px solid $brand-primary;
+                }
+
+                .nav-link {
+                    gap: map-get($gapspace , '8');
+                    padding: 0px 0px map-get($spacerspx, '4') 0px;
+                    border: none;
+
+                    &:hover {
+                        cursor: pointer;
+                        color: $heading-color;
+                        font-weight: 600;
+                    }
+                }
+            }
+        }
+    }
+    [data-region="empty-message-container"]{
+        // @extend .h-semibold-6;
+        @include get_typography(6, regular, all);
+        color: $paragraph-color;
+    }
+
+}
+
+[data-region="right-hand-drawer"] {
+    @include media-breakpoint-down(sm) {
+        max-width: 100%;
+    }
+}
+
+[data-region="section-unread-count"] , [data-region="unread-count"] .badge {
+    margin: 0;
+    padding: map-get($spacerspx, '1');
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    background-color: #dc3545;
+    color: #fff;
+    font-size: 11px;
+    line-height: 11px;
+    min-height: unset;
+    min-width: unset;
+}
+
+.message-app {
+
+    [data-region="contact-request-sent-message-container"]{
+        background-color: $white;
+        position: absolute !important;
+    }
+    &.main{
+        [data-region="contact-request-sent-message-container"]{
+            width: 100%;
+        }
+    }
+    @include media-breakpoint-down(sm) {
+        width: 100%;
+    }
+
+    .contact-status {
+        &.online{
+            position: absolute;
+            left: 32px;
+            top: 34px;
+            width: 14px;
+            height: 14px;
+            background-color: $brand-secondary;
+            border: 2px solid $white;
+            border-radius: 50%;
+        }
+    }
+
+    ::-webkit-scrollbar {
+        width: 6px;
+        border-radius: 10px;
+    }
+
+    /* Track */
+    ::-webkit-scrollbar-track {
+        background: $bg-small-ui;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background: $dark-border;
+        border: unset;
+        /* width of the entire scrollbar */
+    }
+
+    /// messaging page design
+    .conversationcontainer {
+        .edw-search-field {
+            height: max-content;
+        }
+
+        .panel-body-container {
+            @include edw-view-overview-msg-tabs;
+        }
+    }
+
+    .header-container {
+        .overview-header {
+            &:not(.hidden) {
+                display: flex;
+            }
+            gap: map-get($gapspace , '4');
+        }
+        .message-header-action-btns {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: map-get($gapspace , '4');
+            padding: map-get($spacerspx, '2');
+            .message-header-action-btn {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: $edw-icon-size-large;
+                height: $edw-icon-size-large;
+                a {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    height: 100%;
+                    width: 100%;
+                    text-decoration: none;
+                    min-width: fit-content;
+                }
+                .edw-icon {
+                    font-size: $edw-icon-size-large;
+                    color: $searchfield-icon-color;
+                }
+            }
+        }
+        .header-panel {
+            .panel-left {
+                display: flex;
+                gap: map-get($gapspace , '4');
+                .back-btn-panel {
+                    text-decoration: none;
+                    .icon-back-in-drawer,
+                    .icon-back-in-app {
+                        width: $edw-icon-size-large;
+                        height: $edw-icon-size-large;
+                        .edw-icon {
+                            font-size: $edw-icon-size-large;
+                            color: $ic-default;
+                        }
+                    }
+
+                    &.focus,
+                    &:focus {
+                        box-shadow: none;
+                    }
+                }
+                .profile-group {
+                    gap: map-get($gapspace , '4');
+                    .rounded-circle {
+                        width: $avatar-icon-height;
+                        height: $avatar-icon-height;
+                    }
+                    .profile-info {
+                        // Static as per design.
+                        height: 43px;
+                        justify-content: space-between;
+                        display: flex;
+                        flex-direction: column;
+                        .profile-name {
+                            color: $heading-color;
+                            max-width: 160px;
+                        }
+                        .profile-status {
+                            color: $small-text-cust-color;
+                        }
+                    }
+                }
+            }
+            .panel-right {
+                .header-inner-action {
+                    .edw-icon {
+                        font-size: 30px;
+                    }
+                }
+            }
+        }
+
+        .contacts-header-wrapper {
+            .msg-backicon-searchbox-wrapper {
+                gap: $header-searchfied-icon-gap;
+
+                .back-icon {
+                    .edw-icon {
+                        @include edw-msg-icon-style($msg-panel-icon-fontsize, $msg-panel-icon-height, $msg-panel-icon-width);
+                        color: $msg-panel-search-icon-color;
+                    }
+                }
+            }
+
+            .contact-searchicon {
+                & a {
+                    .edw-icon {
+                        @include edw-msg-icon-style($msg-panel-icon-fontsize, $msg-panel-icon-height, $msg-panel-icon-width);
+                        color: $msg-panel-search-icon-color;
+                    }
+                }
+
+            }
+        }
+
+        .msg-contact-header,
+        .msg-setting-header {
+            color: $heading-color;
+        }
+
+        .icon-back-in-drawer,
+        .icon-back-in-app {
+            .edw-icon {
+                @include edw-msg-icon-style($msg-panel-icon-fontsize, $msg-panel-icon-height, $msg-panel-icon-width);
+                color: $msg-panel-search-icon-color;
+            }
+        }
+
+        .view-setting-header-wrapper {
+            gap: $header-searchfied-icon-gap;
+
+            a {
+                text-decoration: none;
+            }
+        }
+
+        .view-search {
+            .view-search-header-wrapper {
+                gap: $header-searchfied-icon-gap;
+            }
+        }
+    }
+
+    .body-container {
+        .view-contacts-wrapper {
+            .contact-list-wrapper .contact-list-tab {
+                .nav-item {
+                    // width: 50%;
+
+                    .nav-link {
+                        display: flex;
+                        flex-direction: row;
+                        justify-content: center;
+                        align-items: center;
+                        color: $paragraph-color;
+                        text-align: center;
+                        gap: map-get($gapspace , 'd5');
+                        padding-bottom: $msg-panel-padding-bottom-tab;
+                        padding-top: 0px;
+                        //  height: $msg-panel-padding-bottom-tab + $msg-panel-badge-height;
+
+                        &.focus,
+                        &.active,
+                        &:focus,
+                        &:hover {
+                            color: $heading-color;
+                            font-weight: 600;
+                        }
+
+                        &.focus,
+                        &.active,
+                        &:focus {
+                            box-shadow: none;
+                            border-bottom: 3px solid $brand-primary;
+                        }
+                    }
+                }
+            }
+        }
+
+        .msg-panel-setting-wrapper {
+
+            color: $paragraph-color;
+
+            .msg-setting-privacy-wrapper,
+            .msg-notification-preference-wrapper,
+            .general-setting-wrapper {
+                display: flex;
+                flex-direction: column;
+                gap: map-get($gapspace , '4');
+                border-top: 1px solid $light-border;
+
+                .msg-setting-privacy-header {
+                    gap: map-get($gapspace , '1');
+
+                    .msg-panel-privacydesc {
+                        // @extend .h-regular-6;
+                        @include get_typography(6, regular, all);
+                        line-height: 20px;
+                        color:$paragraph-color;
+                    }
+                }
+
+                .msg-setting-privacy-content fieldset {
+                    display: flex;
+                    flex-direction: column;
+                    gap: map-get($gapspace , '4');
+                }
+
+                .setting-header {
+                    color: $heading-color;
+                }
+            }
+
+            [data-preference="notifications"],
+            [data-preference="entertosend"],
+            [data-preference="blocknoncontacts"] {
+                div.custom-control {
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    gap: map-get($gapspace, "1");
+                }
+            }
+
+        }
+
+        // It will design the messagin tabs
+        @include edw-view-overview-msg-tabs;
+        [data-region="content-container"] {
+            a{
+                text-decoration: none;
+                box-shadow: none;
+            }
+            .icon-back-in-drawer{
+                span{
+                    justify-content: start !important;
+                    .edw-icon{
+                        font-size: $edw-icon-size-large;
+                    }
+                }
+            }
+        }
+    }
+    [data-region="confirm-dialogue-container"] {
+        [data-region="confirm-dialogue"] {
+            border: 0px;
+            border-radius: 4px;
+
+            [data-region="dialogue-text"] {
+                color: $paragraph-color;
+            }
+        }
+    }
+    .view-conversation {
+        border-top: 1px solid $light-border;
+
+        [data-region="day-container"] {
+            .day {
+                color: $heading-color;
+            }
+        }
+
+        .content-message-container {
+            img {
+                max-width: 100%;
+            }
+
+            [data-region="day-messages-container"] {
+                display: flex;
+                flex-direction: column;
+                gap: 17px;
+
+                .message {
+                    background-color: unset;
+                }
+
+                // it will style the send messages
+                .send, .received {
+                    [data-region="text-container"] {
+                        color: $paragraph-color;
+                        background-color: $bg-small-ui;
+                        width: fit-content;
+                        max-width: 100%;
+                        margin-right: $message-info-gap + $chat-image-width;
+                        margin-left: $message-info-gap + $chat-image-width;
+                        word-break: break-word;
+                        
+                        &:hover {
+                            filter: drop-shadow(map-get($box-shadows-values, xs));
+                        }
+
+                        p {
+                            @extend .para-regular-2;
+                        }
+                    }
+
+                    .messager-info {
+                        gap: $message-info-gap;
+                        height: $chat-image-height;
+
+                        .time {
+                            color: $small-text-cust-color;
+                        }
+
+                        .messager-img-container {
+                            img {
+                                height: $chat-image-height;
+                                width: $chat-image-width;
+                            }
+                        }
+                    }
+
+                }
+
+                .send {
+                    [data-region="text-container"] {
+                        border-radius: 8px 0 8px 8px;
+                        align-self: flex-end;
+                    }
+                    .messager-info {
+                        justify-content: flex-start;
+                        flex-direction: row-reverse;
+                    }
+                }
+
+                .received {
+                    [data-region="text-container"] {
+                        border-radius: 0 8px 8px 8px;
+                        align-self: flex-start;
+                    }
+                    .messager-info { align-self: flex-start; }
+                }
+
+                .messager-info {
+                    span.edw-icon {
+                        font-size: $message-clickable-icon-size;
+                        height: $message-clickable-icon-size;
+                        width: $message-clickable-icon-size;
+                        font-weight: 600;
+                        color: $ic-default;
+                    }
+                }
+
+                @include media-breakpoint-down(xs) {
+                    .send [data-region="text-container"] { 
+                        margin-left: ($message-info-gap + $chat-image-width)/2; 
+                    }
+                    .received [data-region="text-container"] { 
+                        margin-right: ($message-info-gap + $chat-image-width)/2; 
+                    }
+                }
+            }
+        }
+    }
+    .footer-container {
+        [data-region="content-messages-footer-container"] {
+            border-top: 1px solid $light-border;
+        }
+        [data-action="toggle-emoji-picker"] {
+            width: $edw-icon-size-large;
+            height: $edw-icon-size-large;
+            .edw-icon.edw-icon-Smile_2 {
+                font-size: $edw-icon-size-large;
+                color: $ic-default;
+            }
+        }
+        .footer-input-btn-wrapper{
+            padding: map-get($spacerspx, '3') map-get($spacerspx, '2d5');
+            border: 1px solid $light-border;
+            border-radius: 4px;
+        }
+        [data-action="send-message"] {
+            display: flex;
+            background-color: transparent !important;
+            .edw-icon {
+                font-size: 16px;
+                height: 16px;
+                width: 16px;
+                color: $ic-default;
+            }
+        }
+        [data-region="send-message-txt"] {
+            // @extend .h-regular-6;
+            @include get_typography(6, regular, all);
+            color: $small-text-cust-color;
+        }
+        [data-region="view-overview"]{
+            @include media-breakpoint-down(sm){
+                display: none;
+            }
+        }
+    }
+}
+
+.dir-rtl {
+    .message-app {
+        .dir-ltr-hide {
+            display: flex;
+        }
+    }
+}
+
+.dir-ltr {
+    .message-app {
+        .dir-rtl-hide {
+            display: flex;
+        }
+    }
+}
+// It is used to style the common list structure in msg panel
+.edw-msg-body-list {
+    display: flex;
+    gap: $contact-list-gap;
+    padding: map-get($spacerspx, '6');
+
+    .list-group-item {
+        padding: 0px;
+        gap: $contact-list-gap;
+        align-items: center;
+
+        &:hover {
+            color: $brand-primary !important;
+            background-color: transparent !important;
+        }
+
+        img.rounded-circle {
+            height: $avatar-icon-height;
+            width: $avatar-icon-width;
+            border: 2px solid $image-border-color;
+        }
+
+        .chat-items-wrapper {
+            display: flex;
+            flex-direction: column;
+            gap: map-get($gapspace , 'd5');
+
+            .name-icon-wrapper {
+                gap: map-get($gapspace , 'd5');
+            }
+        }
+
+        .chat-content-text {
+            color: $paragraph-color;
+        }
+
+        .contact-user-name {
+            color: $heading-color;
+
+            &:hover {
+                color: $brand-primary !important;
+            }
+        }
+
+        [data-region="last-message-date"] {
+            color: $small-text-cust-color;
+            line-height: 24px;
+        }
+
+        .last-message {
+            min-height: unset
+        }
+        .date-messagecount-wrapper{
+            height: $avatar-icon-height;
+        }
+
+    }
+}
+
+.edw-msg-panel-badge {
+    @include edw-msg-pane-badge-styles();
+}
+.edw-header-color{
+    color: $heading-color;
+}

@@ -1,0 +1,76 @@
+{{!
+    This file is part of Moodle - http://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+}}
+{{#canview}}
+<div id="courseprogress-{{uniqid}}" class="course-progress-wrapper">
+<div style="width: fit-content;" class='course-progress-settings d-none flex-wrap {{#alwaysload}} always-loading {{/alwaysload}}'>
+    <div class="form-check d-flex" title="{{#str}} alwaysloaddesc, local_edwiserpagebuilder {{/str}}">
+        <input type="checkbox" class="form-check-input d-flex align-self-center" id="always-load-progress" {{#alwaysload}} checked
+            {{/alwaysload}}>
+        <label class="form-check-label p-ml-2" for="always-load-progress">{{#str}} alwaysload, local_edwiserpagebuilder {{/str}}</label>
+    </div>
+    <button class="btn btn-primary " id="load-progress"
+        title="{{#str}} loadcourseprogressdesc, local_edwiserpagebuilder {{/str}}">{{#str}} loadcourseprogress, local_edwiserpagebuilder
+        {{/str}}</button>
+</div>
+<div class="block-processing d-none">
+    <div class="block-processing-icon"><i class="fa fa-circle-o-notch fa-spin"></i></div>
+</div>
+<div class="course-progress-block" id="course-progress-{{uniqid}}">
+    <table id="DataTables_Teacher" class="dataTable">
+        <thead>
+            <tr role="row">
+            <th>#</th>
+            <th>{{#str}}courses, moodle{{/str}}</th>
+            <th>{{#str}}coursestartdate, local_edwiserpagebuilder{{/str}}</th>
+            <th>{{#str}}enrolledstudents, local_edwiserpagebuilder{{/str}}</th>
+            <th style="width: 100px;">{{#str}}progress, local_edwiserpagebuilder{{/str}}</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{> local_edwiserpagebuilder/remuiblck/placeholder-course-progress }}
+            {{> local_edwiserpagebuilder/remuiblck/placeholder-course-progress }}
+            {{> local_edwiserpagebuilder/remuiblck/placeholder-course-progress }}
+            {{> local_edwiserpagebuilder/remuiblck/placeholder-course-progress }}
+            {{> local_edwiserpagebuilder/remuiblck/placeholder-course-progress }}
+            {{> local_edwiserpagebuilder/remuiblck/placeholder-course-progress }}
+        </tbody>
+    </table>
+    <div class="student_progress_ele">
+    </div>
+</div>
+<div>
+
+{{#js}}
+require(['local_edwiserpagebuilder/remuiblck/course_progress'], function(courseprogress) {
+  courseprogress.init('#courseprogress-{{uniqid}}', {{{alwaysloadwarning}}}, "{{uniqid}}");
+});
+{{/js}}
+{{/canview}}
+
+{{^canview}}
+  {{#editing}}
+  <div class="warning-mess-wrapper">
+    <div class="warning-mess-box">
+      <img src="{{{warningicon}}}" alt="" class="warning-img" />
+      <p class="warning-mess">{{#str}}availableonlyadminteacher, local_edwiserpagebuilder{{/str}}</p>
+    </div>
+  </div>
+  {{/editing}}
+  {{^editing}}
+    <span class="only-available-for-admins-and-managers"></span>
+  {{/editing}}
+{{/canview}}

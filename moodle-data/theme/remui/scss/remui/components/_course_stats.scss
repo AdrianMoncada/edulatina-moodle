@@ -1,0 +1,76 @@
+$stat-wrapper-pad: 24px !default;
+$stat-wrapper-pad-sm: 16px !default;
+$stat-wrapper-bg: $white !default;
+$stat-wrapper-border-rad: 24px;
+$stat-wrapper-border-rad-md: 16px;
+$stat-wrapper-box-shadow: map-get($box-shadows-values, xs);
+
+.edw-stats-wrapper {
+    display: flex;
+    // grid-template-columns: repeat(4,1fr);
+    gap: map-get($gapspace, '6');
+    justify-content: space-evenly;
+    padding: $stat-wrapper-pad;
+    background-color: $stat-wrapper-bg;
+    border-radius: $stat-wrapper-border-rad;
+    box-shadow: $stat-wrapper-box-shadow;
+    margin-bottom: map-get($spacerspx, 8);
+    @include media-breakpoint-down(lg) {
+        border-radius: $stat-wrapper-border-rad-md;
+    }
+    .stats-mb-devices{
+        display: none;
+        @include media-breakpoint-down(lg){
+            display: flex;
+            flex-direction: column;
+            gap: map-get($gapspace, '6');
+            .stat-block{
+                display: flex;
+            }
+        }
+    }
+    .stat-block {
+        width: fit-content;
+        @include media-breakpoint-down(lg){
+            display: none;
+        }
+        .inner {
+            display: flex;
+            gap: 24px;
+            align-items: center;
+            @include media-breakpoint-down(md) {
+                gap: 8px;
+                .info-container span.h-exbold-2 {
+                    line-height: 24px;
+                }
+            }
+            @include media-breakpoint-down(sm) {
+                align-items: start;
+                flex-direction: column;
+            }
+            .edw-icon {
+                font-size: 44px;
+                display: flex;
+                @include media-breakpoint-down(sm) {
+                    font-size: $edw-icon-size-ex-large;
+                }
+                color: $ic-secondary;
+            }
+        }
+    }
+}
+body.limitedwidth{
+    .edw-stats-wrapper{
+        .stat-block{
+            display: none;
+        }
+        .stats-mb-devices{
+            display: flex;
+            flex-direction: column;
+            gap: map-get($gapspace, '6');
+            .stat-block{
+                display: flex;
+            }
+        }
+    }
+}

@@ -1,0 +1,136 @@
+{{!
+  This file is part of Moodle - http://moodle.org/
+
+  Moodle is free software: you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation, either version 3 of the License, or
+  (at your option) any later version.
+
+  Moodle is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+  GNU General Public License for more details.
+
+  Edwiser RemUI
+  @package theme_remui
+  @copyright (c) 2023 WisdmLabs (https://wisdmlabs.com/)
+  @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+
+}}
+{{!
+  @template theme_remui/profile_about_me
+}}
+<section>
+  <div class="bg-white about-me-edit-icon-wrapper">
+    <div class="edit-profile-icon-wrapper">
+      {{#haseditpermission}}
+      {{^ notcurrentuser }}
+      <span class="edw-icon edw-icon-Edit"></span>
+      <span class="edw-icon edw-icon-Cancel d-none" id="btn-canel-changes"></span>
+      {{/ notcurrentuser }}
+      {{/haseditpermission}}
+    </div>
+    <div class="profile-about-me-wrapper">
+      <div class="profile-item-row">
+        <div class="profile-item-col">
+          <div class="profile-info-item-wrapper">
+            <p class="m-0 info-label text-link-semibold">{{# str }} firstname, theme_remui {{/ str }}</p>
+            <p class=" m-0 profile-user-info text-link-regular prof-user-firstname">{{ firstname }}</p>
+          </div>
+        </div>
+
+        <div class="profile-item-col">
+          <div class="profile-info-item-wrapper">
+            <p class="m-0 info-label text-link-semibold">{{# str }} lastname, theme_remui {{/ str }}</p>
+            <p class=" m-0 profile-user-info text-link-regular prof-user-lastname">{{ lastname }}</p>
+          </div>
+        </div>
+
+        <div class="profile-item-col {{^email}}d-none{{/email}}">
+          <div class="profile-info-item-wrapper">
+            <p class="m-0 info-label text-link-semibold">{{# str }} email, moodle {{/ str }}</p>
+            <p class=" m-0 profile-user-info text-link-regular prof-user-email">{{email}}</p>
+          </div>
+        </div>
+
+        <div class="profile-item-col {{^phone1}}d-none{{/phone1}}">
+          <div class="profile-info-item-wrapper">
+            <p class="m-0 info-label text-link-semibold">Phone</p>
+            <p class=" m-0 profile-user-info text-link-regular prof-user-phone">{{phone1}}</p>
+          </div>
+        </div>
+
+        <div class="profile-item-col {{^department}}d-none{{/department}}">
+          <div class="profile-info-item-wrapper">
+            <p class="m-0 info-label text-link-semibold">{{# str }} department, moodle {{/ str }}</p>
+            <p class=" m-0 profile-user-info text-link-regular prof-user-department">{{#department}}{{{department}}}, {{institution}}{{/department}}</p>
+          </div>
+        </div>
+        {{# hasinterests }}
+        <div class="profile-item-col">
+          <div class="profile-info-item-wrapper">
+            <p class="m-0 info-label text-link-semibold">{{# str }} interests, moodle {{/ str }}</p>
+            <div class="d-flex flex-wrap flex-gap-2 flex-wrap"> {{# hasinterests }}
+              {{# interests }}
+              <a href="{{{config.wwwroot}}}/tag/index.php?id={{id}}" class="badge badge-primary">{{ rawname }}
+              </a>
+              {{/ interests }}
+              {{/ hasinterests }}
+            </div>
+          </div>
+        </div>
+        {{/ hasinterests }}
+
+        <div class="profile-item-col {{^countryname}}d-none{{/countryname}}">
+          <div class="profile-info-item-wrapper">
+            <p class="m-0 info-label text-link-semibold">{{# str }} country, moodle {{/ str }}</p>
+            <p class="m-0 profile-user-info text-link-regular prof-user-country">{{countryname}}</p>
+          </div>
+        </div>
+
+        <div class="profile-item-col {{^city}}d-none{{/city}}">
+          <div class="profile-info-item-wrapper">
+            <p class="m-0 info-label text-link-semibold">{{# str }} city, moodle {{/ str }}</p>
+            <p class="m-0 profile-user-info text-link-regular prof-user-city">{{{city}}}</p>
+          </div>
+        </div>
+
+        <div class="profile-item-col {{^description}}d-none{{/description}}">
+          <div class="profile-info-item-wrapper">
+            <p class="m-0 info-label text-link-semibold">{{# str }} description, theme_remui {{/ str }}</p>
+            <div  class="m-0 profile-user-info text-link-regular ellipsis ellipsis-2 prof-user-desc">{{{description}}}</div>
+          </div>
+        </div>
+
+        <div class="profile-item-col {{^address}}d-none{{/address}}">
+          <div class="profile-info-item-wrapper">
+            <p class="m-0 info-label text-link-semibold">{{# str }} address, moodle {{/ str }}</p>
+            <p class=" mb-0 profile-user-info text-link-regular prof-user-address">{{address}}</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    {{> theme_remui/profile_edit_profile}}
+  </div>
+  {{# hasbadges }}
+  <div id="user-badges" class="badges-container bg-white">
+    <p class="m-0 p-p-6 badges-container-heading h-semibold-4">{{# str }} badgefrom, theme_remui,{{sitename}} {{/ str }}
+    </p>
+    <ul class="m-0 badge-grid">
+      {{# badges}}
+      <li >
+        <a href="{{ link }}" class="badge-item text-decoration-none">
+          <img src="{{ imageurl }}" alt="{{ name }}" loading="lazy"/>
+          <h6 class="m-0 h-semibold-6 ellipsis ellipsis-2 text-center" title="{{name}}">
+            {{name }}
+          </h6>
+        </a>
+      </li>
+
+      {{/ badges}}
+    </ul>
+  </div>
+  {{/ hasbadges }}
+</section>
+

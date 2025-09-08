@@ -1,0 +1,72 @@
+{{!
+    This file is part of Moodle - http://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+}}
+{{!
+    @template core/add_block_body_leftsidebar
+
+}}
+<div class ="left-sidebar">
+    {{#showsecondmenu}}
+    <div class="edw-tabs-navigation edwiser-custom-blocks-nav ">
+      <ul class="nav nav-tabs m-0 p-0 flex-nowrap" id="epbTab" role="tablist">
+        <li class="nav-item   " role="presentation">
+          <a class="nav-link d-flex flex-column align-items-center m-0  active"  id="static-blocks-btn" data-filter="block-filter"  data-toggle="tab"  data-bs-toggle="tab" href="#blocktab" role="tab" aria-controls="blocktab" aria-selected="true">
+            <span class="edw-icon edw-icon-block  "></span><span class="block-tab-title">{{#str}}staticblocks,local_edwiserpagebuilder{{/str}}</span></a>
+        </li>
+        <li class="nav-item  " role="presentation">
+          <a class="nav-link d-flex flex-column align-items-center m-0 " id="dynamic-blocks-btn" data-filter="dynamic-filter"  data-toggle="tab"  data-bs-toggle="tab" href="#blocktab" role="tab" aria-controls="blocktab" aria-selected="true">
+            <span class="edw-icon edw-icon-Dynamic-block  "></span><span class="block-tab-title">{{#str}}dynamicblocks,local_edwiserpagebuilder{{/str}}</span></a>
+        </li>
+        <li class="nav-item  " role="presentation">
+          <a class="nav-link d-flex flex-column align-items-center m-0 " id="layout-blocks-btn" data-filter="blocklayout-filter"  data-toggle="tab"  data-bs-toggle="tab" href="#blocktab" role="tab" aria-controls="blocktab" aria-selected="true">
+            <span class="edw-icon edw-icon-layout  "></span><span class="block-tab-title">{{#str}}layoutblocks,local_edwiserpagebuilder{{/str}}</span></a>
+        </li>
+      </ul>
+    </div>
+    {{/showsecondmenu}}
+    <div class=" block-cards default-blocks  default-blocks-wrapper static-blocks-wrapper">
+      {{#htmlblock}}
+          {{> local_edwiserpagebuilder/block_card }}
+      {{/htmlblock}}
+      {{#importblock}}
+          {{> local_edwiserpagebuilder/block_card }}
+      {{/importblock}}
+    </div>
+    <div class="left-sidebar-mid-region static-blocks-filters">
+      <ul class="block-category-list-desktop">
+          {{> local_edwiserpagebuilder/block_category_list_desktop }}
+      </ul>
+
+      <div class="dropdown  block-category-select-mob ">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="blockCategoryDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          {{#str}}staticallcategory, local_edwiserpagebuilder{{/str}}
+        </button>
+        <div class="dropdown-menu" aria-labelledby="blockCategoryDropdown">
+
+            {{> local_edwiserpagebuilder/block_category_select_mob }}
+        </div>
+      </div>
+    </div>
+    <div class="left-sidebar-bottom-region">
+        <div class="action-buttons-modal">
+          <button type="button" class="btn btn-secondary update updateblocklist btn-sm" data-action="updateblocklist" aria-label="Update Block List" title="{{#str}}updateblocklistonly, local_edwiserpagebuilder{{/str}}">
+            <i class=" fa edw-icon edw-icon-Refresh mr-1"></i>
+              <span>{{#str}}Checkforupdate, local_edwiserpagebuilder{{/str}}</span>
+          </button>
+          <input type="hidden" name="edwpageurl" value="{{edwpageurl}}">
+      </div>
+    </div>
+</div>

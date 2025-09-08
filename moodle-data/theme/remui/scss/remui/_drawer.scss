@@ -1,0 +1,378 @@
+$toggler-icon-size: 24px;
+$toggler-icon-fsize: 22px;
+$drawer-toggler-width: 42px;
+$drawer-toggler-height: 50px;
+$l-sidebar-padding-x:24px;
+$l-sidebar-padding-y:10px;
+$l-sidebar-innerele-padding-y: 4px;
+$l-sidebar-ele-br: 8px;
+// $l-sidebar-padding-y-sm:10px;
+$courseindex-section-title-color: $header-text-default;
+$courseindex-section-pageitem-color: $heading-color;
+$courseindex-section-title-bg: rgba($brand-primary, 10%);
+$courseindex-section-title-border: 1px solid rgba($brand-primary, 30%);
+
+// Mixin
+@mixin drawer-display($property) {
+    @if $property == block {
+      display: flex !important;
+    } @else {
+      display: $property !important;
+    }
+}
+
+.drawer {
+    @include get-drop-shadow(xs);
+
+    &.drawer-left{
+        .drawercontent .list-group{
+            .list-group-item{
+                @include get_typography(4,semibold, mobile);
+            }
+        }
+
+        .drawerheader{
+            position: relative;
+        }
+
+        &#theme_remui-drawers-courseindex{
+            .drawerheader{
+                justify-content: flex-end;
+            }
+        }
+
+        &#theme_remui-drawers-primary{
+            .drawerheader{
+                .drawertoggle{
+                    position: absolute;
+                    margin-right:  map-get($spacerspx,6);
+                    right: 0px;
+                }
+
+                .navbar-brand{
+                    display: none;
+                }
+            }
+
+            @include media-breakpoint-down(sm){
+                width: 320px;
+
+                .drawerheader {
+                    height: unset;
+                    padding: 0;
+                    align-items: center;
+                    gap: map-get($gapspace, 4);
+
+                    .navbar-brand {
+                      display: flex;
+                      padding: map-get($spacerspx, 6);
+
+                      .navbar-brand-logo {
+                        width: 100%;
+                        font-size: 1.171rem;
+                      }
+                    }
+                }
+            }
+        }
+
+        .drawerheader {
+            .drawertoggle  {
+                margin-right: auto;
+            }
+        }
+
+        .list-group a {
+            &.recentcourses {
+                @include drawer-display($show-recentcourses);
+            }
+            &.coursecat {
+                @include drawer-display($show-coursecat);
+            }
+            &.myhome {
+                display: $hide-dashboard;
+            }
+            &.home {
+                 display: $hide-home;
+                }
+            &.mycourses {
+                display: $hide-my-courses;
+            }
+            &.siteadminnod {
+                display: $hide-site-admin;
+            }
+        }
+    }
+
+    &.drawer-right,&#theme_remui-drawers-courseindex{
+        .drawerheader{
+            .navbar-brand{
+                display: none !important;
+            }
+        }
+
+        .drawerheadercontent {
+	      &:not(:has(:first-child)) {
+		   margin: unset !important;
+	      }
+	  }
+    }
+}
+
+.ai-drawer {
+    @include get-drop-shadow(xs);
+    width: $drawer-right-width;
+    max-width: $drawer-right-width;
+    background-color: $white;
+}
+
+.drawer-toggler {
+    .btn {
+        width: $drawer-toggler-width;
+        height: $drawer-toggler-height;
+    }
+    .edw-icon {
+        // color: $dic-white-bg;
+        font-size: $toggler-icon-fsize;
+        width: $toggler-icon-size;
+        height: $toggler-icon-size;
+    }
+}
+.drawercontent::-webkit-scrollbar {
+    display: none;
+}
+.remui-notification {
+    .drawer-toggles {
+        .drawer-toggler {
+            top: calc(#{$navbar-height} + 7rem);
+        }
+    }
+}
+
+#theme_remui-drawers-courseindex {
+    @include media-breakpoint-down(sm) {
+        width: 100%;
+    }
+    .pageitem{
+        color: $courseindex-section-pageitem-color !important;
+
+        .edw-icon,.icon{
+            color: inherit !important;
+        }
+    }
+    .courseindex-section-title.pageitem {
+        background-color: rgba($brand-primary, 0.5) !important;
+      }
+      .courseindex-item.pageitem {
+        .edw-section-content-wrapper {
+          .courseindex-link {
+            font-weight: 700 !important;
+          }
+        }
+      }
+
+    .drawerheader {
+        padding: $l-sidebar-padding-y $l-sidebar-padding-x;
+        display: flex;
+        justify-content: start;
+        height: fit-content;
+    }
+
+    .drawercontent {
+        padding: 0px $l-sidebar-padding-x $l-sidebar-padding-x $l-sidebar-padding-x;
+
+        #courseindex {
+            #courseindex-content {
+                padding: 0;
+
+                .courseindex {
+                    .course-heading {
+                        color: #000000;
+                    }
+
+                    .courseindex-section {
+                        box-shadow: unset;
+                        border-radius: $l-sidebar-ele-br;
+                        border: $courseindex-section-title-border;
+                        &:not(:last-child) {
+                            margin-bottom: 3px;
+                        }
+
+                        .courseindex-section-title {
+                            padding: $l-sidebar-padding-y $l-sidebar-padding-x;
+                            color: $courseindex-section-title-color;
+                            background-color: $courseindex-section-title-bg;
+                            border-radius: 0px;
+                            // border-bottom: 1px solid $medium-border;
+                            justify-content: space-between;
+
+                            a {
+                                color:inherit;
+                            }
+
+                            .edw-title-icon-wrapper {
+                                display: flex;
+                                gap: map-get($gapspace, "d5");
+                                align-items: center;
+                                span {
+                                    height: $edw-icon-size-large;
+                                }
+                            }
+
+                            .edw-icon,
+                            .fa-lock {
+                                font-size: $edw-icon-size-large;
+                                height: $edw-icon-size-large;
+                                width: $edw-icon-size-large;
+                                color: $ic-default;
+                            }
+                        }
+
+                        .courseindex-item-content {
+                            padding: 0px;
+                            border-radius: unset;
+
+                            .courseindex-sectioncontent {
+                                padding: 10px 0;
+                                .courseindex-item {
+                                    padding: $l-sidebar-innerele-padding-y $l-sidebar-padding-x;
+                                    color: $paragraph-color;
+                                    display: flex;
+                                    justify-content: space-between;
+                                    border-radius: unset;
+                                    // border-bottom: 1px solid $light-border;
+                                    &.indented{
+                                        margin-left: 1rem;
+                                    }
+
+                                    &:focus {
+                                        box-shadow: none;
+                                    }
+
+                                    .edw-section-content-wrapper {
+                                        display: flex;
+                                        position: relative;
+                                        .completioninfo {
+                                            min-width: unset;
+                                            position: absolute;
+                                            left: 0;
+                                            .icon {
+                                                margin: unset;
+                                                // Adjusted bullet size to match that of the Boost theme.
+                                                // height: 100%;
+                                                // width: 100%;
+                                                height: 16px;
+                                                width: 20px;
+
+                                                // &.fa-circle {
+                                                //     color: $brand-secondary;
+                                                // }
+                                            }
+
+                                            &.completion_complete {
+                                                .icon.fa.fa-circle {
+                                                    &::before {
+                                                        content: "\f00c"; // This is the unicode for fa-check
+                                                        font-family: "Font Awesome 6 Free";
+                                                        font-weight: 900;
+                                                    }
+                                                    font-size: 16px;
+                                                    color: $success;
+                                                }
+                                            }
+                                        }
+                                        .courseindex-link,.courseindex-name {
+                                            margin-left: 18px;
+                                        }
+                                    }
+
+                                    .edw-section-content-icon-wrapper {
+                                        display: flex;
+                                        gap: map-get($gapspace, "d5");
+                                        span {
+                                            height: $edw-icon-size-large;
+                                        }
+                                    }
+
+                                    .edw-icon,
+                                    .fa-lock {
+                                        font-size: 18px;
+                                        height: 18px;
+                                        width: 18px;
+                                        color: $ic-default;
+                                    }
+                                }
+
+                                // .courseindex-item:hover {
+                                //     .courseindex-section.delegated-section {
+                                //         .courseindex-link:not(:hover) {
+                                //             color: $paragraph-color;
+                                //         }
+                                //     }
+                                // }
+
+                                .courseindex-item:has(.courseindex-section.delegated-section) {
+                                    &:hover {
+                                        .courseindex-item-content {
+                                            .courseindex-link {
+                                                color: var(--bs-secondary-color);
+                                            }
+                                        }
+                                    }
+
+                                    .courseindex-item-content {
+                                        .courseindex-item:hover {
+                                            .courseindex-link {
+                                                color: $black;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    .courseindex-section.delegated-section {
+                        border: unset;
+                        overflow: hidden;
+
+                        margin-bottom: 5px;
+                        .courseindex-section-title {
+                            padding-left: 16px !important;
+                            padding-right: 16px !important;
+                        }
+
+                        .courseindex-item-content {
+                            background-color: $courseindex-section-title-bg;
+
+                            .courseindex-sectioncontent {
+                                padding-top: 0;
+
+
+                            }
+                        }
+
+                        // .courseindex-sectioncontent:not(:has(:nth-child(1))) {
+                        //     display: none !important;
+                        // }
+
+                    }
+
+                }
+            }
+        }
+    }
+}
+
+body.edw-m402,
+body.edw-m403 {
+    .drawer {
+        &.drawer-left {
+            .drawerheader {
+                .drawertoggle {
+                    margin-right: unset;
+                }
+            }
+        }
+    }
+}

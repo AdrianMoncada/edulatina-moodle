@@ -1,0 +1,395 @@
+$navbar-nav-gap: map-get($gapspace , '6');
+$navbar-nav-gap-mobile: map-get($gapspace , '4');
+$dropdown-icon-size: $edw-icon-size-large;
+$navbar-logo-bg-color: $white !default;
+$navbar-logo-max-width:240px;
+$navbar-shadow: true !default;
+$navbar-shadow-size: 0.813rem !default;
+$navbar-shadow-blur: 2.313rem !default;
+$navbar-shadow-color: rgba(92, 107, 121, 0.1) !default;
+
+@import './components/nav_search';
+
+body.transparent-header:not(body.latest-frontpage.transparent-header){
+    .navbar{
+        box-shadow: unset;
+        &.trasnparent-home-nav{
+            background-color: transparent !important;
+            .sub-nav{
+                background-color: transparent !important;
+            }
+            .navbar-brand{
+                background-color: transparent !important;
+            }
+        }
+    }
+    #page{
+        margin-top: 0px !important;
+        background-color: transparent;
+    }
+    &.editing{
+        #block-region-full-width-top{
+            section.block:first-child{
+                .block-body-wrapper{
+                    position: relative;
+                    .block-header-wrapper{
+                        position: absolute;
+                        z-index: 5;
+                        top: $navbar-height;
+                        right: 40px;
+
+                        .controls-wrapper {
+                            padding-right: 10px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.navbar {
+    background-color: $bg-header;
+    padding : 0px;
+    @if $navbar-shadow != false {
+        box-shadow: 0 $navbar-shadow-size $navbar-shadow-blur $navbar-shadow-color;
+    }
+    [data-key="myhome"] {
+        display: $hide-dashboard;
+    }
+    [data-key="home"] {
+        display: $hide-home;
+    }
+    [data-key="mycourses"] {
+        display: $hide-my-courses;
+    }
+    [data-key="siteadminnode"] {
+        display: $hide-site-admin;
+    }
+    [data-key="coursecat"] {
+        display: $show-coursecat;
+    }
+    [data-key="recentcourses"] {
+        display: $show-recentcourses;
+        .dropdown-menu{
+            min-width: 388px;
+            .dropdown-item{
+                white-space: normal;
+                word-break: break-word;
+            }
+        }
+    }
+    #usernavigation {
+        .userinitials {
+            width: $navbar-avatar-size;
+            height: $navbar-avatar-size;
+            font-size: 16px;
+            font-weight: 600;
+            color: $navbar-userinitials-color;
+            @media only screen and (max-width: $custom-breakpoint-xs) {
+                width: $navbar-avatar-size-sm;
+                height: $navbar-avatar-size-sm;
+            }
+        }
+        // Rounded user pictures
+        .userpicture {
+            width: $navbar-avatar-size;
+            height: $navbar-avatar-size;
+            @media only screen and (max-width: $custom-breakpoint-xs) {
+                width: $navbar-avatar-size-sm;
+                height: $navbar-avatar-size-sm;
+            }
+        }
+        .divider {
+            width: 1px;
+            background-color: $header-menu-divider-bg-color;
+            border: 0;
+            opacity: 0.7;
+        }
+
+        // Old code
+        // .popover-region:not(.collapsed) .popover-region-toggle .edw-icon {
+        //     color: $hds-icon-active-color;
+        // }
+
+        .nav-link:focus{
+            .edw-icon{
+                color: $hds-icon-active-color;
+            }
+        }
+        .popover-region .nav-link:hover{
+            color: $hds-icon-hover-color;;
+        }
+    }
+    .sub-nav {
+        .primary-navigation,
+        #usernavigation .edwiser-navigation,
+        #user-action-menu,
+        .popover-region-container,
+        .simplesearchform input,
+        .simplesearchform input::placeholder {
+            font-family: $hds-menu-font-family;
+            font-size: #{$hds-menu-fontsize}px;
+            text-transform: $hds-menu-text-transform;
+            letter-spacing: $hds-menu-letter-spacing;
+            font-weight: $hds-menu-fontweight;
+        }
+    }
+    .primary-navigation {
+        .nav-link.active {
+            color: $header-menu-text-active-color;
+            &::before {
+                border-bottom-color: $header-menu-text-active-color;
+            }
+        }
+        // .nav-item.dropdown {
+        // background-color: $header-menu-element-bg-color;
+        // .dropdown-toggle {
+        //     background: transparent;
+        // }
+        // }
+        // To fix positioning issue of moremenu dropdown
+        .moremenu.navigation {
+            .nav-item.dropdownmoremenu {
+               .dropdown-menu.dropdown-menu-start {
+                  top: 100%;
+               }
+            }
+        }
+    }
+    .primary-navigation,
+    #usernavigation {
+        .nav-link,
+        .more-nav > .dropdown > .dropdown-toggle {
+            // background-color: $header-menu-element-bg-color;
+            color: $header-menu-text-color;
+            &:hover {
+                color: $header-menu-text-hover-color;
+            }
+            &:active {
+                color: $header-menu-text-active-color;
+            }
+        }
+    }
+    .custom-switch {
+        .custom-control-label::before {
+            background-color: $header-menu-element-bg-color;
+            // border-color: $header-menu-divider-bg-color;
+            border-color: #b5bcc7;
+        }
+        .custom-control-label::after {
+            // border-color: $header-menu-divider-bg-color;
+            border-color: #b5bcc7;
+        }
+        .custom-control-input {
+            &:checked {
+                & ~ .custom-control-label::before {
+                    background-color: #37be71;
+                }
+            }
+        }
+    }
+    .edw-icon {
+        font-size: $navbar-icon-size;
+        height: $navbar-icon-size;
+        width: $navbar-icon-size;
+        // color: $navbar-icon-color;
+        color: $hds-icon-color;
+        font-weight: 400;
+        &:hover {
+            color: $hds-icon-hover-color;
+        }
+    }
+    /*This is to handle Profile dropdown icons.*/
+    #user-action-menu {
+        // Quick fix for testing purpose only
+        top: 47px !important;
+        #usermenu-carousel {
+            .carousel-item {
+                transition: transform .1s ease-in-out;
+            }
+            #carousel-item-main {
+                .dropdown-item {
+                    display: flex;
+                    padding: $dropdown-iconitem-padding-y $dropdown-item-padding-x;
+                    align-items: center;
+                    gap: 8px;
+                }
+            }
+            .dropdown-divider {
+                margin-top: 0;
+            }
+        }
+    }
+
+    .popover-region-toggle {
+        .count-container {
+            right: -5px;
+        }
+    }
+    .usermenu-wrapper{
+        .usermenu-container{
+            .usermenu{
+                #user-menu-toggle{
+                    color: $header-menu-text-color;
+                    &:hover{
+                        color: $header-menu-text-hover-color;
+                    }
+                    &[aria-expanded="true"]:active {
+                        color: $header-menu-text-active-color;
+                    }
+                }
+            }
+        }
+    }
+    .dropdown-menu{
+        margin-top: map-get($spacerspx, '6');
+    }
+}
+
+.navbar-nav {
+    gap: $navbar-nav-gap;
+    .usermenu-wrapper {
+        gap: $navbar-nav-gap;
+        padding: 0 1px;
+    }
+    @include media-breakpoint-down(sm) {
+        gap: $navbar-nav-gap-mobile;
+        .usermenu-wrapper {
+            gap: map-get($gapspace, "4");
+        }
+    }
+    @media only screen and (max-width: $custom-breakpoint-xs) and (min-width:340px) {
+        gap: map-get($gapspace, "4");
+        #user-menu-toggle::after{
+            content: '';
+        }
+    }
+    @media only screen and (max-width: 340px) {
+        gap:map-get($gapspace, "1");
+        #user-menu-toggle::after{
+            content: '';
+        }
+    }
+}
+
+
+.navbar-brand{
+    padding: 0 map-get($gapspace, '4');
+    height: $navbar-height;
+    &.logo,.navbar-brand-logo {
+        max-height: 100%;
+        height: calc(#{$navbar-height} - #{$navbar-vertical-padding} - #{$navbar-vertical-padding});
+        display: flex;
+        align-items: center;
+    }
+}
+.dropdown {
+    .dropdown-item[aria-current="true"],
+    .dropdown-item.active {
+        background-color: $bg-small-ui;
+        color: $dropdown-link-color;
+    }
+    &.show {
+        > .dropdown-toggle {
+            color: $brand-primary;
+            background-color: $header-text-hover-backgroundcolor;
+        }
+    }
+}
+.dropdownmoremenu {
+    &:not(.d-none) {
+        display: flex;
+        align-items: center;
+    }
+    .dropdown-toggle.nav-link {
+        height: $dropdown-icon-size;
+        width: $dropdown-icon-size;
+        justify-content: center;
+        background: $header-menu-element-bg-color;
+        border-radius: 2px;
+        margin: 0 8px;
+        // &:hover {
+        //     background: $bg-header-ele;
+        // }
+        span {
+            // margin-top: -10px;
+            font-size: $edw-icon-size-large;
+        }
+
+        &::after {
+            display: none;
+        }
+    }
+}
+#user-menu-toggle {
+    padding: 0;
+}
+
+.primary-navigation .navigation .catselector-menu {
+    &.nav-link {
+        background-color: $header-menu-element-bg-color;
+        border-radius: 4px;
+        padding-left: map-get($spacerspx, '3');
+        padding-right: map-get($spacerspx, '3');
+        // &:hover {
+        //     background: $bg-header-ele;
+        // }
+    }
+    + .dropdown-menu {
+        max-height: 450px;
+        min-width: 450px;
+        max-width: 980px;
+        width: max-content;
+
+        @include media-breakpoint-down(lg) {
+            max-width: 700px;
+        }
+
+        .dropdown-item {
+            white-space: pre-wrap;
+        }
+        .catsearchfield {
+            position: sticky;
+            top: 0;
+            background-color: $white;
+        }
+    }
+}
+
+.navbar.right {
+    flex-direction: row-reverse;
+    .p-ml-md-8 {
+        margin-right: map-get($spacerspx, '8');
+        margin-left: 0;
+    }
+    .p-mr-4 {
+        margin-right: 0;
+        margin-left: map-get($spacerspx, '4');
+    }
+}
+.sub-nav {
+    padding: $navbar-padding-y $navbar-padding-x;
+}
+.sub-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: map-get($spacerspx, '4') map-get($spacerspx, '6');
+    background-color: $navbar-background-color;
+}
+.navbar-brand-logo {
+    font-size: $navbar-logo-text-size;
+    @include media-breakpoint-down(md) {
+        font-size: $navbar-logo-text-size-tablet;
+    }
+}
+.navbar-brand {
+    background-color: $navbar-logo-bg-color;
+}
+
+// Make navbar height available for non-sass use (in some place in core mustache file they have used --navbar-height.
+:root {
+    --navbar-height: #{$navbar-height};
+}

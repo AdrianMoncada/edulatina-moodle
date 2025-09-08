@@ -1,0 +1,54 @@
+// To style radios as per given icons.
+input[type="radio"] {
+    // &:not(.custom-control-input) {
+    // visibility: hidden;
+    width: $checkbox-font-size !important;
+    height: $checkbox-font-size;
+    // align-items: center;
+    line-height: 1;
+    margin-right: 15px;
+    display: inline-flex !important;
+    align-items: center;
+
+    // margin-right: 15px;
+
+     margin: 0 5px !important;
+     -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+
+    &.form-check-input {
+        margin-right: 15px;
+        border: unset;
+
+        &:checked {
+            background-color: unset;
+            border-color: unset;
+        }
+    }
+    // -moz-appearance: initial;
+    &:after {
+        font-family: $remui-icon-font-family;
+        visibility: visible;
+        font-size: $checkbox-font-size;
+        color: $ic-default;
+    }
+    &:checked:after {
+        content: "\3b";
+    }
+    &:not(:checked):after {
+        content: "\27";
+    }
+    // }
+}
+
+.que.multichoice .answer div.r0 input[type="radio"], .que.multichoice .answer div.r1 input[type="radio"] {
+    margin: 7px 15px 0 0;
+}
+
+#page-local-edwiserpagebuilder-editor {
+    input[type="radio"] {
+        visibility: hidden !important;
+        margin-right: 15px;
+    }
+}

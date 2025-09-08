@@ -1,0 +1,365 @@
+$type-weights: () !default;
+$type-weights: map-merge(
+    (
+        "regular" : $heading-regular-fontweight,
+        "semibold": $heading-semibold-fontweight,
+        "bold"  : $heading-bold-fontweight,
+        "exbold": $heading-exbold-fontweight
+    ),
+    $type-weights
+);
+
+// Desktop Line height
+$type-dlheight: () !default;
+$type-dlheight: map-merge(
+    (
+        1: 56px,
+        2: 42px,
+        3: 32px,
+        4: 28px,
+        5: 24px,
+        6: 22px,
+    ),
+    $type-dlheight
+);
+
+// Mobile Line height
+$type-mlheight: () !default;
+$type-mlheight: map-merge(
+    (
+        1: 42px,
+        2: 32px,
+        3: 28px,
+        4: 24px,
+        5: 22px,
+        6: 20px,
+    ),
+    $type-mlheight
+);
+
+// Desktop Font size
+$type-dfsize: () !default;
+$type-dfsize: map-merge(
+    (
+        1: $h1-font-size,
+        2: $h2-font-size,
+        3: $h3-font-size,
+        4: $h4-font-size,
+        5: $h5-font-size,
+        6: $h6-font-size,
+    ),
+    $type-dfsize
+);
+
+// Mobile Font size
+$type-mfsize: () !default;
+$type-mfsize: map-merge(
+    (
+        1: $font-size-base * 2.125,
+        2: $font-size-base * 1.5,
+        3: $font-size-base * 1.25,
+        4: $font-size-base,
+        5: $font-size-base * 0.875,
+        6: $font-size-base * 0.75,
+    ),
+    $type-mfsize
+);
+
+$heading-range: 7; // Need range upto 6
+
+@mixin edw-font-size($key) {
+    font-size: map-get($type-dfsize, $key);
+    line-height: map-get($type-dlheight, $key);
+
+    @include media-breakpoint-down(md) {
+        font-size: map-get($type-mfsize, $key);
+        line-height: map-get($type-mlheight, $key);
+    }
+}
+
+@mixin get_typography($heading, $type, $for) {
+    @if $for == desktop {
+        font-weight: map-get($type-weights, $type);
+        font-size: map-get($type-dfsize, $heading);
+        line-height: map-get($type-dlheight, $heading);
+    }
+    @if $for == mobile {
+        font-weight: map-get($type-weights, $type);
+        font-size: map-get($type-mfsize, $heading);
+        line-height: map-get($type-mlheight, $heading);
+    }
+    @if $for == all {
+        font-weight: map-get($type-weights, $type);
+        font-size: map-get($type-dfsize, $heading);
+        line-height: map-get($type-dlheight, $heading);
+
+        @include media-breakpoint-down (md) {
+            font-weight: map-get($type-weights, $type);
+            font-size: map-get($type-mfsize, $heading);
+            line-height: map-get($type-mlheight, $heading);
+        }
+    }
+}
+
+// h-<weight>-<number>
+@each $type, $weight in $type-weights {
+    .text-#{type} {
+        font-weight: $weight;
+    }
+    @for $i from 1 to $heading-range {
+        .h-#{$type}-#{$i} {
+            font-weight: $weight;
+            @include edw-font-size($i);
+        }
+    }
+}
+
+h1,
+.h1,
+.h-regular-1,
+.h-semibold-1,
+.h-bold-1,
+.h-exbold-1 {
+    // @include edw-font-size(1);
+    font-family: $heading-h1-font;
+    // font-weight: $heading-h1-fontweight;
+    @if $heading-h1-lineheight != null {
+        line-height: $heading-h1-lineheight;
+    }
+    text-transform: $heading-h1-texttransform;
+    color: $heading-h1-color;
+    font-size: #{$heading-h1-fontsize}rem;
+    @if $heading-h1-fontsize-tablet != null {
+        @include media-breakpoint-down(md) {
+            font-size: #{$heading-h1-fontsize-tablet}rem;
+        }
+    }
+}
+h2,
+.h2,
+.h-regular-2,
+.h-semibold-2,
+.h-bold-2,
+.h-exbold-2 {
+    // @include edw-font-size(2);
+    font-family: $heading-h2-font;
+    // font-weight: $heading-h2-fontweight;
+    @if $heading-h2-lineheight != null {
+        line-height: $heading-h2-lineheight;
+    }
+    text-transform: $heading-h2-texttransform;
+    color: $heading-h2-color;
+    font-size: #{$heading-h2-fontsize}rem;
+    @if $heading-h2-fontsize-tablet != null {
+        @include media-breakpoint-down(md) {
+            font-size: #{$heading-h2-fontsize-tablet}rem;
+        }
+    }
+}
+h3,
+.h3,
+.h-regular-3,
+.h-semibold-3,
+.h-bold-3,
+.h-exbold-3 {
+    // @include edw-font-size(3);
+    font-family: $heading-h3-font;
+    // font-weight: $heading-h3-fontweight;
+    @if $heading-h3-lineheight != null {
+        line-height: $heading-h3-lineheight;
+    }
+    text-transform: $heading-h3-texttransform;
+    color: $heading-h3-color;
+    font-size: #{$heading-h3-fontsize}rem;
+    @if $heading-h3-fontsize-tablet != null {
+        @include media-breakpoint-down(md) {
+            font-size: #{$heading-h3-fontsize-tablet}rem;
+        }
+    }
+}
+h4,
+.h4,
+.h-regular-4,
+.h-semibold-4,
+.h-bold-4,
+.h-exbold-4 {
+    // @include edw-font-size(4);
+    font-family: $heading-h4-font;
+    // font-weight: $heading-h4-fontweight;
+    @if $heading-h4-lineheight != null {
+        line-height: $heading-h4-lineheight;
+    }
+    text-transform: $heading-h4-texttransform;
+    color: $heading-h4-color;
+    font-size: #{$heading-h4-fontsize}rem;
+    @if $heading-h4-fontsize-tablet != null {
+        @include media-breakpoint-down(md) {
+            font-size: #{$heading-h4-fontsize-tablet}rem;
+        }
+    }
+}
+h5,
+.h5,
+.h-regular-5,
+.h-semibold-5,
+.h-bold-5,
+.h-exbold-5 {
+    // @include edw-font-size(5);
+    font-family: $heading-h5-font;
+    // font-weight: $heading-h5-fontweight;
+    @if $heading-h5-lineheight != null {
+        line-height: $heading-h5-lineheight;
+    }
+    text-transform: $heading-h5-texttransform;
+    color: $heading-h5-color;
+    font-size: #{$heading-h5-fontsize}rem;
+    @if $heading-h5-fontsize-tablet != null {
+        @include media-breakpoint-down(md) {
+            font-size: #{$heading-h5-fontsize-tablet}rem;
+        }
+    }
+}
+h6,
+.h6,
+.h-regular-6,
+.h-semibold-6,
+.h-bold-6,
+.h-exbold-6 {
+    // @include edw-font-size(6);
+    font-family: $heading-h6-font;
+    // font-weight: $heading-h6-fontweight;
+    @if $heading-h6-lineheight != null {
+        line-height: $heading-h6-lineheight;
+    }
+    text-transform: $heading-h6-texttransform;
+    color: $heading-h6-color;
+    font-size: #{$heading-h6-fontsize}rem;
+    @if $heading-h6-fontsize-tablet != null {
+        @include media-breakpoint-down(md) {
+            font-size: #{$heading-h6-fontsize-tablet}rem;
+        }
+    }
+}
+
+// Paragraph type - regular, bold, underline, sizes - 1, 2, 3
+$para-lineheights: () !default;
+$para-lineheights: map-merge(
+    (
+        "1" : 24px,
+        "2" : 22px
+    ),
+    $para-lineheights
+);
+
+@each $i, $size in (1:16px, 2:14px) {
+    .para-regular-#{$i} {
+        font-weight: 400;
+        font-size: $size;
+        line-height: map-get($para-lineheights, $i);
+    }
+}
+
+@each $i, $size in (1:16px, 2:14px) {
+    .para-semibold-#{$i} {
+        font-weight: 600;
+        font-size: $size;
+        line-height: map-get($para-lineheights, $i);
+    }
+}
+
+@each $i, $size in (1:16px, 2:14px) {
+    .para-underline-#{$i} {
+        font-weight: 400;
+        text-decoration: underline;
+        font-size: $size;
+        line-height: map-get($para-lineheights, $i);
+    }
+}
+
+.para-regular-1,
+.para-semibold-1,
+.para-underline-1 {
+    font-family: $smallpara-family;
+    font-size: $smallpara-font-size;
+    line-height: $smallpara-line-height;
+    text-transform: $smallpara-text-transform;
+    letter-spacing: $smallpara-letterspacing;
+    @if $smallpara-font-size-tablet != null {
+        @include media-breakpoint-only(md) {
+            font-size: $smallpara-font-size-tablet;
+        }
+    }
+    @if $smallpara-font-size-mobile != null {
+        @include media-breakpoint-down(sm) {
+            font-size: $smallpara-font-size-mobile;
+        }
+    }
+}
+
+.para-regular-1{
+    font-weight: $smallpara-regular-weight;
+}
+.para-semibold-1{
+    font-weight: $smallpara-semibold-weight;
+}
+
+
+// Small Info Text
+.small-info-regular {
+    font-size: 12px;
+    line-height: 14px;
+    font-weight: $smallinfo-regular-weight;
+}
+.small-info-semibold {
+    font-size: 12px;
+    line-height: 14px;
+    font-weight: $smallinfo-semibold-weight;
+}
+
+.text-link-regular {
+    font-size: 14px;
+    line-height: 17px;
+    font-weight: 400;
+}
+.text-link-semibold,
+.navigation-text {
+    font-size: 14px;
+    line-height: 17px;
+    font-weight: 600;
+}
+
+.text-link-bold{
+    font-size: 14px;
+    line-height: 17px;
+    font-weight: 600;
+}
+.small-btn-text {
+    font-size: 12px;
+    line-height: 15px;
+    font-weight: 600;
+}
+.big-btn-text {
+    font-size: 14px;
+    line-height: 15px;
+    font-weight: 600;
+}
+
+.small-info-regular,
+.small-info-semibold {
+    color: $smallinfo-text-color;
+    font-family: $smallinfo-family;
+    font-size: $smallinfo-font-size;
+    line-height: $smallinfo-line-height;
+    text-transform: $smallinfo-text-transform;
+    letter-spacing: $smallinfo-letterspacing;
+    @if $smallinfo-font-size-tablet != null {
+        @include media-breakpoint-only(md) {
+            font-size: $smallinfo-font-size-tablet;
+        }
+    }
+    @if $smallinfo-font-size-mobile != null {
+        @include media-breakpoint-down(sm) {
+            font-size: $smallinfo-font-size-mobile;
+        }
+    }
+}

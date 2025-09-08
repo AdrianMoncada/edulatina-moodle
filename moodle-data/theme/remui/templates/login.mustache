@@ -1,0 +1,146 @@
+{{!
+    This file is part of Moodle - http://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
+    Edwiser RemUI
+    @package theme_remui
+    @copyright (c) 2023 WisdmLabs (https://wisdmlabs.com/)
+    @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+}}
+{{!
+    @template theme_remui/login
+
+    Login page template
+
+    Example context (json):
+    {
+        "output": {
+            "doctype": "<!DOCTYPE html>",
+            "page_title": "Login page",
+            "favicon": "favicon.ico",
+            "main_content": "<h1>Headers keep HTML validators happy</h1>"
+        }
+    }
+}}
+{{> theme_remui/head }}
+
+<body {{{ bodyattributes }}}>
+{{> core/local/toast/wrapper}}
+
+<div id="page-wrapper">
+
+    {{{ output.standard_top_of_body_html }}}
+
+    <div id="page" class="container-fluid mt-0">
+        <div id="page-content" class="row">
+            <div id="region-main-box" class="col-12">
+                <section id="region-main" class="col-12 h-100" aria-label="{{#str}}content{{/str}}">
+                <div class="login-wrapper">
+                    <div class="login-container">
+                        {{#logocontext}}
+                        {{#incontainer}}
+                        <div class="logo-area r-mb-16">
+                                {{#logourl}}
+                                    <img src="{{ logourl }}" class="navbar-brand-logo logo">
+                                {{/logourl}}
+
+                                {{#logominiurl}}
+                                    <img src="{{ logominiurl }}" class="navbar-brand-logo logomini">
+                                {{/logominiurl}}
+
+                                {{#icononly}}
+                                    <span class="navbar-brand-logo icononly" style="color: {{color}};"><i class="fa fa-{{siteicon}}"></i></span>
+                                {{/icononly}}
+
+                                {{#iconwithsitename}}
+                                    <span class="navbar-brand-logo font-weight-bold iconsitename" style="color: {{color}};">
+                                        <i class="fa fa-{{siteicon}}"></i>&nbsp;
+                                        {{{ sitename }}}
+                                    </span>
+                                {{/iconwithsitename}}
+                        </div>
+                        {{/incontainer}}
+                        {{/logocontext}}
+                        {{{ output.main_content }}}
+                    </div>
+                    {{#canshowdesc}}
+                    <div class="login-description-container">
+                        {{#logocontext}}
+                            {{^incontainer}}
+                            <div class="logo-area r-mb-4 bg-transparent">
+                                {{#logourl}}
+                                    <img src="{{ logourl }}" class="navbar-brand-logo logo">
+                                {{/logourl}}
+
+                                {{#logominiurl}}
+                                    <img src="{{ logominiurl }}" class="navbar-brand-logo logomini">
+                                {{/logominiurl}}
+
+                                {{#icononly}}
+                                    <span class="navbar-brand-logo icononly" style="color: {{color}};"><i class="fa fa-{{siteicon}}"></i></span>
+                                {{/icononly}}
+
+                                {{#iconwithsitename}}
+                                    <span class="navbar-brand-logo font-weight-bold iconsitename" style="color: {{color}};">
+                                        <i class="fa fa-{{siteicon}}"></i>&nbsp;
+                                        {{{ sitename }}}
+                                    </span>
+                                {{/iconwithsitename}}
+                            </div>
+                            {{/incontainer}}
+                        {{/logocontext}}
+                        {{#brandlogotext}}
+                        <div class="login-description">
+                            <div class="login-description-content" style="color: {{signuptextcolor}};">
+                                {{{brandlogotext}}}
+                            </div>
+                        <a id="readmorebtn" class="d-none  readbtn text-link-semibold" style="color: {{signuptextcolor}}">{{#str}} showmore, theme_remui{{/str}}</a>
+                        <a id="readlessbtn" class="d-none  readbtn text-link-semibold" style="color: {{signuptextcolor}}">{{#str}} showless, theme_remui{{/str}}</a>
+                        </div>
+                        {{/brandlogotext}}
+                    </div>
+                    {{/canshowdesc}}
+                </div>
+                </section>
+            </div>
+        </div>
+    </div>
+    {{> theme_remui/footer }}
+</div>
+
+</body>
+</html>
+{{#js}}
+M.util.js_pending('theme_remui/loader');
+require(['theme_remui/loader'], function() {
+  M.util.js_complete('theme_remui/loader');
+    var summaryheight = $('.login-description-content').height();
+
+    if (summaryheight > 295 && $(window).width() < 576) {
+        $('.login-description').find('#readmorebtn').removeClass('d-none');
+        $('.login-description-content').addClass('summary-collapsed').removeClass('summary-expanded');
+    }
+    $('.login-description #readmorebtn').on('click', function() {
+        $('.login-description-content').addClass('summary-expanded').removeClass('summary-collapsed');
+        $('.login-description').find('#readmorebtn').addClass('d-none');
+        $('.login-description').find('#readlessbtn').removeClass('d-none');
+    });
+    $('.login-description #readlessbtn').on('click', function () {
+        $('.login-description-content').addClass('summary-collapsed').removeClass('summary-expanded');
+        $('.login-description').find('#readmorebtn').removeClass('d-none');
+        $('.login-description').find('#readlessbtn').addClass('d-none');
+    });
+});
+{{/js}}

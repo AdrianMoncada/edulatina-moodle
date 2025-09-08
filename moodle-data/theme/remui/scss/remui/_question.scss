@@ -1,0 +1,7 @@
+$question-bg : rgba($brand-primary, 10%);
+$question--border:1px solid rgba($brand-primary, 30%);
+
+.que .formulation {
+    background-color: $question-bg !important;
+    border: $question--border !important;
+}

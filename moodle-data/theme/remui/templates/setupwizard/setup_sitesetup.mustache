@@ -1,0 +1,92 @@
+{{!
+    This file is part of Moodle - http://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+}}
+{{!
+    @template theme_remui/setupwizard/setup_sitesetup
+}}
+
+<div class="setup-container">
+    <p class="h-semibold-4 p-mb-2">{{#str}}setupwizard:info5, theme_remui{{/str}}</p>
+    <p class="h-regular-5 p-mb-9">{{#str}}setupwizard:info6, theme_remui{{/str}}</p>
+    <div class="warning-msg-wrapper p-mb-9">
+        <p class="para-regular-2 m-0">{{#str}}setupwizard:info7, theme_remui{{/str}}</p>
+    </div>
+
+    <div class="installable-plugins-wrapper">
+
+        {{#structuredpluginlist}}
+            <div class="plugin-category">
+                <p class="sub-heading">{{name}}</p>
+
+                {{#plugins}}
+                    <div id="{{id}}" class="plugin-wrapper">
+                        <p class="sub-desc">{{name}}</p>
+                        <div class="installation-status">
+                        </div>
+
+                        <div class="d-flex align-items-center">
+                            <div class="inprogress">
+                                <img style="margin-right: 4px;" src="{{config.wwwroot}}/theme/remui/pix/siteinnerloader.svg" width="16" height="16" >
+                                <span class="inprogress-value">{{#str}}inprogress, theme_remui{{/str}}</span>
+                                <span class="percentage-icon d-none">%</span>
+                            </div>
+
+                            {{! It will visible during plugin installation }}
+                            {{#local_edwiserpagebuilder}}
+                                <div class="p-ml-2 installation-setup-info-wrapper {{id}}_setup-info d-none">
+                                    <span class="installation-setup-info">{{#str}}templatesloading, theme_remui{{/str}}</span>
+                                </div>
+                            {{/local_edwiserpagebuilder}}
+                        </div>
+
+                    </div>
+                {{/plugins}}
+            </div>
+        {{/structuredpluginlist}}
+
+    </div>
+
+    <div class="sitesetup-retry d-flex justify-content-between p-mt-4">
+
+    </div>
+
+    <div class="d-none align-items-center justify-content-center sitesetup-loader-container" style="min-height: 150px;" >
+        <img src="{{config.wwwroot}}/theme/remui/pix/siteinnerloader.svg" alt="loader" width="40" height="40"/>
+    </div>
+
+    <div class="site-setup-elem-wraper d-none">
+
+    </div>
+    <div class="setup-navigation justify-content-between p-mt-4 d-none">
+      <button class="btn btn-primary next-page ml-auto" data-nextstep="final">{{#str}}finish, theme_remui{{/str}} </button>
+    </div>
+</div>
+
+<style>
+  .installation-setup-info-wrapper {
+    padding: 0px 8px;
+    margin-top: 8px;
+    border-radius: 20px;
+    background: #FFEDB8;
+  }
+  .installation-setup-info {
+      color: #343A40;
+      font-size: 12px;
+      font-style: italic;
+      font-weight: 400;
+      line-height: normal;
+    }
+</style>

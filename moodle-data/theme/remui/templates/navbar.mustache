@@ -1,0 +1,167 @@
+{{!
+    This file is part of Moodle - http://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
+    Edwiser RemUI
+    @package theme_remui
+    @copyright (c) 2023 WisdmLabs (https://wisdmlabs.com/)
+    @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+}}
+{{!
+
+    @template theme_remui/navbar
+
+    This template renders the top navbar.
+
+    Example context (json):
+    {
+        "output": {
+            "should_display_navbar_logo": true,
+            "get_compact_logo_url": "http://placekitten.com/50/50",
+            "custom_menu": "<li>..</li>",
+            "page_heading_menu": "<li>..</li>",
+            "search_box": "<div><input type='text'></div>",
+            "navbar_plugin_output": "<div class='dropdown'>Messaging</div>",
+            "user_menu": "<div class='dropdown'>John Doe</div>"
+        },
+        "config": {
+            "wwwroot": "#",
+            "homeurl": "/my/"
+        },
+        "sitename": "Moodle Site",
+        "mobileprimarynav": [
+            {
+                "text": "Dashboard",
+                "url": "/my",
+                "isactive": true
+            },
+            {
+                "text": "Site home",
+                "url": "/",
+                "isactive": false
+            },
+            {
+                "text": "My courses",
+                "url": "/course",
+                "isactive": false
+            }
+        ]
+    }
+}}
+<nav class="navbar fixed-top navbar-expand {{navlayout}}  {{#homepagetransparentheader}}trasnparent-home-nav{{/homepagetransparentheader}}" aria-label="{{#str}}sitemenubar, admin{{/str}}">
+
+    <a href="{{{ config.homeurl }}}" class="navbar-brand d-none d-md-flex align-items-center m-0 aabtn" aria-label="{{ sitename }} - {{#str}}brandname, theme_remui{{/str}}" title="{{ sitename }}">
+        {{#output.get_branding_context}}
+            {{#logourl}}
+                <img src="{{ logourl }}" class="navbar-brand-logo logo light-logo">
+            {{/logourl}}
+            
+            {{#darklogourl}}
+                <img src="{{ darklogourl }}" class="navbar-brand-logo logo dark-logo">
+            {{/darklogourl}}
+
+            {{#logominiurl}}
+                <img src="{{ logominiurl }}" class="navbar-brand-logo logomini light-logomini">
+            {{/logominiurl}}
+
+            {{#darklogominiurl}}
+                <img src="{{ darklogominiurl }}" class="navbar-brand-logo logomini dark-logomini">
+            {{/darklogominiurl}}
+
+            {{#icononly}}
+                <span class="navbar-brand-logo icononly" style="color: {{color}};">
+                    <i class="fa fa-{{siteicon}}"></i>
+                </span>
+            {{/icononly}}
+
+            {{#iconwithsitename}}
+                <span class="navbar-brand-logo iconsitename" style="color: {{color}};">
+                    <i class="fa fa-{{siteicon}}"></i>&nbsp;
+                    {{{ sitename }}}
+                </span>
+            {{/iconwithsitename}}
+        {{/output.get_branding_context}}
+    </a>
+
+    <div class="sub-nav">
+        <div class="navbar-toggler-wrapper">
+            <button class="navbar-toggler aabtn d-block d-lg-none border-0 h-100 p-0" data-toggler="drawers" data-action="toggle" data-target="theme_remui-drawers-primary">
+                <span class="edw-icon edw-icon-Mobile-menu"></span>
+                <span class="sr-only">{{#str}}sidepanel, core{{/str}}</span>
+            </button>
+        </div>
+
+        {{#primarymoremenu}}
+            <div class="primary-navigation">
+                {{> core/moremenu}}
+            </div>
+        {{/primarymoremenu}}
+
+        <!-- <ul class="navbar-nav d-none d-md-flex my-1 px-1">-->
+        <!-- page_heading_menu -->
+        <!-- {{{ output.page_heading_menu }}}-->
+        <!-- </ul> -->
+
+        <div id="usernavigation" class="navbar-nav ml-auto">
+            {{#edwisermenu}}
+                <div class="edwiser-navigation">
+                    {{> core/moremenu}}
+                </div>
+            {{/edwisermenu}}
+            {{# output.edw_search_box }}
+                {{{ output.edw_search_box }}}
+            {{/output.edw_search_box}}
+            {{#langmenu}}
+                {{> theme_remui/language_menu }}
+            {{/langmenu}}
+            {{{ output.navbar_plugin_output }}}
+
+            {{#usermenu}}
+            <div class="d-flex usermenu-wrapper">
+                <div class="divider  h-75 align-self-center"></div>
+                <div class="d-flex align-items-stretch usermenu-container" data-region="usermenu">
+                    {{> core/user_menu }}
+                </div>
+                {{#isloggedin}}
+                <div class="divider  h-75 align-self-center"></div>
+                {{/isloggedin}}
+            </div>
+            {{/usermenu}}
+
+            {{#canenabledm}}
+                <div class="nav-darkmode nav-item d-flex align-items-center" data-dm="disabled">
+                    <a class="dm-toggle text-decoration-none">
+                        {{^dmanimate}}
+                        <span class="edw-icon edw-icon-Dark-mode darkmodeicon"  title="{{#str}}darkmodetitilestring, theme_remui{{/str}}"></span>
+                        <span class="edw-icon edw-icon-Light-mode lightmodeicon"  title="{{#str}}lightmodetitlestring, theme_remui{{/str}}"></span>
+                        {{/dmanimate}}
+
+                        {{#dmanimate}}
+                        <img src="{{config.wwwroot}}/theme/remui/pix/darkmode.gif" style="width:50px;height:50px;"/>
+                        <span class="edw-icon edw-icon-Light-mode lightmodeicon"  title="{{#str}}lightmodetitlestring, theme_remui{{/str}}"></span>
+                        {{/dmanimate}}
+                    </a>
+                </div>
+            {{/canenabledm}}
+            {{{ output.edit_switch }}}
+        </div>
+    </div>
+
+</nav>
+{{#show_license_notice}}
+{{{show_license_notice}}}
+{{/show_license_notice}}
+
+{{> theme_remui/primary-drawer-mobile }}

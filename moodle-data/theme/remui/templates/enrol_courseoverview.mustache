@@ -1,0 +1,169 @@
+{{!
+    This file is part of Moodle - http://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+    GNU General Public License for more details.
+
+    Edwiser RemUI
+    @package theme_remui
+    @copyright (c) 2023 WisdmLabs (https://wisdmlabs.com/)
+    @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+
+}}
+{{!
+    @template theme_remui/enrol_courseoverview
+}}
+
+<div id="courseoverview-section-id" class="courseoverview-section doted-border {{#editing}}p-p-6{{/editing}}">
+    <div class="secondary-navigation edw-tabs-navigation m-0">
+        <nav class="moremenu navigation observed">
+            <ul role="tablist" class="nav more-nav nav-tabs">
+                <li
+                    data-key="courseoverview"
+                    class="nav-item {{^coursesummary}}opacity-50{{/coursesummary}} {{^editing}}{{^coursesummary}}d-none{{/coursesummary}}{{/editing}}"
+                    role="none"
+                    data-forceintomoremenu="false"
+                >
+                    <a role="tab" class="nav-link {{#coursesummary}}active{{/coursesummary}}" href="#linkcourseoverview"  data-toggle="tab"  data-bs-toggle="tab" data-text="courseoverview" aria-selected="true" tabindex="0" >
+                        {{#str}}courseoverview, theme_remui{{/str}}
+                    </a>
+                </li>
+                <li data-key="coursecontent" class="nav-item" role="none" data-forceintomoremenu="false" >
+                    <a role="tab" class="nav-link loading {{^coursesummary}}active{{/coursesummary}}" href="#linkcoursecontent"  data-toggle="tab"  data-bs-toggle="tab" data-text="coursecontent" tabindex="-1"  aria-selected="false">
+                        {{#str}}coursecontent, theme_remui{{/str}}
+                    </a>
+                </li>
+                <li
+                    data-key="instructors"
+                    class="nav-item loading {{^hasintstructors}}opacity-50{{/hasintstructors}} {{^editing}}{{^hasintstructors}}d-none{{/hasintstructors}}{{/editing}}"
+                    role="none"
+                    data-forceintomoremenu="false"
+                >
+                    <a role="tab" class="nav-link loading" href="#linkinstructors"  data-toggle="tab"  data-bs-toggle="tab" data-text="instructors" tabindex="-1">
+                        {{#str}}instructors, theme_remui{{/str}}
+                    </a>
+                </li>
+                {{#rnrreviewfull}}
+                <li data-key="reviews" class="nav-item {{#noratingfound}}opacity-50{{/noratingfound}} {{#noratingfound}} noratingtablink {{/noratingfound}}" role="none" data-forceintomoremenu="false">
+                    <a role="tab" class="nav-link" href="#linkreviews"  data-toggle="tab"  data-bs-toggle="tab" data-text="reviews" tabindex="-1">
+                        {{#str}}reviews, theme_remui{{/str}}
+                    </a>
+                </li>
+                {{/rnrreviewfull}}
+            </ul>
+        </nav>
+    </div>
+    <div class="tab-content">
+        <!-- Course Overview -->
+        <div class="tab-pane {{#coursesummary}}active{{/coursesummary}}" id="linkcourseoverview">
+            {{#editing}}
+                <a href="{{editcoursedesclink}}" target="_blank" class="textlink-with-icon text-link-semibold d-flex flex-gap-0d5 align-items-center p-py-1">
+                    <span>{{#str}}editcoursetext, theme_remui{{/str}}</span>
+                    <span class="edw-icon edw-icon-Shortcut"></span>
+                </a>
+            {{/editing}}
+            <h3 class="h-bold-4 p-mb-6">{{#str}}courseoverview, theme_remui{{/str}}</h3>
+            <div class="tab-pane-area">
+                {{{coursesummary}}}
+                {{^coursesummary}}
+                    <div class ="doted-border bg-white p-p-5 p-mt-3" >
+                        <div  class="empty-box p-p-6 d-flex justify-content-center align-items-center">
+                            <p class="m-0 para-semibold-2">
+                                {{#str}}nocontentmessage, theme_remui{{/str}}
+                            </p>
+                        </div>
+                    </div>
+                {{/coursesummary}}
+            </div>
+        </div>
+        <!-- Course Content -->
+        <div class="tab-pane loading {{^coursesummary}}active{{/coursesummary}}" id="linkcoursecontent" data-service="theme_remui_enrol_get_course_content" data-template="theme_remui/enrol_coursecontentmenu">
+            {{#editing}}
+                <a href="{{courseurl}}" target="_blank" class="textlink-with-icon text-link-semibold d-flex flex-gap-0d5 align-items-center p-py-1">
+                    <span>{{#str}}editcoursecontent, theme_remui{{/str}}</span>
+                    <span class="edw-icon edw-icon-Shortcut"></span>
+                </a>
+            {{/editing}}
+            <h3 class="h-bold-4 p-mb-6">{{#str}}coursecontent, theme_remui{{/str}}</h3>
+            <div class="tab-pane-area">
+                <div class="accordion" id="courseContentAccordion">
+                    <ul class="accordion-list-group">
+                        <li class="accordion-list-item accordion-bb" id="headingOne" data-toggle="collapse" data-bs-toggle="collapse" data-target="#collapseOne" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            <div class="placeholder"></div>
+                            <div class="placeholder icon"></div>
+                        </li>
+                        <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#courseContentAccordion">
+                            <ul class="accordion-list-group">
+                                <li class="accordion-list-item">
+                                    <div class="placeholder"></div>
+                                </li>
+                                <li class="accordion-list-item">
+                                    <div class="placeholder"></div>
+                                </li>
+                                <li class="accordion-list-item">
+                                    <div class="placeholder"></div>
+                                </li>
+                                <li class="accordion-list-item">
+                                    <div class="placeholder"></div>
+                                </li>
+                                <li class="accordion-list-item">
+                                    <div class="placeholder"></div>
+                                </li>
+                            </ul>
+                        </div>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- Instructors -->
+        <div class="tab-pane loading" id="linkinstructors" data-service="theme_remui_enrol_get_course_instructors"  data-template="theme_remui/enrol_courseinstructorsmenu">
+            {{#editing}}
+                <a href="{{editinstructorspageurl}}" target="_blank" class="textlink-with-icon text-link-semibold d-flex flex-gap-0d5 align-items-center p-py-1 p-mb-5">
+                    <span>{{#str}}manageinstructors, theme_remui{{/str}}</span>
+                    <span class="edw-icon edw-icon-Shortcut"></span>
+                </a>
+            {{/editing}}
+            <div class="tab-pane-area">
+                <div class="loader-container text-center" style="min-height: 150px;">
+                    <div class="spinner-border text-secondary" role="status">
+                        <span class="sr-only">Loading...</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        {{#rnrreviewfull}}
+        <!-- Reviews -->
+        <div class="tab-pane" id="linkreviews" data-service="enrol_get_course_reviews">
+            {{#editing}}
+                <a href="{{editapprovalpageurl}}" target="_blank" class="textlink-with-icon text-link-semibold d-flex flex-gap-0d5 align-items-center p-py-1">
+                    <span>{{#str}}editreviewapproval, theme_remui{{/str}}</span>
+                    <span class="edw-icon edw-icon-Shortcut"></span>
+                </a>
+            {{/editing}}
+            {{^noratingfound}}
+                <h3 class="h-bold-4 p-mb-6">{{#str}}reviews, theme_remui{{/str}}</h3>
+                <div class="tab-pane-area">
+                    {{{rnrreviewfull}}}
+                </div>
+            {{/noratingfound}}
+            {{#noratingfound}}
+                <div class ="doted-border bg-white p-p-5 p-mt-5" >
+                    <div  class="empty-box p-p-6 d-flex justify-content-center align-items-center">
+                        <p class="m-0 para-semibold-2">
+                            {{#str}}noreviewmessage, theme_remui{{/str}}
+                        </p>
+                    </div>
+                </div>
+            {{/noratingfound}}
+        </div>
+        {{/rnrreviewfull}}
+    </div>
+</div>

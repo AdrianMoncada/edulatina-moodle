@@ -1,0 +1,235 @@
+// switches
+//
+// Tweak a few things for switches
+
+$custom-switch-width: 2.625rem;
+$custom-switch-height: 1.5rem;
+$custom-switch-width-sm: 2rem;
+$custom-switch-height-sm: 1.125rem;
+$custom-control-indicator-border-width: 2px;
+$custom-switch-indicator-border-radius: $custom-control-indicator-size;
+$custom-switch-indicator-size: $custom-control-indicator-size;
+$indicator-gap: 0.225rem;
+$custom-control-indicator-border-color: $white;
+$custom-control-indicator-checked-bg: $brand-secondary;
+$custom-control-indicator-active-bg : $brand-secondary;
+$custom-control-border-color: $header-divider-color-dark!default;
+$form-element-border-rad: 8px;
+$form-element-group-heading-bg: $bg-small-ui;
+$form-element-group-heading-color: $heading-color;
+
+$fieldset-title-color: $heading-color;
+
+.navbar {
+    @media only screen and (max-width: $custom-breakpoint-xs) {
+        .custom-control {
+            min-height: $custom-switch-height-sm;
+        }
+    }
+    .custom-switch {
+        width: $custom-switch-width;
+        height: $custom-switch-height;
+        padding-left: 0;
+        @media only screen and (max-width: $custom-breakpoint-xs) {
+            width: $custom-switch-width-sm;
+            height: $custom-switch-height-sm;
+        }
+
+        .control-label {
+            padding-left: 0;
+        }
+
+        .custom-control-label {
+            width: $custom-switch-width;
+            height: $custom-switch-height;
+            @media only screen and (max-width: $custom-breakpoint-xs) {
+                width: $custom-switch-width-sm;
+                height: $custom-switch-height-sm;
+            }
+            &::before {
+                left: 0;
+                width: $custom-switch-width;
+                height: $custom-switch-height;
+                @media only screen and (max-width: $custom-breakpoint-xs) {
+                    width: $custom-switch-width-sm;
+                    height: $custom-switch-height-sm;
+                }
+                pointer-events: all;
+                // stylelint-disable-next-line property-disallowed-list
+                border-radius: $custom-switch-indicator-border-radius;
+                position: absolute;
+                top: 0;
+                border: none;
+                background-color: $bg-header-ele;
+                border: 1px solid $custom-control-border-color;
+            }
+
+            &::after {
+                top: $indicator-gap / 2;
+                left: $indicator-gap / 2;
+                width: $custom-switch-height - $indicator-gap;
+                height: $custom-switch-height - $indicator-gap;
+                @media only screen and (max-width: $custom-breakpoint-xs) {
+                    width: 0.9rem;
+                    height: 0.9rem;
+                }
+                background-color: $custom-control-indicator-border-color;
+                // stylelint-disable-next-line property-disallowed-list
+                border-radius: $custom-switch-indicator-border-radius;
+                @include transition(transform .15s ease-in-out, $custom-forms-transition);
+                // @include get-box-shadow(md);
+                border: 1px solid $custom-control-border-color;
+            }
+        }
+        .custom-control-input {
+            height: $custom-switch-height;
+            cursor: pointer;
+            @media only screen and (max-width: $custom-breakpoint-xs) {
+                height: $custom-switch-height-sm;
+            }
+            &:checked {
+                & ~ .custom-control-label::before {
+                    background-color: $brand-secondary-static;
+                }
+            }
+        }
+        .custom-control-input:checked ~ .custom-control-label {
+            &::after {
+                background-color: $custom-control-indicator-bg;
+                transform: translateX($custom-switch-width - $custom-switch-height);
+                @media only screen and (max-width: $custom-breakpoint-xs) {
+                    transform: translateX($custom-switch-width-sm - $custom-switch-height-sm);
+                }
+            }
+        }
+
+        .custom-control-input:disabled {
+            &:checked ~ .custom-control-label::before {
+                @include gradient-bg($custom-control-indicator-checked-disabled-bg);
+            }
+        }
+    }
+}
+.dir-rtl {
+  .navbar .custom-switch .custom-control-input:checked~.custom-control-label::after {
+    transform: translateX(-($custom-switch-width - $custom-switch-height));
+  }
+}
+
+#page-course-edit,
+#page-course-editcategory {
+    .edw-form-group-heading {
+        padding: 24px 32px;
+        border-top-left-radius: $form-element-border-rad;
+        border-top-right-radius: $form-element-border-rad;
+        background-color: $form-element-group-heading-bg;
+        color: $form-element-group-heading-color;
+        @include media-breakpoint-down(sm) {
+            padding: 16px;
+        }
+    }
+    .mform {
+        background-color: $white;
+        border-bottom-left-radius: $form-element-border-rad;
+        border-bottom-right-radius: $form-element-border-rad;
+	// .collapsible-actions {
+	// position: absolute;
+	// top: 24px;
+	// right: 32px;
+	// @include media-breakpoint-down(sm) {
+	//     top: 16px;
+	//     right: 16px;
+	// }
+	// .collapseexpand {
+	//     background: transparent;
+	//     color: $form-element-group-heading-color;
+	//     &:hover {
+	//         border-color: $form-element-group-heading-color;
+	//     }
+	// }
+	// }
+        > .form-group {
+            padding-top: $form-group-py;
+            padding-bottom: $form-group-py;
+            padding-left: $form-group-px;
+            padding-right: $form-group-px;
+            @include media-breakpoint-down(md) {
+                padding-top: $form-group-py-md;
+                padding-bottom: $form-group-py-md;
+                padding-left: $form-group-px-md;
+                padding-right: $form-group-px-md;
+            }
+            @include media-breakpoint-down(sm) {
+                padding-top: $form-group-py-sm;
+                padding-bottom: $form-group-py-sm;
+                padding-left: $form-group-px-sm;
+                padding-right: $form-group-px-sm;
+            }
+        }
+    }
+    [role="main"] {
+        position: relative;
+        @include get-drop-shadow(xs);
+    }
+}
+
+fieldset.collapsible {
+    background-color: $white;
+    .ftoggler {
+        .fieldset-title {
+            color: $fieldset-title-color;
+            .btn[data-toggle="popover"] {
+                z-index: 10;
+                width: 15px;
+                height: 25px;
+                display: flex;
+                align-items: center;
+                padding: 0 !important;
+                margin: 0 10px;
+
+                &:has(.edw-icon) {
+                    width: 22px;
+                }
+            }
+        }
+    }
+    .edw-icon {
+        font-size: 20px;
+    }
+}
+
+.collapsible-actions {
+    .collapsemenu {
+        margin-bottom: 20px;
+        background: transparent;
+    }
+}
+// .mform {
+//     position: relative;
+//     &:after {
+//         content: "";
+//         position: absolute;
+//         height: 100%;
+//         width: 100%;
+//         top: 0;
+//         left: 0;
+//         right: 0;
+//         @include get_drop_shadow(xs);
+//     }
+// }
+
+// Fullscreen TinyMCE editor fix
+#page-course-edit:has(.tox-tinymce) div[role="main"],
+#page-course-editcategory:has(.tox-tinymce) [role="main"],
+.main-area-bg:not(.pagelayout-login):has(.tox-tinymce) div[role="main"] {
+   filter: unset !important;
+}
+
+.tox-fullscreen .modal-content {
+    position: fixed !important;
+    top: -100px;
+    left: 0;
+    right: 0;
+    bottom: -100px;
+    max-height: unset;
+}

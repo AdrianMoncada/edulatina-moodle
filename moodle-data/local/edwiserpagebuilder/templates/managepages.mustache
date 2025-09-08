@@ -1,0 +1,74 @@
+
+<div class="epb_sitesetting">
+    <nav class="epb_sitesetting_nav">
+        <div class="title">
+            <p class=title_heading title="{{#str}}sitesetting, local_edwiserpagebuilder{{/str}}"> {{#str}}sitesetting, local_edwiserpagebuilder{{/str}} </p>
+            <p class=title_desc title="{{#str}}sitesetting_desc, local_edwiserpagebuilder{{/str}}">{{#str}}sitesetting_desc, local_edwiserpagebuilder{{/str}}</p>
+        </div>
+        <div class="btn btn-primary btn-addpage" title="{{#str}}addnewpage, local_edwiserpagebuilder{{/str}}" >
+            {{#str}}addnewpage, local_edwiserpagebuilder{{/str}}
+        </div>
+    </nav>
+
+    <hr />
+
+    <div class="epb-table-wrapper">
+        <table class="epb_table">
+            <thead>
+                <tr>
+                    <th title="{{#str}}pagetable_name, local_edwiserpagebuilder{{/str}}">{{#str}}pagetable_name, local_edwiserpagebuilder{{/str}}</th>
+                    <th title="{{#str}}pagetable_date, local_edwiserpagebuilder{{/str}}">{{#str}}pagetable_date, local_edwiserpagebuilder{{/str}}</th>
+                    <th title="{{#str}}titlepagetableaction, local_edwiserpagebuilder{{/str}}">{{#str}}pagetable_action, local_edwiserpagebuilder{{/str}}</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{>local_edwiserpagebuilder/site_page_table_single_row}}
+                <tr id="epb_add_page_row" class="epb_default_row {{#pages}} d-none{{/pages}}">
+                    <td>
+                        <div class="epb_table_row-name">
+                            <div class="pagename_box">
+                                <p class="pagename" title="{{#str}}no_data_text, local_edwiserpagebuilder{{/str}}">{{#str}}no_data_text, local_edwiserpagebuilder{{/str}}</p>
+                                <div class="pagename_edit_form">
+                                    <div class="input-group"  data-value="{{id}}">
+                                        <input type="text" aria-label="{{#str}}pagename, local_edwiserpagebuilder{{/str}}" class="form-control rounded-0" name="pagename"
+                                            placeholder="{{#str}}pagename, local_edwiserpagebuilder{{/str}}" value=""
+                                        >
+                                        <div class="btn-submitedit d-none">
+                                            <img src="{{config.wwwroot}}/local/edwiserpagebuilder/pix/check_icon.svg" alt="change name" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <p class="epb_table_row-date">{{#str}}no_data_text, local_edwiserpagebuilder{{/str}}</p>
+                    </td>
+                    <td>
+                        <div class="epb_table_row-actions">
+                            <button class="btn-icon disabled" title="Make Duplicate">
+                                <img src="{{{config.wwwroot}}}/local/edwiserpagebuilder/pix/duplicate_icon-dark.svg" alt="duplicate" />
+                            </button>
+                            <a  href="#" class="btn-icon disabled" title="Settings">
+                                <img src="{{{config.wwwroot}}}/local/edwiserpagebuilder/pix/setting_icon-dark.svg" alt="setting" />
+                            </a>
+                            <button id="btn_copy" class="btn-icon disabled" title="Delete page">
+                                <img src="{{{config.wwwroot}}}/local/edwiserpagebuilder/pix/delete_icon-dark.svg" alt="delete" />
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div style="position: fixed; top: 85px; left: 50%; transform: translate(-50%); z-index: 3">
+        <div class="epb-toast-message alert d-none" role="alert" aria-live="assertive" aria-atomic="true" style="width:fit-content;max-width:500px;">
+            <div class="toast-msg">The {{page.pagename}}  page link copied</div>
+            <button type="button" class="close ml-1" aria-label="Close">
+                <span aria-hidden="true">×</span>
+            </button>
+        </div>
+    </div>
+
+</div>

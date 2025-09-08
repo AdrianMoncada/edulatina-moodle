@@ -1,0 +1,62 @@
+{{!
+    This file is part of Moodle - http://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+    GNU General Public License for more details.
+
+    Edwiser RemUI
+    @package theme_remui
+    @copyright (c) 2023 WisdmLabs (https://wisdmlabs.com/)
+    @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+
+}}
+{{!
+    @template theme_remui/edw_quick_menu
+}}
+
+<div id="edw-quick-menu" class="floating-widget flex justify-between inner-content {{#collapsed}}collapsed{{/collapsed}}">
+	<a href="#" class="close-quick-menu d-flex">
+		<span class="left edw-icon edw-icon-Square-Arrow_left large" title="{{#str}}closequickmenu,theme_remui{{/str}}"></span>
+		<span class="right edw-icon edw-icon-Square-Arrow_Right large" title="{{#str}}openquickmenu,theme_remui{{/str}}"></span>
+	</a>
+	<nav class="quick-menu-nav d-flex flex-gap-1">
+		{{#menus}}
+		<a class="menu-item" href="{{url}}" title="{{title}}">
+			<span class="{{iconclass}} large"></span>
+		</a>
+		{{/menus}}
+	</nav>
+</div>
+
+{{#js}}
+require(['jquery','theme_remui/user/repository'], function($, UserRepository){
+	$(document).ready(function(){
+		$('#edw-quick-menu .close-quick-menu').click(function(e){
+			e.preventDefault();
+			var edw_quickmenu_pref = true;
+			if ($('#edw-quick-menu').hasClass("collapsed")) {
+				edw_quickmenu_pref = false;
+			}
+			$('#edw-quick-menu').toggleClass("collapsed");
+				UserRepository.setUserPreference('edw-quick-menu', edw_quickmenu_pref);
+		});
+	});
+});
+
+{{#cancreatepages}}
+require(['local_edwiserpagebuilder/custompages'], function(EDWPAGES){
+	EDWPAGES.init();
+});
+{{/cancreatepages}}
+
+{{/js}}
+
+
+

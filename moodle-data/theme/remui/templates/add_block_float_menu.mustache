@@ -1,0 +1,51 @@
+{{!
+This file is part of Moodle - http://moodle.org/
+
+Moodle is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+Moodle is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+GNU General Public License for more details.
+
+Edwiser RemUI
+@package theme_remui
+@copyright (c) 2023 WisdmLabs (https://wisdmlabs.com/)
+@license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+
+}}
+
+{{#editing}}
+<div class="position-relative">
+    <div id="add-block-float-menu" class="floating-widget">
+        <div class="btn-group dropup">
+            <a class="btn btn-dark btn-lg d-flex align-items-center justify-content-center floating-add-block-button"  title="Add a block button"   type="button">
+                {{! <span class="edw-icon edw-icon-brush large p-mr-1"></span> }}
+                <span class="edw-icon edw-icon-Plus_24"></span>
+                <span>{{#str}}addblock, moodle{{/str}}</span>
+            </a>
+            <button type="button" class="btn btn-lg btn-dark dropdown-toggle dropdown-toggle-split add-block-split-icon-btn" data-bs-toggle="dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <span class="sr-only">Toggle Dropdown</span>
+                <span class="edw-icon edw-icon-UpArrow large d-none"></span>
+                <span class="edw-icon edw-icon-Down-Arrow large"></span>
+            </button>
+            <div class="dropdown-menu">
+               {{#regiondata}}
+                    <a href="#" class="dropdown-item btn btn-lg {{region}}-link" data-region="{{regionid}}"><span class="edw-icon edw-icon-Check p-mr-1"></span><span class="region-name-text">{{regionname}}</span></a>
+               {{/regiondata}}
+            </div>
+        </div>
+    </div>
+</div>
+    {{#js}}
+    require(['jquery','theme_remui/floating_add_block_handler'], function($,FLOATADDBLOCKHANLDER){
+        $(document).ready(function(){
+            FLOATADDBLOCKHANLDER.init();
+        });
+    });
+    {{/js}}
+
+{{/editing}}

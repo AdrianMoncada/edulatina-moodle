@@ -1,0 +1,66 @@
+$edwqmenu-bgcolor: #222222;
+$edwqmenu-color: #d1d1d1;
+$customizer-icon-color: #00a1a8;
+$edwqmenu-hover-bgcolor: $bg-small-ui;
+$edwqmenu-shadow: 0 0 30px -5px rgb(0 0 0 / 30%);
+$edwqmenu-margin: 14px;
+
+.floating-widget {
+	position: fixed;
+	left: $edwqmenu-margin;
+	bottom: $edwqmenu-margin;
+}
+
+#edw-quick-menu {
+	display: flex;
+	gap: 35px;
+	padding: 10px;
+	border-radius: 8px;
+	background-color: $edwqmenu-bgcolor;
+	box-shadow: $edwqmenu-shadow;
+	// z-index specifically change for 4.4.
+	z-index: 1016;
+	.close-quick-menu {
+		text-decoration: none;
+		padding: 4px;
+		color: $edwqmenu-color;
+	}
+
+	.quick-menu-nav {
+		.menu-item {
+			display: flex;
+			padding: 4px;
+			border-radius: 3px;
+			justify-content: center;
+			align-items: center;
+			text-decoration: none;
+			color: $edwqmenu-color;
+			.customizer-editing-icon {
+				color: $customizer-icon-color;
+			}
+			&:hover {
+				background-color: #333333;
+			}
+		}
+	}
+
+	&.collapsed {
+		.quick-menu-nav {
+			display: none !important;
+		}
+		.close-quick-menu {
+			.edw-icon.left{display: none;}
+		}
+	}
+	&:not(.collapsed) {
+		.close-quick-menu {
+			.edw-icon.right{display: none;}
+		}
+	}
+}
+
+@include media-breakpoint-down(sm) {
+	#edw-quick-menu .quick-menu-nav .menu-item[title="Visual personalizer"] {
+		display: none;
+	}
+}

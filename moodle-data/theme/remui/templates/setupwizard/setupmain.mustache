@@ -1,0 +1,88 @@
+{{!
+    This file is part of Moodle - http://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+    GNU General Public License for more details.
+
+    Edwiser RemUI
+    @package theme_remui
+    @copyright (c) 2023 WisdmLabs (https://wisdmlabs.com/)
+    @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+
+}}
+{{!
+    @template theme_remui/setupwizard/setupmain
+}}
+
+
+{{#isremui}}
+    <div id="setupmain-wrapper">
+        <div class="setup-container d-flex align-items-center justify-content-center" style="min-height: 200px;" >
+            <img src="{{loader}}" alt="loader" width="40" height="40"/>
+        </div>
+    </div>
+
+    <div class="btn-group dropup edw-setup-help-dropdown">
+        <a  class="btn dropdown-toggle btn-primary" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <span class="edw-icon edw-icon edw-icon-Help"></span>
+        </a>
+        <div class="dropdown-menu dropdown-menu-right">
+            <li class="edw-helpdrodown-item">
+                <span class="edw-icon edw-icon-Email"></span>
+                <a href="mailto:edwiser@wisdmlabs.com"  role="menuitem" tabindex="-1" class="para-regular-2 guide-link">{{#str}}setupwizard:emailus, theme_remui{{/str}}</a>
+            </li>
+            <li class="edw-helpdrodown-item">
+                <span class="edw-icon edw-icon-Support"></span>
+                <a href="https://edwiser.org/contact-us/" target="_blank"  role="menuitem" tabindex="-1" class="para-regular-2 guide-link">{{#str}}setupwizard:contactsupport, theme_remui{{/str}}</a>
+            </li>
+            <li class="edw-helpdrodown-item">
+                <span class="edw-icon edw-icon-User"></span>
+                <a href="https://edwiser.org/my-account/" target="_blank"   role="menuitem" tabindex="-1" class="para-regular-2 guide-link">{{#str}}setupwizard:mylicensekey, theme_remui{{/str}}</a>
+            </li>
+            <li class="edw-helpdrodown-item">
+                <span class="edw-icon edw-icon-Report"></span>
+                <a href="https://remui-docs.edwiser.org/" target="_blank"   role="menuitem" tabindex="-1" class="para-regular-2 guide-link">{{#str}}setupwizard:RemUIdocumenation, theme_remui{{/str}}</a>
+            </li>
+            <li class="edw-helpdrodown-item">
+                <span class="edw-icon edw-icon-Report"></span>
+                <a href="https://edwiser.org/documentation/" target="_blank"   role="menuitem" tabindex="-1" class="para-regular-2 guide-link">{{#str}}setupwizard:alldocumentation, theme_remui{{/str}}</a>
+            </li>
+        </div>
+    </div>
+{{/isremui}}
+
+{{^isremui}}
+    <div id="setupmain-wrapper">
+        <div class="setup-container d-flex align-items-center justify-content-center loading-container" style="min-height: 200px;" >
+            <span style="font-size: 18px;">Loading...</span>
+        </div>
+        <div class="setup-container d-none">
+            <p><strong>Edwiser RemUI theme is not active.</strong></p>
+            <p>Do you want to activate and continue the Edwiser RemUI setup?</p>
+            <div>
+                <button class="btn btn-secondary" id="activate-remui-btn">Yes</button>
+                <button class="btn btn-secondary close-current-window">No</button>
+            </div>
+        </div>
+    </div>
+
+    <style>
+    .setup-container {
+        padding: 24px;
+        background-color: white;
+        border-radius: 20px;
+        max-width: 720px;
+        margin: 0 auto 24px;
+        transition: all 0.3s ease;
+        overflow: hidden;
+        box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.1);
+    }
+    </style>
+{{/isremui}}

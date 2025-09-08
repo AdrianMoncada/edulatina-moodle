@@ -1,0 +1,20 @@
+{
+    "name": "remuihomepage",
+    "version": "4.0.0",
+    "description": "Edwiser RemUI Homepage Builder.",
+    "main": "index.js",
+    "scripts": {
+        "sass": "node-sass ./scss/edw_editor.scss  ./styles/edw_editor.css -w"
+    },
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+        "gulp": "^4.0.2",
+        "gulp-cli": "^2.3.0",
+        "gulp-concat": "^2.6.1",
+        "gulp-rename": "^2.0.0",
+        "gulp-sass": "^5.1.0",
+        "node-sass": "^4.9.0",
+        "sass": "~1.32.12"
+    }
+}

@@ -1,0 +1,117 @@
+{{!
+    This file is part of Moodle - http://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+    GNU General Public License for more details.
+
+    Edwiser RemUI
+    @package theme_remui
+    @copyright (c) 2023 WisdmLabs (https://wisdmlabs.com/)
+    @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+
+}}
+{{!
+    @template theme_remui/profile_courses
+}}
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-12 px-0">
+                {{^ hascourses }}
+                <li class="list-group-item border-0">
+                    <div class="media">
+                        <div class="media-body">
+                            {{# str }} notenrolledanycourse, theme_remui {{/ str }}
+                        </div>
+                    </div>
+                </li>
+                {{/ hascourses }}
+                {{# hascourses }}
+                <div class="profile-cards-wrapper edw-course-list-container d-flex flex-column">
+                    {{# courses }}
+                    <div class="course-card hor-1 list-group-item course-listitem  d-flex edw-course-list "
+                        id="course-{{ id }}">
+                        <div class="edw-course-img-wrapper">
+                            <div class="summaryimage card-img dashboard-list-img  p-p-4"
+                                style="background-image: url({{{ courseimage }}});">
+                                <a href="{{ link }} " class="view-course-url"></a>
+                            </div>
+                        </div>
+                        <div class="edw-list-body w-100 d-flex flex-column justify-content-between flex-gap-3">
+                            <div class="d-flex flex-column flex-gap-3">
+                                <div class="edw-card-design-hd d-flex flex-column flex-gap-3">
+                                    <div class="d-flex flex-wrap">
+                                        <div class="d-flex flex-column flex-gap-0d5">
+                                            <span class="categoryname text-truncate small-info-semibold ellipsis ellipsis-1" title="{{{categoryname}}}">
+                                                {{{categoryname}}}
+                                            </span>
+                                            <div class="w-100 ">
+                                                <a href="{{ link }}" class="coursename text-decoration-none ellipsis ellipsis-2 h-semibold-6 m-0" title="{{{fullname}}}">
+                                                    {{{ fullname }}}
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {{#instructor}}
+                                    <div class="d-flex flex-row flex-gap-0d5">
+                                        <div class="d-flex flex-row instructor-info-wrapper">
+                                            <a href="{{ url }}" class="d-flex align-items-center flex-gap-d5 instructor-img {{ imgStyle }}"
+                                                aria-label="Instructor for {{coursename}} is - {{name}}" title="{{{name}}}">
+                                                <img src="{{ picture }}" class="rounded-circle" alt="{{ name }}" loading="lazy"/>
+                                                <h6 class="h-regular-6 course-instructors m-0" title="{{{name}}}">{{{name}}}</h6>
+                                            </a>
+                                        </div>
+                                        {{#instructorcount}}<span
+                                            class="small-info-semibold instructorscount d-flex align-items-center justify-content-center">+{{instructorcount}}</span>{{/instructorcount}}
+                                    </div>
+                                    {{/instructor}}
+                                </div>
+                                {{! below summary block is commented now }}
+                                {{#comment}}
+                                    {{#summary}}
+                                        <div class="edw-card-design-bd">
+                                            <div class="summary ellipsis ellipsis-3">
+                                                <span class="sr-only">{{#str}}aria:coursesummary,
+                                                    block_myoverview{{/str}}</span>
+                                                {{{summary}}}
+                                            </div>
+                                        </div>
+                                    {{/summary}}
+                                {{/comment}}
+                            </div>
+                            <div class="edw-card-design-ft d-flex justify-content-between flex-gap-4">
+                                <div class="d-flex flex-column flex-gap-0d5 progress-data-wrapper ">
+                                    {{# enablecompletion }}
+                                    <span class="small-info-regular m-0" title="{{activitydata}}">{{activitydata}}</span>
+                                    <div class="progress"
+                                        title="{{#str}}completepercent, theme_remui,{{progress}}{{/str}}">
+                                        <div class="progress-bar" role="progressbar" style="width: {{#progress}}{{progress}}{{/progress}}{{^progress}}0{{/progress}}%"
+                                            aria-valuenow="{{progress}}" aria-valuemin="0" aria-valuemax="100">
+                                        </div>
+                                    </div>
+                                    <div class="progress-text h-semibold-6"
+                                        title="{{#str}}completepercent, theme_remui,{{progress}}{{/str}}">
+                                        {{#str}}completepercent, theme_remui, <span
+                                            class="h-semibold-6 m-0">{{#progress}}{{progress}}{{/progress}}{{^progress}}0{{/progress}}</span>{{/str}}
+                                    </div>
+                                    {{/enablecompletion }}
+                                </div>
+                                <a class="btn btn-secondary btn-sm ml-auto view-course-btn align-self-end" href="{{ link }}"
+                                    title="{{#str}}viewcoursetitle,theme_remui{{/str}}">{{#str}}viewcourse,theme_remui{{/str}}</a>
+                            </div>
+                        </div>
+                    </div>
+                    {{/ courses }}
+                </div>
+                {{/ hascourses }}
+            </div>
+        </div>
+    </div>
+</section>

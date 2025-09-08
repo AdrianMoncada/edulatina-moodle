@@ -1,0 +1,41 @@
+Change Log:
+===========
+
+Version 4.1.3
+=============
+Feature - Added language translation files for:
+        - Spanish (Spain) (es)
+        - Deutsch (German) (de)
+        - Spanish (Mexico) (es_mx)
+        - Portuguese (Brazil) (pt_br)
+        - France (fr)
+        - Polish (pl)
+        - Arabic (ar)   
+
+Version 4.1.2
+=============
+Tweak - Homepage importer tab removed from importer settings.
+
+Version 4.1.1
+=============
+
+Tweak - Improvement in settings page refresh functionality
+
+Version 4.0.1
+=============
+
+Tweak - Importer homepage and courses cards design improved.
+Tweak - User agent added to http requests to avoid conflicts.
+
+Version 4.0.0
+=============
+
+Tweak - Removed Importer link from theme selector. Now importer is available in Edwiser RemUI theme settings.
+
+Version 1.0.0
+=============
+
+The initial version of Edwiser Demo Importer
+
+Feature - Import homepage templates provided by Edwiser.
+Feature - Import courses provided by Edwiser.

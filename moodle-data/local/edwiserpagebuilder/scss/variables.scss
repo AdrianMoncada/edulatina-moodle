@@ -1,0 +1,61 @@
+// colors
+$light-border: #EBF0F9;
+$heading-color: #313848; 
+$paragraph-color: #4C5A73; 
+$body-background: #EBF0F9;
+$brand-primary: #0051f9;
+$medium-border: #d5ddea;
+$bg-small-ui: #EBF0F9;
+$form-paragraph-color-default:#4c5a73;
+
+
+$light-border-color-default:#EBF0F9;
+$light-border-color:$light-border;
+$white:#FFFFFF;
+$heading-color:$heading-color;
+$paragraph-color-default: #4C5A73 !default;
+$paragraph-color:$paragraph-color;
+$form-control-border:#d5ddea;
+$bg-color:$body-background;
+$latest-members-list-bg-color: $bg-color;
+$blue:$brand-primary;
+$edw-icon-ic-default:#5B6880;
+$small-text-color : mix($white, $paragraph-color, 15%);
+$small-info-color-date:$small-text-color;
+$medium-border-default :#D5DDEA;
+$medium-border :$medium-border;
+$form-items-border-radius:5px;
+$avatar-border-color:#ced4da;
+
+$color-red-error: rgb(185, 74, 72) !default;
+$color-grey-arrow: rgba(204, 204, 204, 0.2) !default;
+
+$width-default: 220px !default; // 3 960px-grid columns
+
+$zindex-select-dropdown: 1060 !default; // must be higher than a modal background (1050)
+
+//** Placeholder text color
+$input-color-placeholder: #999 !default;
+
+//
+$block-border-radius :8px;
+$common-border-radius:8px;
+$latest-members-profile-img-size:48px;
+$drop-shadow-xs: drop-shadow(0px 13px 37px rgba(92, 107, 121, 0.1));
+$form-elemenents-max-height:40px;
+
+// padding
+$pad-24 : 24px;
+$pad-48:48px;
+$mar-24 :$pad-24;
+$mar-48 :$pad-48;
+$block-panel-heading-x:$pad-24;
+$block-panel-heading-y:$pad-24;
+$edw-icon-size-large:24px;
+$pad-10:10px;
+$pad-8:8px;
+$rad-8:8px;
+
+$table-border-prop:1px solid $medium-border;
+$media-sm:576px;
+$media-md:1024px;

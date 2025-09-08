@@ -1,0 +1,62 @@
+<div class="modal darkmodewarnmodal " tabindex="-1" role="dialog">
+  <div class="modal-dialog h-100 align-items-center d-flex" role="document">
+    <div class="modal-content">
+      <div class="modal-body p-0">
+        <p class="m-0 modal-description-text">{{#str}}customizerdarkmodewarning,theme_remui{{/str}}</p>
+      </div>
+      <div class="modal-footer border-0 p-0">
+        <a type="button" class="btn btn-secondary btn-sm border-0 hidedarkmodewarnpopup">{{#str}}customizerdarkmodedonotshowbtntext,theme_remui{{/str}}</a>
+        <a type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">{{#str}}customizerdarkmodeok,theme_remui,{{/str}}</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="btn-group dropup darkmode-note-customizerwindow">
+  <a  class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <span class="edw-icon edw-icon-Info btn-close-icon"></span>
+        <span class="edw-icon edw-icon-Cancel btn-open-icon"></span>
+        <span class="btn-open-text">Note</span>
+  </a>
+  <div class="dropdown-menu dropdown-menu-right">
+        <span class="description-head">Note:</span>
+        <ul class="dropdown-description">
+              {{#str}}darkmodecustomizernote,theme_remui{{/str}}
+        </ul>
+  </div>
+</div>
+
+<div class="darkmode-switch-preview-wrapper">
+    <div class="preview-content">
+        <span class="preview-text">{{#str}}darkmodepreview,theme_remui{{/str}}</span>
+        <a class="btn btn-secondary btn-sm darkmodebutton previewswitchon">
+            <span class="edw-icon edw-icon-Dark-mode"></span>
+            <span>{{#str}}previewswitchon,theme_remui{{/str}}</span>
+        </a>
+        <a class="btn btn-secondary btn-sm darkmodebutton previewswitchoff d-none">
+            <span class="edw-icon edw-icon-Light-mode"></span>
+            <span>{{#str}}previewswitchoff,theme_remui{{/str}}</span>
+        </a>
+    </div>
+</div>
+{{#js}}
+    require(['jquery', 'theme_remui/user/repository'], function($, UserRepository){
+        $(document).ready(function(){
+            {{^darkmodecustomizerwarnnotvisible}}
+              $(".darkmodewarnmodal").modal({backdrop: 'static', keyboard: false}, 'show');
+            {{/darkmodecustomizerwarnnotvisible}}
+            $('.darkmode-note-customizerwindow .dropdown-toggle').click(function(){
+                $(this).toggleClass('open');
+            });
+            $(document).click(function(){
+              $('.darkmode-note-customizerwindow .dropdown-toggle.open').removeClass('open');
+            });
+
+            $('.darkmodewarnmodal .hidedarkmodewarnpopup').click(function(e){
+              e.preventDefault();
+                  UserRepository.setUserPreference('darkmodecustomizerwarnnotvisible', true);
+              $('.darkmodewarnmodal').modal('hide');
+            });
+        });
+    });
+{{/js}}

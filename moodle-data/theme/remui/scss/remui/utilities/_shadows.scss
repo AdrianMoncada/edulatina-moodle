@@ -1,0 +1,56 @@
+// Shadows
+$shadow-color : #ecf2f9 !default;
+$shadow-xs-color: rgba(92, 107, 121, 0.1) !default;
+$shadow-none: none !default;
+
+$shadow-size-xs  : 0 13px 37px !default;
+$shadow-size-sm  : 0 6px 12px !default;
+$shadow-size-md  : 0 9px 18px !default;
+$shadow-size-lg  : 0 13px 37px !default;
+$shadow-size-xl  : 0 20px 56px !default;
+
+$shadow-xs  : 0 13px 37px $shadow-xs-color !default;
+$shadow-sm  : 0 6px 12px $shadow-color !default;
+$shadow-md  : 0 9px 18px $shadow-color !default;
+$shadow-lg  : 0 13px 37px $shadow-color !default;
+$shadow-xl  : 0 20px 56px $shadow-color !default;
+
+$box-shadows-values: (
+    "xs" : $shadow-xs,
+    "sm" : $shadow-sm,
+    "md" : $shadow-md,
+    "lg" : $shadow-lg,
+    "xl" : $shadow-xl,
+    "none": $shadow-none
+) !default;
+
+$box-shadows-sizes: (
+    "xs" : $shadow-size-xs,
+    "sm" : $shadow-size-sm,
+    "md" : $shadow-size-md,
+    "lg" : $shadow-size-lg,
+    "xl" : $shadow-size-xl,
+) !default;
+
+$box-shadow-keys: map-keys($box-shadows-values);
+
+// parameters can be "none","xs","sm","md","lg","xl"
+@mixin get-box-shadow($shadowvalue) {
+    box-shadow: map-get($box-shadows-values, $shadowvalue);
+}
+
+// parameters can be "none","xs","sm","md","lg","xl"
+@mixin get-box-shadow-custom($shadowvalue, $shadowcolor: $shadow-color, $opacity: 100%) {
+    box-shadow: map-get($box-shadows-sizes, $shadowvalue) rgba($shadowcolor, $opacity);
+}
+
+// parameters can be "none","xs","sm","md","lg","xl"
+@mixin get-drop-shadow($shadowvalue) {
+    filter: drop-shadow(map-get($box-shadows-values, $shadowvalue));
+}
+
+@each $shadowkey in $box-shadow-keys {
+    .shadow-#{$shadowkey} {
+        @include get-box-shadow($shadowkey);
+    }
+}

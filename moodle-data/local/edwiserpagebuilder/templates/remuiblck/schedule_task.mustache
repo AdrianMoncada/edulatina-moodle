@@ -1,0 +1,52 @@
+{{!
+    This file is part of Moodle - http://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+}}
+<div id="tasks-{{uniqid}}" class="tasks-wrapper container p-0">
+    <div class="filters row justify-content-between">
+        <div class="filter-options d-flex justify-content-start align-items-center p-0" >
+            {{> local_edwiserpagebuilder/remuiblck/task-duration-selector }}
+            {{> local_edwiserpagebuilder/remuiblck/task-status-selector }}
+            <div class="input-search  filter-item">
+                <div class="input-group-prepend d-flex align-items-center ">
+                    <button class="btn p-0 m-0" type="submit"><span><img class="epb-img-icon" src="{{{searchfiltericonimg}}}"  width="24" height="24"> </span></button>
+                    <input data-region="task-search-filter" type="text" class="form-control border-0 h-100 " name="" placeholder="{{#str}} search, core_admin {{/str}}" autocomplete="off" title="{{#str}} search, core_admin {{/str}}">
+                </div>
+            </div>
+        </div>
+        <a data-region="add-schedule-task" class="btn btn-primary btn-sm add-item-toggle" title="{{#str}} addtask, local_edwiserpagebuilder {{/str}}">
+            {{! <i class="icon fa fa-plus text-white" aria-hidden="true"></i> }}
+            {{#str}} addtask, local_edwiserpagebuilder {{/str}}
+        </a>
+    </div>
+    <a data-region="add-schedule-task" class="btn btn-primary btn-sm add-item-toggle d-none" title="{{#str}} addtask, local_edwiserpagebuilder {{/str}}">
+        {{! <i class="icon fa fa-plus text-white" aria-hidden="true"></i> }}
+        {{#str}} addtask, local_edwiserpagebuilder {{/str}}
+    </a>
+    <ul data-region="task-list" class="task-list list-group list-group-dividered unstyled m-0">
+        {{> local_edwiserpagebuilder/remuiblck/placeholder-task-list-item }}
+        {{> local_edwiserpagebuilder/remuiblck/placeholder-task-list-item }}
+        {{> local_edwiserpagebuilder/remuiblck/placeholder-task-list-item }}
+    </ul>
+    <div class="block-processing d-none">
+        <div class="block-processing-icon"><i class="fa fa-circle-o-notch fa-spin"></i></div>
+    </div>
+</div>
+
+{{#js}}
+require(['local_edwiserpagebuilder/remuiblck/schedule_task'], function(scheduletask) {
+    scheduletask.init('#tasks-{{uniqid}}');
+});
+{{/js}}

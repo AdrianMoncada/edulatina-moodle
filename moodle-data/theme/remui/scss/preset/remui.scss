@@ -1,0 +1,532 @@
+//
+// Bootstrap variables
+//
+
+// Prefix for all CSS variables
+$prefix: bs- !default;
+
+
+// *** COLOR SCHEME
+// Basic Colors
+$white 	  : #fff !default;
+$gray-100 : #f8f9fa !default;
+$gray-200 : #e9ecef !default;
+$gray-300 : #d5ddea !default;
+$gray-400 : #ced4da !default;
+$gray-500 : #8f959e !default;
+$gray-600 : #6a737b !default;
+$gray-700 : #495057 !default;
+$gray-800 : #343a40 !default;
+$gray-900 : #1d2125 !default;
+$black	  : #000 !default;
+
+// Do not modify these colors.
+$blue 	: #0051f9 !default;
+$indigo	: #6610f2 !default;
+$purple	: #613d7c !default;
+$pink	: #e83e8c !default;
+$red 	: #dc3545 !default;
+$orange	: #ffc107 !default;
+$yellow	: #ff7518 !default;
+$green	: #28a745 !default;
+$teal 	: #20c997 !default;
+$cyan	: #17a2b8 !default;
+$light 	: #f8f9fa !default;
+$dark 	: #343a40 !default;
+
+// Brand color definition
+$primary  : $blue !default;
+$success  : $green !default;
+$info	  : $cyan !default;
+$warning  : $orange !default;
+$danger	  : $red !default;
+$secondary: $gray-600 !default;
+
+$brand-primary	 : $primary !default;
+$brand-secondary : #37be71 !default;
+$brand-secondary-static: #37be71 !default;
+
+$theme-colors: () !default;
+$theme-colors: map-merge(
+    (
+        primary	: $primary,
+        secondary : $secondary,
+        success	: $success,
+        info	: $info,
+        warning	: $warning,
+        danger	: $danger,
+        light   : $light,
+        dark    : $dark,
+        brand-primary	: $brand-primary,
+        brand-secondary	: $brand-secondary
+    ),
+    $theme-colors
+);
+
+// Fonts
+$font-size-base: 0.9375rem !default;
+
+// Background colors
+// $bg-colors:
+$bg-accent	: #1c376f !default;
+$bg-body	: #f5f9fd !default;
+$bg-block	: $white !default;
+$bg-small-ui: #ebf0f9 !default;
+$bg-header	: $white !default;
+$bg-footer	: #000819 !default;
+$bg-header-ele : #f0f6fc !default;
+
+// Links
+$link-decoration: none !default;
+
+$background-colors: () !default;
+$background-colors: map-merge(
+    (
+        accent	: $bg-accent,
+        body	: $bg-body,
+        block	: $bg-block,
+        smallui	: $bg-small-ui,
+        header	: $bg-header,
+        footer	: $bg-footer,
+        headerele : $bg-header-ele
+    ),
+    $background-colors
+);
+
+// Border radius
+$border-radius: .5rem !default;
+$border-radius-lg: .6rem !default;
+
+
+// HR
+$hr-opacity: .15 !default;
+
+// Font Colors
+$link-color	: $brand-primary !default;
+$heading-color : #313848 !default;
+$paragraph-color: #4c5a73 !default;
+$small-text-color : #647390 !default;
+$footer-text-color: $white !default;
+$footer-link-color: #d0d4dd !default;
+$header-text-active : $brand-primary !default;
+$header-text-default: #63718c !default;
+$header-text-hover-color : $brand-primary !default;
+
+// Breadcrumbs
+$breadcrumb-padding-y:      .5rem !default;
+$breadcrumb-margin-bottom:  0 !default;
+
+
+// Element Colors
+$light-border	: #ebf0f9 !default;
+$medium-border	: #d5ddea !default;
+$dark-border	: #264485 !default; // Accent BG dark
+$header-divider-color-light	: #ebf0f9 !default;
+$header-divider-color-dark	: #7590C2 !default;
+$footer-divider-color	: #00184b !default;
+
+// Cards
+$card-group-margin: .25rem;
+
+
+// PAGE ICONS
+// Icon colors
+$ic-default : #5b6880 !default;
+$ic-hover   : #465062 !default;
+$ic-active  : $brand-primary !default;
+$ic-secondary : $brand-secondary !default;
+// Dual Icon Colors
+$dic-default-bg : $brand-primary !default;
+$dic-hover-bg 	: #0041c7 !default;
+$dic-active-bg 	: #003094 !default;
+$dic-white-bg 	: $white !default;
+
+// Dropdowns
+$dropdown-link-hover-color: $white;
+$dropdown-link-hover-bg: $primary;
+
+// HEADER ICONS
+$header-ic-default : #5b6880 !default;
+$header-ic-hover   : #465062 !default;
+$header-ic-active  : $brand-primary !default;
+// FOOTER ICONS
+$footer-ic-default : #909bb1 !default;
+$footer-ic-hover   : $white !default;
+
+// Popovers
+$popover-max-width: 300px !default;
+
+// Tables
+$table-accent-bg: rgba($black, .03) !default;
+
+
+// Spacers
+$spacer: 1rem !default;
+$spacers: (
+    0: 0,
+    1: ($spacer * .25),
+    2: ($spacer * .5),
+    3: $spacer,
+    4: ($spacer * 1.5),
+    5: ($spacer * 2),
+    6: ($spacer * 3)
+) !default;
+
+// COLOR SCHEME ***
+
+// ICONS ***
+
+// Options
+$enable-responsive-font-sizes: true !default;
+
+// Body
+$body-color:    $gray-900 !default;
+
+$body-bg: $bg-body;
+
+// Fonts
+$font-size-base: 1rem !default;
+$rfs-base-font-size: 0.9rem !default;
+$headings-font-weight:   700 !default;
+
+// EDWISER - HEadings
+$h1-font-size: $font-size-base * 3; //48
+$h2-font-size: $font-size-base * 2.125; // 34
+$h3-font-size: $font-size-base * 1.5; // 24
+$h4-font-size: $font-size-base * 1.25; // 20
+$h5-font-size: $font-size-base; // 16
+$h6-font-size: $font-size-base * 0.875; // 14
+
+// stylelint-disable value-keyword-case
+$font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !default;
+// $font-family-base: Inter, $font-family-sans-serif;
+$remui-icon-font-family: Remui;
+
+// Shadows
+$shadow-color : #ecf2f9 !default;
+$shadow-xs-color: rgba(92, 107, 121, 0.1) !default;
+$shadow-none: none !default;
+$shadow-xs  : 0 13px 37px $shadow-xs-color !default;
+$shadow-sm  : 0 6px 12px $shadow-color !default;
+$shadow-md  : 0 9px 18px $shadow-color !default;
+$shadow-lg  : 0 13px 37px $shadow-color !default;
+$shadow-xl  : 0 20px 56px $shadow-color !default;
+
+$box-shadows-values: (
+    "xs" : $shadow-xs,
+    "sm" : $shadow-sm,
+    "md" : $shadow-md,
+    "lg" : $shadow-lg,
+    "xl" : $shadow-xl,
+    "none": $shadow-none
+) !default;
+$edw-icon-size-ex-large: 32px;
+$edw-icon-size-large: 24px;
+$edw-icon-size-small: 18px;
+
+//form default colors
+$form-paragraph-color-default:#4c5a73;
+$form-medium-color-default:#d5ddea ;
+$form-light-border-color-default: #ebf0f9;
+$form-small-bg-ui-default:#ebf0f9;
+
+
+// Navbar Styling
+$navbar-height: 80px;
+$navbar-vertical-padding: 16px;
+$navbar-vertical-horizontal: 16px;
+$moremenu-height: $navbar-height;
+$navbar-padding-y: 16px;
+$navbar-padding-x: 24px;
+$navbar-padding-x-sm: 24px;
+$navbar-border-size: 3px;
+$navbar-border-color: $header-text-active;
+$header-text-hover-backgroundcolor: transparent;
+$navbar-light-active-color: $brand-primary;
+$navbar-icon-size: $edw-icon-size-large;
+$navbar-logo-text-size: 1.25rem !default;
+$navbar-logo-text-size-md: 1.125rem !default;
+$navbar-icon-color: $header-ic-default;
+$navbar-nav-link-padding-x: 0;
+
+// Dropdown Styling
+$dropdown-border-width: 1px;
+$dropdown-border-color: $light-border;
+$dropdown-padding-y: 0;
+$dropdown-item-padding-y: 1rem;
+$dropdown-item-padding-x: 1.5rem;
+$dropdown-iconitem-padding-y: 0.875rem;
+$dropdown-spacer: 0.5rem;
+$dropdown-link-color: $paragraph-color;
+$dropdown-bg: $white;
+$dropdown-link-hover-color: $paragraph-color;
+$dropdown-link-hover-bg: $bg-small-ui;
+$dropdown-link-active-color: $paragraph-color;
+$dropdown-link-active-bg: $bg-small-ui;
+
+// Popover Region
+$popover-region-border: 1px solid $light-border;
+$popover-region-height: 400px;
+$popover-region-width: 364px;
+$popover-region-header-height: 64px;
+$popover-region-footer-height: 57px;
+$popover-region-header-padding-x: 16px;
+$popover-region-header-padding-y: 20px;
+$popover-region-container-border-rad: 4px;
+$popover-region-content-padding-y: 24px;
+$popover-region-content-padding-x: 16px;
+
+// Notification popover - styling
+$notification-content-text-color: $small-text-color;
+$notification-content-container-bg: $bg-small-ui;
+
+$footer-line-height: 25px;
+
+// Navbar Avatar
+$navbar-avatar-size: $navbar-height - $navbar-vertical-padding * 2;
+$navbar-avatar-size-sm: $navbar-height - $navbar-vertical-padding * 2 - 8px;
+$navbar-avatar-bordersize: 2px;
+$navbar-avatar-bordercolor: $gray-400;
+$navbar-userinitials-bordersize: 1px;
+$navbar-userinitials-bordercolor: $light-border;
+$navbar-userinitials-color: $ic-default;
+
+// Footer Styling
+$footer-main-container-padding-y: 32px;
+$footer-main-container-mobile-padding-y: 24px;
+$footer-bg-color: $bg-footer;
+
+$popover-border-width: 1px;
+$popover-border-color: $light-border;
+$popover-border-radius-all: 8px;
+
+$layout-transition-effects: left 0.2s ease, right 0.2s ease, top 0.2s ease, bottom 0.2s ease, visibility 0.2s ease, margin-right 0.2s ease;
+
+$custom-breakpoint-xs: 400px;
+
+// Drawer styling
+$drawer-bg-color: $white;
+$drawer-toggler-bgcolor: $dic-default-bg;
+$message-app-bg: $drawer-bg-color;
+$drawer-right-width: 372px;
+$drawer-left-width: 372px;
+
+// Search Field Styling
+$searchfield-border-rad: 5px !default;
+$searchfield-pad-x: 16px !default;
+$searchfield-pad-y: 12px !default;
+$searchfield-width: 194px !default;
+$searchfield-gap: 8px !default;
+$searchfield-border: 1px solid $form-light-border-color-default;
+$input-group-field-padding: 8px 8px 8px 16px;
+$searchfield-icon-color: $ic-default;
+
+// it used for the close button in edit mode move modal
+$modal-closebutton-color:#717E9A;
+
+//background color for sidebar modal sections and edit mode move modal.
+$bg-block-sidebarsection-color:#FFFFFF;
+
+
+// bootstrab button variables
+$btn-border-common :          5px;
+$btn-border-radius:           $btn-border-common !default;
+$btn-border-radius-lg:        $btn-border-common !default;
+$btn-border-radius-sm:        $btn-border-common !default;
+
+$btn-padding-y:               11.5px;
+$btn-padding-x:               16px;
+$btn-font-size:               14px;
+$btn-line-height:             17px;
+$btn-white-space:             null; // Set to `nowrap` to prevent text wrapping
+
+$btn-padding-y-sm:            8.5px;
+$btn-padding-x-sm:            12px;
+$btn-font-size-sm:            12px;
+$btn-line-height-sm:          15px;
+
+$btn-padding-y-lg:            14.5px;
+$btn-padding-x-lg:            16px;
+$btn-font-size-lg:            14px;
+$btn-line-height-lg:          17px;
+
+$btn-darken-hover-value :9.9%;
+$btn-darken-focus-value :19.9%;
+
+$btn-font-weight: 600;
+$btn-border-width: 2px;
+
+// block icons size
+$block-icon-size: $navbar-icon-size;
+$block-icon-height: $navbar-icon-size;
+$block-icon-width: $navbar-icon-size;
+$block-icon-color: $navbar-icon-color;
+$blocks-gap-lg: 56px;
+$blocks-gap-md: 32px;
+$blocks-gap-sm: 24px;
+$block-body-color: $white;
+
+//left sidebar icons
+$lsidebar-icon-size:$navbar-icon-size;
+$lsidebar-icon-height:$navbar-icon-size;
+$lsidebar-icon-width:$navbar-icon-size;
+$lsidebar-icon-color:$navbar-icon-color;
+
+// secondary navigation variables
+$secondarynavbar-mar-b: 12px;
+$secondarynavbar-mar-t: 0;
+$secondarynavbar-line-height: 22px;
+$secondarynavbar-border-size: 3px;
+$secondarynavbar-border-bottom: $secondarynavbar-border-size solid $brand-primary;
+$secondary-navmenu-height: $secondarynavbar-mar-b + $secondarynavbar-mar-t + $secondarynavbar-line-height + $secondarynavbar-border-size;
+
+
+
+$table-border-color: $light-border;
+// $input-border-color: $light-border;
+$input-border-radius: 4px;
+$input-padding-y: 0.90625rem;
+$input-padding-x: 0.625rem;
+$input-padding-y-sm: 0.75rem;
+$input-padding-x-sm: 0.625rem;
+
+$input-line-height: 1.0625;
+$input-line-height-sm: 1.0625;
+// $input-height-border: 0.9375;
+$input-color: $form-paragraph-color-default;
+$input-label-color: $input-color;
+
+$input-btn-font-family: $font-family-base;
+
+$form-group-margin-bottom: 1.5rem;
+
+$form-group-py: 32px;
+$form-group-px: 0;
+$form-group-py-md: 24px;
+$form-group-px-md: 0;
+$form-group-py-sm: 16px;
+$form-group-px-sm: 0;
+
+$badge-padding-y: 12px;
+$badge-padding-x: 8px;
+$badge-padding-y-sm: 8px;
+$badge-padding-x-sm: 8px;
+
+// messagging panel varialbes
+$msg-panel-icon-fontsize:24px;
+$msg-panel-icon-width:24px;
+$msg-panel-icon-height:24px;
+$msg-panel-search-icon-color:$ic-default;
+
+$custom-select-disabled-bg: $bg-small-ui;
+
+$editor-atto-toolbar-bg: $bg-small-ui;
+
+$custom-select-indicator: url("data:image/svg+xml,<svg width='10' height='6' viewBox='0 0 10 6' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M1 1.01001L5 5.01001L9 1.01001' stroke='#5B6880' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/></svg>");
+
+$block-main-bg: transparent;
+
+$logincontainer-bg: transparent;
+$logincontainer-padding: 0;
+$logincontainer-shadow: none;
+
+$drawer-main-inner-margin-y: 3.5rem;
+$drawer-main-inner-margin-x: 0;
+
+$page-header-margin-bottom: 24px;
+
+$container-main-area-pad: 32px;
+$container-main-area-rad: 8px;
+$container-main-area-bg: $white;
+
+$breadcrumb-padding-y: 0;
+$breadcrumb-padding-x: 0;
+$breadcrumb-bg: transparent;
+
+$modal-header-padding-y: 1.5rem;
+$modal-header-padding-x: 1.5rem;
+$modal-inner-padding: $modal-header-padding-y;
+$modal-header-text-color: $heading-color;
+$modal-content-border-width: 0;
+$modal-content-border-color: transparent;
+$modal-header-border-width: 1px;
+$modal-header-border-color: $light-border;
+$modal-backdrop-bg: rgba(0, 0, 0);
+
+$border-radius: .25rem;
+$border-radius-lg: .5rem;
+$border-radius-sm: .25rem;
+$border-radius-xl: 1rem;
+
+$form-check-input-gutter: 0;
+
+$instructor-count-bg-color:$bg-small-ui;
+
+$thin-scroll-bg-thumb: $gray-300;
+$thin-scroll-bg-hover: $gray-400;
+
+$course-archive-date-bg:#17a2bb;
+
+$carousel-indicator-width: 10px;
+$carousel-indicator-height: 10px;
+
+$alert-padding-y: 1rem;
+$alert-padding-x: 1.5rem;
+
+// Course Format Styling.
+$activity-iconcontainer-width: 50px;
+$activity-iconcontainer-height: 50px;
+$activity-iconcontainer-rad: 16px;
+
+$table-cell-padding: 5px;
+
+$warning-btn-color:#343A40;
+// $text-muted: $gray-400;
+
+// Import Required Fonts
+@import "fonts";
+
+// Import FontAwesome.
+@import "fontawesome";
+
+// Import All of Bootstrap
+@import "bootstrap";
+
+// Import Core moodle CSS
+@import "moodle";
+
+// // Import RemUI CSS
+// @import "remui";
+
+
+// *** ICONS
+
+// Inputs
+$focus-ring-opacity: .75 !default;
+$input-border-color: var(--#{$prefix}gray-500) !default;
+$form-check-input-border: var(--#{$prefix}border-width) solid var(--#{$prefix}gray-500) !default;
+
+// Rounded user pictures
+.userpicture {
+    border-radius: 50%;
+}
+
+// Reset the default styling back to the bootstrap defaults for
+// the secondary outline button because gray-200 is much too light
+// for an outline button.
+
+$info-outline:    #1f7e9a;
+$warning-outline: #a6670e;
+
+.btn-outline-secondary {
+    @include button-outline-variant($gray-600);
+    border-color: $gray-600;
+}
+
+.btn-outline-info {
+    @include button-outline-variant($info-outline);
+}
+
+.btn-outline-warning {
+    @include button-outline-variant($warning-outline);
+}

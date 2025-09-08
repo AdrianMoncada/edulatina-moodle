@@ -1,0 +1,76 @@
+{{#blocks}}
+<div class="card-wrapper {{blockgroup}} {{additionalclass}} {{section}} {{blocktype}}" data-parentblock="{{name}}" data-block="{{name}}{{#section}}{{section}}{{/section}}" data-blockid="{{id}}">
+    <div class="card-item h-100 ">
+        {{#addableblock}}
+        <a href="{{url}}&amp;bui_addblock={{name}}{{#section}}&amp;section={{section}}{{/section}}" class="blockurl"></a>
+        {{/addableblock}}
+        {{^addableblock}}
+        <a href="#" class="blockurl {{blocktype}}-btn" data-block-region="{{blockregion}}" data-block="{{#section}}{{section}}{{/section}}" block-pagetypepattern = '{{blockpagetype}}'></a>
+        {{/addableblock}}
+        <div class="card">
+            {{#addableblock}}
+            <a href="{{url}}&amp;bui_addblock={{name}}{{#section}}&amp;section={{section}}{{/section}}" class="list-group-item p-0 ">
+                <div class="card-body d-flex justify-content-center align-items-center">
+                    <div class="block-cover " style="background: url('{{thumbnail}}'); !important">
+
+                    </div>
+                </div>
+            </a>
+            {{/addableblock}}
+            {{^addableblock}}
+            <a href="#"  class="list-group-item p-0 " >
+                <div class="card-body d-flex justify-content-center align-items-center">
+                    <img src="{{thumbnail}}">
+                </div>
+            </a>
+            {{/addableblock}}
+            <div class="card-footer d-flex justify-content-between align-items-center">
+                <div class="h-semibold-6">
+                    {{#addableblock}}
+                    <a href="{{url}}&amp;bui_addblock={{name}}{{#section}}&amp;section={{section}}{{/section}}" class="text-decoration-none footer-add-link">
+                        <span class="edw-icon {{#importicon}}edw-icon-Download{{/importicon}} {{^importicon}}edw-icon-Add-block{{/importicon}} d-none"></span>
+                        <span>{{title}}</span>
+                    </a>
+                    {{/addableblock}}
+                    {{^addableblock}}
+                    <a href="#" class="text-decoration-none footer-add-link">
+                        <span class="edw-icon {{#importicon}}edw-icon-Download{{/importicon}} {{^importicon}}edw-icon-Add-block{{/importicon}} d-none"></span>
+                        <span>{{title}}</span>
+                    </a>
+                    {{/addableblock}}
+                </div>
+                <div class="action-icon-wrapper">
+                    {{! info-wrapper added for showing block information }}
+                    {{#blockinfo}}
+                        <div class="info-wrapper">
+                            <i class="edw-icon edw-icon-Info info-about" title=""></i>
+                            <div class="info-about-box-wrapper">
+                                <div class="info-about-box">
+                                    <p class="m-0">{{{blockinfo}}} </p>
+                                </div>
+                            </div>
+                        </div>
+                    {{/blockinfo}}
+
+                    {{^visible}}
+                        <i class="edw-icon edw-icon-Info info-deprecated" title="{{#str}}blockdeprecated, local_edwiserpagebuilder{{/str}}"></i>
+                    {{/visible}}
+                    {{#updateavailable}}
+                    <a href="#" class=" update-content text-decoration-none" data-blockname="{{section}}" title="{{#str}}updateblockcontent, local_edwiserpagebuilder{{/str}}">
+                        <span class="edw-icon edw-icon-Refresh d-flex"></span>
+                    </a>
+                    {{/updateavailable}}
+
+                    {{^visible}}
+                    <a href="#" class="delete-content text-decoration-none" data-blockname="{{section}}" title="{{#str}}deleteblockcontent, local_edwiserpagebuilder{{/str}}" data-blockid="{{id}}">
+                        <span class="edw-icon edw-icon-Delete-Course d-flex"></span>
+                    </a>
+                    {{/visible}}
+                </div>
+            </div>
+
+        </div>
+        {{#section}}<div class="ribbon d-none">Edwiser</div>{{/section}}
+    </div>
+</div>
+{{/blocks}}

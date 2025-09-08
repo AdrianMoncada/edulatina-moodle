@@ -1,0 +1,27 @@
+@import "./pluginsupport/edwiserpagebuilder";
+@import "./pluginsupport/edwiservideoformat";
+// Grader Plugin
+#page-admin-blocks-edwiser_grader-classes-edwiser_grader_license{
+    margin-top: 0px !important;
+}
+
+.ernr-mr-4{
+    margin-right: 1.5rem !important;
+}
+
+// To fix an issue where the dropdown arrow was absent in select box in edwiser rapid grader plugin
+#page-blocks-edwiser_grader-grader {
+    #edg-grader-page {
+        .edg-container.edg-question-grading {
+            #eg-qb-table_wrapper {
+                select.form-control {
+                    appearance: auto;
+                }
+            }
+        }
+    }
+}
+
+.block_edwiser_grader select.form-control {
+    appearance: auto;
+}

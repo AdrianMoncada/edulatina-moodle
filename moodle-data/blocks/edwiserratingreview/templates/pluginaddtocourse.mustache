@@ -1,0 +1,31 @@
+<div class='pluginaddtocoursearea'>
+    {{#modalpopup}}
+    {{>block_edwiserratingreview/pluginadditionmodalpopup}}
+    {{/modalpopup}}
+    {{#isdenied}}
+    <div class="card w-100 approvalarea">
+        <div class="card-body ernr-pluginaddoptions">
+            <h5> {{#str}}approvaltexttoaddonallcourses, block_edwiserratingreview{{/str}}<h5>
+                    <button type="button" class="btn btn-primary" id="addplugintocourses">{{#str}}yes, block_edwiserratingreview{{/str}}</button>
+                    <button type="button" class="btn btn-secondary" id="donotaddplugintocourses">{{#str}}no, block_edwiserratingreview{{/str}}</button>
+        </div>
+    </div>
+    <div class="text-center ernr-pluginaddloader">
+        <div class="spinner-border" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+    </div>
+    {{/isdenied}}
+
+    {{^isdenied}}
+    <div class="alert alert-light pluginadded" role="alert">
+        {{#str}}instaddingpluginsmanually, block_edwiserratingreview{{/str}}
+    </div>
+    {{/isdenied}}
+</div>
+
+{{#js}}
+require(['block_edwiserratingreview/pluginaddtocourse'], function(Pluginaddtocourse){
+Pluginaddtocourse.init();
+});
+{{/js}}

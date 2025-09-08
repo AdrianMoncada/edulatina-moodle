@@ -1,0 +1,103 @@
+{{#page}}
+<nav class="page_sub_header {{^isediting}} page-default-header{{/isediting}}" title="{{#str}}subheadertitle, local_edwiserpagebuilder{{/str}}" id={{id}}>
+    {{#isediting}}
+        <div class="page_sub_header-title" >
+            <h1 title="{{{pagename}}}">{{{pagename}}}</h1>
+            <div class="tag-box">
+
+                <div class="btn-tag draft-tag" title="{{#str}}draft_text, local_edwiserpagebuilder{{/str}}" >
+                    {{#str}}draft_text, local_edwiserpagebuilder{{/str}}
+                </div>
+
+                {{^visible}}
+                    <div class="btn-tag hidden-tag" title="{{#str}}hidden_text, local_edwiserpagebuilder{{/str}}" >
+                        {{#str}}hidden_text, local_edwiserpagebuilder{{/str}}
+                    </div>
+                {{/visible}}
+
+            </div>
+        </div>
+        <div class="page_sub_header-menus">
+
+        <div class="menu-wrapper">
+
+            <a  href="{{{config.wwwroot}}}/local/edwiserpagebuilder/pagedraft.php?id={{id}}{{preview}}" class="btn-icon" title="{{#str}}preview, local_edwiserpagebuilder{{/str}}">
+                <img src="{{config.wwwroot}}/local/edwiserpagebuilder/pix/preview.svg" alt="{{#str}}preview, local_edwiserpagebuilder{{/str}}" />
+            </a>
+
+            <button class="btn-icon btn-copyurl" title="{{#str}}copyurl, local_edwiserpagebuilder{{/str}}" data-value="{{id}}">
+                <img src="{{config.wwwroot}}/local/edwiserpagebuilder/pix/copy_icon.svg" alt="{{#str}}copyurl, local_edwiserpagebuilder{{/str}}" />
+                <!-- this Input is created for holding the page url for copy -->
+                <input type="text" value="{{pageurl}}" class="target_url" style="display: none;" data-pagename="{{pagename}}">
+            </button>
+
+            <a  href="{{{config.wwwroot}}}/local/edwiserpagebuilder/pageedit.php?id={{id}}" class="btn-icon" title="{{#str}}pagesettings, local_edwiserpagebuilder{{/str}}">
+                <img src="{{config.wwwroot}}/local/edwiserpagebuilder/pix/setting_icon.svg" alt="{{#str}}pagesettings, local_edwiserpagebuilder{{/str}}" />
+            </a>
+
+            <button class="btn-icon btn-duplicate" title="{{#str}}duplicatepage, local_edwiserpagebuilder{{/str}}" data-value="{{id}}">
+                <img src="{{config.wwwroot}}/local/edwiserpagebuilder/pix/duplicate_icon.svg" alt="{{#str}}duplicatepage, local_edwiserpagebuilder{{/str}}" />
+            </button>
+
+
+            <div class="btn-icon btn-eye  {{#visible}} d-none{{/visible}}" title="{{#str}}showpage, local_edwiserpagebuilder{{/str}}" data-value="{{id}}">
+                <img src="{{{config.wwwroot}}}/local/edwiserpagebuilder/pix/hide_icon.svg" alt="hidden" />
+            </div>
+
+            <div class="btn-icon btn-eyeclose  {{^visible}} d-none{{/visible}}" title="{{#str}}hidepage, local_edwiserpagebuilder{{/str}}" data-value="{{id}}">
+                <img src="{{{config.wwwroot}}}/local/edwiserpagebuilder/pix/show_icon.svg" alt="visible" />
+            </div>
+
+        </div>
+
+        <button class='btn btn-primary btn-publish' title="{{#indraft}}{{#str}}publishpage, local_edwiserpagebuilder{{/str}}{{/indraft}}{{^indraft}}{{#str}}update, local_edwiserpagebuilder{{/str}}{{/indraft}}" data-value="{{id}}" {{#indraft}}indraft{{/indraft}}>
+            {{#indraft}}
+                {{#str}}publish_text, local_edwiserpagebuilder{{/str}}
+            {{/indraft}}
+            {{^indraft}}
+                {{#str}}update_text, local_edwiserpagebuilder{{/str}}
+            {{/indraft}}
+        </button>
+
+    </div>
+    {{/isediting}}
+
+    {{^isediting}}
+
+        {{^ispreview}}
+        <p class="default-draft-header-msg">
+            {{#indraft}}
+                {{#visible}}
+                    {{#str}}default_draft_header_msg, local_edwiserpagebuilder, Draft{{/str}}
+                {{/visible}}
+
+                {{^visible}}
+                    {{#str}}default_drafthidden_header_msg, local_edwiserpagebuilder, Draft{{/str}}
+                {{/visible}}
+            {{/indraft}}
+
+            {{^indraft}}
+                {{#str}}default_hidden_header_msg, local_edwiserpagebuilder, Draft{{/str}}
+            {{/indraft}}
+        </p>
+        {{/ispreview}}
+
+        {{#ispreview}}
+        <p class="default-draft-header-msg">
+            {{#str}}default_preview_header_msg, local_edwiserpagebuilder, Draft{{/str}}
+            <a  href="{{{config.wwwroot}}}/local/edwiserpagebuilder/pagedraft.php?id={{id}}&preview=2" class="btn-closepreview" title="{{#str}}close_preview, local_edwiserpagebuilder{{/str}}">
+                {{#str}}close_preview, local_edwiserpagebuilder, Draft{{/str}}
+            </a>
+        </p>
+
+        {{/ispreview}}
+    {{/isediting}}
+
+</nav>
+{{/page}}
+
+{{#js}}
+    require(['local_edwiserpagebuilder/pageslistsettings'], function(sitepage) {
+        sitepage.initCommon();
+    });
+{{/js}}

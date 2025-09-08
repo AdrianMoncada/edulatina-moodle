@@ -1,0 +1,110 @@
+$edw-icon--wrapper-size : 30px;
+$edw-icon--wrapper-size-mob : 24px;
+$dark-icon-color-bg : #F0F6FC;
+$dark-icon-hover-color-bg : #343A401A;
+.navbar{
+    .nav-dark-light-mode-icon-wrapper{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        a{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: $dark-icon-color-bg;
+            border-radius: 4px;
+            padding: map-get($spacerspx,"1d5");
+            width: $edw-icon--wrapper-size;
+            height: $edw-icon--wrapper-size;
+            &:hover{
+                background-color: $dark-icon-hover-color-bg;
+            }
+            .edw-icon{
+                font-size: 19px;
+                height: unset;
+                width: unset;
+            }
+            @include media-breakpoint-down(sm){
+                width: $edw-icon--wrapper-size-mob;
+                height: $edw-icon--wrapper-size-mob;
+                .edw-icon{
+                    font-size: 15px;
+                }
+            }
+        }
+        a.lightmode-icon-link{
+            display: none;
+        }
+    }
+}
+
+.nav-darkmode {
+    .dm-toggle {
+        cursor: pointer;
+        // background: $header-menu-element-bg-color;
+        cursor: pointer;
+        background: #edf1f6;
+        width: 30px;
+        height: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 3px;
+
+        .edw-icon {
+            color: #5c6980;
+        }
+        .edw-icon:hover {
+            color: #445066;
+        }
+    }
+    .lightmodeicon {
+        display: none;
+    }
+    .darkmodeicon {
+        display: block;
+    }
+    &.enabled {
+        .darkmodeicon {
+            display: none;
+        }
+        .lightmodeicon {
+            display: block;
+        }
+    }
+}
+html[nighteyeplgn="active"] {
+    .light-logo {
+        display: none !important;
+    }
+
+    .dark-logo {
+        display: flex !important;
+    }
+
+    .light-logomini {
+       display: none !important;
+   }
+
+   .dark-logomini {
+       display: flex !important;
+   }
+ }
+
+ html:not([nighteyeplgn="active"]){
+    .light-logo {
+       display: flex !important;
+    }
+
+    .dark-logo {
+       display: none !important;
+    }
+
+    .light-logomini {
+       display: flex !important;
+    }
+
+   .dark-logomini {
+       display: none !important;
+    }
+ }

@@ -1,0 +1,64 @@
+.paragraph-color {
+    color: $paragraph-color !important;
+}
+
+.text-white {
+    color: $white !important;
+}
+
+.heading-color {
+    color: $heading-color !important;
+}
+
+.color-primary {
+    color: $brand-primary !important;
+}
+
+.bg-primary {
+    background-color: $brand-primary !important;
+}
+
+.border-color-primary {
+    border-color: $brand-primary !important;
+}
+
+.hover:hover {
+    .hover-bg-primary,
+    &.hover-bg-primary {
+        background-color: $brand-primary !important;
+    }
+
+    .hover-color-white,
+    &.hover-color-white {
+        color: $white !important;
+    }
+}
+
+.fccourses-wrapper .carousel-indicators .slick-active{
+    background-color: $brand-primary !important;
+}
+
+
+// The bottom css is for the course-categories navbar
+.cnc-navbar-carousel.navbar-carousel .navbar-inner {
+    .navbar-item-container,
+    .mob-navbar {
+        .navitem.active {
+            border-color: $brand-primary;
+
+            @include media-breakpoint-up(md) {
+                .course-count {
+                    background-color: $brand-primary;
+                    border-color: $brand-primary;
+                    color: $white;
+                }
+            }
+
+            @include media-breakpoint-down(sm) {
+                background-color: $brand-primary;
+            }
+
+        }
+    }
+
+}

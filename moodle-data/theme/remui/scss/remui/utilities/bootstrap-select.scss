@@ -1,0 +1,28 @@
+.bootstrap-select {
+    &.show {
+        .dropdown-menu {
+            display: block;
+            transform: scale(1);
+            li {
+                padding: 0 5px;
+                margin: 2px 0;
+                a {
+                    display: block;
+                    padding: .572rem 1.072rem;
+                    font-weight: 400;
+                    line-height: 1.57142857;
+                    color: $form-paragraph-color-default;
+                    white-space: nowrap;
+                    border-radius: .215rem;
+                    &:hover {
+                        background: #f3f7f9;
+                    }
+                    &:focus {
+                        box-shadow: none;
+                        outline: none;
+                    }
+                }
+            }
+        }
+    }
+}

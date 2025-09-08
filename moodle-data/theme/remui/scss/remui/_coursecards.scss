@@ -1,0 +1,438 @@
+$card-icon-height :24px;
+$card-icon-width:24px;
+$card-icon-size :16px;
+$card-border-radius:8px;
+$card-list-gap:map-get($gapspace , '6');
+$edw-list-body-padding:map-get($spacerspx, '6');
+// $flex-gap-8:8px;
+// $flex-gap-16:16px;
+// $flex-gap-24:24px;
+$avatar-size:$edw-icon-size-large;
+$card-list-gap-half: $card-list-gap / 2;
+
+@mixin edw-course-content-items-style {
+   span.categoryname.small-info-semibold{
+      color: $heading-color;
+      background-color: $bg-small-ui;
+      padding: 4px 6px;
+      border-radius: 2px;
+      width: fit-content;
+      white-space: normal;
+      word-break: break-word;
+      @extend .ellipsis;
+      @extend .ellipsis-1;
+
+      span.categoryname{
+         padding: unset;
+      }
+   }
+
+   .coursename {
+      color: $heading-color;
+      background-color: transparent;
+      white-space: normal;
+      // @extend .h-exbold-3;
+      @include get_typography(5, 'semibold', desktop);
+
+      &:hover {
+         background-color: transparent;
+         box-shadow: none;
+         color: lighten($heading-color,10%);
+      }
+
+      // @include get_typography(3, 'exbold', mobile);
+
+   }
+
+   .course-instructors {
+      color: $small-text-color;
+   }
+   .coursesummary{
+      @extend .ellipsis;
+      @extend .ellipsis-2;
+      word-break: break-word;
+   }
+}
+@mixin progress-data-style {
+   .progress-data-wrapper {
+      color: $paragraph-color;
+
+      .progress-text {
+         color: $paragraph-color;
+      }
+
+      .progress {
+         border-radius: 20px;
+         height: 6px;
+
+         .progress-bar {
+            background-color: $brand-secondary-static;
+         }
+      }
+   }
+}
+
+@mixin edw-instructor-info {
+   .instructor-info-wrapper {
+      a {
+         line-height: 32px;
+         text-decoration: none;
+
+         img {
+            height: $avatar-size;
+            width: $avatar-size;
+            min-width: $avatar-size;
+         }
+      }
+   }
+
+   .instructorscount {
+      color: $small-text-color;
+      height: 24px;
+      width: 24px;
+      min-width: 24px;
+      border-radius: 50%;
+      background-color: $instructor-count-bg-color;
+   }
+}
+
+@mixin edw-course-list-veiw {
+   .edw-course-list {
+      padding: 24px;
+      border-radius: $card-border-radius;
+      border: 1px solid $light-border;
+      filter: drop-shadow(map-get($box-shadows-values, xs));
+      gap: map-get($gapspace , 6);
+      background-color: $white;
+      @include media-breakpoint-down(sm) {
+         flex-direction: column;
+         padding: 0px;
+      }
+
+      .edw-course-img-wrapper {
+         .card-img {
+            height: 100%;
+            min-height: 181px;
+            width: 390px;
+            border-radius: $card-border-radius;
+            background-repeat: no-repeat;
+            background-size: cover;
+
+            .dropdown{
+               @extend .lh-1;
+            }
+
+            @include media-breakpoint-down(md) {
+               width: 279px;
+            }
+
+            @include media-breakpoint-down(sm) {
+               width: 100%;
+               height: 200px;
+               border-bottom-left-radius: 0px;
+               border-bottom-right-radius: 0px;
+            }
+         }
+      }
+
+      .edw-list-body {
+         @include media-breakpoint-down(sm) {
+            padding: 0px $edw-list-body-padding $edw-list-body-padding;
+         }
+
+         .edw-card-design-hd {
+            @include edw-course-content-items-style();
+            @include edw-instructor-info();
+
+            .category-title-wrapper {
+               gap: 4px;
+            }
+         }
+
+         .edw-card-design-bd {
+            .summary {
+               margin: 0px;
+               @extend .para-regular-2;
+               color: $paragraph-color
+            }
+         }
+
+         .edw-card-design-ft {
+            @include progress-data-style();
+
+            .view-course-btn {
+               max-width: 304px;
+
+               @include media-breakpoint-down(sm) {
+                  max-width: 100%;
+               }
+            }
+         }
+      }
+
+   }
+
+}
+
+@mixin sidebar-responsiveness() {
+   #block-region-side-pre {
+      .edw-course-card-grid {
+         grid-template-columns: 1fr;
+      }
+
+      .edw-course-summary-container {
+         flex-direction: column;
+         .progress-data-wrapper{
+            width: 100% !important;
+         }
+      }
+
+      .edw-course-list-container {
+         grid-template-columns: 1fr;
+      }
+
+      .edw-course-list {
+         flex-direction: column;
+         padding: 0px;
+
+         .edw-course-img-wrapper {
+            .card-img {
+               width: 100%;
+               height: 200px;
+               border-bottom-left-radius: 0px;
+               border-bottom-right-radius: 0px;
+            }
+         }
+
+         .edw-list-body {
+            padding: 0px $edw-list-body-padding $edw-list-body-padding $edw-list-body-padding;
+         }
+      }
+   }
+}
+
+.edw-course-card-grid {
+   display: grid;
+   // grid-template-columns: minmax(auto, 424px) minmax(auto, 424px) minmax(auto, 424px);
+   grid-template-columns: repeat(4,minmax(auto,25%));
+   gap: $card-list-gap;
+
+   @include media-breakpoint-down(lg){
+      grid-template-columns: repeat(3,minmax(auto,1fr));
+   }
+   @include media-breakpoint-down(md) {
+      // grid-template-columns: minmax(auto, 424px) minmax(auto, 424px);
+      grid-template-columns: repeat(2,minmax(auto,50%));
+      justify-content: center;
+   }
+
+   @include media-breakpoint-down(sm) {
+      grid-template-columns: minmax(auto, 100%);
+   }
+}
+
+.dashboard-card {
+   border-radius: $card-border-radius;
+   border: 1px solid $light-border;
+   overflow: hidden;
+   min-height: 350px;
+   filter: drop-shadow(map-get($box-shadows-values, xs));
+
+   .edw-course-img-wrapper {
+      &.dashboard-card-img {
+         height: 200px;
+         background-repeat: no-repeat;
+         background-size: cover;
+         background-position: center;
+         border-bottom-left-radius: unset;
+         border-bottom-right-radius: unset;
+      }
+   }
+
+   .course-info-container {
+      position: relative;
+      z-index: 1;
+      padding: 20px !important;
+
+      .edw-card-design-hd {
+         @include edw-course-content-items-style();
+         @include edw-instructor-info();
+      }
+
+      .edw-card-design-ft {
+         @include progress-data-style();
+      }
+   }
+}
+
+.card-img {
+   position: relative;
+
+   .view-course-url {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+   }
+
+   .card-img-icons-wrapper {
+      width: fit-content;
+      position: relative;
+      z-index: 1;
+   }
+}
+
+.edw-course-img-wrapper {
+   .edw-icon {
+      font-size: $edw-icon-size-small;
+      height: $card-icon-height;
+      width: $card-icon-width;
+      border-radius: 2px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: $white;
+      color: $ic-default;
+   }
+
+   [data-region="favourite-icon"] {
+      .edw-icon-Rating-stars_Active {
+         color: $white;
+         background-color: $orange;
+         font-size: $card-icon-size;
+      }
+   }
+
+   .skilltag {
+      border-radius: 2px;
+
+      &.badge-light {
+         background-color: #d9dee3;
+      }
+   }
+}
+
+.edw-course-summary-container {
+   gap: $card-list-gap;
+   @include edw-course-list-veiw();
+
+   .progress-data-wrapper{
+      width: 30% ;
+
+      @include media-breakpoint-down(md){
+         width: 50%;
+      }
+
+      @include media-breakpoint-down(sm){
+            width: 100% ;
+      }
+   }
+
+   .edw-course-list {
+      .edw-course-img-wrapper {
+         .card-img {
+            max-height: 281px;
+         }
+      }
+   }
+}
+
+body.limitedwidth {
+   .edw-course-card-grid{
+      grid-template-columns: repeat(3, minmax(auto, 1fr));
+      @include media-breakpoint-down(md) {
+         grid-template-columns: repeat(2,minmax(auto,50%));
+         justify-content: center;
+      }
+
+      @include media-breakpoint-down(sm) {
+         grid-template-columns: minmax(auto, 100%);
+      }
+   }
+
+   .edw-course-list-container {
+      gap: $card-list-gap;
+      @include edw-course-list-veiw();
+   }
+
+   .edw-course-summary-container,
+   .edw-course-list-container {
+      .progress-data-wrapper{
+         width: 240px;
+
+         @include media-breakpoint-down(sm){
+               width: 100% ;
+         }
+      }
+
+      .edw-course-list {
+         .edw-course-img-wrapper {
+            .card-img {
+               width: 279px;
+
+               @include media-breakpoint-down(sm) {
+                  width: 100%;
+               }
+            }
+         }
+      }
+   }
+
+   @include sidebar-responsiveness();
+
+   .dashboard-card {
+      .course-info-container {
+         padding: 20px 16px 16px !important;
+      }
+   }
+}
+
+body:not(.limitedwidth) {
+   .edw-course-list-container {
+      display: grid;
+      gap: $card-list-gap;
+
+      .progress-data-wrapper{
+         width: 260px;
+
+         @include media-breakpoint-down(md){
+            width: 240px;
+         }
+
+         @include media-breakpoint-down(sm){
+            width: 100%;
+         }
+      }
+
+      @include edw-course-list-veiw();
+   }
+   #page.show-drawer-right{
+      .edw-course-list-container{
+         grid-template-columns: 1fr;
+      };
+   }
+
+   @include sidebar-responsiveness();
+}
+
+.card-body{
+   .list-group{
+       .list-group-item{
+           background-color: unset;
+       }:hover{
+           background-color: var(--#{$prefix}list-group-action-hover-bg);
+       }
+   }
+}
+
+//Fix of button(mark as done) color in card view
+.single-card{
+   .completion-container{
+       .activity-information{
+           .btn-subtle-body {
+               @extend .btn-secondary;
+           }
+       }
+   }
+}

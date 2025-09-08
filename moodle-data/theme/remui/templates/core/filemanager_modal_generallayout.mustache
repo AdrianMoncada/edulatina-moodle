@@ -1,0 +1,97 @@
+{{!
+    This file is part of Moodle - http://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
+    Edwiser RemUI
+    @package theme_remui
+    @copyright (c) 2023 WisdmLabs (https://wisdmlabs.com/)
+    @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+}}
+{{!
+    @template core/filemanager_modal_generallayout
+
+    This template renders the general layout (not QuickUpload).
+
+    Example context (json):
+    {}
+}}
+<div class="container">
+    <div tabindex="0" class="file-picker fp-generallayout row" role="dialog" aria-live="assertive">
+        <div class="col-md-3 fp-repo-area nav nav-tabs-bleft flex-column" role="tablist">
+            <div class="fp-repo nav-item" role="tab" aria-selected="false" tabindex="-1">
+                <a href="#" class="nav-link" tabindex="-1">
+                    <div class="icon-container">
+                        <img class="fp-repo-icon" alt=" " width="16" height="16" />
+                    </div>
+                    <span class="fp-repo-name"></span>
+                </a>
+            </div>
+        </div>
+        <div class="col-md-9 fp-repo-items-container">
+            <div class="fp-repo-items" tabindex="0">
+                <div class="fp-navbar bg-faded card  clearfix icon-no-spacing">
+                    <div class="fp-navbar-menus d-flex justify-content-between align-items-center">
+                        <div class="fp-toolbar d-flex align-items-center">
+                            <div class="fp-tb-back edw-fp-tb-icons">
+                                <a href="#">
+                                {{#str}}back, repository{{/str}}</a>
+                            </div>
+                            <div class="fp-tb-search edw-fp-tb-icons">
+                                <form class="m-0"></form>
+                            </div>
+                            <div class="fp-tb-refresh edw-fp-tb-icons">
+                                <a title="{{#str}}refresh, repository{{/str}}" href="#">
+                                    {{#pix}}a/refresh{{/pix}}
+                                </a>
+                            </div>
+                            <div class="fp-tb-logout edw-fp-tb-icons">
+                                <a title="{{#str}}logout, repository{{/str}}" href="#">
+                                    {{#pix}}a/logout{{/pix}}
+                                </a>
+                            </div>
+                            <div class="fp-tb-manage edw-fp-tb-icons">
+                                <a title="{{#str}}manageurl, repository{{/str}}" href="#">
+                                    {{#pix}}a/setting{{/pix}}
+                                </a>
+                            </div>
+                            <div class="fp-tb-help edw-fp-tb-icons">
+                                <a title="{{#str}}help, repository{{/str}}" href="#">
+                                    {{#pix}}a/help{{/pix}}
+                                </a>
+                            </div>
+                            <div class="fp-tb-message edw-fp-tb-icons"></div>
+                        </div>
+                        <div class="fp-viewbar btn-group float-sm-right flex-gap-4 edw-fp-tb-icons">
+                            <a role="button" title="{{#str}}displayicons, repository{{/str}}" class="fp-vb-icons" href="#">
+                                {{#pix}}fp/view_icon_active, theme{{/pix}}
+                            </a>
+                            <a role="button" title="{{#str}}displaydetails, repository{{/str}}" class="fp-vb-details" href="#">
+                                {{#pix}}fp/view_list_active, theme{{/pix}}
+                            </a>
+                            <a role="button" title="{{#str}}displaytree, repository{{/str}}" class="fp-vb-tree" href="#">
+                                {{#pix}}fp/view_tree_active, theme{{/pix}}
+                            </a>
+                        </div>
+                        <div class="fp-clear-left d-none"></div>
+                    </div>
+                    <div class="fp-pathbar">
+                        <span class="fp-path-folder "><span class="edw-icon edw-icon-Folder"></span><a class="fp-path-folder-name aalink" href="#"></a></span></span>
+                    </div>
+                </div>
+                <div class="fp-content card"></div>
+            </div>
+        </div>
+    </div>
+</div>

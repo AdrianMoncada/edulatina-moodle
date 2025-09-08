@@ -1,0 +1,81 @@
+{{!
+    This file is part of Moodle - http://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+    GNU General Public License for more details.
+
+    Edwiser RemUI
+    @package theme_remui
+    @copyright (c) 2023 WisdmLabs (https://wisdmlabs.com/)
+    @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+
+}}
+{{!
+    @template theme_remui/enrol_courseinstructorsmenu
+}}
+
+<div class="instructors d-flex flex-column flex-gap-9">
+    {{#instructors}}
+        <div class="instructor d-flex flex-gap-8" data-id="{{id}}">
+            <div class="instructor-profile">
+                {{{avatar}}}
+            </div>
+            <div class="instructor-details d-flex flex-column flex-gap-6">
+                <h5 class="instructor-name h-semibold-5 m-0"><a href="{{profileurl}}" class="text-decoration-none h-semibold-3  edw-heading-color instructor-name-url">{{fullname}}</a></h5>
+
+                {{#description}}
+                <div>
+                    <p class="m-0 para-regular-2">{{{description}}}</p>
+                </div>
+                {{/description}}
+
+                <div class="instructor-stats d-flex flex-wrap">
+                    <div class="stat-container">
+                        <span class="edw-icon edw-icon-Book large"></span>
+                        <span class="stat h-semibold-6">
+                            <span>{{totalcourses}}</span>
+                            <span>{{#str}}courses, theme_remui{{/str}}</span>
+                        </span>
+                    </div>
+                    <div class="stat-container">
+                        <span class="edw-icon edw-icon-Group-user large"></span>
+                        <span class="stat h-semibold-6">
+                            <span>{{totalstudents}}</span>
+                            <span>{{#str}}students, theme_remui{{/str}}</span>
+                        </span>
+                    </div>
+
+                    {{#email}}
+                    <div class="stat-container">
+                        <span class="stat h-semibold-6">
+                            <span>{{#str}}email, theme_remui{{/str}}</span>
+                            <span>{{{email}}}</span>
+                        </span>
+                    </div>
+                    {{/email}}
+
+                    {{#allowedmessaging}}
+                        <button id="message-user-button{{id}}" class="btn btn-secondary btn-sm enrol-instructor-msg-btn " data-conversationid="0" data-userid= "{{id}}">{{#str}}message, theme_remui{{/str}}</button>
+                    {{/allowedmessaging}}
+                </div>
+            </div>
+        </div>
+    {{/instructors}}
+    {{^instructors}}
+        <div class ="doted-border bg-white p-p-5" >
+            <div  class="empty-box p-p-6 d-flex justify-content-center align-items-center">
+                <p class="m-0 para-semibold-2">
+                    {{#str}}noinstructormessage, theme_remui{{/str}}
+                </p>
+            </div>
+        </div>
+    {{/instructors}}
+
+</div>

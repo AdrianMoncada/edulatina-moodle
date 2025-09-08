@@ -1,0 +1,69 @@
+{{!
+    This file is part of Moodle - http://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+}}
+{{#canview}}
+<div id="add_notes" class="add-notes-{{uniqid}} add-notes-container">
+  <div class="add-select-wrapper">
+    <div class="epb-add-notes-select">
+      <label for="select-note-course" class="select-note-course-label">{{#str}}selectacourse,
+        local_edwiserpagebuilder{{/str}}</label>
+      <select class="form-control" id="select-note-course">
+        <option value="">{{#str}}selectacourse, local_edwiserpagebuilder{{/str}}</option>
+        {{# courses }}
+        <option id="{{ id }}">{{ shortname }}</option>
+        {{/ courses }}
+      </select>
+    </div>
+    <div class="epb-select-note-student d-none">
+      <label for="epb-select-note-student" class="epb-select2-studentlist-label">{{#str}}selectastudent,
+        local_edwiserpagebuilder{{/str}}</label>
+      <select class="epb-select2-studentlist form-control" id="epb-select-note-student"></select>
+    </div>
+  </div>
+
+  <div class="row  epb-add-notes-button-wrapper d-none">
+    <div class="epb-add-notes-button">
+      <a href="#" class="btn btn-secondary epb-site-note">{{#str}}addsitenote, local_edwiserpagebuilder{{/str}}</a>
+    </div>
+    <div class="epb-add-notes-button">
+      <a href="#" class="btn btn-secondary epb-course-note">{{#str}}addcoursenote, local_edwiserpagebuilder{{/str}}</a>
+    </div>
+    <div class="epb-add-notes-button">
+      <a href="#" class="btn btn-secondary epb-personal-note">{{#str}}addpersonalnote, local_edwiserpagebuilder{{/str}}</a>
+    </div>
+  </div>
+</div>
+
+{{#js}}
+require(['local_edwiserpagebuilder/remuiblck/notes'], function(notes){
+  notes.init('.add-notes-{{uniqid}}');
+});
+{{/js}}
+{{/canview}}
+
+{{^canview}}
+  {{#editing}}
+  <div class="warning-mess-wrapper">
+    <div class="warning-mess-box">
+      <img src="{{{warningicon}}}" alt="" class="warning-img" />
+      <p class="warning-mess">{{#str}}availableonlyadminteacher, local_edwiserpagebuilder{{/str}}</p>
+    </div>
+  </div>
+  {{/editing}}
+  {{^editing}}
+    <span class="only-available-for-admins-and-managers"></span>
+  {{/editing}}
+{{/canview}}

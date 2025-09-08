@@ -1,0 +1,41 @@
+{
+    "name": "edwiserremui",
+    "version": "4.0.0",
+    "description": "Edwiser RemUI Theme.",
+    "main": "index.js",
+    "scripts": {
+        "start": "npm run amd && npm run watch",
+        "amd": "grunt amd",
+        "css": "grunt css",
+        "watch": "grunt watch",
+        "styles-remui": "sass ./scss/preset/remui.scss  ./style/remui.css -w",
+        "styles-default": "sass ./scss/preset/default.scss  ./style/remui.css -w",
+        "styles-plain": "sass ./scss/preset/plain.scss  ./style/remui.css -w"
+    },
+    "author": "",
+    "license": "ISC",
+    "engines": {
+        "node": ">=16.14.0 <17"
+    },
+    "devDependencies": {
+        "gulp": "^4.0.2",
+        "gulp-clean": "^0.4.0",
+        "gulp-clean-css": "^4.3.0",
+        "gulp-cli": "^2.3.0",
+        "gulp-exec": "^5.0.0",
+        "gulp-frep": "^0.1.3",
+        "gulp-group-css-media-queries": "^1.2.2",
+        "gulp-merge-media-queries": "^0.2.1",
+        "gulp-notify": "^4.0.0",
+        "gulp-sass": "^5.1.0",
+        "gulp-shell": "^0.8.0",
+        "gulp-stylelint": "^13.0.0",
+        "gulp-util": "^3.0.8",
+        "sass": "~1.32.12"
+    },
+    "dependencies": {
+        "@babel/eslint-parser": "^7.24.1",
+        "eslint": "^7.24.1",
+        "eslint-plugin-babel": "^5.3.1"
+    }
+}

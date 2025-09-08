@@ -1,0 +1,1092 @@
+.fullwidth-modal .modal-dialog {
+    max-width: 96vw;
+    width: 96vw;
+    height: 97vh;
+}
+
+// .moodle-dialogue-base {
+//     .moodle-dialogue-focused {
+//         background: $bg-block-sidebarsection-color;
+//         border: 1px solid $light-border;
+//         filter: drop-shadow(map-get($box-shadows-values, xs));
+//         border-radius: 4px;
+//         @include media-breakpoint-down(sm) {
+//             max-width: $modal-sm;
+//             left: 50% !important;
+//             top: 50% !important;
+//             transform: translate(-50%, -50%);
+//         }
+//         .moodle-dialogue-wrap {
+//             display: flex;
+//             flex-direction: column;
+//             border-radius: inherit;
+//             border: unset;
+
+//             .moodle-dialogue-hd {
+//                 // display: flex;
+//                 // flex-direction: row;
+//                 // justify-content: space-between;
+//                 // align-items: flex-start;
+//                 // padding: 20px 24px 20px 16px;
+//                 // gap: 8px;
+//                 // border-bottom: 1px solid $light-border;
+
+//                 h5 {
+//                     @extend .h-semibold-4;
+//                     color: $heading-color;
+//                 }
+
+//                 .yui3-widget-buttons {
+//                     height: 24px;
+//                     width: 24px;
+
+//                     .closebutton {
+//                         color: $modal-closebutton-color;
+//                         margin: 0px;
+//                         font-size: $block-icon-size;
+//                         height: $block-icon-size;
+//                         width: $block-icon-width;
+//                         display: flex;
+//                         justify-content: center;
+//                         align-items: center;
+//                         line-height: 50%;
+//                     }
+
+//                     button.yui3-button {
+//                         padding: 0px;
+//                     }
+//                 }
+//             }
+
+//             .moodle-dialogue-bd {
+//                 padding-left: 0px;
+
+//                 .dragdrop-keyboard-drag {
+//                     padding: 0;
+//                     margin: 0;
+
+//                     li {
+//                         display: flex;
+//                         flex-direction: row;
+//                         align-items: center;
+//                         padding: 16px 14px;
+//                         gap: 90px;
+//                         height: 48px;
+//                         @extend.text-link-regular;
+//                         color: $paragraph-color;
+//                         a:focus{
+//                             outline: none;
+//                             color: inherit;
+//                             background-color:transparent;
+//                             box-shadow: none;
+//                         }
+//                     }
+//                 }
+//             }
+//         }
+//     }
+// }
+//
+.moodle-dialogue-bd{
+    ul.dragdrop-keyboard-drag {
+        padding: 0;
+        margin: 0;
+        & li {
+            padding: 16px 0px;
+            // height: 48px;
+            @extend.text-link-regular;
+            color: $paragraph-color;
+            &:first-child{
+                padding-top: 0px;
+            }
+            &:last-child{
+                padding-bottom: 0px;
+            }
+            a:focus {
+                outline: none;
+                color: inherit;
+                background-color: transparent;
+                box-shadow: none;
+            }
+        }
+    }
+}
+
+.modal {
+    .modal-header {
+        align-items: center;
+        .edw-icon{
+            display: flex;
+            font-size: $edw-icon-size-large;
+            color:$ic-default;
+        }
+        .modal-title {
+            @include get-typography(4, semibold, desktop);
+            color: $modal-header-text-color;
+
+            @include media-breakpoint-down(sm) {
+                @include get-typography(4, semibold, mobile);
+            }
+        }
+    }
+    .mform fieldset:last-of-type {
+        border: 0;
+    }
+}
+.moodle-dialogue {
+    @include media-breakpoint-down(md) {
+        width: 97% !important;
+    }
+    .moodle-dialogue-content {
+        &.moodle-dialogue-wrap {
+            background-color: $modal-content-bg;
+            border: $modal-content-border-width solid $modal-content-border-color;
+            @include border-radius($modal-content-border-radius);
+            outline: 0;
+
+            .moodle-dialogue-hd.yui3-widget-hd {
+                display: flex;
+                background: $modal-content-bg;
+                padding: $modal-header-padding;
+                color: $modal-header-text-color;
+                border-bottom: $modal-header-border-width solid $modal-header-border-color;
+                max-height: add($edw-icon-size-large, $modal-header-padding-y * 2);
+                @include border-top-radius($modal-content-inner-border-radius);
+                @include get-typography(4, semibold, desktop);
+                margin: 0;
+
+                h5,
+                h3 {
+                    @include get-typography(4, semibold, desktop);
+                    margin: 0;
+
+                    @include media-breakpoint-down(sm) {
+                        @include get-typography(4, semibold, mobile);
+                    }
+                }
+
+                @include media-breakpoint-down(sm) {
+                    @include get-typography(4, semibold, mobile);
+                }
+
+                .closebutton {
+                    padding: 0;
+                    &::after {
+                        content: "\47";
+                        font-family: $remui-icon-font-family;
+                        font-size: $edw-icon-size-large;
+                    }
+                }
+            }
+            .yui3-widget-bd {
+                color: $paragraph-color;
+                padding: $modal-inner-padding;
+            }
+        }
+    }
+}
+.moodle-dialogue-lightbox,
+.yui3-skin-sam .yui3-widget-mask {
+    background: $modal-backdrop-bg
+}
+
+.modal,
+.moodle-dialogue {
+    .filemanager {
+        .form-group {
+            padding: 0;
+        }
+    }
+}
+.modal-sidebar {
+    position: absolute;
+    right: 0;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    height: 100%;
+    margin: 0;
+    background-color: $white;
+    align-content: center;
+
+    .modal-content {
+        overflow-x: hidden;
+        overflow-y: auto;
+        background-color: transparent;
+        border-radius: 0;
+        box-shadow: none;
+    }
+
+    .modal-header {
+        border-bottom: none;
+    }
+
+    .modal-footer {
+        flex-wrap: wrap;
+        border-top: none;
+    }
+}
+.modal.modal-in-page {
+    height: auto;
+}
+.modal {
+    .modal-dialog {
+        .modal-content {
+            .modal-footer {
+                .btn {
+                    margin-left: 8px;
+                }
+            }
+        }
+    }
+}
+.default-blocks-wrapper {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    grid-gap: 25px;
+    .common-block-wrapper{
+        margin-bottom: map-get($spacerspx, '6');
+        &.show{
+            display: block;
+        }
+        &.hide{
+            display: none !important;
+        }
+    }
+    .card-wrapper {
+        transition: .15s ease all;
+
+        .card-body {
+            background-image: url([[pix:theme_remui|modalbgmoodle]]);
+            height: 150px;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+
+        &:hover {
+            // transform: scale(1.07);
+            @include get-box-shadow(xs);
+            // box-shadow: 0 9px 10px #0000000f, 0 1px 0 #0000000f;
+
+            .ribbon {
+                left: 0;
+            }
+        }
+    }
+}
+
+.fullwidth-modal{
+    .modal-header{
+        background-color: $bg-small-ui;
+        padding:  map-get($spacerspx,'4d5') map-get($spacerspx,'6');
+    }
+    .modal-body{
+        padding: 0px;
+        position: relative;
+        overflow: unset;
+        .addblock-modal-body{
+            position: relative;
+            @include media-breakpoint-down(sm){
+                background-color: $bg-small-ui;
+            }
+            .tab-content{
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                overflow-y: auto;
+                overflow-x: hidden;
+                padding: map-get($spacerspx, '3') map-get($spacerspx, '6');
+            }
+        }
+        @include media-breakpoint-down(sm){
+            // padding: map-get($spacerspx,'6');
+            padding: unset;
+        }
+        .updateinfoalert{
+            width: fit-content;
+            margin: auto;
+            position: fixed;
+            top: 100px;
+            z-index: 12;
+            left: 50%;
+            transform: translate(-50%,-50%);
+        }
+
+        .view-btn-wrapper{
+            display: flex;
+            justify-content: flex-end;
+            gap: map-get($gapspace, '4');
+            .viewbtn{
+                .edw-icon{
+                    display: flex;
+                    color: $ic-default;
+                    font-size: $edw-icon-size-large;
+                }
+                &:focus,&:active,&.active{
+                    .edw-icon{
+                        color: $brand-primary;
+                    }
+                }
+            }
+        }
+        .modal-subheader{
+            // position: sticky;
+            // top: 0px;
+            // z-index: 1;
+            margin-bottom: map-get($spacerspx, "1d5" );
+            .left-filters{
+                margin-top: map-get($spacerspx, "2d5");
+                padding: 0px map-get($spacerspx, "6" );
+            }
+            @include media-breakpoint-down(sm){
+                flex-direction: column;
+                margin-bottom: map-get($spacerspx, "0d5" );
+                .left-filters{
+                    width: 100%;
+                    padding: 0px;
+                    .nav-tabs{
+                        width: 100%;
+                        gap: 0px;
+                        .nav-item{
+                            width: 50%;
+                        }
+                    }
+                }
+                .right-filters{
+                    display: none !important;
+                }
+                .edw-tabs-navigation{
+                    .nav-item{
+                        flex: unset !important;
+                    }
+                    .nav-link{
+                        &.active,
+                        &:hover,
+                        &:focus {
+                            color: $brand-primary !important;
+                            // font-weight: 600;
+                            background-color: transparent !important;
+                            border: unset !important;
+                            margin: unset !important;
+                            box-shadow: unset !important;
+                        }
+                    }
+                }
+            }
+        }
+        .default-blocks-wrapper{
+            display: unset;
+            .card-item{
+                position: relative;
+            }
+            .blockurl{
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                z-index: 2;
+                &:hover + .card img{
+                    animation: animatescroll 3s ease-in-out;
+                    animation-iteration-count: infinite;
+                    animation-direction: alternate;
+                    animation-delay: 250ms;
+                }
+            }
+            .edw-blocks-title{
+                @include get-typography(4, semibold, mobile);
+            }
+            .card{
+                padding: map-get($spacerspx,'4');
+
+                .card-body{
+                    padding: unset;
+                }
+                .card-footer{
+                    background-color: unset;
+                    padding: unset;
+                    border: unset;
+                    .action-icon-wrapper{
+                        z-index: 3;
+                        display: flex;
+                        align-items: center;
+                        gap: map-get($gapspace, '4');
+                    }
+                    a{
+                        color: inherit;
+                    }
+                    .edw-icon{
+                        font-size: $edw-icon-size-large;
+                        color: $ic-default;
+                    }
+                    .footer-add-link{
+                        .edw-icon-Add-block{
+                            display: none;
+                        }
+                    }
+                    .info-wrapper {
+                        position: relative;
+
+                        .info-about-box-wrapper {
+                          display: none;
+                          position: absolute;
+                          min-width: 164px;
+
+                          right: 0px;
+                          bottom: 100%;
+                        }
+
+                        .info-about-box {
+                          position: relative;
+
+                          margin-bottom: 12px;
+
+                          border-radius: 4px;
+                          background-color: $bg-accent;
+                          padding: 16px;
+
+                          p {
+                            color: $light;
+
+                            font-size: 12px;
+                            font-style: normal;
+                            font-weight: 400;
+                            line-height: normal;
+                          }
+
+                          &::after {
+                            content: "";
+                            position: absolute;
+                            top: 100%;
+                            right: 5px;
+                            background-color: $bg-accent;
+                            width: 16px;
+                            height: 10px;
+                            clip-path: polygon(47% 100%, 0 0, 100% 0, 57% 100%);
+                          }
+                        }
+
+                        &:hover {
+                          .info-about-box-wrapper {
+                            display: block;
+                          }
+                        }
+                      }
+                }
+            }
+            &.grid-view .block-cards-wrapper{
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+                gap:map-get($gapspace, '6')  map-get($gapspace, '8');
+                @include media-breakpoint-down(md){
+                    grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+                }
+                .card-wrapper{
+                    border: 1px solid $light-border;
+                    border-radius: 8px;
+                    overflow: hidden;
+                    .card-item{
+                        .card{
+                            gap: map-get($gapspace, '4');
+                            border: unset;
+                            border-radius: unset;
+                            max-height: 400px;
+                            .card-body {
+                                height: 208px;
+                                background-repeat: no-repeat;
+                                background-position: center;
+                                background-size: contain;
+                                border-radius: 4px;
+                                border: unset;
+                                position: relative;
+                                img{
+                                    width: 100%;
+                                }
+                                .block-cover{
+                                    position: absolute;
+                                    left: 0px;
+                                    width: 100%;
+                                    height: 100%;
+                                    background-position: center !important;
+                                    background-repeat: no-repeat !important;
+                                    background-size: contain !important;
+                                }
+                            }
+
+                        }
+                    }
+                    &.block-page-layout {
+                        .card-item {
+                            .card {
+                                .card-body {
+                                    height: 450px;
+                                    position: relative;
+                                    img {
+                                        position: absolute;
+                                        top: 0%;
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                }
+                @include media-breakpoint-down(sm){
+                    display: grid;
+                    grid-template-columns: 1fr;
+                    gap: 0px  map-get($gapspace, '6');
+                    .card-wrapper{
+                        border: unset;
+                        border-radius: unset;
+                        overflow: unset;
+                        &:hover{
+                            // box-shadow: unset;
+                            z-index: 1;
+                            transform: unset;
+                        }
+                        .card-item{
+                            background-color: transparent;
+                            .card{
+                                flex-direction: row;
+                                border: unset;
+                                gap: 0px  map-get($gapspace, '4');
+                                border: unset;
+                                border-bottom: 1px solid $light-border;
+                                border-radius: unset;
+                                background-color: transparent;
+                                @include media-breakpoint-down(sm){
+                                    border-bottom: 1px solid $medium-border;
+                                }
+                                .card-body{
+                                    height: 60px ;
+                                    width: 60px ;
+                                    background-image: url([[pix:theme_remui|modallistviewbgmoodle]]);
+                                    border: 1px solid $light-border;
+                                    border-radius: 4px ;
+                                    background-repeat: no-repeat ;
+                                    background-position: center ;
+                                    background-size: cover ;
+                                    img{
+                                        width: 100%;
+                                    }
+                                }
+                                .card-footer{
+                                    display: flex;
+                                    flex-grow: 1;
+                                    align-items: center;
+                                }
+                            }
+                        }
+                        &.block-page-layout {
+                            .card-item {
+                                .card {
+                                    .card-body {
+                                        height: 60px ;
+                                        width: 60px ;
+                                        img {
+                                            position: unset;
+                                            top: unset;
+                                            width: 100%;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            &.list-view .block-cards-wrapper{
+                display: grid;
+                grid-template-columns: repeat(2,1fr);
+                gap: 0px  map-get($gapspace, '6');
+                @include media-breakpoint-down(md){
+                    grid-template-columns: 1fr;
+                }
+                .card-wrapper{
+                    &:hover{
+                        // box-shadow: unset;
+                        z-index: 1;
+                        transform: unset;
+                    }
+                    .card-item{
+                        background-color: transparent;
+                        .card{
+                            flex-direction: row;
+                            border: unset;
+                            gap: map-get($gapspace, '8');
+                            background-color: transparent;
+                            @include media-breakpoint-down(sm){
+                                gap: 0px  map-get($gapspace, '4');
+                            }
+                            border: unset;
+                            border-bottom: 1px solid $light-border;
+                            border-radius: unset;
+                            @include media-breakpoint-down(sm){
+                                border-bottom: 1px solid $medium-border;
+                            }
+                            .card-body{
+                                height: 60px;
+                                width: 60px;
+                                background-image: url([[pix:theme_remui|modallistviewbgmoodle]]);
+                                border: 1px solid $light-border;
+                                border-radius: 4px;
+                                background-repeat: no-repeat;
+                                background-position: center;
+                                background-size: cover;
+                                img{
+                                    width: 100%;
+                                }
+                                .block-cover{
+                                    position: absolute;
+                                    left: 0px;
+                                    width: 100%;
+                                    height: 100%;
+                                    background-position: center !important;
+                                    background-repeat: no-repeat !important;
+                                    background-size: contain !important;
+                                }
+                            }
+                            .card-footer{
+                                display: flex;
+                                flex-grow: 1;
+                                align-items: center;
+                                .info-wrapper {
+
+                                    .info-about-box-wrapper {
+                                      min-width: 250px;
+                                      right: 20px;
+                                      bottom: 50%;
+                                      transform: translateY(50%);
+                                    }
+
+                                    .info-about-box {
+                                      margin-bottom: 0px;
+                                      margin-right: 14px;
+
+                                      &::after {
+                                        content: "";
+                                        position: absolute;
+                                        top: 48%;
+                                        transform: translateY(-50%);
+                                        right: unset;
+                                        left: 100%;
+                                        width: 10px;
+                                        height: 16px;
+                                        clip-path: polygon(0 0, 100% 47%, 100% 57%, 0% 100%);
+                                      }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+    }
+    .modal-footer {
+        display: none;
+    }
+}
+
+//Additional handling for edwiserpage builder
+.epb_custom_modal{
+    .advancedblocktab{
+        .block-cards-wrapper{
+            gap:map-get($gapspace, '4') !important;
+        }
+        .moodleblock{
+            display: none;
+        }
+        .static-blocks-wrapper{
+            .dynamic-wrapper{
+                display: none;
+            }
+            .blocklayout-wrapper{
+                display: none;
+            }
+        }
+        .dynamic-blocks-wrapper{
+            .block-wrapper{
+                display: none;
+            }
+            .blocklayout-wrapper{
+                display: none;
+            }
+            .importblock.static-block,
+            .html.static-block{
+                display: none;
+            }
+        }
+        .block-layout-wrapper{
+            .block-wrapper{
+                display: none;
+            }
+            .dynamic-wrapper{
+                display: none;
+            }
+            .importblock.static-block,
+            .html.static-block{
+                display: none;
+            }
+        }
+
+        .left-sidebar{
+            display: flex;
+            flex-direction: column;
+            background-color: $bg-small-ui;
+            min-width: 223px;
+            width: 20%;
+            @include media-breakpoint-down(md){
+                width: 30%;
+            }
+            @include media-breakpoint-down(sm){
+                z-index: 10;
+                width: 100%;
+            }
+            .edw-tabs-navigation{
+                min-height: unset;
+                &.edwiser-custom-blocks-nav{
+                    background-color: #F8F9FA;
+                    border-bottom: unset;
+                    margin-bottom: 0px;
+                    .nav{
+                        &.nav-tabs{
+                            gap: unset;
+                        }
+                        .nav-item{
+                            width: 100%;
+                            .nav-link{
+                                height: unset;
+                                padding: map-get($spacerspx, '2d5') map-get($spacerspx, '2') ;
+                                background-color: #F8F9FA;
+                                opacity: 0.7;
+                                .edw-icon{
+                                    color: $ic-default;
+                                    font-size: 16px;
+                                }
+                                .block-tab-title{
+                                    // @include get_typography(6, semibold, mobile);
+                                    @extend .small-btn-text;
+                                    color: $small-text-color;
+                                }
+                                &.active::before{
+                                    visibility: hidden;
+                                }
+                                &.active{
+                                    background-color: $bg-small-ui;
+                                    border-bottom: unset;
+                                    opacity: 1;
+                                }
+                                &:focus{
+                                    box-shadow: unset;
+                                }
+
+                            }
+                        }
+                    }
+                }
+            }
+
+            // html block SCSS
+            .static-block.importblock,
+            .static-block.html{
+                height: fit-content;
+                padding: map-get($spacerspx, "6");
+                padding-bottom: 0px;
+                box-shadow: unset;
+                .card-item{
+                    position: relative;
+                    border: 1px solid $bg-small-ui;
+                    border-radius: 4px;
+                    background-color: $white;
+                    .blockurl {
+                        position: absolute;
+                        width: 100%;
+                        height: 100%;
+                        z-index: 2;
+                    }
+                    .card{
+                        // height: 100%;
+                        // background-color: $bg-small-ui;
+                        // border-radius: 4px;
+                        border: unset;
+                        padding: unset;
+                        // height: 36px;
+                        padding: map-get($spacerspx, "2");
+                        justify-content: center;
+                        // padding: map-get($spacerspx, "2d5") map-get($spacerspx, "1");
+                        // margin: map-get($spacerspx, "2");
+                        .list-group-item{
+                            // height: 100%;
+                            display: none;
+                        }
+                        .card-body{
+                            display: none !important;
+                            img{
+                                // visibility: hidden;
+                                display: none;
+                                height: 100% !important;
+                            }
+                            border: 1px dashed $light-border !important;
+                            height: 100% !important;
+                        }
+                        .card-footer{
+                            justify-content: center !important;
+                            flex-direction: column;
+                            border: unset;
+                            div.h-semibold-6 {
+                                @extend .small-info-semibold;
+                            }
+                            .action-icon-wrapper{
+                                gap: map-get($gapspace, '2');
+                                &:empty {
+                                    display: none;
+                                }
+                                .edw-icon{
+                                    font-size: 16px;
+                                    margin-top: map-get($spacerspx,"1d5");
+                                }
+                            }
+                            .footer-add-link{
+                                display: flex;
+                                justify-content: center;
+                                align-items: center;
+                                color: $link-color;
+                                .edw-icon-Download,
+                                .edw-icon-Add-block{
+                                    display: flex !important;
+                                    align-items: center;
+                                    justify-content: center;
+                                    font-size: 18px;
+                                    color: inherit;
+                                    margin-right:map-get($spacerspx, '1d5');
+                                }
+                            }
+                        }
+                        // .action-icon-wrapper {
+                        //     display: none;
+                        // }
+                    }
+                }
+            }
+
+            .static-block.importblock {
+                padding-top: map-get($spacerspx, "3");
+            }
+
+            .left-sidebar-mid-region{
+                background-color: $bg-small-ui;
+                height: 100%;
+                position: relative;
+                margin-top: map-get($spacerspx, "6");
+                .block-category-list-desktop{
+                    position: absolute;
+                    left: 0px;
+                    top: 0px;
+                    bottom: 0px;
+                    width: 100%;
+                    overflow-y: auto;
+                    margin: 0px;
+                    padding: 0px;
+                    @include media-breakpoint-down(sm){
+                        display: none;
+                    }
+                    .category-list-item{
+                        list-style: none;
+                        .category-link{
+                            display: flex;
+                            justify-content: space-between;
+                            padding: map-get($spacerspx, "2d5") map-get($spacerspx, "4") map-get($spacerspx, "2d5")  map-get($spacerspx, "6") ;
+                            text-decoration: none;
+                            @extend .text-link-regular;
+                            color: $paragraph-color;
+                            .edw-icon{
+                                display: none;
+                            }
+                        }
+
+                        &.active{
+                            .category-link{
+                                @extend .text-link-bold;
+                                .edw-icon{
+                                    display: flex;
+                                    font-size: 16px;
+                                }
+                            }
+                        }
+                        &:hover,&.active{
+                            .category-link{
+                                background-color: $medium-border;
+                            }
+                        }
+                    }
+
+                }
+
+                .block-category-select-mob{
+                    display: none;
+                    padding: 0px map-get($spacerspx, '6') map-get($spacerspx, '6') map-get($spacerspx, '6');
+                    @include media-breakpoint-down(sm){
+                        padding: 0px;
+                        width: calc(100% - 48px);
+                        margin: auto;
+                    }
+                    position: relative;
+                    .btn{
+                        width: 100%;
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                        border-radius: 5px;
+                        color: $paragraph-color;
+                        border: 1px solid $medium-border;
+                        @extend .h-semibold-6;
+                        &::after{
+                            color: $ic-default;
+                        }
+                    }
+                    .dropdown-menu.show{
+                        display: grid;
+                        width: 100%;
+                        grid-template-columns: 1fr;
+                        transform: translate3d(0, 40px, 0) !important;
+                        top: 0px !important;
+                        left: 0px !important;
+                        max-height: 300px;
+                        overflow-y: auto;
+                    }
+                    @include media-breakpoint-down(sm){
+                        display: block;
+                    }
+                }
+                &.static-blocks-filters{
+                    .dynamic-filter,.blocklayout-filter{
+                        display: none;
+                    }
+                }
+                &.dynamic-blocks-filters{
+                    .block-filter,.blocklayout-filter{
+                        display: none;
+                    }
+                    .block-category-select-mob{
+                        display: none;
+                    }
+                }
+                &.block-layout-filters{
+                    .dynamic-filter,.block-filter{
+                        display: none;
+                    }
+                }
+            }
+            .left-sidebar-bottom-region{
+                background-color: $white;
+                .action-buttons-modal{
+                    margin: map-get($spacerspx, '2') map-get($spacerspx, '6');
+                    background-color: #F5F9FD;
+                    .updateblocklist{
+                        width: 100%;
+                        border: unset;
+                    }
+                }
+                @include media-breakpoint-down(sm){
+                    position: absolute;
+                    left: 0px;
+                    bottom: 0px;
+                    width: 100%;
+                    z-index: 1;
+                }
+            }
+        }
+
+    }
+    .moodleblocktab{
+        .advanceblockblocks{
+            display: none;
+        }
+    }
+    .default-blocks-wrapper{
+        .list-group-item {
+            border-radius: 4px;
+            // border: 1px solid $light-border;
+            overflow: hidden;
+            border: unset !important;
+          }
+        .advanceblockblocks{
+            .card-body{
+                background: unset;
+                    border: 1px solid $light-border !important;
+                    border-radius: unset;
+            }
+        }
+        &.list-view{
+            .advanceblockblocks{
+                .card-body{
+                    background: unset !important;
+                }
+            }
+        }
+
+    }
+
+
+    .modal-body-wrapper{
+        height: 100%;
+        .tab-content{
+            height: 100%;
+            .tab-pane{
+                height: 100%;
+                .addblock-modal-body{
+                    height: 100%;
+                }
+                .sidebar-wrapper{
+                    height: 100%;
+                    @include media-breakpoint-down(sm){
+                        flex-direction: column;
+                    }
+                }
+            }
+        }
+
+    }
+}
+
+.fullwidth-modal.layout-chooser{
+    .modal-body{
+        overflow: auto;
+
+    }
+    .modal-footer{
+        display: flex;
+
+    }
+}
+
+/* The animation code */
+@keyframes animatescroll {
+    0% {top: 0%}
+    5% {top: -3.35%}
+    10% {top: -6.7%}
+    15% {top: -10.05%}
+    20% {top: -13.4%}
+    25% {top: -16.75%}
+    30% {top: -20.1%}
+    35% {top: -23.45%}
+    40% {top: -26.8%}
+    45% {top: -30.15%}
+    50% {top: -33.5%}
+    55% {top: -36.85%}
+    60% {top: -40.2%}
+    65% {top: -43.55%}
+    70% {top: -46.9%}
+    75% {top: -50.25%}
+    80% {top: -53.6%}
+    85% {top: -56.95%}
+    90% {top: -60.3%}
+    95% {top: -63.65%}
+    100% {top: -67%}
+}
+
+.modal-content {
+    --bs-body-bg: #FFF;
+ }

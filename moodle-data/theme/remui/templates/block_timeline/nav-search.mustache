@@ -1,0 +1,60 @@
+{{!
+    This file is part of Moodle - http://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+}}
+{{!
+    @template block_timeline/nav-search
+
+    This template renders the main content area for the timeline block.
+
+    Example context (json):
+    {}
+}}
+<div class="w-100">
+    <div id="searchform-auto-{{uniqid}}" class="form-inline simplesearchform edw-timeline-search-filter">
+        <div class="align-items-center border border-1 d-flex justify-content-center rounded searchbar" role="search">
+            <label for="searchinput">
+                <span class="sr-only">{{#str}}searchevents, block_timeline{{/str}}</span>
+            </label>
+            <label class="search-icon d-flex px-2 mb-0">
+                <i class="edw-icon edw-icon-Search"></i>
+            </label>
+            <input
+                type="text"
+                data-region="input"
+                data-action="search"
+                id="searchinput"
+                class="form-control withclear border-0 bg-transparent"
+                placeholder="{{#str}}
+                    searchevents, block_timeline
+                {{/str}}"
+                title="{{#str}}
+                    searchevents, block_timeline
+                {{/str}}"
+                name="search"
+                value=""
+                autocomplete="off"
+            >
+            <button
+                class="btn btn-clear d-none"
+                data-action="clearsearch"
+                type="button"
+            >
+            {{#pix}} e/cancel, core {{/pix}}
+                <span class="sr-only">{{#str}} clearsearch, core {{/str}}</span>
+            </button>
+        </div>
+    </div>
+</div>

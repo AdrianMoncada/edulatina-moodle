@@ -1,0 +1,126 @@
+$page-header-design1-mh: 336px;
+$page-header-design1-pad: 24px;
+$page-header-design1-rad: 8px;
+#page-header.hasbackground.design-1 {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    min-height: $page-header-design1-mh;
+    padding: $page-header-design1-pad;
+    border-radius: $page-header-design1-rad;
+    .header-main-section {
+        .category {
+            margin-bottom: 8px;
+            .badge {
+                color: $brand-secondary;
+                background-color: $white;
+            }
+        }
+        .page-context-header {
+            @include media-breakpoint-down(sm) {
+                margin-bottom: 8px;
+            }
+            .page-header-headings {
+                .header-heading {
+                    &.design-1 {
+                        color: white;
+                        // @extend .h-exbold-3;
+                        @include get_typography(3, exbold, all);
+                    }
+                }
+            }
+        }
+    }
+    .header-sub-section {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: map-get($gapspace, 4) map-get($gapspace, 8);
+
+        // @include media-breakpoint-down(md) {
+        //     flex-direction: column;
+        //     gap:16px;
+        // }
+
+        @include media-breakpoint-down(sm) {
+            flex-wrap: wrap;
+        }
+
+        .instructor-info {
+            gap: map-get($gapspace, 1) map-get($gapspace, 4);
+            flex-wrap: wrap;
+
+            .userpicture,
+            .userinitials {
+                width: 24px;
+                height: 24px;
+                border: unset;
+            }
+
+            .userinitials {
+                font-size: 12px;
+            }
+
+            .view-user-profile-link {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+            }
+
+            .titles,
+            .view-all-instructorslink {
+                color: $white;
+            }
+        }
+    }
+    .rating-short-design {
+        @include media-breakpoint-down(md) {
+            &.justify-content-around {
+                justify-content: flex-start !important;
+            }
+        }
+        .inner {
+           flex-direction: row-reverse;
+           gap: 8px;
+        }
+        .stars {
+            color: $ic-default;
+            font-size: 16px;
+            @include media-breakpoint-down(sm) {
+                font-size: 14px;
+            }
+        }
+
+        .avgratingstat {
+            color: $white;
+            font-size: 16px;
+            @include media-breakpoint-down(sm) {
+                font-size: 12px;
+            }
+        }
+
+        .avgrating {
+            order: 2;
+            text-align: right;
+            margin-left: 0.25rem;
+        }
+        .avgrating, .rnr-link {
+            color: $white;
+            font-weight: 700;
+        }
+    }
+    #page-navbar {
+        display: none;
+    }
+}
+.stat-container {
+    .stat {
+        // width: 24px;
+        // height: 24px;
+        padding: 4px;
+        border-radius: 4px;
+        background-color: $white;
+    }
+}

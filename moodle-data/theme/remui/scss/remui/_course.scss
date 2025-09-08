@@ -1,0 +1,571 @@
+#region-main {
+    .activity-navigation {
+        &.container-fluid {
+            padding: 0;
+        }
+        .row {
+            .col-md-4 {
+                padding: 0;
+                margin-bottom: map-get($spacerspx, '4');
+                @include media-breakpoint-down(sm) {
+                    &:nth-child(2) {
+                        order: -1;
+                    }
+                    * {
+                        width: 100%;
+                    }
+                }
+            }
+        }
+        .mdl-align {
+            form {
+                margin: 0;
+            }
+        }
+    }
+}
+
+#page-course-view-topics,
+.single-section-page {
+    .course-content ul.topics li.section,
+    .course-content ul.weeks li.section ,
+    .course-content ul.remuiformat li.section {
+        padding: map-get($spacerspx, '6');
+        background-color: $white;
+        border: 1px solid $light-border;
+        border-radius: 8px;
+        position: relative;
+
+        &:not(:last-of-type) {
+            margin-bottom: map-get($spacerspx, '6');
+        }
+
+        .activity {
+            padding: 0;
+            border-top: 0;
+
+            &:not(:last-of-type) {
+                margin-bottom: map-get($spacerspx, '4');
+            }
+
+            .activity-item {
+                border: 1px solid $light-border;
+                border-radius: 16px;
+                padding: map-get($spacerspx, '6');
+                .activity-instance {
+                    .activityiconcontainer {
+                        border-radius: $activity-iconcontainer-rad;
+                    }
+                }
+                .inplaceeditable .quickeditlink {
+                    margin: 0.05rem 0 0.2rem 0.5rem;
+                }
+            }
+        }
+
+        .activity.subsection {
+
+            .activity-item.activityinline {
+                padding: 0;
+                border: 0;
+            }
+
+
+            & > .activity-item.focus-control {
+                padding: 0;
+                border: 0;
+            }
+        }
+    }
+    .collapse-all-menu{
+        position: absolute;
+        right: 56px;
+        z-index: 1;
+        margin-right: 10px;
+    }
+    &.editing {
+        .course-content ul.topics li.section,
+        .course-content ul.weeks li.section {
+            .collapse-all-menu{
+                position: absolute;
+                right: 56px + 36px;
+            }
+        }
+    }
+}
+
+.single-section-page {
+    .course-content ul.topics li.section,
+    .course-content ul.weeks li.section{
+        border-radius: 1rem;
+    }
+    .activity.subsection {
+        .activity-item.activityinline {
+            padding: 0;
+            border: 0;
+        }
+    }
+
+    &:not(.editing) {
+        .activity {
+
+        }
+    }
+    & .page-context-header.coursenamewrapper{
+        .header-heading.coursepage.design-1{
+            font-weight: normal !important;
+            font-size: 16px !important;
+        }
+    }
+    .course-section-header .sectionname{
+        z-index: 4;
+    }
+}
+
+// .single-section-page {
+//     .activity-item.activityinline {
+//         padding: 24px;
+//     }
+// }
+
+.mform .form-inline .form-control,
+.mform .form-inline .custom-select {
+    max-width: 100%;
+}
+
+.tox .tox-editor-container .tox-editor-header {
+    z-index: 1;
+}
+
+.activity .activity-item .description .activity-dates .description-inner div {
+    line-height: 22px;
+}
+.activity{
+    &.indented {
+        .activity-item {
+            border: 0;
+            // margin-left: map-get($spacers, 3);
+            margin-left: map-get($spacerspx, '6');
+        }
+    }
+
+    // divider is only availble on m44
+    .divider .divider-content{
+        visibility: visible;
+        opacity: 1;
+    }
+}
+
+// It will apply on moodle44 or above
+#page-course-view-topics:not(.edw-m402):not(.edw-m403) {
+    &.editing {
+        .course-content ul.topics li.section,
+        .course-content ul.weeks li.section {
+            .activity{
+                &:not(:last-of-type) {
+                    margin-bottom: 0px;
+                }
+            }
+        }
+    }
+
+    .topics .section{
+        padding: 0px !important;
+        background-color: transparent !important;
+        border: unset !important;
+        margin-bottom: 0px !important;
+
+        .section-item{
+            background-color: white !important;
+
+            .sectionname a {
+                z-index: 2;
+            }
+        }
+    }
+
+    &:not(.edw-m404) {
+        .course-content ul.weeks li.section,
+        .course-content ul.topics li.section {
+            .activity {
+                .activity-item:has(.section.delegated-section) {
+                    padding: 0;
+                    border: 0;
+                }
+            }
+        }
+    }
+}
+
+body:not(.edw-m402):not(.edw-m403) {
+    &#page-course-view-weeks,
+    &#page-course-view-topics {
+        .single-section {
+            // Revert main section's styles.
+            > ul > .course-section {
+                .section-item {
+                    padding: map-get($spacers, 3);
+                    border: 1px solid $border-color;
+                }
+            }
+        }
+    }
+}
+
+
+body.edw-m402,
+body.edw-m403 {
+    &#page-course-editsection {
+        .fdefaultcustom {
+			.form-check-inline {
+				justify-content: left;
+			}
+        }
+        &.dir-rtl {
+            .fdefaultcustom {
+                .form-check-inline {
+                    justify-content: right;
+                }
+            }
+        }
+    }
+}
+
+#page-course-view-weeks:not(.edw-m402):not(.edw-m403) {
+    .weeks .section{
+        .section-item{
+            .sectionname a {
+                z-index: 2;
+            }
+        }
+    }
+}
+
+// It will apply on moodle43 or above
+body:not(.edw-m402) {
+    .cm_action_menu.actions{
+        .dropdown-item.dropdown-toggle{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .dropleft .dropdown-toggle::before{
+            order: 3;
+            transform: rotate(180deg);
+            font-size: 10px;
+        }
+    }
+    .activity-badges {
+        .badge-pill{
+            .edw-icon,.icon{
+                color: white;
+            }
+        }
+        .dropdown.show>.dropdown-toggle{
+            @extend .badge-secondary;
+        }
+    }
+}
+
+// It will apply on moodle44 or above
+body:not(.edw-m402):not(.edw-m403) {
+    .activity-badges,.sectionbadges {
+        .rounded-pill  .icon {
+            color: unset !important;
+        }
+    }
+    .btn.add-content{
+        border-radius: 50rem;
+        .icon{
+            color: #002a81 ;
+        }
+        &:hover,&:focus{
+            .icon{
+                color: white;
+            }
+        }
+    }
+    #fitem_id_summary_editor #id_summary_editor{
+        width: 100%;
+    }
+
+    .section .section-item{
+        .course-section-header{
+            word-break: break-all;
+        }
+    }
+    &.single-section-page .header-wrapper .header-actions-container {
+        display: flex;
+    }
+
+    #page-course-edit #id_courseformathdrcontainer #fitem_id_format{
+        .dropdown-toggle{
+            // border: 1px solid  #ced4da;
+            // font-weight: 400;
+            @extend .form-control;
+        }
+        .dropdown.show[data-form-controls="id_format"]{
+            .dropdown-menu{
+                max-width: 525px;
+                width: max-content;
+                @include media-breakpoint-down(sm) {
+                    max-width: 300px;
+                }
+            }
+
+        }
+    }
+}
+
+
+// It will apply on moodle4.2 and 4.3 only
+.edw-m403,.edw-m402{
+    .course-section-header{
+        .section_goto{
+            display: none;
+        }
+    }
+}
+
+.course-section,
+.course-section-header {
+    .section_goto .icon,
+    .section-summary-activities .icon {
+        color: $brand-primary
+    }
+
+    @include media-breakpoint-down(sm) {
+        .erf-float-right {
+            min-width: 150px;
+        }
+    }
+}
+
+.draggable {
+    .delegated-section {
+        .dragicon {
+            visibility: hidden;
+        }
+
+        .courseindex-section-title:hover {
+            .dragicon {
+                visibility: visible;
+            }
+        }
+
+        .courseindex-item.draggable:hover {
+            .dragicon {
+                visibility: visible;
+            }
+        }
+    }
+}
+
+
+// .draggable:hover .dragicon {
+//     visibility: visible;
+//     cursor: move;
+// }
+
+// icons visibility issue on restriction on settings page
+.availability-item .availability-eye img {
+    min-width: 16px;
+}
+
+.availability-item .availability-delete img {
+    min-width: 14px;
+}
+
+.ai-course-summarise-controls button.btn.btn-outline-secondary span.ai-course-summarise-sparkles-icon.white {
+    width: 28px;
+
+}
+.course-summarise-response-controls .btn-outline-secondary:hover {
+    .icon {
+        color: $white;
+    }
+}
+.badge.bg-secondary{
+    background-color: $gray-400 !important;
+    mix-blend-mode: normal !important;
+    &:hover, &:focus{
+        background-color: darken($gray-400, 10%) !important;
+    }
+}
+
+// To fix subsection double border issue
+#page-course-view-topics {
+    .activity.subsection {
+        .section {
+            .section-item {
+                border: 1px solid $border-color;
+            }
+        }
+    }
+}
+
+//Fix of issue where the dropdown arrow for setting was not visible
+#page-course-management{
+    .card-body{
+       .category-list{
+          .list-group-item-action{
+             .clearfix{
+                .float-end {
+                   .action-menu{
+                      .action-menu-trigger{
+                         .dropdown{
+                            .dropdown-toggle::after {
+                               @extend .fa-solid;
+                               content: fa-content($fa-var-chevron-down) !important;
+                               margin-right: 0;
+                               margin-left: 4px;
+                               font-size: 9px;
+                               width: 9px;
+                               border: 0;
+                            }
+                         }
+                      }
+                   }
+                }
+             }
+          }
+       }
+    }
+}
+
+//Fix of Bulk Action Icon is not getting visible
+html:not([nighteyeplgn="active"]){
+    .header-actions-container {
+       .bulkEnable{
+          img.icon{
+             filter: invert(14%) sepia(88%) saturate(746%) hue-rotate(196deg) brightness(150%) contrast(96%);
+          }
+       }
+
+    }
+}
+
+ html[nighteyeplgn="active"]{
+    .header-actions-container {
+       .bulkEnable{
+          img.icon{
+             filter: invert(1);
+          }
+       }
+    }
+}
+
+// AI summary buttons icon color change on hover
+.course-assist-response {
+    .course-assist-controls {
+        .btn-outline-secondary {
+            &:hover {
+                .icon {
+                    color: $white;
+                }
+            }
+        }
+    }
+}
+
+
+// Fix of dropdown position on Group mode for course activity
+.activity-actions {
+    .dropdown {
+        .dropdown-subpanel.dropend .dropdown-menu[data-bs-popper] {
+            right: 100%;
+            left: auto;
+        }
+    }
+}
+
+//Fix highlight text color issue in the course index page
+#course-index{
+   .courseindex-section-title{
+      .edw-title-icon-wrapper{
+         .badge-primary {
+            background-color: $ascent-bg-color !important;
+         }
+      }
+   }
+}
+
+//Fix of nav-item layout issue in the assignment submissions page
+#page-mod-assign-grading{
+   .tertiary-navigation{
+      label{
+         display: block;
+         padding-left: 1rem;
+      }
+   }
+}
+
+//Fix progress bar of subsection in general section is visible as too small for smaller screens
+@include media-breakpoint-down(sm){
+   body#page-course-view-remuiformat {
+      .list-view-general-activities {
+         .section.delegated-section{
+            .remui-list-content-border{
+               .right.side{
+                  width: 100%;
+               }
+            }
+         } 
+      }
+   }
+}
+
+// To fix dropdown positioning issue in mobile view on assignment submission page
+@include media-breakpoint-down(sm){
+   .pagelayout-incourse.path-mod {
+      .tertiary-navigation {
+         .navitem {
+            .dropdown.extrafilters {
+               .dropdown-menu.dropdown-menu-start {
+                  max-width: 180px;
+               }
+            }
+         }
+
+         .navitem {
+            .initials-selector.dropdown.comboboxsearch {
+               .initialsdropdown.dropdown-menu {
+                  max-width: 230px;
+               }
+            }
+         }
+      }
+   }
+}
+
+//Fix of dropdown hidden behind the user's name on course grader page
+#page-grade-report-grader-index {
+   .gradeparent {
+      table.gradereport-grader-table {
+         tr.userrow {
+            th.header.user:has(.dropdown.show) {
+               z-index: 3 !important;
+            }
+         }
+      }
+   }  
+}
+
+// To fix missing right arrow icon issue in group mode button in activity actions
+.format-remuiformat {  
+   .activity-actions {
+      .dropdown-menu-right {
+         .dropdown-subpanel.dropend {
+            .dropdown-toggle:has(.fa-circle-user)::before {
+             border: 0;
+             @extend .fa-solid;
+             content: fa-content($fa-var-chevron-left);
+             font-size: 9px;
+             margin-left: 0;
+             margin-right: 4px;
+             width: 9px;
+            }
+         }
+      }
+   }
+}

@@ -1,0 +1,121 @@
+{{!
+    This file is part of Moodle - http://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+    GNU General Public License for more details.
+
+    Edwiser RemUI
+    @package theme_remui
+    @copyright (c) 2023 WisdmLabs (https://wisdmlabs.com/)
+    @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+
+}}
+{{!
+    @template theme_remui/edw_course_header1
+
+    This template renders the header.
+
+    Example context (json):
+    {
+        "contextheader": "context_header_html",
+        "settingsmenu": "settings_html",
+        "hasnavbar": false,
+        "navbar": "navbar_if_available",
+        "courseheader": "course_header_html",
+        "welcomemessage": "welcomemessage"
+    }
+}}
+
+
+{{#hasnavbar}}
+    <div class="p-mb-3 {{#headeractions}}has-actions{{/headeractions}}" style="font-size: 12px;">
+        {{{navbar}}}
+    </div>
+{{/hasnavbar}}
+
+{{#pageheadingbutton}}
+<div class="d-flex reset-pagebutton-wrapper">
+         {{{pageheadingbutton}}}
+</div>
+{{/pageheadingbutton}}
+<header{{!
+}} id="page-header"{{!
+}} class="header-maxwidth d-print-none {{classes}} position-relative "{{!
+}} style="background: url({{courseimage}});">
+    <div class = "position-absolute w-100 h-100" style="background: linear-gradient(180deg, rgba(0, 0, 0, 0.0)  -24.52%, #000000 97.67%);left:0%;bottom:0%; opacity:{{{overlayopacity}}};border-radius:inherit;"> </div>
+    <div class="w-100 header-wrapper" style="z-index:1;">
+        <div class="d-flex flex-wrap">
+            {{#hasnavbar}}
+            <div id="page-navbar">
+                {{{navbar}}}
+            </div>
+            {{/hasnavbar}}
+            {{#courseheader}}
+            <div id="course-header">
+                {{{courseheader}}}
+            </div>
+            {{/courseheader}}
+        </div>
+        <div class="d-flex align-items-center">
+            <div class="dashboard-bar-wrapper">
+                <div class="header-main-section">
+                    {{#categoryname}}
+                    <div class="category">
+                        <span class="badge p-p-1 small-info-regular">
+                            {{{categoryname}}}
+                        </span>
+                    </div>
+                    {{/categoryname}}
+                    {{^welcomemessage}}
+                        {{#sectionpage}}
+                            <div class="page-context-header coursenamewrapper">
+                                <div class="page-header-headings">
+                                    <h1 class="h2 header-heading coursepage design-1">
+                                        {{{coursename}}}
+                                    </h1>
+                                </div>
+                            </div>
+                        {{/sectionpage}}
+                        {{#contextheader}}
+                            {{{contextheader}}}
+                        {{/contextheader}}
+                    {{/welcomemessage}}
+                    {{> core/welcome }}
+                </div>
+                <div class="header-sub-section">
+                    {{#rnrdesign}}
+                    <div class="edw-ratings-wrapper">
+                        {{{rnrdesign}}}
+                    </div>
+                    {{/rnrdesign}}
+                    {{#teachers}}
+                    <div class="instructor-info stat-container position-relative">
+                        {{#instructors}}
+                            <div class="position-relative">
+                             <a class="view-user-profile-link" href="{{teacherprofileurl}}" title="{{name}}"></a>
+                             {{{avatars}}}
+                            <span class="titles h-regular-6">{{name}}</span>
+                            </div>
+                        {{/instructors}}
+                        {{#teachercount}}
+                            <a class="view-all-instructorslink para-semibold-2" href="{{participantspageurl}}">{{#str}} viewalltext, theme_remui {{/str}}</a>
+                        {{/teachercount}}
+                    </div>
+                    {{/teachers}}
+                </div>
+            </div>
+            <div class="header-actions-container " data-region="header-actions-container">
+                {{#headeractions}}
+                    <div class="header-action ">{{{.}}}</div>
+                {{/headeractions}}
+            </div>
+        </div>
+    </div>
+</header>

@@ -1,0 +1,193 @@
+{{!
+    This file is part of Moodle - http://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+}}
+{{!
+    @template theme_remui/setupwizard/setupwizard_modal
+}}
+
+<div class="modal fade setupwizard-modal" aria-hidden="true"  data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog modal-dialog-top modal-lg">
+        <div class="modal-content overflow-hidden">
+            <div class="d-flex main-wrapper">
+                <div class="remui-thumbnail">
+                </div>
+
+                <div class="context-wrapper position-relative d-flex flex-column">
+                    <div class="btn-close position-absolute">
+                        <i class="icon fa fa-fw m-0"></i>
+                    </div>
+
+                    <p class="heading" style="margin-bottom: 8px;">{{#str}}setupwizardmodal:heading, theme_remui{{/str}}</p>
+
+                    <ul class="desc1" style="padding-left: 30px;">
+                        <li>{{#str}}setupwizardmodal:msg1, theme_remui{{/str}}</li>
+                        <li>{{#str}}setupwizardmodal:msg2, theme_remui{{/str}}</li>
+                        <li>{{#str}}setupwizardmodal:msg3, theme_remui{{/str}}</li>
+                        <li>{{#str}}setupwizardmodal:msg4, theme_remui{{/str}}</li>
+                    </ul>
+
+                    <p class="desc1" style="margin-bottom: 16px;">{{#str}}setupwizardmodal:msg5, theme_remui{{/str}}</p>
+
+                    <div class="remui-setup-checkbox-wrapper">
+                        <input type="checkbox" id="remui-setup-checkbox" name="remui-setup-checkbox"  style="cursor: pointer;"/>
+                        <label class="desc2" for="remui-setup-checkbox" style="cursor: pointer;">{{#str}}setupwizardmodal:activateremui, theme_remui{{/str}}</label>
+                    </div>
+
+                    <div>
+                        <button class="btn btn-primary disabled continuesetup-btn">{{#str}}setupwizardmodal:continuesetup, theme_remui{{/str}}</button>
+                    </div>
+
+                    <p class="mt-auto desc2">{{#str}}setupwizardmodal:note, theme_remui{{/str}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+.setupwizard-modal {
+    font-family: 'Inter', sans-serif;
+}
+.setupwizard-modal  .context-wrapper {
+    width: 50%;
+    padding: 32px 36px;
+}
+
+.setupwizard-modal .modal-dialog{
+    max-width:928px;
+}
+
+.setupwizard-modal  .context-wrapper .heading {
+    color: #343A40;
+    font-family: Inter;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 24px;
+    margin: 0;
+}
+
+.setupwizard-modal  .context-wrapper .desc1 {
+    margin-bottom: 16px;
+    color: #343A40;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+}
+
+.setupwizard-modal  .context-wrapper .desc2 {
+    color: #343A40;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 22px;
+    margin: 0;
+}
+
+.setupwizard-modal  .context-wrapper .remui-setup-checkbox-wrapper {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.setupwizard-modal .remui-thumbnail {
+    width: 50%;
+    min-height: 458px;
+    background-image: url("https://staticcdn.edwiser.org/theme_remuiassets/images/setupwizard_thumbnail.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow: hidden;
+}
+
+.setupwizard-modal  .context-wrapper .btn-close {
+    top: 8px;
+    right: 8px;
+    margin:0px;
+    cursor: pointer;
+    font-weight: 400;
+}
+
+.setupwizard-modal  .context-wrapper .btn-close .icon {
+    color: #7B8794;
+    font-size: 16px;
+}
+
+{{^isremui}}
+.remui-setup-checkbox-wrapper input[type="checkbox"] {
+    appearance: none;
+    width: 18px !important;
+    height: 18px !important;
+    border: 2px solid #5B6880;
+    border-radius: 4px;
+    cursor: pointer;
+    position: relative;
+    background: white;
+    box-shadow: unset !important;
+}
+
+.remui-setup-checkbox-wrapper input[type="checkbox"]:checked {
+    background: #fff;
+    border: 2px solid #28A745;
+}
+
+.remui-setup-checkbox-wrapper input[type="checkbox"]:checked::after {
+    content: '\2714';
+    color: #28A745;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 12px;
+}
+{{/isremui}}
+
+{{#isremui}}
+.remui-setup-checkbox-wrapper input[type="checkbox"]:checked:after {
+    color: #28A745;
+}
+{{/isremui}}
+
+.setupwizard-modal  .context-wrapper .continuesetup-btn {
+    margin: 16px 0;
+    display: flex;
+    height: 40px;
+    padding: 12px 16px;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+    border-radius: 5px;
+    background: #0051F9;
+}
+
+.setupwizard-modal  .context-wrapper .continuesetup-btn.disabled {
+    background-color: #b9bcc1;
+    border-color: #b9bcc1;
+    pointer-events: none;
+    touch-action: none;
+}
+
+</style>
+
+{{#js}}
+require(['jquery'], function($) {
+    $(document).ready(function() {
+        $(".setupwizard-modal").modal('show');
+    });
+});
+{{/js}}

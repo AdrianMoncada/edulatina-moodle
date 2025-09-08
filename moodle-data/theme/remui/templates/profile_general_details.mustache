@@ -1,0 +1,91 @@
+<div class="profile-general-info-wrapper">
+    <div class="">
+        <div class="profile-general-body-wrapper">
+            <div class="profile-pic-wrapper text-center">
+                {{{profilepicture}}}
+            </div>
+            <div class="profile-general-content-wrapper w-100">
+                <div class="d-flex heading-content-wrapper">
+                    <div class="d-flex flex-column flex-gap-d5">
+                        <h4 class="m-0 username h-semibold-2 profile-user">{{ firstname }} {{ lastname }}</h4>
+                        {{# usercanmanage }}
+                        {{^ notcurrentuser }}
+                        <p class="profile-job m-0 h-regular-5">{{# str }} administrator, theme_remui {{/ str }}</p>
+                        {{/ notcurrentuser }}
+                        {{/ usercanmanage }}
+                    </div>
+
+                    <div class="d-flex extra-buttons-container">
+
+                    </div>
+                </div>
+                <div class="d-flex flex-column  user-desc-lastseen-wrapper">
+                    {{#description}}
+                        <div class="user-desc-target">
+                            <div id="user-description" class="user-desc  m-0 para-regular-2">{{{description}}}</div>
+                            <a  id="readmorebtn"
+                                class="d-none text-decoration-none text-primary text-link-semibold"> {{# str }} readmore,
+                                theme_remui {{/ str }}</a>
+                            <a  id="readlessbtn"
+                                class="d-none text-decoration-none text-primary   text-link-semibold">{{# str }} readless,
+                                theme_remui {{/ str }}</a>
+                        </div>
+                    {{/description}}
+                    {{#lastuseraccessdate}}
+                    <div>
+                        <span class="lastaccesstext small-info-semibold">{{# str }} lastaccess, theme_remui {{/str}}</span>
+                        <span class="lastaccessdate small-info-regular">{{{lastuseraccessdate}}}</span>
+                    </div>
+                    {{/lastuseraccessdate}}
+                </div>
+                {{# url }}
+                <a role="button" href="{{ url }}" target="_blank" class="btn btn-primary">
+                    {{# str }} webpage, theme_remui {{/ str }}
+                </a>
+                {{/ url }}
+            </div>
+        </div>
+        <div class="profile-general-footer-wrapper">
+            <div class="profile-stats-wrapper text-center">
+                <div class="d-flex profile-stat-item">
+                    <div class="d-flex flex-column ">
+                        <strong class="profile-stat-count h-exbold-2 m-0">{{ contactscount }}</strong>
+                        <a href="#" class="stat-desc-text h-semibold-6 text-decoration-none usercontactsurl">{{# str }} contacts, theme_remui {{/ str }}</a>
+                    </div>
+                </div>
+                <div class="d-flex profile-stat-item">
+                    <div class="d-flex flex-column ">
+                        <strong class="profile-stat-count h-exbold-2 m-0">{{ forumpostcount }}</strong>
+                        <a href="{{{config.wwwroot}}}/mod/forum/user.php?id={{id}}" class="stat-desc-text h-semibold-6 text-decoration-none" target="_blank">{{# str }} discussions, theme_remui {{/ str }}</a>
+                    </div>
+                </div>
+                {{^ notcurrentuser }}
+                {{#hascertificate}}
+                <div class="d-flex profile-stat-item">
+                    <div class="d-flex flex-column ">
+                        <strong class="profile-stat-count h-exbold-2 m-0">{{ certificatecountdata }}</strong>
+                        <a href="{{{config.wwwroot}}}/mod/customcert/my_certificates.php?userid={{id}}" class="stat-desc-text h-semibold-6 text-decoration-none" target="_blank">{{# str }} certificate, theme_remui {{/ str }}</a>
+                    </div>
+                </div>
+                {{/hascertificate}}
+                {{/ notcurrentuser }}
+                {{#blogsettingstatus }}
+                <div class="d-flex profile-stat-item">
+                    <div class="d-flex flex-column ">
+                        <strong class="profile-stat-count h-exbold-2 m-0">{{ blogpostcount }}</strong>
+                        <a  href="{{{config.wwwroot}}}/blog/index.php?userid={{id}}" class="stat-desc-text h-semibold-6 text-decoration-none" target="_blank">{{# str }} blogentries, theme_remui {{/ str }}</a>
+                    </div>
+                </div>
+                {{/blogsettingstatus }}
+                {{#badgedsettingstatus }}
+                <div class="d-flex profile-stat-item">
+                    <div class="d-flex flex-column ">
+                        <strong class="profile-stat-count h-exbold-2 m-0">{{ badgedcount }}</strong>
+                        <a href="#user-badges" class="stat-desc-text h-semibold-6 text-decoration-none {{#hasbadges}}userbadgelink {{/hasbadges}}">{{# str }} badge, theme_remui {{/ str }}</a>
+                    </div>
+                </div>
+                {{/badgedsettingstatus }}
+            </div>
+        </div>
+    </div>
+</div>

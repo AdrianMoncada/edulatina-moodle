@@ -1,0 +1,60 @@
+/*
+ * $searchfield-border-rad: 5px !default;
+ * $searchfield-pad-x: 16px !default;
+ * $searchfield-pad-y: 12px !default;
+ * $searchfield-width: 194px !default;
+ * $searchfield-gap: 8px !default;
+
+ * all the above variables are already defined in theme/remui/scss/preset/remui.scss
+ */
+
+.navbar {
+    #usernavigation {
+        .simplesearchform {
+            max-width: $searchfield-width;
+            form {
+                height: 100%;
+            }
+            .input-group {
+                height: 100%;
+                // background-color: $bg-header-ele;
+                background-color: $header-menu-element-bg-color;
+                border-radius: $searchfield-border-rad;
+                padding: $searchfield-pad-y $searchfield-pad-x;
+                .input-group-prepend {
+                    button {
+                        background-color: transparent;
+                        border: none;
+                        padding: 0;
+                        display: flex;
+                        align-items: center;
+                        color: $header-ic-default;
+                    }
+                }
+                input {
+                    flex: 1;
+                    height: 100%;
+                    border: none;
+                    background-color: transparent;
+                    padding: 0;
+                    margin-left: $searchfield-gap;
+                    color: $header-text-default;
+                    &:focus {
+                        box-shadow: none;
+                    }
+                }
+            }
+        }
+
+        #searchform-navbar {
+            padding: $navbar-padding-y $navbar-padding-x;
+            form.mform {
+                margin: unset;
+            }
+            .btn-clear,
+            .btn-close {
+                top: auto;
+            }
+        }
+    }
+}

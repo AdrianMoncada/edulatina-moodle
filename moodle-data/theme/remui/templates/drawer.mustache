@@ -1,0 +1,87 @@
+{{!
+    This file is part of Moodle - http://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+    GNU General Public License for more details.
+
+    Edwiser RemUI
+    @package theme_remui
+    @copyright (c) 2023 WisdmLabs (https://wisdmlabs.com/)
+    @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+
+}}
+{{!
+    @template theme_remui/drawer
+
+    Example context (json):
+    {
+        "drawerclasses": "drawer drawer-right",
+        "drawertrigger": "toggleblocks",
+        "tooltipplacement": "right",
+        "drawerconent": "Content for the blocks region",
+        "closebuttontext": "Close drawer"
+    }
+}}
+<div {{!
+    }} class="{{$drawerclasses}}{{/drawerclasses}} d-print-none not-initialized"{{!
+    }} data-region="fixed-drawer"{{!
+    }} id="{{$id}}{{/id}}"{{!
+    }} data-preference="{{$drawerpreferencename}}{{/drawerpreferencename}}"{{!
+    }} data-state="{{$drawerstate}}{{/drawerstate}}"{{!
+    }} data-forceopen="{{$forceopen}}0{{/forceopen}}"{{!
+    }} data-close-on-resize="{{$drawercloseonresize}}0{{/drawercloseonresize}}"{{!
+    }}>
+    <div class="drawerheader">
+        <a href="{{{ config.homeurl }}}" class="navbar-brand align-items-center m-0 aabtn" aria-label="{{ sitename }} - {{#str}}brandname, theme_remui{{/str}}" title="{{ sitename }}">
+            {{#output.get_branding_context}}
+                {{#logourl}}
+                    <img src="{{ logourl }}" class="navbar-brand-logo logo">
+                {{/logourl}}
+
+                {{#logominiurl}}
+                    <img src="{{ logominiurl }}" class="navbar-brand-logo logomini">
+                {{/logominiurl}}
+
+                {{#icononly}}
+                    <span class="navbar-brand-logo icononly" style="color: {{color}};">
+                        <i class="fa fa-{{siteicon}}"></i>
+                    </span>
+                {{/icononly}}
+
+                {{#iconwithsitename}}
+                    <span class="navbar-brand-logo iconsitename" style="color: {{color}};">
+                        <i class="fa fa-{{siteicon}}"></i>&nbsp;
+                        {{{ sitename }}}
+                    </span>
+                {{/iconwithsitename}}
+            {{/output.get_branding_context}}
+        </a>
+        <button
+            class="btn drawertoggle icon-no-margin hidden d-flex"
+            data-toggler="drawers"
+            data-action="closedrawer"
+            data-target="{{$id}}{{/id}}"
+            data-toggle="tooltip"
+            data-placement="{{$tooltipplacement}}right{{/tooltipplacement}}"
+            title="{{$closebuttontext}}{{#str}}closedrawer, core{{/str}}{{/closebuttontext}}"
+        >
+            <span class="edw-icon edw-icon-Cancel"></span>
+        </button>
+        <div class="drawerheadercontent hidden ml-auto">
+            {{$drawerheadercontent}}{{/drawerheadercontent}}
+        </div>
+    </div>
+    <div class="drawercontent drag-container" data-usertour="scroller">
+        {{$drawercontent}}{{/drawercontent}}
+    </div>
+</div>
+{{#js}}
+        require(['theme_remui/drawers']);
+{{/js}}
