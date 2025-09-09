@@ -12,6 +12,11 @@ services:
       - ./db-data:/var/lib/mysql
       - ./db-init:/docker-entrypoint-initdb.d
     command: --default-authentication-plugin=mysql_native_password --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+    # ONLY ADDITION: RAM limit for database
+    deploy:
+      resources:
+        limits:
+          memory: 200M
 
   php:
     build:
@@ -32,6 +37,11 @@ services:
       - ./config/php.ini:/usr/local/etc/php/php.ini
     depends_on:
       - db
+    # ONLY ADDITION: RAM limit for Moodle PHP
+    deploy:
+      resources:
+        limits:
+          memory: 200M
 
   web:
     build:
@@ -51,8 +61,12 @@ services:
     command: >
       sh -c "echo 'Include conf/extra/moodle.conf' >> /usr/local/apache2/conf/httpd.conf && 
              httpd-foreground"
+    # ONLY ADDITION: RAM limit for Apache
+    deploy:
+      resources:
+        limits:
+          memory: 100M
 
-  # ONLY ADDITION: WordPress test container
   wordpress_test:
     image: wordpress:6.4-apache
     container_name: edulatina_wordpress_test
@@ -69,6 +83,11 @@ services:
       - ./wordpress-test-data:/var/www/html
     depends_on:
       - db
+    # ONLY ADDITION: RAM limit for WordPress
+    deploy:
+      resources:
+        limits:
+          memory: 300M
 
 networks:
   default:
