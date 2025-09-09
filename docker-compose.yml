@@ -10,6 +10,7 @@ services:
       MYSQL_PASSWORD: moodle_password_123
     volumes:
       - ./db-data:/var/lib/mysql
+      - ./db-init:/docker-entrypoint-initdb.d
     command: --default-authentication-plugin=mysql_native_password --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
 
   php:
@@ -50,6 +51,24 @@ services:
     command: >
       sh -c "echo 'Include conf/extra/moodle.conf' >> /usr/local/apache2/conf/httpd.conf && 
              httpd-foreground"
+
+  # ONLY ADDITION: WordPress test container
+  wordpress_test:
+    image: wordpress:6.4-apache
+    container_name: edulatina_wordpress_test
+    restart: unless-stopped
+    ports:
+      - "8080:80"
+    environment:
+      - WORDPRESS_DB_HOST=db
+      - WORDPRESS_DB_USER=moodleuser
+      - WORDPRESS_DB_PASSWORD=moodle_password_123
+      - WORDPRESS_DB_NAME=wordpress_test
+      - WORDPRESS_TABLE_PREFIX=wp_
+    volumes:
+      - ./wordpress-test-data:/var/www/html
+    depends_on:
+      - db
 
 networks:
   default:

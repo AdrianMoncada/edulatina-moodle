@@ -4,7 +4,9 @@ config/config.php.backup
 
 # Database data (too large and contains sensitive info)
 db-data/
-
+db-init/
+wordpress-db-data/
+wordpress-test-data/
 # Moodle data directory (user uploads, cache, etc.)
 moodledata/
 
